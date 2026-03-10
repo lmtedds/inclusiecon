@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Partner With Us — INCLUSIECON</title>
+  <meta name="description" content="Commission research, engage us as advisors, or fund the INCLUSIECON research initiative. We work with governments, civil society, and funders across Canada." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary:         #5c1a1a;
+      --primary-dark:    #3e1010;
+      --primary-mid:     #7a2828;
+      --primary-light:   #a84848;
+      --secondary:       #7a3a44;
+      --secondary-mid:   #9e5560;
+      --secondary-light: #c48890;
+      --secondary-pale:  #ecdde0;
+      --accent:          #a87828;
+      --accent-light:    #c8a050;
+      --accent-pale:     #e8d898;
+      --surface:         #f7f2ea;
+      --surface-raised:  #ece4d8;
+      --border:          #ddd0bc;
+      --text-dark:       #180808;
+      --text-mid:        #3e2028;
+      --text-muted:      #7a5858;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--surface);
+      color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(62,16,16,0.97); backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 2.5rem;
+      height: 62px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-family: 'Lora', serif; font-weight: 700; font-size: 1.15rem; color: #fff; text-decoration: none; letter-spacing: 0.03em; }
+    .nav-logo span { color: var(--accent-light); }
+    .nav-links { display: flex; gap: 0.2rem; list-style: none; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.62); text-decoration: none; font-size: 0.85rem; font-weight: 500; padding: 0.4rem 0.85rem; border-radius: 4px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.07); }
+    .nav-links a.active { color: #fff; }
+    .nav-cta { background: var(--accent) !important; color: #fff !important; font-weight: 600 !important; padding: 0.42rem 1.15rem !important; }
+    .nav-cta:hover { background: var(--accent-light) !important; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: var(--primary-dark); padding: 9rem 2.5rem 5.5rem;
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 55% 70% at 80% 40%, rgba(168,120,40,0.15) 0%, transparent 60%);
+    }
+    .page-header-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+    .page-kicker {
+      display: inline-flex; align-items: center; gap: 0.7rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.25rem;
+    }
+    .page-kicker::before { content: ''; display: block; width: 32px; height: 1.5px; background: var(--accent-light); }
+    .page-header h1 {
+      font-family: 'Lora', serif; font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700; color: #fff; line-height: 1.12;
+      letter-spacing: -0.015em; margin-bottom: 1rem; max-width: 700px;
+    }
+    .page-header p { font-size: 1.05rem; color: rgba(255,255,255,0.55); max-width: 580px; line-height: 1.82; }
+
+    /* ── SHARED ── */
+    .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .eyebrow::before { content: ''; display: block; width: 24px; height: 1.5px; }
+    .ey-gold { color: var(--accent); } .ey-gold::before { background: var(--accent); }
+    .ey-rose { color: var(--secondary-mid); } .ey-rose::before { background: var(--secondary-mid); }
+    .ey-light { color: var(--accent-light); } .ey-light::before { background: var(--accent-light); }
+    .sh { font-family: 'Lora', serif; font-weight: 700; line-height: 1.18; letter-spacing: -0.01em; }
+    .sh-dark { color: var(--text-dark); } .sh-white { color: #fff; }
+    .sh-lg { font-size: clamp(1.85rem, 2.8vw, 2.5rem); }
+    .sh-md { font-size: clamp(1.4rem, 2.2vw, 1.9rem); }
+
+    /* ── AUDIENCE TOGGLE ── */
+    #audiences { background: var(--surface); padding: 7rem 0 0; }
+    .audience-tabs {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--border); border-radius: 14px;
+      overflow: hidden; margin-bottom: 5rem; max-width: 900px;
+    }
+    .audience-tab {
+      padding: 2.25rem 2.5rem; cursor: pointer; transition: background 0.2s;
+      border-right: 1px solid var(--border);
+    }
+    .audience-tab:last-child { border-right: none; }
+    .audience-tab.primary-tab { background: var(--primary-dark); }
+    .audience-tab.secondary-tab { background: #fff; }
+    .tab-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; margin-bottom: 0.5rem;
+    }
+    .primary-tab .tab-label { color: var(--accent-light); }
+    .secondary-tab .tab-label { color: var(--accent); }
+    .tab-heading { font-family: 'Lora', serif; font-size: 1.35rem; font-weight: 700; line-height: 1.2; margin-bottom: 0.6rem; }
+    .primary-tab .tab-heading { color: #fff; }
+    .secondary-tab .tab-heading { color: var(--text-dark); }
+    .tab-desc { font-size: 0.88rem; line-height: 1.7; }
+    .primary-tab .tab-desc { color: rgba(255,255,255,0.52); }
+    .secondary-tab .tab-desc { color: var(--text-muted); }
+    .tab-arrow { display: inline-block; margin-top: 1rem; font-size: 0.82rem; font-weight: 600; }
+    .primary-tab .tab-arrow { color: var(--accent-light); }
+    .secondary-tab .tab-arrow { color: var(--accent); }
+
+    /* ── COMMISSION SECTION ── */
+    #commission { background: var(--surface); padding: 0 0 7rem; }
+    .commission-intro { max-width: 680px; margin-bottom: 3.5rem; }
+    .commission-intro p { font-size: 1rem; color: var(--text-mid); line-height: 1.85; margin-top: 0.85rem; }
+
+    .commission-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 4rem; }
+    .commission-card {
+      background: #fff; border: 1px solid var(--border); border-radius: 14px;
+      padding: 2rem; display: flex; flex-direction: column;
+    }
+    .cc-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+    .cc-title { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.6rem; line-height: 1.3; }
+    .cc-desc { font-size: 0.87rem; color: var(--text-mid); line-height: 1.78; flex: 1; }
+
+    .who-we-work-with { background: var(--surface-raised); border-radius: 14px; padding: 2.5rem 3rem; }
+    .wwtw-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 1.25rem; }
+    .wwtw-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .wwtw-item { font-size: 0.88rem; color: var(--text-mid); padding-left: 1rem; position: relative; line-height: 1.5; }
+    .wwtw-item::before { content: '–'; position: absolute; left: 0; color: var(--accent); }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      background: var(--primary); padding: 4rem 0;
+      text-align: center;
+    }
+    .section-divider p {
+      font-family: 'Lora', serif; font-size: clamp(1.2rem, 2vw, 1.6rem);
+      font-style: italic; color: rgba(255,255,255,0.72); max-width: 700px;
+      margin: 0 auto; line-height: 1.6; padding: 0 2.5rem;
+    }
+    .section-divider p em { color: var(--accent-light); font-style: normal; font-weight: 600; }
+
+    /* ── FUND SECTION ── */
+    #fund { background: var(--surface-raised); padding: 7rem 0; }
+    .fund-intro { max-width: 680px; margin-bottom: 4rem; }
+    .fund-intro p { font-size: 1rem; color: var(--text-mid); line-height: 1.85; margin-top: 0.85rem; }
+
+    .fund-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+
+    .fund-general {
+      background: var(--primary-dark); border-radius: 14px; padding: 2.75rem;
+      display: flex; flex-direction: column;
+    }
+    .fund-general .eyebrow { }
+    .fund-general h3 { font-family: 'Lora', serif; font-size: 1.35rem; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 1rem; }
+    .fund-general p { font-size: 0.9rem; color: rgba(255,255,255,0.58); line-height: 1.8; margin-bottom: 0.85rem; }
+    .fund-general p strong { color: rgba(255,255,255,0.85); font-weight: 600; }
+    .fund-general-cta { margin-top: auto; padding-top: 1.75rem; }
+
+    .fund-streams { display: flex; flex-direction: column; gap: 1.25rem; }
+    .stream-card {
+      background: #fff; border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+    }
+    .stream-pill {
+      display: inline-block; font-size: 0.63rem; font-weight: 700; letter-spacing: 0.09em;
+      text-transform: uppercase; padding: 0.2rem 0.65rem; border-radius: 20px;
+      border: 1px solid; margin-bottom: 0.75rem;
+    }
+    .sp-fact { background: rgba(196,136,144,0.15); color: var(--secondary-mid); border-color: rgba(196,136,144,0.25); }
+    .sp-enable { background: rgba(168,120,40,0.12); color: var(--accent); border-color: rgba(168,120,40,0.22); }
+    .sp-both { background: rgba(92,26,26,0.08); color: var(--primary-mid); border-color: rgba(92,26,26,0.15); }
+    .stream-card h4 { font-family: 'Lora', serif; font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.45rem; }
+    .stream-card p { font-size: 0.84rem; color: var(--text-mid); line-height: 1.72; }
+
+    .fund-note {
+      background: var(--accent-pale); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.5rem 2rem;
+      font-size: 0.88rem; color: var(--text-mid); line-height: 1.75;
+    }
+    .fund-note strong { color: var(--text-dark); font-weight: 600; }
+
+    /* ── PAST PARTNERS ── */
+    #partners { background: var(--surface); padding: 5rem 0; border-top: 1px solid var(--border); }
+    .partners-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 2rem; text-align: center; }
+    .partners-grid {
+      display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; max-width: 900px; margin: 0 auto;
+    }
+    .partner-chip {
+      background: #fff; border: 1px solid var(--border); border-radius: 6px;
+      padding: 0.5rem 1rem; font-size: 0.82rem; color: var(--text-mid); font-weight: 500;
+    }
+
+    /* ── CTA ── */
+    #cta-strip { background: var(--primary); padding: 6rem 0; }
+    .cta-inner { max-width: 700px; margin: 0 auto; padding: 0 2.5rem; text-align: center; }
+    .cta-inner .eyebrow { justify-content: center; }
+    .cta-inner h2 { font-family: 'Lora', serif; font-size: clamp(1.75rem, 2.8vw, 2.4rem); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 1rem; letter-spacing: -0.01em; }
+    .cta-inner h2 em { font-style: italic; color: var(--secondary-light); }
+    .cta-inner p { font-size: 1rem; color: rgba(255,255,255,0.62); line-height: 1.8; margin-bottom: 2.25rem; }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-gold { background: var(--accent); color: #fff; padding: 0.88rem 1.85rem; border-radius: 5px; font-weight: 600; font-size: 0.9rem; text-decoration: none; letter-spacing: 0.02em; transition: background 0.2s; display: inline-block; }
+    .btn-gold:hover { background: var(--accent-light); }
+    .btn-outline-light { border: 1.5px solid rgba(255,255,255,0.28); color: rgba(255,255,255,0.78); padding: 0.88rem 1.85rem; border-radius: 5px; font-weight: 500; font-size: 0.9rem; text-decoration: none; transition: border-color 0.2s, color 0.2s; display: inline-block; }
+    .btn-outline-light:hover { border-color: rgba(255,255,255,0.62); color: #fff; }
+    .btn-outline-dark-sm { border: 1.5px solid var(--border); color: var(--text-mid); padding: 0.65rem 1.25rem; border-radius: 5px; font-weight: 500; font-size: 0.84rem; text-decoration: none; transition: border-color 0.2s, color 0.2s; display: inline-block; margin-top: 1.25rem; }
+    .btn-outline-dark-sm:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--primary-dark); border-top: 1px solid rgba(255,255,255,0.06); padding: 3.5rem 2.5rem 2rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 3rem; }
+    .footer-brand { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; letter-spacing: 0.03em; }
+    .footer-brand span { color: var(--accent-light); }
+    .footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.38); line-height: 1.65; max-width: 280px; }
+    .footer-col h4 { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.32); margin-bottom: 0.9rem; }
+    .footer-col a { display: block; font-size: 0.83rem; color: rgba(255,255,255,0.52); text-decoration: none; margin-bottom: 0.45rem; transition: color 0.2s; }
+    .footer-col a:hover { color: rgba(255,255,255,0.85); }
+    .footer-bottom { max-width: 1200px; margin: 2.5rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+    .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 980px) {
+      .audience-tabs { grid-template-columns: 1fr; }
+      .audience-tab { border-right: none; border-bottom: 1px solid var(--border); }
+      .audience-tab:last-child { border-bottom: none; }
+      .commission-grid { grid-template-columns: 1fr 1fr; }
+      .wwtw-grid { grid-template-columns: 1fr 1fr; }
+      .fund-layout { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 640px) {
+      .commission-grid { grid-template-columns: 1fr; }
+      .wwtw-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">INCLUSI<span>ECON</span></a>
+      <ul class="nav-links">
+        <li><a href="services.html">Services</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="who-we-are.html">Who We Are</a></li>
+        <li><a href="partner-with-us.html" class="active">Partner With Us</a></li>
+        <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="page-kicker">Partner With Us</div>
+      <h1>Two ways to work with INCLUSIECON</h1>
+      <p>Whether you need credible research done or want to invest in building Canada's evidence base on tax and income security — we want to hear from you.</p>
+    </div>
+  </div>
+
+  <!-- AUDIENCE TABS -->
+  <section id="audiences">
+    <div class="section-inner">
+      <div class="audience-tabs">
+        <div class="audience-tab primary-tab">
+          <div class="tab-label">For Governments &amp; Organizations</div>
+          <div class="tab-heading">Commission research or engage us as advisors</div>
+          <div class="tab-desc">You have a policy problem that needs rigorous, credible analysis. We design and deliver research that is built to be used — not filed away.</div>
+          <div class="tab-arrow">↓ See how it works</div>
+        </div>
+        <div class="audience-tab secondary-tab">
+          <div class="tab-label">For Funders &amp; Granting Bodies</div>
+          <div class="tab-heading">Fund the INCLUSIECON research initiative</div>
+          <div class="tab-desc">You want to invest in building Canada's evidence base on tax fairness and income security. We have active research streams ready to scale with the right partners.</div>
+          <div class="tab-arrow">↓ See funding opportunities</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMISSION -->
+  <section id="commission">
+    <div class="section-inner">
+      <div class="commission-intro">
+        <div class="eyebrow ey-rose">Commissioned Research &amp; Advisory Work</div>
+        <h2 class="sh sh-dark sh-lg">Need credible analysis you can act on?</h2>
+        <p>We work with federal and provincial governments, municipalities, civil society organisations, and expert panels to produce research that is rigorous, accessible, and designed from the start to inform decisions. We are not a consulting firm — we are academic researchers who engage directly with policy problems and stay involved through implementation.</p>
+      </div>
+
+      <div class="commission-grid">
+        <div class="commission-card">
+          <div class="cc-icon">📋</div>
+          <div class="cc-title">Policy Research &amp; Technical Reports</div>
+          <div class="cc-desc">Commissioned analysis of tax and transfer policy questions — from scoping studies and literature reviews to full research programs producing technical reports, policy briefs, and peer-reviewed publications.</div>
+        </div>
+        <div class="commission-card">
+          <div class="cc-icon">🔍</div>
+          <div class="cc-title">Program Evaluation &amp; System Mapping</div>
+          <div class="cc-desc">Rigorous evaluation of income support and social programs — examining design, delivery, interaction effects, and distributional outcomes across the full system, not just individual programs in isolation.</div>
+        </div>
+        <div class="commission-card">
+          <div class="cc-icon">📊</div>
+          <div class="cc-title">Microsimulation &amp; Distributional Analysis</div>
+          <div class="cc-desc">Quantitative modelling of the fiscal and distributional impacts of proposed tax and transfer reforms — who gains, who loses, by how much, and where the unintended consequences are likely to appear.</div>
+        </div>
+        <div class="commission-card">
+          <div class="cc-icon">🏛</div>
+          <div class="cc-title">Expert Advisory &amp; Panel Work</div>
+          <div class="cc-desc">Independent expert analysis for government panels, legislative committees, tribunals, and courts. We have served on federal and provincial expert panels and provided expert witness testimony in legal proceedings.</div>
+        </div>
+        <div class="commission-card">
+          <div class="cc-icon">🤝</div>
+          <div class="cc-title">Co-Designed Research Partnerships</div>
+          <div class="cc-desc">Long-form partnerships where your organisation is a collaborator from day one — not just a recipient of findings at the end. We build the research questions with you to ensure the work is relevant and usable.</div>
+        </div>
+        <div class="commission-card">
+          <div class="cc-icon">📣</div>
+          <div class="cc-title">Knowledge Mobilization</div>
+          <div class="cc-desc">Translating research findings into accessible formats for diverse audiences — briefings, public reports, interactive tools, and media engagement — so findings reach the people who need them.</div>
+        </div>
+      </div>
+
+      <div class="who-we-work-with">
+        <div class="wwtw-label">Who we have worked with</div>
+        <div class="wwtw-grid">
+          <div class="wwtw-item">Federal government departments</div>
+          <div class="wwtw-item">Provincial governments (BC, Alberta, Ontario)</div>
+          <div class="wwtw-item">Government of Nunavut</div>
+          <div class="wwtw-item">City of Calgary</div>
+          <div class="wwtw-item">City of Edmonton</div>
+          <div class="wwtw-item">Canada Mortgage and Housing Corporation</div>
+          <div class="wwtw-item">Royal Society of Canada</div>
+          <div class="wwtw-item">Civil society organizations &amp; foundations</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER QUOTE -->
+  <div class="section-divider">
+    <p>Our commissioned work is held to the same standards as our academic research. <em>When you engage us, you get findings you can defend.</em></p>
+  </div>
+
+  <!-- FUND -->
+  <section id="fund">
+    <div class="section-inner">
+      <div class="fund-intro">
+        <div class="eyebrow ey-gold">Research Funding &amp; Investment</div>
+        <h2 class="sh sh-dark sh-lg">Support the INCLUSIECON research initiative</h2>
+        <p>INCLUSIECON is a national research initiative bringing together researchers, policy practitioners, and civil society partners to tackle the structural roots of economic inequality in Canada. We are actively seeking partners and funders who share our commitment to building a rigorous, accessible evidence base on tax fairness and income security.</p>
+      </div>
+
+      <div class="fund-layout">
+        <div class="fund-general">
+          <div class="eyebrow ey-light">General Support</div>
+          <h3>Invest in the research initiative broadly</h3>
+          <p>INCLUSIECON sits at the intersection of two research streams — <strong>FACT</strong> (tax fairness and accountability) and <strong>ENABLE</strong> (equity in income and social supports) — united by the conviction that how governments raise and redistribute resources must be studied as one system.</p>
+          <p>General support for the initiative helps us build the research infrastructure, data partnerships, and collaborative networks needed to tackle these questions at scale — and to train the next generation of applied policy researchers in Canada.</p>
+          <p>We have a strong track record of competitive grant success and government partnerships. We welcome conversations with foundations, granting bodies, and institutional partners interested in co-investing in this work.</p>
+          <div class="fund-general-cta">
+            <a href="contact.html" class="btn-gold">Start a Conversation</a>
+          </div>
+        </div>
+
+        <div class="fund-streams">
+          <div style="font-size:0.78rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-muted); margin-bottom:0.25rem;">Specific Research Opportunities</div>
+
+          <div class="stream-card">
+            <span class="stream-pill sp-fact">FACT</span>
+            <h4>Property Tax Equity (ProperTEA)</h4>
+            <p>Expanding our Alberta property tax equity work to a national scale — examining whether property tax systems place disproportionate burdens on racialized, low-income, and vulnerable homeowners across Canada.</p>
+          </div>
+
+          <div class="stream-card">
+            <span class="stream-pill sp-fact">FACT</span>
+            <h4>Marginal Value of Public Funds (MVPF)</h4>
+            <p>Developing the first comprehensive cross-program MVPF estimates for Canada — a rigorous, evidence-based framework for evaluating the social return on public spending across tax and transfer programs.</p>
+          </div>
+
+          <div class="stream-card">
+            <span class="stream-pill sp-enable">ENABLE</span>
+            <h4>Material Deprivation &amp; Disability Policy</h4>
+            <p>A three-year longitudinal study examining the impact of Alberta's income assistance reform (AISH to ADAP) on material deprivation for persons with disabilities — in collaboration with community partners.</p>
+          </div>
+
+          <div class="stream-card">
+            <span class="stream-pill sp-both">FACT + ENABLE</span>
+            <h4>Tax Mix &amp; Income Security Integration</h4>
+            <p>Combining personal income tax data with property tax data to understand the full distributional impact of Canada's tax mix — and its interaction with income support programs — on low-income and marginalized households.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="fund-note">
+        <strong>A note on research independence.</strong> All funded research is conducted in accordance with University of Calgary policies and academic independence standards. Funders do not direct findings. We are transparent about funding sources in all publications and reports. Our commitment to peer-review standards means findings are contestable — and defensible.
+      </div>
+    </div>
+  </section>
+
+  <!-- PAST PARTNERS -->
+  <section id="partners">
+    <div class="section-inner">
+      <div class="partners-label">Past and current funders &amp; research partners</div>
+      <div class="partners-grid">
+        <div class="partner-chip">SSHRC</div>
+        <div class="partner-chip">Government of British Columbia</div>
+        <div class="partner-chip">Government of Nunavut</div>
+        <div class="partner-chip">City of Calgary</div>
+        <div class="partner-chip">Alberta Real Estate Foundation</div>
+        <div class="partner-chip">Canada Mortgage &amp; Housing Corporation</div>
+        <div class="partner-chip">Royal Society of Canada</div>
+        <div class="partner-chip">Women &amp; Gender Equality Canada</div>
+        <div class="partner-chip">Bertelsmann Stiftung</div>
+        <div class="partner-chip">C.D. Howe Institute</div>
+        <div class="partner-chip">IRPP</div>
+        <div class="partner-chip">Maytree</div>
+        <div class="partner-chip">Social Capital Partners</div>
+        <div class="partner-chip">BluePrint ADE</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta-strip">
+    <div class="cta-inner">
+      <div class="eyebrow ey-light">Get in Touch</div>
+      <h2>Ready to talk? <em>So are we.</em></h2>
+      <p>Whether you want to commission research, discuss a funding partnership, or just find out whether we're the right fit for your project — reach out directly. We read our email.</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-gold">Contact Us</a>
+        <a href="services.html" class="btn-outline-light">See Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">INCLUSI<span>ECON</span></div>
+        <div class="footer-tagline">Tax and transfer policy research for a fairer Canada. Based at the University of Calgary.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Research</h4>
+        <a href="#">FACT Stream</a>
+        <a href="#">ENABLE Stream</a>
+        <a href="#">Publications</a>
+        <a href="#">Data &amp; Tools</a>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <a href="who-we-are.html">Who We Are</a>
+        <a href="services.html">Services</a>
+        <a href="partner-with-us.html">Partner With Us</a>
+        <a href="http://deadfortaxreasons.wordpress.com/" target="_blank" rel="noopener">Dead For Tax Reasons ↗</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="/cdn-cgi/l/email-protection#fd919493998e9c84d3899899998eccbd889e9c919a9c8f84d39e9c">Lindsay Tedds</a>
+        <a href="/cdn-cgi/l/email-protection#13747a7f7f7a727d3d6376677a67536670727f7472616a3d7072">Gillian Petit</a>
+        <a href="contact.html">Get in Touch</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Lindsay Tedds &amp; Gillian Petit · University of Calgary</span>
+      <a href="https://www.lindsaytedds.ca

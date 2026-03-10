@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research — INCLUSIECON</title>
+  <meta name="description" content="Research by Drs. Lindsay Tedds and Gillian Petit on tax policy, income security, municipal finance, and the structural roots of economic inequality in Canada." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary:         #5c1a1a;
+      --primary-dark:    #3e1010;
+      --primary-mid:     #7a2828;
+      --primary-light:   #a84848;
+      --secondary:       #7a3a44;
+      --secondary-mid:   #9e5560;
+      --secondary-light: #c48890;
+      --secondary-pale:  #ecdde0;
+      --accent:          #a87828;
+      --accent-light:    #c8a050;
+      --accent-pale:     #e8d898;
+      --surface:         #f7f2ea;
+      --surface-raised:  #ece4d8;
+      --border:          #ddd0bc;
+      --text-dark:       #180808;
+      --text-mid:        #3e2028;
+      --text-muted:      #7a5858;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--surface);
+      color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(62,16,16,0.97); backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 2.5rem;
+      height: 62px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-family: 'Lora', serif; font-weight: 700; font-size: 1.15rem; color: #fff; text-decoration: none; letter-spacing: 0.03em; }
+    .nav-logo span { color: var(--accent-light); }
+    .nav-links { display: flex; gap: 0.2rem; list-style: none; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.62); text-decoration: none; font-size: 0.85rem; font-weight: 500; padding: 0.4rem 0.85rem; border-radius: 4px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.07); }
+    .nav-links a.active { color: #fff; }
+    .nav-cta { background: var(--accent) !important; color: #fff !important; font-weight: 600 !important; padding: 0.42rem 1.15rem !important; }
+    .nav-cta:hover { background: var(--accent-light) !important; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: var(--primary-dark); padding: 9rem 2.5rem 5.5rem;
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 70% 50%, rgba(122,40,40,0.22) 0%, transparent 65%);
+    }
+    .page-header-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+    .page-kicker {
+      display: inline-flex; align-items: center; gap: 0.7rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.25rem;
+    }
+    .page-kicker::before { content: ''; display: block; width: 32px; height: 1.5px; background: var(--accent-light); }
+    .page-header h1 {
+      font-family: 'Lora', serif; font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700; color: #fff; line-height: 1.12;
+      letter-spacing: -0.015em; margin-bottom: 1rem; max-width: 720px;
+    }
+    .page-header p { font-size: 1.05rem; color: rgba(255,255,255,0.55); max-width: 620px; line-height: 1.82; }
+
+    /* ── SHARED ── */
+    .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .eyebrow::before { content: ''; display: block; width: 24px; height: 1.5px; }
+    .ey-gold { color: var(--accent); } .ey-gold::before { background: var(--accent); }
+    .ey-rose { color: var(--secondary-mid); } .ey-rose::before { background: var(--secondary-mid); }
+    .ey-light { color: var(--accent-light); } .ey-light::before { background: var(--accent-light); }
+    .sh { font-family: 'Lora', serif; font-weight: 700; line-height: 1.18; letter-spacing: -0.01em; }
+    .sh-dark { color: var(--text-dark); }
+    .sh-lg { font-size: clamp(1.85rem, 2.8vw, 2.5rem); }
+
+    /* ── APPROACH SECTION ── */
+    #approach { background: var(--surface); padding: 7rem 0; }
+    .approach-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 6rem; align-items: start; }
+    .approach-left p { font-size: 1rem; color: var(--text-mid); line-height: 1.88; margin-bottom: 1rem; }
+    .approach-left p strong { color: var(--text-dark); font-weight: 600; }
+    .approach-right { display: flex; flex-direction: column; gap: 1rem; }
+
+    .stream-block {
+      border-radius: 14px; padding: 2rem 2.25rem; border: 1px solid transparent;
+    }
+    .stream-fact { background: var(--secondary-pale); border-color: rgba(196,136,144,0.3); }
+    .stream-enable { background: var(--accent-pale); border-color: rgba(168,120,40,0.25); }
+    .stream-label {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+    .stream-fact .stream-label { color: var(--secondary-mid); }
+    .stream-enable .stream-label { color: var(--accent); }
+    .stream-name { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem; }
+    .stream-desc { font-size: 0.86rem; color: var(--text-mid); line-height: 1.72; }
+    .stream-topics { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.85rem; }
+    .stream-topic {
+      font-size: 0.72rem; font-weight: 500; padding: 0.2rem 0.65rem;
+      border-radius: 20px; border: 1px solid;
+    }
+    .stream-fact .stream-topic { background: rgba(196,136,144,0.15); color: var(--secondary); border-color: rgba(196,136,144,0.3); }
+    .stream-enable .stream-topic { background: rgba(168,120,40,0.1); color: var(--accent); border-color: rgba(168,120,40,0.25); }
+
+    /* ── FILTER BAR ── */
+    #publications { background: var(--surface-raised); padding: 7rem 0; }
+    .pub-header { margin-bottom: 2.5rem; }
+    .filter-bar {
+      display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1.5rem;
+    }
+    .filter-btn {
+      padding: 0.38rem 1rem; border-radius: 20px; border: 1.5px solid var(--border);
+      background: #fff; font-size: 0.8rem; font-weight: 500; color: var(--text-muted);
+      cursor: pointer; transition: all 0.18s; font-family: 'DM Sans', sans-serif;
+    }
+    .filter-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .filter-btn.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+
+    /* ── PUB LIST ── */
+    .pub-list { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .pub-entry {
+      background: #fff; border: 1px solid var(--border); border-radius: 14px;
+      padding: 1.75rem 2rem; display: grid; grid-template-columns: 1fr auto;
+      gap: 1.5rem; align-items: start;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .pub-entry:hover { border-color: var(--secondary-light); box-shadow: 0 2px 16px rgba(92,26,26,0.07); }
+
+    .pub-meta { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+    .pub-stream-pill {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 0.18rem 0.6rem; border-radius: 20px; border: 1px solid;
+    }
+    .psp-fact { background: rgba(196,136,144,0.15); color: var(--secondary-mid); border-color: rgba(196,136,144,0.3); }
+    .psp-enable { background: rgba(168,120,40,0.1); color: var(--accent); border-color: rgba(168,120,40,0.22); }
+    .psp-both { background: rgba(92,26,26,0.07); color: var(--primary-mid); border-color: rgba(92,26,26,0.15); }
+    .pub-type {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .pub-year { font-size: 0.78rem; color: var(--text-muted); }
+
+    .pub-title {
+      font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 700;
+      color: var(--text-dark); line-height: 1.3; margin-bottom: 0.4rem;
+    }
+    .pub-authors { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.65rem; }
+    .pub-authors strong { color: var(--text-mid); font-weight: 600; }
+    .pub-outlet { font-size: 0.8rem; color: var(--accent); font-style: italic; font-weight: 500; margin-bottom: 0.75rem; }
+    .pub-blurb { font-size: 0.88rem; color: var(--text-mid); line-height: 1.75; }
+
+    .pub-action { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; flex-shrink: 0; }
+    .pub-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: var(--primary); color: #fff; text-decoration: none;
+      font-size: 0.78rem; font-weight: 600; padding: 0.5rem 1rem;
+      border-radius: 5px; white-space: nowrap; transition: background 0.2s;
+    }
+    .pub-link:hover { background: var(--primary-mid); }
+    .pub-link-secondary {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      border: 1.5px solid var(--border); color: var(--text-mid); text-decoration: none;
+      font-size: 0.78rem; font-weight: 500; padding: 0.5rem 1rem;
+      border-radius: 5px; white-space: nowrap; transition: all 0.2s;
+    }
+    .pub-link-secondary:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* ── CTA ── */
+    #cta-strip { background: var(--primary); padding: 6rem 0; }
+    .cta-inner { max-width: 700px; margin: 0 auto; padding: 0 2.5rem; text-align: center; }
+    .cta-inner .eyebrow { justify-content: center; }
+    .cta-inner h2 { font-family: 'Lora', serif; font-size: clamp(1.75rem, 2.8vw, 2.4rem); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 1rem; letter-spacing: -0.01em; }
+    .cta-inner h2 em { font-style: italic; color: var(--secondary-light); }
+    .cta-inner p { font-size: 1rem; color: rgba(255,255,255,0.62); line-height: 1.8; margin-bottom: 2.25rem; }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-gold { background: var(--accent); color: #fff; padding: 0.88rem 1.85rem; border-radius: 5px; font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: background 0.2s; display: inline-block; }
+    .btn-gold:hover { background: var(--accent-light); }
+    .btn-outline-light { border: 1.5px solid rgba(255,255,255,0.28); color: rgba(255,255,255,0.78); padding: 0.88rem 1.85rem; border-radius: 5px; font-weight: 500; font-size: 0.9rem; text-decoration: none; transition: all 0.2s; display: inline-block; }
+    .btn-outline-light:hover { border-color: rgba(255,255,255,0.62); color: #fff; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--primary-dark); border-top: 1px solid rgba(255,255,255,0.06); padding: 3.5rem 2.5rem 2rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 3rem; }
+    .footer-brand { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; letter-spacing: 0.03em; }
+    .footer-brand span { color: var(--accent-light); }
+    .footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.38); line-height: 1.65; max-width: 280px; }
+    .footer-col h4 { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.32); margin-bottom: 0.9rem; }
+    .footer-col a { display: block; font-size: 0.83rem; color: rgba(255,255,255,0.52); text-decoration: none; margin-bottom: 0.45rem; transition: color 0.2s; }
+    .footer-col a:hover { color: rgba(255,255,255,0.85); }
+    .footer-bottom { max-width: 1200px; margin: 2.5rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+    .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 980px) {
+      .approach-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .pub-entry { grid-template-columns: 1fr; }
+      .pub-action { flex-direction: row; align-items: center; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">INCLUSI<span>ECON</span></a>
+      <ul class="nav-links">
+        <li><a href="services.html">Services</a></li>
+        <li><a href="research.html" class="active">Research</a></li>
+        <li><a href="who-we-are.html">Who We Are</a></li>
+        <li><a href="partner-with-us.html">Partner With Us</a></li>
+        <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="page-kicker">Research</div>
+      <h1>Rigorous analysis of how Canada taxes and supports its people</h1>
+      <p>Our research spans tax policy design, income security, municipal finance, and the distributional impacts of fiscal policy — studied not in isolation, but as the interconnected system they actually are.</p>
+    </div>
+  </div>
+
+  <!-- APPROACH -->
+  <section id="approach">
+    <div class="section-inner">
+      <div class="approach-grid">
+        <div class="approach-left">
+          <div class="eyebrow ey-rose">Our Approach</div>
+          <h2 class="sh sh-dark sh-lg" style="margin-bottom:1.5rem;">Transdisciplinary research built to last</h2>
+          <p>Our research harnesses the strengths of economics, law, public administration, and intersectionality to study public policy problems that resist single-discipline answers. We work across federal, provincial, and municipal levels because that is how policy actually operates — and because the interactions between levels of government are where many of the most consequential gaps and inequities are found.</p>
+          <p>We publish in <strong>peer-reviewed academic journals</strong>, produce <strong>technical reports for governments and expert panels</strong>, and write <strong>accessible policy analysis</strong> for practitioners and the public. Our research is held to academic standards regardless of the outlet, and we do not adjust findings to fit a funder's preferred conclusion.</p>
+          <p>We organize our work around two interconnected research streams — FACT and ENABLE — that together form the analytical core of the INCLUSIECON initiative.</p>
+        </div>
+        <div class="approach-right">
+          <div class="stream-block stream-fact">
+            <div class="stream-label">FACT</div>
+            <div class="stream-name">Fair and Accountable Canadian Taxation</div>
+            <div class="stream-desc">How governments raise resources fairly, efficiently, and transparently. Examines tax design and implementation at all levels of government — personal income tax, property tax, user levies, and the distributional effects of the tax mix.</div>
+            <div class="stream-topics">
+              <span class="stream-topic">Property Tax Equity</span>
+              <span class="stream-topic">Municipal Finance</span>
+              <span class="stream-topic">Tax Design</span>
+              <span class="stream-topic">MVPF</span>
+              <span class="stream-topic">Underground Economy</span>
+              <span class="stream-topic">Fiscal Federalism</span>
+            </div>
+          </div>
+          <div class="stream-block stream-enable">
+            <div class="stream-label">ENABLE</div>
+            <div class="stream-name">Equity in Needs-Based Assistance for Better Lives and Engagement</div>
+            <div class="stream-desc">How governments redistribute resources to reduce poverty and promote economic inclusion. Examines income support design and delivery, benefit adequacy, disability policy, program interactions, and the lived experience of the people policies are meant to serve.</div>
+            <div class="stream-topics">
+              <span class="stream-topic">Cash Transfer Design</span>
+              <span class="stream-topic">Basic Income</span>
+              <span class="stream-topic">Disability Policy</span>
+              <span class="stream-topic">Material Deprivation</span>
+              <span class="stream-topic">System Mapping</span>
+              <span class="stream-topic">GBA+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications">
+    <div class="section-inner">
+      <div class="pub-header">
+        <div class="eyebrow ey-gold">Selected Work</div>
+        <h2 class="sh sh-dark sh-lg">Publications, reports &amp; commentary</h2>
+        <div class="filter-bar">
+          <button class="filter-btn active" onclick="filterPubs('all', this)">All</button>
+          <button class="filter-btn" onclick="filterPubs('fact', this)">FACT</button>
+          <button class="filter-btn" onclick="filterPubs('enable', this)">ENABLE</button>
+          <button class="filter-btn" onclick="filterPubs('journal', this)">Journal Articles</button>
+          <button class="filter-btn" onclick="filterPubs('book', this)">Books</button>
+          <button class="filter-btn" onclick="filterPubs('report', this)">Reports &amp; Policy</button>
+          <button class="filter-btn" onclick="filterPubs('commentary', this)">Commentary</button>
+        </div>
+      </div>
+
+      <div class="pub-list" id="pub-list">
+
+        <!-- ═══════════════════════════════════════════════════
+             ADD NEW ENTRIES HERE — copy a pub-entry block below
+             data-stream: fact | enable | both
+             data-type:   journal | book | report | commentary
+             ═══════════════════════════════════════════════════ -->
+
+        <div class="pub-entry" data-stream="enable" data-type="commentary">
+          <div class="pub-body">
+            <div class="pub-meta">
+              <span class="pub-stream-pill psp-enable">ENABLE</span>
+              <span class="pub-type">Commentary</span>
+              <span class="pub-year">2026</span>
+            </div>
+            <div class="pub-title">From Cost to Investment: Reframing Social Spending in an Affordability Era</div>
+            <div class="pub-authors"><strong>Gillian Petit</strong> and Selvia Arshad</div>
+            <div class="pub-outlet">IRPP — Institute for Research on Public Policy</div>
+            <div class="pub-blurb">Affordability pressures in Canada remain elevated — food insecurity at record highs, housing costs outpacing incomes, and nearly half of Canadians struggling to cover day-to-day expenses. This commentary argues that the framing of social spending as a fiscal burden gets the economics backwards. Reframing transfers and supports as social investment — and measuring them accordingly — is both analytically more honest and politically more tractable.</div>
+          </div>
+          <div class="pub-action">
+            <a href="https://irpp.org/research-studies/ost-investment-reframing-social-spending-affordability-era/" target="_blank" rel="noopener" class="pub-link">Read ↗</a>
+          </div>
+        </div>
+
+        <!-- TEMPLATE — copy and fill in to add more entries:
+
+        <div class="pub-entry" data-stream="STREAM" data-type="TYPE">
+          <div class="pub-body">
+            <div class="pub-meta">
+              <span class="pub-stream-pill psp-STREAM">STREAM LABEL</span>
+              <span class="pub-type">TYPE LABEL</span>
+              <span class="pub-year">YEAR</span>
+            </div>
+            <div class="pub-title">TITLE</div>
+            <div class="pub-authors"><strong>AUTHOR</strong> and CO-AUTHOR</div>
+            <div class="pub-outlet">JOURNAL / OUTLET</div>
+            <div class="pub-blurb">BLURB</div>
+          </div>
+          <div class="pub-action">
+            <a href="URL" target="_blank" rel="noopener" class="pub-link">Read ↗</a>
+          </div>
+        </div>
+
+        -->
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta-strip">
+    <div class="cta-inner">
+      <div class="eyebrow ey-light">Collaborate</div>
+      <h2>Looking for research you can <em>actually use?</em></h2>
+      <p>We work with governments, civil society, and funders across Canada. If you have a question our research can help answer, get in touch.</p>
+      <div class="cta-btns">
+        <a href="partner-with-us.html" class="btn-gold">Partner With Us</a>
+        <a href="contact.html" class="btn-outline-light">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">INCLUSI<span>ECON</span></div>
+        <div class="footer-tagline">Tax and transfer policy research for a fairer Canada. Based at the University of Calgary.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Research</h4>
+        <a href="research.html">All Research</a>
+        <a href="research.html#fact">FACT Stream</a>
+        <a href="research.html#enable">ENABLE Stream</a>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <a href="who-we-are.html">Who We Are</a>
+        <a href="services.html">Services</a>
+        <a href="partner-with-us.html">Partner With Us</a>
+        <a href="http://deadfortaxreasons.wordpress.com/" target="_blank" rel="noopener">Dead For Tax Reasons ↗</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="#" id="footer-email-lt">Lindsay Tedds</a>
+        <a href="#" id="footer-email-gp">Gillian Petit</a>
+        <a href="contact.html">Get in Touch</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Lindsay Tedds &amp; Gillian Petit · University of Calgary</span>
+      <a href="https://www.lindsaytedds.ca" target="_blank" rel="noopener">lindsaytedds.ca ↗</a>
+    </div>
+  </footer>
+
+  <script>
+    // Email protection
+    (function() {
+      var lt = 'lindsay.tedds1' + '@' + 'ucalgary.ca';
+      var gp = 'gillian.petit' + '@' + 'ucalgary.ca';
+      var flt = document.getElementById('footer-email-lt');
+      var fgp = document.getElementById('footer-email-gp');
+      if (flt) flt.href = 'mailto:' + lt;
+      if (fgp) fgp.href = 'mailto:' + gp;
+    })();
+
+    // Filter
+    function filterPubs(type, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.pub-entry').forEach(entry => {
+        if (type === 'all') {
+          entry.style.display = '';
+        } else if (type === 'fact' || type === 'enable') {
+          var stream = entry.dataset.stream;
+          entry.style.display = (stream === type || stream === 'both') ? '' : 'none';
+        } else {
+          entry.style.display = entry.dataset.type === type ? '' : 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
