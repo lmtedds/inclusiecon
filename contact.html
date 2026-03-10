@@ -202,8 +202,9 @@
     .ucalgary-note p strong { color: var(--text-mid); }
 
     /* ── REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.up { opacity: 1; transform: none; }
+    .reveal { opacity: 1; transform: none; }
+    .js-ready .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .js-ready .reveal.up { opacity: 1; transform: none; }
 
     /* ── FOOTER ── */
     footer { background: var(--primary-dark); border-top: 1px solid rgba(255,255,255,0.06); padding: 3.5rem 2.5rem 2rem; }
@@ -265,8 +266,8 @@
         </div>
         <div class="cc-body">
           <div class="cc-affil">Tax policy, municipal finance, fiscal federalism, property taxation</div>
-          <a href="mailto:lindsay.tedds1@ucalgary.ca" class="email-link">
-            <span class="email-icon">✉</span> lindsay.tedds1@ucalgary.ca
+          <a href="/cdn-cgi/l/email-protection#cea2a7a0aabdafb7e0baabaaaabdff8ebbadafa2a9afbcb7e0adaf" class="email-link">
+            <span class="email-icon">✉</span> <span class="__cf_email__" data-cfemail="e88481868c9b8991c69c8d8c8c9bd9a89d8b89848f899a91c68b89">[email&#160;protected]</span>
           </a>
           <div class="cc-links">
             <a href="https://www.lindsaytedds.ca" target="_blank" rel="noopener" class="cc-ext-link">
@@ -300,8 +301,8 @@
         </div>
         <div class="cc-body">
           <div class="cc-affil">Income support design, benefit adequacy, disability policy, system mapping</div>
-          <a href="mailto:gillian.petit@ucalgary.ca" class="email-link">
-            <span class="email-icon">✉</span> gillian.petit@ucalgary.ca
+          <a href="/cdn-cgi/l/email-protection#deb9b7b2b2b7bfb0f0aebbaab7aa9eabbdbfb2b9bfaca7f0bdbf" class="email-link">
+            <span class="email-icon">✉</span> <span class="__cf_email__" data-cfemail="04636d68686d656a2a7461706d7044716765686365767d2a6765">[email&#160;protected]</span>
           </a>
           <div class="cc-links">
             <a href="https://bsky.app/profile/gillianpetit.bsky.social" target="_blank" rel="noopener" class="cc-ext-link">
@@ -376,8 +377,8 @@
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
-        <a href="mailto:lindsay.tedds1@ucalgary.ca">Lindsay Tedds</a>
-        <a href="mailto:gillian.petit@ucalgary.ca">Gillian Petit</a>
+        <a href="/cdn-cgi/l/email-protection#a8c4c1c6ccdbc9d186dccdccccdb99e8ddcbc9c4cfc9dad186cbc9">Lindsay Tedds</a>
+        <a href="/cdn-cgi/l/email-protection#cbaca2a7a7a2aaa5e5bbaebfa2bf8bbea8aaa7acaab9b2e5a8aa">Gillian Petit</a>
         <a href="contact.html">Get in Touch</a>
       </div>
     </div>
@@ -387,17 +388,4 @@
     </div>
   </footer>
 
-  <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach((e, i) => {
-        if (e.isIntersecting) {
-          setTimeout(() => e.target.classList.add('up'), i * 100);
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.08 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
-
-</body>
-</html>
+  <scr

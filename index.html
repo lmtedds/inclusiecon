@@ -329,8 +329,9 @@
     .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; }
 
     /* ── REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
-    .reveal.up { opacity: 1; transform: none; }
+    .reveal { opacity: 1; transform: none; }
+    .js-ready .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .js-ready .reveal.up { opacity: 1; transform: none; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 980px) {
@@ -662,6 +663,7 @@
   </footer>
 
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    document.documentElement.classList.add('js-ready');
     const observer = new IntersectionObserver(entries => {
       entries.forEach((e, i) => {
         if (e.isIntersecting) {
