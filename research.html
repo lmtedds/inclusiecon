@@ -199,6 +199,99 @@
       margin-top: 1rem; align-items: center;
     }
 
+    /* ── DRAWER ── */
+    .drawer-overlay {
+      position: fixed; inset: 0; background: rgba(24,8,8,0.55);
+      z-index: 200; opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .drawer-overlay.open { opacity: 1; pointer-events: all; }
+    .drawer {
+      position: fixed; top: 0; right: 0; bottom: 0;
+      width: min(520px, 95vw);
+      background: var(--surface); z-index: 201;
+      transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+      display: flex; flex-direction: column; overflow: hidden;
+      box-shadow: -8px 0 40px rgba(24,8,8,0.18);
+    }
+    .drawer.open { transform: translateX(0); }
+    .drawer-head {
+      background: var(--primary-dark); padding: 1.5rem 1.75rem;
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+      flex-shrink: 0;
+    }
+    .drawer-head-text {}
+    .drawer-kicker {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent-light); margin-bottom: 0.35rem;
+    }
+    .drawer-title {
+      font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 700;
+      color: #fff; line-height: 1.3;
+    }
+    .drawer-close {
+      background: rgba(255,255,255,0.1); border: none; cursor: pointer;
+      color: rgba(255,255,255,0.7); width: 32px; height: 32px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0; transition: background 0.2s, color 0.2s;
+    }
+    .drawer-close:hover { background: rgba(255,255,255,0.2); color: #fff; }
+    .drawer-body { overflow-y: auto; flex: 1; padding: 1.25rem 1.5rem; }
+    .drawer-pub {
+      border-bottom: 1px solid var(--border); padding: 1.25rem 0;
+    }
+    .drawer-pub:last-child { border-bottom: none; }
+    .drawer-pub-meta {
+      display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.45rem;
+    }
+    .drawer-pub-type {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--text-muted);
+    }
+    .drawer-pub-year { font-size: 0.75rem; color: var(--text-muted); }
+    .drawer-pub-title {
+      font-family: 'Lora', serif; font-size: 0.95rem; font-weight: 700;
+      color: var(--text-dark); line-height: 1.3; margin-bottom: 0.3rem;
+    }
+    .drawer-pub-authors { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.25rem; }
+    .drawer-pub-authors strong { color: var(--text-mid); font-weight: 600; }
+    .drawer-pub-outlet { font-size: 0.78rem; color: var(--accent); font-style: italic; margin-bottom: 0.5rem; }
+    .drawer-pub-blurb { font-size: 0.83rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 0.65rem; }
+    .drawer-pub-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .drawer-pub-link {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      background: var(--primary); color: #fff; text-decoration: none;
+      font-size: 0.75rem; font-weight: 600; padding: 0.38rem 0.85rem;
+      border-radius: 4px; transition: background 0.2s; white-space: nowrap;
+    }
+    .drawer-pub-link:hover { background: var(--primary-mid); }
+    .drawer-pub-link-sec {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      border: 1.5px solid var(--border); color: var(--text-muted); text-decoration: none;
+      font-size: 0.72rem; font-weight: 500; padding: 0.35rem 0.75rem;
+      border-radius: 4px; white-space: nowrap; transition: all 0.2s;
+    }
+    .drawer-pub-link-sec:hover { border-color: var(--primary); color: var(--primary); }
+    .drawer-badge-request {
+      display: inline-block; font-size: 0.68rem; font-weight: 600;
+      color: var(--text-muted); background: var(--surface-raised);
+      border: 1px solid var(--border); padding: 0.28rem 0.65rem; border-radius: 4px;
+    }
+    /* trigger button on cards */
+    .pub-drawer-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      border: 1.5px solid var(--border); color: var(--text-muted); background: none;
+      font-size: 0.74rem; font-weight: 600; padding: 0.4rem 0.85rem;
+      border-radius: 5px; white-space: nowrap; cursor: pointer;
+      transition: all 0.2s; font-family: inherit;
+    }
+    .pub-drawer-btn:hover { border-color: var(--primary); color: var(--primary); background: rgba(92,26,26,0.04); }
+    .pub-drawer-btn .btn-count {
+      background: var(--surface-raised); color: var(--text-muted);
+      font-size: 0.65rem; font-weight: 700; padding: 0.1rem 0.4rem;
+      border-radius: 10px; margin-left: 0.1rem;
+    }
+
     /* ── CTA ── */
     #cta-strip { background: var(--primary); padding: 6rem 0; }
     .cta-inner { max-width: 700px; margin: 0 auto; padding: 0 2.5rem; text-align: center; }
@@ -312,10 +405,6 @@
           <button class="filter-btn active" onclick="filterPubs('all', this)">All</button>
           <button class="filter-btn" onclick="filterPubs('fact', this)">FACT</button>
           <button class="filter-btn" onclick="filterPubs('enable', this)">ENABLE</button>
-          <button class="filter-btn" onclick="filterPubs('journal', this)">Journal Articles</button>
-          <button class="filter-btn" onclick="filterPubs('book', this)">Books</button>
-          <button class="filter-btn" onclick="filterPubs('report', this)">Reports &amp; Policy</button>
-          <button class="filter-btn" onclick="filterPubs('commentary', this)">Commentary</button>
         </div>
       </div>
 
@@ -433,7 +522,10 @@
             <div class="pub-authors"><strong>Lindsay M. Tedds</strong> and <strong>Gillian Petit</strong>, with Green, Kesselman, Cameron, Perrin &amp; others</div>
             <div class="pub-outlet">BC Expert Panel · Government of Nunavut · IRPP · Canadian Public Policy</div>
             <div class="pub-blurb">A decade of foundational work examining whether basic income is the right tool for reforming Canada's social safety net — from the BC Basic Income Expert Panel and a landmark IRPP book to microsimulations for Nunavut. Includes 1 book, 3 journal articles, 8 reports, and 4 policy &amp; media outputs.</div>
-            <a href="research-basic-income.html" class="pub-link">View Project ↗</a>
+            <div class="pub-actions">
+              <a href="research-basic-income.html" class="pub-link">View Project ↗</a>
+              <button class="pub-drawer-btn" onclick="openDrawer('drawer-basic-income')">📚 Publications <span class="btn-count">16</span></button>
+            </div>
           </div>
         </div>
 
@@ -496,6 +588,7 @@
               <a href="cash-transfer-brief.html" target="_blank" rel="noopener" class="pub-link-secondary">📋 Brief</a>
               <a href="poster.png" target="_blank" rel="noopener" class="pub-link-secondary">📊 Poster</a>
               <a href="A_Framework_for_a_Better_Safety_Net.mp4" target="_blank" rel="noopener" class="pub-link-secondary">🎥 Video</a>
+              <button class="pub-drawer-btn" onclick="openDrawer('drawer-cash-transfer')">📚 Publications <span class="btn-count">1</span></button>
             </div>
           </div>
         </div>
@@ -595,7 +688,196 @@
         }
       });
     }
+
+    function openDrawer(id) {
+      document.getElementById(id).classList.add('open');
+      document.getElementById('drawer-overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeDrawer() {
+      document.querySelectorAll('.drawer').forEach(d => d.classList.remove('open'));
+      document.getElementById('drawer-overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
   </script>
+
+  <!-- DRAWER OVERLAY -->
+  <div id="drawer-overlay" class="drawer-overlay" onclick="closeDrawer()"></div>
+
+  <!-- BASIC INCOME DRAWER -->
+  <aside id="drawer-basic-income" class="drawer" role="dialog" aria-modal="true" aria-label="Basic Income publications">
+    <div class="drawer-head">
+      <div class="drawer-head-text">
+        <div class="drawer-kicker">ENABLE Stream · Flagship Project · 2017–2024</div>
+        <div class="drawer-title">Basic Income &amp; A More Just Society — All Publications</div>
+      </div>
+      <button class="drawer-close" onclick="closeDrawer()" aria-label="Close">✕</button>
+    </div>
+    <div class="drawer-body">
+
+      <div class="drawer-pub">
+        <div class="drawer-pub-meta"><span class="drawer-pub-type">Edited Volume</span><span class="drawer-pub-year">2023</span></div>
+        <div class="drawer-pub-title">Basic Income and a Just Society: Policy Choices for Canada's Social Safety Net</div>
+        <div class="drawer-pub-authors">Green, Kesselman, Perrin, <strong>Gillian Petit</strong>, <strong>Lindsay M. Tedds</strong> and St-Hilaire (eds.)</div>
+        <div class="drawer-pub-outlet">IRPP · Montreal</div>
+        <div class="drawer-pub-blurb">A landmark edited volume bringing together leading researchers to examine basic income from legal, economic, and intersectional perspectives, drawing on the work of the BC Basic Income Expert Panel.</div>
+        <div class="drawer-pub-actions"><a href="https://irpp.org/research/basic-income-and-a-just-society-policy-choices-for-canadas-social-safety-net/" target="_blank" rel="noopener" class="drawer-pub-link">View Book ↗</a></div>
+      </div>
+
+      <div class="drawer-pub">
+        <div class="drawer-pub-meta"><span class="drawer-pub-type">Journal Article</span><span class="drawer-pub-year">2024</span></div>
+        <div class="drawer-pub-title">A Basic Income for Nunavut: Addressing Poverty in Canada's North</div>
+        <div class="drawer-pub-authors">Cameron, <strong>Gillian Petit</strong> and <strong>Lindsay M. Tedds</strong></div>
+        <div class="drawer-pub-outlet">Canadian Public Policy · Vol. 50, No. 3 · pp. 311–328</div>
+        <div class="drawer-pub-blurb">Examines the feasibility and design of a basic income for Nunavut through an intersectional, place-based lens.</div>
+        <div class="drawer-pub-actions"><a href="https://muse.jhu.edu/article/937820" target="_blank" rel="noopener" class="drawer-pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="drawer-pub">
+        <div class="drawer-pub-meta"><span class="drawer-pub-type">Journal Article</span><span class="drawer-pub-year">2024</span></div>
+        <div class="drawer-pub-title">The Place of a Basic Income in the Search for a More Just Society</div>
+        <div class="drawer-pub-authors"><strong>Lindsay M. Tedds</strong> and co-authors</div>
+        <div class="drawer-pub-outlet">Journal of Poverty and Social Justice · Vol. 32, No. 3</div>
+        <div class="drawer-pub-blurb">Situates basic income within a broader theory of social justice, arguing for an evidence-based, intersectional approach to income support reform.</div>
+        <div class="drawer-pub-actions"><a href="https://bristoluniversitypressdigital.com/view/journals/jpsj/32/3/article-p472.xml" target="_blank" rel="noopener" class="drawer-pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="drawer-pub">
+        <div class="drawer-pub-meta"><span class="drawer-pub-type">Journal Article</span><span class="drawer-pub-year">2021</span></div>
+        <div class="drawer-pub-title">Re-Envisaging the Canada Revenue Agency: From Tax Collector to Benefit Delivery Agent</div>
+        <div class="drawer-pub-authors"><strong>Gillian Petit</strong>, <strong>Lindsay M. Tedds</strong>, Green and Kesselman</div>
+        <div class="drawer-pub-outlet">Canadian Tax Journal · Vol. 69, No. 1 · pp. 99–114</div>
+        <div class="drawer-pub-blurb">Makes the case for transforming the CRA into a vehicle for delivering income supports, examining administrative infrastructure and equity implications.</div>
+        <div class="drawer-pub-actions"><a href="https://www.ctf.ca/common/Uploaded%20files/Documents/CTJ%202021/Issue%201/99_2021CTJ1-PF-3-Petit-etal.pdf" target="_blank" rel="noopener" class="drawer-pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="drawer-pub">
+        <div class="drawer-pub-meta"><span class="drawer-pub-type">Final Report</span><span class="drawer-pub-year">2021</span></div>
+        <div class="drawer-pub-title">Covering All the Basics: Reforms for a More Just Society</div>
+        <div class="drawer-pub-authors">Green, Kesselman and <strong>Lindsay M. Tedds</strong> (co-leads); <strong>Gillian Petit</strong> (Senior Research Associate)</div>
+        <div class="drawer-pub-outlet">BC Basic Income Expert Panel</div>
+        <div class="drawer-pub-blurb">Final report of the BC Expert Panel. Recommends targeted reforms rather than a single universal basic income to address the most acute gaps in provincial supports.</div>
+        <div class="drawer-pub-actions"><a href="https://bcbasicincomepanel.ca/" target="_blank" rel="noopener" class="drawer-pub-link">View Report ↗</a></div>
+      </div>
+
+      <div class="drawer-pub">
+        <div class="drawer-pub-meta"><span class="drawer-pub-type">Report</span><span class="drawer-pub-year">2021</span></div>
+        <div class="drawer-pub-title">Overview of Basic Income: A Discussion Paper</div>
+        <div class="drawer-pub-authors"><strong>Lindsay M. Tedds</strong>, Cameron, <strong>Gillian Petit</strong>, Perrin and Harrington</div>
+        <div class="drawer-pub-outlet">Government of Nunavut · Nunavut Feasibility Study Series</div>
+        <div class="drawer-pub-actions"><a href="https://www.gov.nu.ca/sites/default/files/documents/2024-11/Overview_of_Basic_Income_Final_October_19_2021_-_ENG.pdf" target="_blank" rel="noopener" class="drawer-pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="drawer-pub">
+        <div class="drawer-pub-meta"><span class="drawer-pub-type">Report</span><span class="drawer-pub-year">2021</span></div>
+        <div class="drawer-pub-title">Assessing the State and Nature of Poverty in Nunavut</div>
+        <div class="drawer-pub-authors"><strong>Lindsay M. Tedds</strong>, Cameron and Atherly</div>
+        <div class="drawer-pub-outlet">Government of Nunavut · Nunavut Feasibility Study Series</div>
+        <div class="drawer-pub-actions"><a href="Poverty%20and%20Wellbeing%20in%20Nunavut%20Final%20Oct%2021%202021.pdf" target="_blank" rel="noopener" class="drawer-pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="drawer-pub">
+        <div class="drawer-pub-meta"><span class="drawer-pub-type">Report</span><span class="drawer-pub-year">2021</span></div>
+        <div class="drawer-pub-title">Broad Overview of Income and Social Supports in Nunavut</div>
+        <div class="drawer-pub-authors"><strong>Gillian Petit</strong> and <strong>Lindsay M. Tedds</strong></div>
+        <div class="drawer-pub-outlet">Government of Nunavut · Nunavut Feasibility Study Series</div>
+        <div class="drawer-pub-actions"><a href="Overview%20of%20Income%20and%20Social%20Supports%20Final%20Jan%202022.pdf" target="_blank" rel="noopener" class="drawer-pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="drawer-pub">
+        <div class="drawer-pub-meta"><span class="drawer-pub-type">Report</span><span class="drawer-pub-year">2022</span></div>
+        <div class="drawer-pub-title">Basic Income Design Options in Nunavut for Modelling</div>
+        <div class="drawer-pub-authors"><strong>Lindsay M. Tedds</strong>, Cameron, Harrington, Perrin and <strong>Gillian Petit</strong></div>
+        <div class="drawer-pub-outlet">Government of Nunavut · Nunavut Feasibility Study Series</div>
+        <div class="drawer-pub-actions"><a href="GBI%20Design%20Options%20Final%20January%202023.pdf" target="_blank" rel="noopener" class="drawer-pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="drawer-pub">
+        <div class="drawer-pub-meta"><span class="drawer-pub-type">Report</span><span class="drawer-pub-year">2023</span></div>
+        <div class="drawer-pub-title">Nunavut Income Assistance: Patterns of Use and Recommendations for Reform</div>
+        <div class="drawer-pub-authors"><strong>Gillian Petit</strong>, <strong>Lindsay M. Tedds</strong> and Harrington</div>
+        <div class="drawer-pub-outlet">Government of Nunavut · Nunavut Feasibility Study Series</div>
+        <div class="drawer-pub-actions"><a href="Nunavut%20Income%20Assistance%20Final%20January%202023.pdf" target="_blank" rel="noopener" class="drawer-pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="drawer-pub">
+        <div class="drawer-pub-meta"><span class="drawer-pub-type">Report</span><span class="drawer-pub-year">2023</span></div>
+        <div class="drawer-pub-title">Basic Income Simulations in Nunavut</div>
+        <div class="drawer-pub-authors"><strong>Lindsay M. Tedds</strong>, <strong>Gillian Petit</strong>, Harrington and Perrin</div>
+        <div class="drawer-pub-outlet">Government of Nunavut · Nunavut Feasibility Study Series</div>
+        <div class="drawer-pub-actions"><a href="Simulations%20of%20Basic%20Income%20in%20Nunavut%20Final%20January%202023.pdf" target="_blank" rel="noopener" class="drawer-pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="drawer-pub">
+        <div class="drawer-pub-meta"><span class="drawer-pub-type">Report</span><span class="drawer-pub-year">2020</span></div>
+        <div class="drawer-pub-title">Considerations for Basic Income as a COVID-19 Response</div>
+        <div class="drawer-pub-authors">Green, Kesselman and <strong>Lindsay M. Tedds</strong></div>
+        <div class="drawer-pub-outlet">School of Public Policy Publications · University of Calgary</div>
+        <div class="drawer-pub-actions"><a href="https://www.policyschool.ca/wp-content/uploads/2020/05/Basic-Income-Green-Kesselman-Tedds.pdf" target="_blank" rel="noopener" class="drawer-pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="drawer-pub">
+        <div class="drawer-pub-meta"><span class="drawer-pub-type">Report</span><span class="drawer-pub-year">2017</span></div>
+        <div class="drawer-pub-title">Implementing a Basic Income Guarantee Through the Personal Income Tax System</div>
+        <div class="drawer-pub-authors"><strong>Lindsay M. Tedds</strong></div>
+        <div class="drawer-pub-outlet">Northern Policy Institute · Research Paper No. 25</div>
+        <div class="drawer-pub-actions"><a href="https://www.northernpolicy.ca/upload/documents/publications/reports-new/tedds_big-and-pit-en.pdf" target="_blank" rel="noopener" class="drawer-pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="drawer-pub">
+        <div class="drawer-pub-meta"><span class="drawer-pub-type">Commentary</span><span class="drawer-pub-year">2020</span></div>
+        <div class="drawer-pub-title">A Basic Income Is Not as Simple as You Might Think</div>
+        <div class="drawer-pub-authors">Green, Kesselman and <strong>Lindsay M. Tedds</strong></div>
+        <div class="drawer-pub-outlet">Policy Options · IRPP</div>
+        <div class="drawer-pub-actions"><a href="https://policyoptions.irpp.org/2020/05/a-basic-income-is-not-as-simple-as-you-might-think/" target="_blank" rel="noopener" class="drawer-pub-link">Read ↗</a></div>
+      </div>
+
+      <div class="drawer-pub">
+        <div class="drawer-pub-meta"><span class="drawer-pub-type">Podcast</span><span class="drawer-pub-year">2021</span></div>
+        <div class="drawer-pub-title">What Can We Learn from the BC Basic Income Panel?</div>
+        <div class="drawer-pub-authors"><strong>Lindsay M. Tedds</strong></div>
+        <div class="drawer-pub-outlet">McMaster Institute for Health Equity Podcast · Episode 3</div>
+        <div class="drawer-pub-actions"><a href="https://mihe.mcmaster.ca/episode3/" target="_blank" rel="noopener" class="drawer-pub-link">Listen ↗</a></div>
+      </div>
+
+      <div class="drawer-pub">
+        <div class="drawer-pub-meta"><span class="drawer-pub-type">Presentation</span><span class="drawer-pub-year">2021</span></div>
+        <div class="drawer-pub-title">Would a Universal Basic Income Best Address the Gaps in Canada's Social Safety Net?</div>
+        <div class="drawer-pub-authors"><strong>Lindsay M. Tedds</strong></div>
+        <div class="drawer-pub-outlet">Public Presentation</div>
+        <div class="drawer-pub-actions"><a href="https://www.scribd.com/document/507390117/Would-a-universal-basic-income-best-address-the-gaps-in-Canada-s-social-safety-net" target="_blank" rel="noopener" class="drawer-pub-link">View Slides ↗</a></div>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- CASH TRANSFER DRAWER -->
+  <aside id="drawer-cash-transfer" class="drawer" role="dialog" aria-modal="true" aria-label="Cash Transfer publications">
+    <div class="drawer-head">
+      <div class="drawer-head-text">
+        <div class="drawer-kicker">ENABLE Stream · Journal Article · 2026</div>
+        <div class="drawer-title">Income and Social Supports — All Publications</div>
+      </div>
+      <button class="drawer-close" onclick="closeDrawer()" aria-label="Close">✕</button>
+    </div>
+    <div class="drawer-body">
+
+      <div class="drawer-pub">
+        <div class="drawer-pub-meta"><span class="drawer-pub-type">Journal Article</span><span class="drawer-pub-year">2026</span></div>
+        <div class="drawer-pub-title">Income and Social Supports: An Inclusive Systems-Based Framework for Cash Transfer Design</div>
+        <div class="drawer-pub-authors"><strong>Lindsay M. Tedds</strong> and <strong>Gillian Petit</strong></div>
+        <div class="drawer-pub-outlet">Canadian Public Administration · doi:10.1111/capa.70050</div>
+        <div class="drawer-pub-blurb">Develops a systems-based framework for the inclusive design and evaluation of cash transfer programs in Canada, integrating policy design, empirical economics, systems thinking, and intersectionality.</div>
+        <div class="drawer-pub-actions">
+          <a href="https://onlinelibrary.wiley.com/doi/10.1111/capa.70050" target="_blank" rel="noopener" class="drawer-pub-link">Read Article ↗</a>
+          <a href="cash-transfer-brief.html" target="_blank" rel="noopener" class="drawer-pub-link-sec">📋 Brief</a>
+          <a href="poster.png" target="_blank" rel="noopener" class="drawer-pub-link-sec">📊 Poster</a>
+          <a href="A_Framework_for_a_Better_Safety_Net.mp4" target="_blank" rel="noopener" class="drawer-pub-link-sec">🎥 Video</a>
+        </div>
+      </div>
+
+    </div>
+  </aside>
 
 </body>
 </html>
