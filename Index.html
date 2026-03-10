@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INCLUSIECON — Tax & Transfer Policy Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary:         #5c1a1a;
+      --primary-dark:    #3e1010;
+      --primary-mid:     #7a2828;
+      --primary-light:   #a84848;
+      --secondary:       #7a3a44;
+      --secondary-mid:   #9e5560;
+      --secondary-light: #c48890;
+      --secondary-pale:  #ecdde0;
+      --accent:          #a87828;
+      --accent-light:    #c8a050;
+      --accent-pale:     #e8d898;
+      --surface:         #f7f2ea;
+      --surface-raised:  #ece4d8;
+      --border:          #ddd0bc;
+      --text-dark:       #180808;
+      --text-mid:        #3e2028;
+      --text-muted:      #7a5858;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--surface);
+      color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(62,16,16,0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 2.5rem;
+      height: 62px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Lora', serif; font-weight: 700; font-size: 1.15rem;
+      color: #fff; text-decoration: none; letter-spacing: 0.03em;
+    }
+    .nav-logo span { color: var(--accent-light); }
+    .nav-links { display: flex; gap: 0.2rem; list-style: none; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.62); text-decoration: none;
+      font-size: 0.85rem; font-weight: 500; padding: 0.4rem 0.85rem;
+      border-radius: 4px; transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.07); }
+    .nav-cta {
+      background: var(--accent) !important;
+      color: #fff !important; font-weight: 600 !important;
+      padding: 0.42rem 1.15rem !important;
+    }
+    .nav-cta:hover { background: var(--accent-light) !important; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      background: var(--primary-dark);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 65% 55% at 68% 32%, rgba(122,58,68,0.32) 0%, transparent 58%),
+        radial-gradient(ellipse 38% 45% at 12% 78%, rgba(168,120,40,0.11) 0%, transparent 50%),
+        linear-gradient(162deg, #3e1010 0%, #2c0c0c 55%, #1a0808 100%);
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative; z-index: 2;
+      max-width: 1200px; margin: 0 auto;
+      padding: 9rem 2.5rem 6rem;
+      display: grid; grid-template-columns: 1fr 420px;
+      gap: 6rem; align-items: center;
+    }
+    .hero-kicker {
+      display: inline-flex; align-items: center; gap: 0.7rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.75rem;
+    }
+    .hero-kicker::before {
+      content: ''; display: block; width: 32px; height: 1.5px; background: var(--accent-light);
+    }
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.5rem, 4vw, 3.75rem);
+      font-weight: 700; line-height: 1.1;
+      color: #fff; letter-spacing: -0.015em; margin-bottom: 1.75rem;
+    }
+    h1 em { font-style: italic; color: var(--secondary-light); }
+    .hero-sub {
+      font-size: 1.1rem; color: rgba(255,255,255,0.62);
+      line-height: 1.82; max-width: 520px; margin-bottom: 2.75rem;
+    }
+    .hero-sub strong { color: rgba(255,255,255,0.88); font-weight: 600; }
+    .hero-byline {
+      display: flex; align-items: center; gap: 0.85rem; margin-bottom: 2.5rem;
+    }
+    .byline-avatars { display: flex; }
+    .avatar {
+      width: 42px; height: 42px; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.15);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Lora', serif; font-size: 0.9rem; font-weight: 700;
+      color: #fff; margin-left: -8px;
+    }
+    .avatar:first-child { margin-left: 0; }
+    .avatar-lt { background: var(--primary-mid); }
+    .avatar-gp { background: var(--secondary); }
+    .byline-text { font-size: 0.84rem; color: rgba(255,255,255,0.52); line-height: 1.5; }
+    .byline-text strong { color: rgba(255,255,255,0.82); font-weight: 600; display: block; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-gold {
+      background: var(--accent); color: #fff;
+      padding: 0.88rem 1.85rem; border-radius: 5px;
+      font-weight: 600; font-size: 0.9rem; text-decoration: none;
+      letter-spacing: 0.02em; transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-gold:hover { background: var(--accent-light); transform: translateY(-1px); }
+    .btn-outline-light {
+      border: 1.5px solid rgba(255,255,255,0.28); color: rgba(255,255,255,0.78);
+      padding: 0.88rem 1.85rem; border-radius: 5px;
+      font-weight: 500; font-size: 0.9rem; text-decoration: none;
+      transition: border-color 0.2s, color 0.2s; display: inline-block;
+    }
+    .btn-outline-light:hover { border-color: rgba(255,255,255,0.62); color: #fff; }
+
+    /* hero aside */
+    .hero-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 14px; padding: 2.25rem;
+      backdrop-filter: blur(5px);
+    }
+    .card-label {
+      font-size: 0.67rem; font-weight: 700; letter-spacing: 0.13em;
+      text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.25rem;
+    }
+    .approach-list { list-style: none; }
+    .approach-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .approach-item:last-child { border-bottom: none; }
+    .approach-num {
+      font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700;
+      color: var(--secondary-light); line-height: 1; min-width: 24px; margin-top: 1px;
+    }
+    .approach-text strong {
+      display: block; font-size: 0.88rem; font-weight: 600;
+      color: rgba(255,255,255,0.88); margin-bottom: 0.2rem;
+    }
+    .approach-text span { font-size: 0.78rem; color: rgba(255,255,255,0.46); line-height: 1.5; }
+
+    /* ── SHARED ── */
+    .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.13em;
+      text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .eyebrow::before { content: ''; display: block; width: 24px; height: 1.5px; }
+    .ey-gold { color: var(--accent); }
+    .ey-gold::before { background: var(--accent); }
+    .ey-rose { color: var(--secondary-mid); }
+    .ey-rose::before { background: var(--secondary-mid); }
+    .ey-light { color: var(--accent-light); }
+    .ey-light::before { background: var(--accent-light); }
+    .sh {
+      font-family: 'Lora', serif; font-weight: 700;
+      line-height: 1.18; letter-spacing: -0.01em;
+    }
+    .sh-dark { color: var(--text-dark); }
+    .sh-white { color: #fff; }
+    .sh-lg { font-size: clamp(1.85rem, 2.8vw, 2.5rem); }
+    .rule { width: 44px; height: 2.5px; border-radius: 2px; margin: 0.8rem 0 1.75rem; }
+    .rule-gold { background: var(--accent); }
+    .rule-rose { background: var(--secondary-mid); }
+
+    /* ── RESEARCH STREAMS ── */
+    #approach { background: var(--surface); padding: 7rem 0; }
+    .approach-intro { max-width: 720px; margin: 0 auto 4.5rem; text-align: center; }
+    .approach-intro .eyebrow { justify-content: center; }
+    .approach-intro p { font-size: 1.05rem; color: var(--text-mid); line-height: 1.85; margin-top: 1rem; }
+    .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .pillar-card { border-radius: 14px; overflow: hidden; border: 1px solid var(--border); transition: box-shadow 0.3s, transform 0.25s; }
+    .pillar-card:hover { box-shadow: 0 14px 44px rgba(92,26,26,0.12); transform: translateY(-3px); }
+    .pillar-top { padding: 2.25rem 2.25rem 2rem; }
+    .pc-fact .pillar-top { background: linear-gradient(140deg, var(--secondary) 0%, var(--primary-dark) 100%); }
+    .pc-enable .pillar-top { background: linear-gradient(140deg, #6b3810 0%, var(--primary-dark) 100%); }
+    .pillar-tag { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.48); margin-bottom: 0.5rem; }
+    .pillar-name { font-family: 'Lora', serif; font-size: 2rem; font-weight: 700; color: #fff; margin-bottom: 0.3rem; line-height: 1; }
+    .pillar-full { font-size: 0.8rem; color: rgba(255,255,255,0.52); font-style: italic; line-height: 1.4; }
+    .pillar-body { padding: 2rem 2.25rem; background: #fff; }
+    .pillar-desc { font-size: 0.92rem; color: var(--text-mid); line-height: 1.78; margin-bottom: 1.4rem; }
+    .pillar-topics { list-style: none; display: flex; flex-direction: column; gap: 0.45rem; }
+    .pillar-topics li { font-size: 0.83rem; color: var(--text-mid); padding-left: 1.2rem; position: relative; line-height: 1.5; }
+    .pillar-topics li::before { content: '→'; position: absolute; left: 0; font-size: 0.75rem; font-weight: 700; }
+    .pc-fact .pillar-topics li::before { color: var(--secondary-mid); }
+    .pc-enable .pillar-topics li::before { color: var(--accent); }
+
+    /* ── WHAT MAKES US DIFFERENT ── */
+    #distinctive { background: var(--primary-dark); padding: 7rem 0; }
+    .distinctive-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 3.5rem; }
+    .distinctive-left p { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.85; margin-bottom: 1.1rem; }
+    .distinctive-left p strong { color: rgba(255,255,255,0.9); font-weight: 600; }
+    .distinctive-left blockquote {
+      font-family: 'Lora', serif; font-style: italic;
+      font-size: 1.08rem; line-height: 1.7; color: rgba(255,255,255,0.82);
+      border-left: 2px solid var(--secondary-mid);
+      padding-left: 1.25rem; margin: 2rem 0;
+    }
+    .distinctive-left cite { font-size: 0.78rem; color: var(--accent-light); font-style: normal; font-weight: 600; letter-spacing: 0.05em; }
+    .diff-cards { display: flex; flex-direction: column; gap: 0.75rem; }
+    .diff-card {
+      padding: 1.5rem 1.75rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px; transition: background 0.2s;
+    }
+    .diff-card:hover { background: rgba(255,255,255,0.07); }
+    .diff-num { font-family: 'Lora', serif; font-size: 0.72rem; font-weight: 700; color: var(--accent-light); letter-spacing: 0.08em; margin-bottom: 0.4rem; }
+    .diff-title { font-size: 0.95rem; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 0.35rem; }
+    .diff-desc { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+
+    /* ── FEATURED WORK ── */
+    #work { background: var(--surface-raised); padding: 7rem 0; }
+    .work-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; gap: 2rem; }
+    .see-all {
+      font-size: 0.85rem; font-weight: 600; color: var(--primary);
+      text-decoration: none; white-space: nowrap;
+      border-bottom: 1.5px solid var(--accent); padding-bottom: 1px; transition: color 0.2s;
+    }
+    .see-all:hover { color: var(--accent); }
+    .work-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .work-card {
+      border-radius: 13px; overflow: hidden; border: 1px solid var(--border); background: #fff;
+      display: flex; flex-direction: column; text-decoration: none; color: inherit;
+      transition: box-shadow 0.28s, transform 0.28s;
+    }
+    .work-card:hover { box-shadow: 0 14px 42px rgba(92,26,26,0.12); transform: translateY(-3px); }
+    .work-thumb { height: 172px; display: flex; align-items: flex-end; padding: 1.25rem; }
+    .wt-fact { background: linear-gradient(150deg, var(--secondary) 0%, var(--primary-dark) 100%); }
+    .wt-enable { background: linear-gradient(150deg, #6b3810 0%, var(--primary-dark) 100%); }
+    .wt-both { background: linear-gradient(150deg, var(--primary) 0%, #2a1020 100%); }
+    .w-pill { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 20px; border: 1px solid; }
+    .wp-fact { background: rgba(196,136,144,0.18); color: var(--secondary-light); border-color: rgba(196,136,144,0.28); }
+    .wp-enable { background: rgba(200,160,80,0.18); color: var(--accent-light); border-color: rgba(200,160,80,0.28); }
+    .wp-both { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.72); border-color: rgba(255,255,255,0.16); }
+    .work-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .work-title { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 700; color: var(--text-dark); line-height: 1.3; margin-bottom: 0.6rem; }
+    .work-desc { font-size: 0.83rem; color: var(--text-mid); line-height: 1.72; flex: 1; margin-bottom: 1rem; }
+    .work-meta { font-size: 0.71rem; color: var(--text-muted); font-weight: 500; padding-top: 0.75rem; border-top: 1px solid var(--surface-raised); }
+
+    /* ── RESEARCHERS ── */
+    #researchers { background: var(--surface); padding: 7rem 0; }
+    .researchers-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3.5rem; }
+    .researcher-card { border-radius: 13px; overflow: hidden; border: 1px solid var(--border); transition: box-shadow 0.25s; }
+    .researcher-card:hover { box-shadow: 0 8px 32px rgba(92,26,26,0.1); }
+    .rc-head { padding: 2rem 2.25rem 1.75rem; }
+    .rc-head-lt { background: linear-gradient(140deg, var(--primary) 0%, var(--primary-dark) 100%); }
+    .rc-head-gp { background: linear-gradient(140deg, var(--secondary) 0%, var(--primary-dark) 100%); }
+    .rc-initial {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(255,255,255,0.12); border: 1.5px solid rgba(255,255,255,0.18);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Lora', serif; font-weight: 700; font-size: 1.1rem; color: #fff; margin-bottom: 1rem;
+    }
+    .rc-name { font-family: 'Lora', serif; font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem; }
+    .rc-title { font-size: 0.8rem; color: var(--accent-light); font-weight: 500; }
+    .rc-body { padding: 1.75rem 2.25rem; background: #fff; }
+    .rc-bio { font-size: 0.88rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 1.25rem; }
+    .rc-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .tag { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 0.22rem 0.7rem; font-size: 0.73rem; color: var(--text-mid); font-weight: 500; }
+    .researchers-cta { margin-top: 2.5rem; text-align: center; }
+    .btn-outline-dark {
+      border: 1.5px solid var(--primary); color: var(--primary);
+      padding: 0.82rem 1.75rem; border-radius: 5px;
+      font-weight: 600; font-size: 0.88rem; text-decoration: none;
+      transition: background 0.2s, color 0.2s; display: inline-block;
+    }
+    .btn-outline-dark:hover { background: var(--primary); color: #fff; }
+
+    /* ── CTA STRIP ── */
+    #cta-strip { background: var(--primary); padding: 6rem 0; }
+    .cta-inner { max-width: 800px; margin: 0 auto; padding: 0 2.5rem; text-align: center; }
+    .cta-inner .eyebrow { justify-content: center; }
+    .cta-inner h2 {
+      font-family: 'Lora', serif; font-size: clamp(1.85rem, 3vw, 2.6rem);
+      font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 1.25rem; letter-spacing: -0.01em;
+    }
+    .cta-inner h2 em { font-style: italic; color: var(--secondary-light); }
+    .cta-inner p { font-size: 1.05rem; color: rgba(255,255,255,0.62); line-height: 1.8; margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+    .cta-inner p strong { color: var(--accent-light); }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--primary-dark); border-top: 1px solid rgba(255,255,255,0.06); padding: 3.5rem 2.5rem 2rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 3rem; }
+    .footer-brand { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; letter-spacing: 0.03em; }
+    .footer-brand span { color: var(--accent-light); }
+    .footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.38); line-height: 1.65; max-width: 280px; }
+    .footer-col h4 { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.32); margin-bottom: 0.9rem; }
+    .footer-col a { display: block; font-size: 0.83rem; color: rgba(255,255,255,0.52); text-decoration: none; margin-bottom: 0.45rem; transition: color 0.2s; }
+    .footer-col a:hover { color: rgba(255,255,255,0.85); }
+    .footer-bottom { max-width: 1200px; margin: 2.5rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+    .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.up { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 980px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      .pillars, .distinctive-grid, .work-grid, .researchers-layout { grid-template-columns: 1fr; }
+      .work-grid { grid-template-columns: 1fr 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 600px) {
+      .work-grid { grid-template-columns: 1fr; }
+      .work-header { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">INCLUSI<span>ECON</span></a>
+      <ul class="nav-links">
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Research</a></li>
+        <li><a href="#">Who We Are</a></li>
+        <li><a href="#">Partner With Us</a></li>
+        <li><a href="#" class="nav-cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="hero-kicker">Tax &amp; Transfer Policy Research · Canada</div>
+        <h1>Rigorous research.<br><em>Real policy change.</em></h1>
+        <p class="hero-sub">
+          We are economists who study Canada's tax-and-transfer system as what it actually is — <strong>two sides of one coin.</strong> Our research is designed from the start to be used: by governments, by civil society, and by the people policies affect.
+        </p>
+        <div class="hero-byline">
+          <div class="byline-avatars">
+            <div class="avatar avatar-lt">LT</div>
+            <div class="avatar avatar-gp">GP</div>
+          </div>
+          <div class="byline-text">
+            <strong>Drs. Lindsay Tedds &amp; Gillian Petit</strong>
+            Economists · University of Calgary
+          </div>
+        </div>
+        <div class="hero-btns">
+          <a href="#work" class="btn-gold">See Our Research</a>
+          <a href="#" class="btn-outline-light">Work With Us</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="card-label">What makes our approach different</div>
+        <ul class="approach-list">
+          <li class="approach-item">
+            <div class="approach-num">01</div>
+            <div class="approach-text">
+              <strong>Tax and transfers as one system</strong>
+              <span>We study how governments raise and redistribute resources together — not as separate policy domains</span>
+            </div>
+          </li>
+          <li class="approach-item">
+            <div class="approach-num">02</div>
+            <div class="approach-text">
+              <strong>Across disciplinary boundaries</strong>
+              <span>Economics, law, public administration, sociology — because real policy problems don't respect disciplines</span>
+            </div>
+          </li>
+          <li class="approach-item">
+            <div class="approach-num">03</div>
+            <div class="approach-text">
+              <strong>Co-designed with partners</strong>
+              <span>Research built alongside government and civil society from the start, not handed over at the end</span>
+            </div>
+          </li>
+          <li class="approach-item">
+            <div class="approach-num">04</div>
+            <div class="approach-text">
+              <strong>Through implementation</strong>
+              <span>We follow our work into practice — design is only the beginning of how policy changes outcomes</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCH STREAMS -->
+  <section id="approach">
+    <div class="section-inner">
+      <div class="approach-intro reveal">
+        <div class="eyebrow ey-rose">Our Research</div>
+        <h2 class="sh sh-dark sh-lg">Two research streams. One integrated vision.</h2>
+        <p>Canada's tax policies and its transfer programs are designed and studied as though they exist in separate worlds. They don't. Our work brings them together — examining the full system that shapes who has resources, who doesn't, and why.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar-card pc-fact reveal">
+          <div class="pillar-top">
+            <div class="pillar-tag">Taxation · Revenue Side</div>
+            <div class="pillar-name">FACT</div>
+            <div class="pillar-full">Fair and Accountable Canadian Taxation</div>
+          </div>
+          <div class="pillar-body">
+            <p class="pillar-desc">How governments raise resources — and whether they do so fairly, efficiently, and transparently. From federal income tax to municipal property levies, we examine the full tax mix and what it means for Canadians.</p>
+            <ul class="pillar-topics">
+              <li>Tax mix and progressivity across federal, provincial, and municipal levels</li>
+              <li>Property taxation and municipal finance reform</li>
+              <li>Advanced tax fairness metrics including the Marginal Value of Public Funds</li>
+              <li>Open data infrastructure and public accountability</li>
+              <li>Fiscal federalism and intergovernmental reform</li>
+            </ul>
+          </div>
+        </div>
+        <div class="pillar-card pc-enable reveal">
+          <div class="pillar-top">
+            <div class="pillar-tag">Transfers · Redistribution Side</div>
+            <div class="pillar-name">ENABLE</div>
+            <div class="pillar-full">Equity in Needs-based Assistance for Better Lives and Engagement</div>
+          </div>
+          <div class="pillar-body">
+            <p class="pillar-desc">How governments redistribute resources — and whether the programs they design actually reach people with adequate, accessible support. We examine income and social programs from design through delivery.</p>
+            <ul class="pillar-topics">
+              <li>Cash transfer program design and income security reform</li>
+              <li>Benefit adequacy, material deprivation, and disability supports</li>
+              <li>System mapping across provinces and territories</li>
+              <li>Program implementation, administration, and delivery barriers</li>
+              <li>Evaluation frameworks grounded in lived experience</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT MAKES US DIFFERENT -->
+  <section id="distinctive">
+    <div class="section-inner">
+      <div class="distinctive-grid">
+        <div class="distinctive-left reveal">
+          <div class="eyebrow ey-light">Our Approach</div>
+          <h2 class="sh sh-white sh-lg">Economics that works in practice, not just on paper</h2>
+          <div class="rule rule-rose"></div>
+          <p>Traditional economic approaches treat policy as a design problem: build the right model, produce the right recommendations, hand them over. We've seen what happens next — implementation fails, communities are left behind, and the next reform starts from scratch.</p>
+          <p>Our research is built differently. We work across disciplinary boundaries because <strong>tax and transfer policy involves law, administration, political science, and the lived realities of people</strong> that economics alone can't capture. We co-design with government and civil society partners so findings are usable from day one. And we stay involved through implementation, because that's where policy either works or doesn't.</p>
+          <blockquote>
+            "Good tax policy planning involves economists, lawyers, administrators, and — importantly — adequate discussion with taxpayers."
+          </blockquote>
+          <cite>— Richard M. Bird</cite>
+        </div>
+        <div class="reveal">
+          <div class="diff-cards">
+            <div class="diff-card">
+              <div class="diff-num">01 — Integrated Systems Thinking</div>
+              <div class="diff-title">Tax and transfers as one policy system</div>
+              <div class="diff-desc">How governments raise and redistribute resources are inseparable. We're among the few research teams in Canada studying them together, as a coherent whole.</div>
+            </div>
+            <div class="diff-card">
+              <div class="diff-num">02 — Cross-Disciplinary</div>
+              <div class="diff-title">Economics, law, public admin, sociology</div>
+              <div class="diff-desc">We work across the disciplines that actually shape how policy gets made and experienced — not just the ones that model it abstractly.</div>
+            </div>
+            <div class="diff-card">
+              <div class="diff-num">03 — Co-Designed</div>
+              <div class="diff-title">Built with partners, not delivered to them</div>
+              <div class="diff-desc">Government agencies, civil society organisations, and affected communities are collaborators in our research design — not just end users of our outputs.</div>
+            </div>
+            <div class="diff-card">
+              <div class="diff-num">04 — Implementation-Focused</div>
+              <div class="diff-title">We follow the work into practice</div>
+              <div class="diff-desc">Policy design without attention to delivery and real-world barriers produces plans that look good on paper and fail on the ground. We stay involved.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED WORK -->
+  <section id="work">
+    <div class="section-inner">
+      <div class="work-header reveal">
+        <div>
+          <div class="eyebrow ey-gold">Featured Research</div>
+          <h2 class="sh sh-dark sh-lg">Recent work with real-world reach</h2>
+        </div>
+        <a href="#" class="see-all">All research →</a>
+      </div>
+      <div class="work-grid">
+        <a href="#" class="work-card reveal">
+          <div class="work-thumb wt-fact">
+            <span class="w-pill wp-fact">FACT</span>
+          </div>
+          <div class="work-body">
+            <div class="work-title">BC &amp; Alberta Property Tax Spatial Analysis</div>
+            <div class="work-desc">A spatial crosswalk of regional district service area boundaries against provincial rural property tax rate data — building the evidence base for municipal finance reform across two provinces.</div>
+            <div class="work-meta">British Columbia · Alberta · Ongoing</div>
+          </div>
+        </a>
+        <a href="#" class="work-card reveal">
+          <div class="work-thumb wt-enable">
+            <span class="w-pill wp-enable">ENABLE</span>
+          </div>
+          <div class="work-body">
+            <div class="work-title">Income and Social Supports: A Systems-Based Approach to Cash Transfer Design</div>
+            <div class="work-desc">A new framework for cash transfer program design — published in <em>Canadian Public Administration</em> — centring inclusion, adequacy, and the lived experience of people the programs serve.</div>
+            <div class="work-meta">Tedds &amp; Petit · Canadian Public Administration · 2026</div>
+          </div>
+        </a>
+        <a href="#" class="work-card reveal">
+          <div class="work-thumb wt-both">
+            <span class="w-pill wp-both">FACT + ENABLE</span>
+          </div>
+          <div class="work-body">
+            <div class="work-title">Ontario Property Tax Regressivity</div>
+            <div class="work-desc">Linking Ontario residential property tax rates to 2016 Census dissemination areas to examine distributional equity — part of a cross-provincial research programme on property tax as social policy.</div>
+            <div class="work-meta">Ontario · RDC Project MRC 11508 · 2025</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEARCHERS -->
+  <section id="researchers">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="eyebrow ey-rose">Who We Are</div>
+        <h2 class="sh sh-dark sh-lg">Two researchers. One sustained collaboration.</h2>
+        <div class="rule rule-gold"></div>
+        <p style="max-width:660px; font-size:1rem; color:var(--text-mid); line-height:1.82;">
+          Since 2019, we have built a record of joint work on tax reform and income security that combines rigorous analysis with direct policy impact — advising governments, shaping legislation, and training the next generation of policy researchers.
+        </p>
+      </div>
+      <div class="researchers-layout">
+        <div class="researcher-card reveal">
+          <div class="rc-head rc-head-lt">
+            <div class="rc-initial">LT</div>
+            <div class="rc-name">Dr. Lindsay M. Tedds</div>
+            <div class="rc-title">Professor of Economics · University of Calgary</div>
+          </div>
+          <div class="rc-body">
+            <p class="rc-bio">One of Canada's leading experts on tax policy design, implementation, and administration — with deep experience advising federal, provincial, and municipal governments on income taxation, municipal finance, and fiscal federalism.</p>
+            <div class="rc-tags">
+              <span class="tag">Tax Policy</span>
+              <span class="tag">Municipal Finance</span>
+              <span class="tag">Fiscal Federalism</span>
+              <span class="tag">Property Tax</span>
+              <span class="tag">MVPF</span>
+            </div>
+          </div>
+        </div>
+        <div class="researcher-card reveal">
+          <div class="rc-head rc-head-gp">
+            <div class="rc-initial">GP</div>
+            <div class="rc-name">Dr. Gillian Petit</div>
+            <div class="rc-title">Senior Research Associate · University of Calgary</div>
+          </div>
+          <div class="rc-body">
+            <p class="rc-bio">An applied microeconomist specialising in the design and delivery of income support programs, with a focus on equity, inclusion, and administrative effectiveness. A central contributor to the BC Basic Income Expert Panel and ongoing disability benefit reform.</p>
+            <div class="rc-tags">
+              <span class="tag">Income Support</span>
+              <span class="tag">Benefit Adequacy</span>
+              <span class="tag">Disability Policy</span>
+              <span class="tag">Basic Income</span>
+              <span class="tag">System Mapping</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="researchers-cta reveal">
+        <a href="#" class="btn-outline-dark">Read our full bios →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section id="cta-strip">
+    <div class="cta-inner">
+      <div class="eyebrow ey-light">Work With Us</div>
+      <h2>If you need credible, usable research on Canadian fiscal policy — <em>we should talk.</em></h2>
+      <p>
+        We work with <strong>governments, civil society organisations, and research partners</strong> across Canada. Whether you need policy analysis, program evaluation, co-designed research, or expert advice — our work is built to be used.
+      </p>
+      <div class="cta-btns">
+        <a href="#" class="btn-gold">See Our Services</a>
+        <a href="#" class="btn-outline-light">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">INCLUSI<span>ECON</span></div>
+        <div class="footer-tagline">Tax and transfer policy research for a fairer Canada. Based at the University of Calgary.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Research</h4>
+        <a href="#">FACT Stream</a>
+        <a href="#">ENABLE Stream</a>
+        <a href="#">Publications</a>
+        <a href="#">Data &amp; Tools</a>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <a href="#">Who We Are</a>
+        <a href="#">Our Approach</a>
+        <a href="#">Services</a>
+        <a href="#">Dead For Tax Reasons ↗</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:lindsay.tedds1@ucalgary.ca">Lindsay Tedds</a>
+        <a href="mailto:gillian.petit@ucalgary.ca">Gillian Petit</a>
+        <a href="#">Work With Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Lindsay Tedds &amp; Gillian Petit · University of Calgary</span>
+      <a href="#">lindsaytedds.ca ↗</a>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('up'), i * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
