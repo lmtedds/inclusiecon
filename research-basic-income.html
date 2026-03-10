@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Income Research — INCLUSIECON</title>
+  <meta name="description" content="A decade of foundational basic income research by Drs. Lindsay Tedds and Gillian Petit — from the BC Basic Income Expert Panel to Nunavut.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary:        #5c1a1a;
+      --primary-dark:   #3e1010;
+      --primary-mid:    #7a2828;
+      --primary-light:  #a84848;
+      --secondary:      #7a3a44;
+      --secondary-mid:  #9e5560;
+      --secondary-light:#c48890;
+      --secondary-pale: #ecdde0;
+      --accent:         #a87828;
+      --accent-light:   #c8a050;
+      --accent-pale:    #e8d898;
+      --surface:        #f7f2ea;
+      --surface-raised: #ece4d8;
+      --border:         #ddd0bc;
+      --text-dark:      #180808;
+      --text-mid:       #3e2028;
+      --text-muted:     #7a5858;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--surface);
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--primary-dark);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 2px solid var(--accent);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: var(--accent-pale);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+    .nav-logo span { color: var(--accent-light); }
+    .nav-links { display: flex; gap: 0.25rem; }
+    .nav-links a {
+      color: var(--secondary-pale);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.75rem;
+      border-radius: 3px;
+      transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+    .nav-links a.active { color: var(--accent-light); }
+
+    /* ── PROJECT HERO ── */
+    .project-hero {
+      background: var(--primary-dark);
+      background-image: 
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(168,120,40,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(122,58,68,0.25) 0%, transparent 60%);
+      padding: 5rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 80px,
+        rgba(255,255,255,0.015) 80px,
+        rgba(255,255,255,0.015) 81px
+      );
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .hero-breadcrumb {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .hero-breadcrumb a { color: var(--secondary-light); text-decoration: none; }
+    .hero-breadcrumb a:hover { color: var(--accent-light); }
+    .hero-breadcrumb span { opacity: 0.5; }
+    .hero-kicker {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .hero-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      max-width: 800px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent-pale);
+    }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--secondary-pale);
+      max-width: 680px;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .stat-number {
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent-light);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--secondary-light);
+    }
+
+    /* ── LAYOUT ── */
+    .page-body {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    /* ── SECTION HEADERS ── */
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 1.5px solid var(--border);
+    }
+    .section-title {
+      font-family: 'Lora', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .section-pill {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-pale);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+    }
+
+    /* ── FLAGSHIP CARDS ── */
+    .flagship-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+    .flagship-card {
+      background: var(--primary);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .flagship-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 50%, rgba(168,120,40,0.15) 100%);
+      pointer-events: none;
+    }
+    .flagship-banner {
+      padding: 0.5rem 1.25rem;
+      background: var(--accent);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--primary-dark);
+    }
+    .flagship-body {
+      padding: 1.75rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .flagship-type {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+    }
+    .flagship-title {
+      font-family: 'Lora', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      font-style: italic;
+      color: #fff;
+      line-height: 1.3;
+    }
+    .flagship-authors {
+      font-size: 0.85rem;
+      color: var(--secondary-pale);
+    }
+    .flagship-authors strong { color: var(--accent-pale); }
+    .flagship-blurb {
+      font-size: 0.9rem;
+      color: var(--secondary-light);
+      line-height: 1.65;
+      flex: 1;
+    }
+    .flagship-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.75rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .flagship-outlet {
+      font-size: 0.78rem;
+      color: var(--secondary-mid);
+      font-weight: 500;
+    }
+    .flagship-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent-light);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .flagship-link:hover { color: var(--accent-pale); }
+
+    /* ── OUTPUT LIST ── */
+    .output-section { margin-bottom: 3.5rem; }
+
+    .output-list { display: flex; flex-direction: column; gap: 1px; }
+
+    .output-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.25rem 1.5rem;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0 1.25rem;
+      align-items: start;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      margin-bottom: 0.5rem;
+    }
+    .output-item:hover {
+      border-color: var(--secondary-light);
+      box-shadow: 0 2px 12px rgba(92,26,26,0.06);
+    }
+    .output-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .icon-journal { background: var(--secondary-pale); color: var(--secondary); }
+    .icon-report  { background: var(--accent-pale);    color: var(--accent); }
+    .icon-media   { background: #e8eeec;                color: #4a7060; }
+    .icon-policy  { background: #ece4d8;                color: var(--primary-mid); }
+
+    .output-main { min-width: 0; }
+    .output-title {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      line-height: 1.4;
+      margin-bottom: 0.3rem;
+    }
+    .output-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .output-meta strong { color: var(--text-mid); font-weight: 500; }
+    .output-blurb {
+      font-size: 0.875rem;
+      color: var(--text-mid);
+      line-height: 1.6;
+    }
+    .output-tags {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-top: 0.6rem;
+    }
+    .tag {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+    }
+    .tag-enable { background: var(--secondary-pale); color: var(--secondary); }
+    .tag-fact   { background: var(--accent-pale);    color: var(--accent); }
+    .tag-both   { background: var(--surface-raised); color: var(--primary-mid); }
+    .tag-bc     { background: #deeadf; color: #3a6845; }
+    .tag-nu     { background: #dde6ef; color: #3a5068; }
+
+    .output-action {
+      flex-shrink: 0;
+      padding-top: 0.1rem;
+    }
+    .badge-confidential {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border: 1.5px solid var(--border);
+      padding: 0.4rem 0.75rem;
+      border-radius: 4px;
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+      background: var(--surface-raised);
+    }
+
+    .badge-request {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border: 1.5px solid var(--border);
+      padding: 0.4rem 0.75rem;
+      border-radius: 4px;
+      white-space: nowrap;
+      letter-spacing: 0.03em;
+      background: var(--surface-raised);
+    }
+
+    .btn-read {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      border: 1.5px solid var(--border);
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      white-space: nowrap;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+    }
+    .btn-read:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* ── CONTEXT BOX ── */
+    .context-box {
+      background: var(--primary-dark);
+      border-radius: 8px;
+      padding: 2rem 2.5rem;
+      margin-bottom: 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .context-box h3 {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--accent-light);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.02em;
+    }
+    .context-box p {
+      font-size: 0.9rem;
+      color: var(--secondary-pale);
+      line-height: 1.7;
+    }
+    .context-box a { color: var(--accent-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--primary-dark);
+      color: var(--secondary-pale);
+      padding: 3rem 2rem;
+      border-top: 2px solid var(--accent);
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .footer-logo {
+      font-family: 'Lora', serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--accent-pale);
+    }
+    .footer-logo span { color: var(--accent-light); }
+    .footer-copy {
+      font-size: 0.8rem;
+      color: var(--secondary-mid);
+    }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--secondary-light);
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: var(--accent-light); }
+
+    @media (max-width: 768px) {
+      .flagship-grid { grid-template-columns: 1fr; }
+      .output-item { grid-template-columns: auto 1fr; }
+      .output-action { grid-column: 2; }
+      .context-box { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+      .nav-links a { font-size: 0.72rem; padding: 0.4rem 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">INCLUSI<span>ECON</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="research.html" class="active">Research</a>
+        <a href="who-we-are.html">Who We Are</a>
+        <a href="partner-with-us.html">Partner With Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="project-hero">
+    <div class="hero-inner">
+      <div class="hero-breadcrumb">
+        <a href="research.html">Research</a>
+        <span>→</span>
+        Project
+      </div>
+      <div class="hero-kicker">ENABLE Stream · Flagship Project</div>
+      <h1 class="hero-title">Basic Income &amp;<br><em>A More Just Society</em></h1>
+      <p class="hero-desc">
+        Over a decade of work examining whether basic income is the right tool for reforming Canada's social safety net — from foundational design principles to microsimulations for BC and Nunavut, and a landmark book that reframes what a just social policy looks like.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Landmark Book</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Journal Articles</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">8</div>
+          <div class="stat-label">Reports &amp; Papers</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">4</div>
+          <div class="stat-label">Policy &amp; Media</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BODY -->
+  <div class="page-body">
+
+    <!-- CONTEXT -->
+    <div class="context-box">
+      <div>
+        <h3>The Research Question</h3>
+        <p>Basic income has been proposed as a cure-all for poverty, precarious work, and an outdated social safety net. The INCLUSIECON team has done more than advocate or oppose — they have done the hard analytical work of actually testing whether it holds up, designing what it would look like, and modelling what it would cost and accomplish in different Canadian jurisdictions.</p>
+      </div>
+      <div>
+        <h3>The Through-Line</h3>
+        <p>From the BC Basic Income Expert Panel (2019–2021) to Nunavut microsimulations and the IRPP book (2023), this body of work consistently asks: given a real existing system, with real fiscal constraints and real human needs — is basic income the right lever? The answer is nuanced, evidence-based, and distinctly Canadian.</p>
+      </div>
+    </div>
+
+    <!-- FLAGSHIP -->
+    <div class="section-header">
+      <h2 class="section-title">Landmark Outputs</h2>
+      <span class="section-pill">Flagship</span>
+    </div>
+    <div class="flagship-grid">
+
+      <div class="flagship-card">
+        <div class="flagship-banner">📖 Book — IRPP, 2023</div>
+        <div class="flagship-body">
+          <div class="flagship-type">Edited Volume</div>
+          <div class="flagship-title">Basic Income and a Just Society: Policy Choices for Canada's Social Safety Net</div>
+          <div class="flagship-authors">
+            <strong>Green, Kesselman, Perrin, Petit, Tedds</strong> &amp; St-Hilaire (eds.)
+          </div>
+          <p class="flagship-blurb">
+            One of the most comprehensive evaluations of basic income ever undertaken in Canada. Drawing on the full research program of the BC Basic Income Expert Panel and pan-Canadian evidence, the book argues that fixing the social safety net requires a suite of targeted reforms — not a single instrument — and offers a detailed blueprint for what a more just social policy looks like. Ranked 6th by <em>The Hill Times</em> in its Best Public Policy Books of 2023.
+          </p>
+        </div>
+        <div class="flagship-footer">
+          <span class="flagship-outlet">Institute for Research on Public Policy</span>
+          <a href="https://irpp.org/research/basic-income-and-a-just-society-policy-choices-for-canadas-social-safety-net/" target="_blank" rel="noopener" class="flagship-link">Read ↗</a>
+        </div>
+      </div>
+
+      <div class="flagship-card">
+        <div class="flagship-banner">🌐 Expert Panel Report — BC, 2021</div>
+        <div class="flagship-body">
+          <div class="flagship-type">Government Expert Panel · Full Report + Research Papers</div>
+          <div class="flagship-title">Covering All the Basics: Reforms for a More Just Society</div>
+          <div class="flagship-authors">
+            <strong>Green, Kesselman &amp; Tedds</strong> (Expert Panel Co-leads);<br>
+            with <strong>Petit</strong> (Senior Research Associate)
+          </div>
+          <p class="flagship-blurb">
+            The final report of the BC Expert Panel on Basic Income, commissioned by the Government of British Columbia. The panel ran over 16,000 basic income simulations, mapped BC's full system of 190+ income and support programs, and produced 18 commissioned research papers — resulting in a set of targeted reform recommendations that have shaped national policy debate. Lindsay served as co-lead; Gillian led key background research.
+          </p>
+        </div>
+        <div class="flagship-footer">
+          <span class="flagship-outlet">Government of British Columbia</span>
+          <a href="https://bcbasicincomepanel.ca/" target="_blank" rel="noopener" class="flagship-link">Visit Site ↗</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- JOURNAL ARTICLES -->
+    <div class="output-section">
+      <div class="section-header">
+        <h2 class="section-title">Journal Articles</h2>
+        <span class="section-pill">Peer Reviewed</span>
+      </div>
+      <div class="output-list">
+
+        <div class="output-item">
+          <div class="output-icon icon-journal">§</div>
+          <div class="output-main">
+            <div class="output-title">A Basic Income for Nunavut: Addressing Poverty in Canada's North</div>
+            <div class="output-meta"><strong>Cameron, Petit &amp; Tedds</strong> · <em>Canadian Public Policy</em> · Vol. 50, No. 3 · 2024 · pp. 311–328</div>
+            <p class="output-blurb">Using administrative T1 tax-filer data, the authors simulate basic income designs for Nunavut, identify what is fiscally feasible within the territory's budget, and examine what a basic income could and could not accomplish for poverty reduction — assessed through an Inuit lens using the Qaggiq model. Finds that a modest income-tested basic income is achievable by re-bundling existing IA and tax credit spending, but that a more generous program requires federal funding.</p>
+            <div class="output-tags">
+              <span class="tag tag-enable">ENABLE</span>
+              <span class="tag tag-nu">Nunavut</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://muse.jhu.edu/article/937820" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-journal">¶</div>
+          <div class="output-main">
+            <div class="output-title">The Place of a Basic Income in the Search for a More Just Society</div>
+            <div class="output-meta"><strong>Tedds &amp; co-authors</strong> · <em>Journal of Poverty and Social Justice</em> · Vol. 32, No. 3 · 2024</div>
+            <p class="output-blurb">A peer response to a critical review of <em>Covering All the Basics</em>, this article provides an authoritative account of what the BC Expert Panel actually found and argued — correcting mischaracterizations and sharpening the case that a justice-oriented approach to social reform requires grappling with implementation realities, not just principles.</p>
+            <div class="output-tags">
+              <span class="tag tag-enable">ENABLE</span>
+              <span class="tag tag-bc">BC</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://bristoluniversitypressdigital.com/view/journals/jpsj/32/3/article-p472.xml" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-journal">≡</div>
+          <div class="output-main">
+            <div class="output-title">Re-Envisaging the Canada Revenue Agency: From Tax Collector to Benefit Delivery Agent</div>
+            <div class="output-meta"><strong>Petit, Tedds, Green &amp; Kesselman</strong> · <em>Canadian Tax Journal</em> · Vol. 69, No. 1 · 2021 · pp. 99–114</div>
+            <p class="output-blurb">Examines what it would actually take to deliver basic income — or any expanded benefit — through the tax system. Argues that the CRA's administrative architecture, filing incentives, and real-time data gaps create significant barriers that proponents of tax-delivered transfers often underestimate. Essential reading for anyone serious about benefit delivery reform.</p>
+            <div class="output-tags">
+              <span class="tag tag-both">FACT + ENABLE</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://www.ctf.ca/common/Uploaded%20files/Documents/CTJ%202021/Issue%201/99_2021CTJ1-PF-3-Petit-etal.pdf" target="_blank" rel="noopener" class="btn-read">PDF ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- POLICY & COMMENTARY -->
+    <div class="output-section">
+      <div class="section-header">
+        <h2 class="section-title">Policy &amp; Commentary</h2>
+        <span class="section-pill">Public Engagement</span>
+      </div>
+      <div class="output-list">
+
+        <div class="output-item">
+          <div class="output-icon icon-policy">→</div>
+          <div class="output-main">
+            <div class="output-title">A Basic Income Is Not as Simple as You Might Think</div>
+            <div class="output-meta"><strong>Green, Kesselman &amp; Tedds</strong> · <em>Policy Options</em> (IRPP) · 2020</div>
+            <p class="output-blurb">A plain-language intervention in the COVID-era basic income debate that laid out, early, the core complexity argument: basic income design involves difficult trade-offs across benefit levels, phase-out rates, fiscal cost, and interactions with existing programs. One of the most widely cited public pieces from the BC panel process.</p>
+            <div class="output-tags">
+              <span class="tag tag-enable">ENABLE</span>
+              <span class="tag tag-bc">BC</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://policyoptions.irpp.org/2020/05/a-basic-income-is-not-as-simple-as-you-might-think/" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-media">◎</div>
+          <div class="output-main">
+            <div class="output-title">What Can We Learn from the BC Basic Income Panel?</div>
+            <div class="output-meta"><strong>Lindsay Tedds</strong> · <em>McMaster Institute for Health Equity Podcast</em> · Episode 3</div>
+            <p class="output-blurb">Lindsay discusses the BC Expert Panel process, what the research actually found, and what it means for evidence-based social policy design in Canada. A accessible entry point for listeners new to the basic income debate who want the analytical picture rather than the advocacy framing.</p>
+            <div class="output-tags">
+              <span class="tag tag-enable">ENABLE</span>
+              <span class="tag tag-bc">BC</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://mihe.mcmaster.ca/episode3/" target="_blank" rel="noopener" class="btn-read">Listen ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-media">⊕</div>
+          <div class="output-main">
+            <div class="output-title">Would a Universal Basic Income Best Address the Gaps in Canada's Social Safety Net?</div>
+            <div class="output-meta"><strong>Lindsay Tedds</strong> · Presentation · 2021</div>
+            <p class="output-blurb">A structured presentation summarizing the key evidence from the BC Basic Income Expert Panel and situating it within the broader debate on social safety net reform in Canada. Covers design trade-offs, fiscal implications, and the case for targeted alternatives.</p>
+            <div class="output-tags">
+              <span class="tag tag-enable">ENABLE</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://www.scribd.com/document/507390117/Would-a-universal-basic-income-best-address-the-gaps-in-Canada-s-social-safety-net" target="_blank" rel="noopener" class="btn-read">View ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- REPORTS & WORKING PAPERS -->
+    <div class="output-section">
+      <div class="section-header">
+        <h2 class="section-title">Reports &amp; Working Papers</h2>
+        <span class="section-pill">Analysis</span>
+      </div>
+      <div class="output-list">
+
+        <div class="output-item">
+          <div class="output-icon icon-report">◈</div>
+          <div class="output-main">
+            <div class="output-title">Overview of Basic Income: A Discussion Paper</div>
+            <div class="output-meta"><strong>Tedds, Cameron, Petit, Perrin &amp; Harrington</strong> · <em>School of Public Policy, University of Calgary</em> · October 2021 · Prepared for BluePrint ADE / Government of Nunavut</div>
+            <p class="output-blurb">A comprehensive background review of the basic income concept produced as part of the Government of Nunavut's feasibility study on a guaranteed basic income for Nunavummiut. The paper develops a principles-based framework — simplicity, respect, economic security, and social inclusion — to define basic income as a class of cash-transfer programs rather than a single policy, then works through design elements, pilot experiments, Canadian microsimulation evidence, and assessments through both Indigenous and intersectional lenses. Concludes that the individual-autonomy framing standard to basic income proposals sits in tension with collectivist cultural values, and that a complementary suite of basic services is essential to address the heterogeneity of need a uniform cash transfer cannot.</p>
+            <div class="output-tags">
+              <span class="tag tag-enable">ENABLE</span>
+              <span class="tag tag-nu">Nunavut</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://www.policyschool.ca/research-teaching/fiscal-and-economic-policy/" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-report">◉</div>
+          <div class="output-main">
+            <div class="output-title">Assessing the State and Nature of Poverty in Nunavut</div>
+            <div class="output-meta"><strong>Tedds, Cameron &amp; Atherly</strong> · Prepared for BluePrint ADE and the Government of Nunavut · 2021</div>
+            <p class="output-blurb">A multi-dimensional analysis of poverty in Nunavut examining the social, economic, and structural conditions shaping material deprivation across the territory. Provides the empirical foundation for the feasibility study by characterizing the depth and nature of poverty among Nunavummiut — including food insecurity, housing overcrowding, and barriers to accessing country food — situated within the unique geographic, cultural, and fiscal context of Nunavut.</p>
+            <div class="output-tags">
+              <span class="tag tag-enable">ENABLE</span>
+              <span class="tag tag-nu">Nunavut</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <span class="badge-request">Available upon request</span>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-report">◎</div>
+          <div class="output-main">
+            <div class="output-title">Broad Overview of Income and Social Supports in Nunavut</div>
+            <div class="output-meta"><strong>Petit &amp; Tedds</strong> · Prepared for BluePrint ADE and the Government of Nunavut · 2021</div>
+            <p class="output-blurb">Maps the full landscape of income and social support programs available to Nunavummiut — federal, territorial, and community-level — including Income Assistance, child benefits, housing subsidies, and seniors supports. Establishes the systems-level baseline required to understand how a basic income would interact with, complement, or replace existing supports in Nunavut's distinctive program environment.</p>
+            <div class="output-tags">
+              <span class="tag tag-enable">ENABLE</span>
+              <span class="tag tag-nu">Nunavut</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <span class="badge-request">Available upon request</span>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-report">◆</div>
+          <div class="output-main">
+            <div class="output-title">Basic Income Design Options in Nunavut for Modelling</div>
+            <div class="output-meta"><strong>Tedds, Cameron, Harrington, Perrin &amp; Petit</strong> · Prepared for BluePrint ADE and the Government of Nunavut · 2022</div>
+            <p class="output-blurb">Specifies the range of basic income design configurations to be carried forward into microsimulation modelling for Nunavut. Drawing on the Phase 1 background work, the report defines the relevant program parameters — benefit levels, income tests, benefit reduction rates, beneficiary units, and interactions with existing programs — and translates them into modelable scenarios suited to Nunavut's fiscal capacity and population characteristics.</p>
+            <div class="output-tags">
+              <span class="tag tag-enable">ENABLE</span>
+              <span class="tag tag-nu">Nunavut</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <span class="badge-request">Available upon request</span>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-report">◇</div>
+          <div class="output-main">
+            <div class="output-title">Nunavut Income Assistance: Patterns of Use and Recommendations for Reform</div>
+            <div class="output-meta"><strong>Petit, Tedds &amp; Harrington</strong> · Prepared for BluePrint ADE and the Government of Nunavut · 2023</div>
+            <p class="output-blurb">An empirical analysis of Income Assistance uptake and utilization patterns in Nunavut, documenting who relies on the program, for how long, and under what circumstances. Identifies structural features of the existing system that generate dependency, create barriers to exit, and fail to respond to the territory's distinctive household compositions, economic conditions, and cultural practices — and sets out targeted recommendations for reform.</p>
+            <div class="output-tags">
+              <span class="tag tag-enable">ENABLE</span>
+              <span class="tag tag-nu">Nunavut</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <span class="badge-request">Available upon request</span>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-report">◈</div>
+          <div class="output-main">
+            <div class="output-title">Basic Income Simulations in Nunavut</div>
+            <div class="output-meta"><strong>Tedds, Petit, Harrington &amp; Perrin</strong> · Prepared for BluePrint ADE and the Government of Nunavut · 2023</div>
+            <p class="output-blurb">The microsimulation core of the Nunavut feasibility study. Uses individual-level tax-filer data to model the fiscal cost, poverty reduction impact, and distributional consequences of the basic income designs specified in the preceding design options report. Identifies the program configurations that are feasible within Nunavut's budget and those that would require federal cost-sharing, assessed against Inuit conceptions of well-being and the territory's unique cost-of-living context.</p>
+            <div class="output-tags">
+              <span class="tag tag-enable">ENABLE</span>
+              <span class="tag tag-nu">Nunavut</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <span class="badge-request">Available upon request</span>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-report">$</div>
+          <div class="output-main">
+            <div class="output-title">Considerations for Basic Income as a COVID-19 Response</div>
+            <div class="output-meta"><strong>Green, Kesselman &amp; Tedds</strong> · <em>School of Public Policy Publications</em> · May 2020</div>
+            <p class="output-blurb">A timely analysis written during the early COVID-19 pandemic examining whether a basic income was the right emergency response tool. The paper maps the key design questions — objectives, design features, fiscal cost, interactions with existing supports — that any serious basic income proposal must answer, and evaluates what the Canada Emergency Response Benefit (CERB) experience revealed about political and administrative feasibility.</p>
+            <div class="output-tags">
+              <span class="tag tag-enable">ENABLE</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://www.policyschool.ca/wp-content/uploads/2020/05/Basic-Income-Green-Kesselman-Tedds.pdf" target="_blank" rel="noopener" class="btn-read">PDF ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-report">%</div>
+          <div class="output-main">
+            <div class="output-title">Implementing a Basic Income Guarantee Through the Personal Income Tax System: Benefits, Barriers, and Bothers</div>
+            <div class="output-meta"><strong>Tedds</strong> · <em>Northern Policy Institute</em> · Research Paper No. 25 · 2017</div>
+            <p class="output-blurb">An early and still-relevant analysis of what it would take to use Canada's personal income tax system as the delivery mechanism for a basic income guarantee. Identifies practical administrative barriers — filing rates, real-time income assessment, the treatment of non-filers, and compliance costs — that are often glossed over in theoretical basic income proposals. Particularly relevant for northern and Indigenous contexts.</p>
+            <div class="output-tags">
+              <span class="tag tag-both">FACT + ENABLE</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://www.northernpolicy.ca/upload/documents/publications/reports-new/tedds_big-and-pit-en.pdf" target="_blank" rel="noopener" class="btn-read">PDF ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /page-body -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">INCLUSI<span>ECON</span></div>
+        <div class="footer-copy" style="margin-top:0.4rem;">University of Calgary · Faculty of Arts, Department of Economics</div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="partner-with-us.html">Partner With Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
