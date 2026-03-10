@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Who We Are — INCLUSIECON</title>
+  <meta name="description" content="Dr. Lindsay Tedds and Dr. Gillian Petit — economists at the University of Calgary studying Canada's tax-and-transfer system as one integrated whole." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary:         #5c1a1a;
+      --primary-dark:    #3e1010;
+      --primary-mid:     #7a2828;
+      --primary-light:   #a84848;
+      --secondary:       #7a3a44;
+      --secondary-mid:   #9e5560;
+      --secondary-light: #c48890;
+      --secondary-pale:  #ecdde0;
+      --accent:          #a87828;
+      --accent-light:    #c8a050;
+      --accent-pale:     #e8d898;
+      --surface:         #f7f2ea;
+      --surface-raised:  #ece4d8;
+      --border:          #ddd0bc;
+      --text-dark:       #180808;
+      --text-mid:        #3e2028;
+      --text-muted:      #7a5858;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--surface);
+      color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(62,16,16,0.97); backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 2.5rem;
+      height: 62px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-family: 'Lora', serif; font-weight: 700; font-size: 1.15rem; color: #fff; text-decoration: none; letter-spacing: 0.03em; }
+    .nav-logo span { color: var(--accent-light); }
+    .nav-links { display: flex; gap: 0.2rem; list-style: none; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.62); text-decoration: none; font-size: 0.85rem; font-weight: 500; padding: 0.4rem 0.85rem; border-radius: 4px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.07); }
+    .nav-links a.active { color: #fff; }
+    .nav-cta { background: var(--accent) !important; color: #fff !important; font-weight: 600 !important; padding: 0.42rem 1.15rem !important; }
+    .nav-cta:hover { background: var(--accent-light) !important; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: var(--primary-dark); padding: 9rem 2.5rem 5.5rem;
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 55% 70% at 75% 40%, rgba(122,58,68,0.28) 0%, transparent 60%);
+    }
+    .page-header-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+    .page-kicker {
+      display: inline-flex; align-items: center; gap: 0.7rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.25rem;
+    }
+    .page-kicker::before { content: ''; display: block; width: 32px; height: 1.5px; background: var(--accent-light); }
+    .page-header h1 {
+      font-family: 'Lora', serif; font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700; color: #fff; line-height: 1.12;
+      letter-spacing: -0.015em; margin-bottom: 1rem; max-width: 680px;
+    }
+    .page-header p { font-size: 1.05rem; color: rgba(255,255,255,0.55); max-width: 580px; line-height: 1.82; }
+
+    /* ── SHARED ── */
+    .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .eyebrow::before { content: ''; display: block; width: 24px; height: 1.5px; }
+    .ey-gold { color: var(--accent); } .ey-gold::before { background: var(--accent); }
+    .ey-rose { color: var(--secondary-mid); } .ey-rose::before { background: var(--secondary-mid); }
+    .ey-light { color: var(--accent-light); } .ey-light::before { background: var(--accent-light); }
+    .sh { font-family: 'Lora', serif; font-weight: 700; line-height: 1.18; letter-spacing: -0.01em; }
+    .sh-dark { color: var(--text-dark); } .sh-white { color: #fff; }
+    .sh-lg { font-size: clamp(1.85rem, 2.8vw, 2.5rem); }
+    .sh-md { font-size: clamp(1.4rem, 2.2vw, 1.9rem); }
+
+    /* ── VISION SECTION ── */
+    #vision { background: var(--surface); padding: 7rem 0; }
+    .vision-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 6rem; align-items: start; }
+    .vision-left {}
+    .vision-left p { font-size: 1.05rem; color: var(--text-mid); line-height: 1.88; margin-bottom: 1.1rem; }
+    .vision-left p strong { color: var(--text-dark); font-weight: 600; }
+    .vision-right {}
+    .stat-stack { display: flex; flex-direction: column; gap: 1.25rem; }
+    .stat-item {
+      background: #fff; border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.5rem 1.75rem; display: flex; align-items: flex-start; gap: 1.25rem;
+    }
+    .stat-number {
+      font-family: 'Lora', serif; font-size: 2.2rem; font-weight: 700;
+      color: var(--primary); line-height: 1; white-space: nowrap;
+    }
+    .stat-number span { font-size: 1.1rem; color: var(--accent); }
+    .stat-label { font-size: 0.88rem; color: var(--text-mid); line-height: 1.6; padding-top: 0.2rem; }
+    .stat-label strong { display: block; font-size: 0.95rem; color: var(--text-dark); font-weight: 600; margin-bottom: 0.2rem; }
+
+    /* ── BIOS ── */
+    #bios { background: var(--surface-raised); padding: 7rem 0; }
+    .bios-header { margin-bottom: 4rem; }
+
+    .bio-block {
+      background: #fff; border: 1px solid var(--border); border-radius: 16px;
+      overflow: hidden; margin-bottom: 2rem;
+      display: grid; grid-template-columns: 320px 1fr;
+    }
+    .bio-block:last-child { margin-bottom: 0; }
+
+    /* Photo panel */
+    .bio-photo-panel {
+      background: var(--primary-dark); padding: 3rem 2.5rem;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .bio-headshot-placeholder {
+      width: 120px; height: 120px; border-radius: 50%;
+      background: var(--primary-mid); border: 3px solid rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Lora', serif; font-size: 2rem; font-weight: 700;
+      color: rgba(255,255,255,0.7); margin-bottom: 1.75rem;
+      /* Replace src below with actual headshot image */
+      overflow: hidden;
+    }
+    .bio-headshot-placeholder img {
+      width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+    }
+    .bio-name {
+      font-family: 'Lora', serif; font-size: 1.35rem; font-weight: 700;
+      color: #fff; line-height: 1.2; margin-bottom: 0.35rem;
+    }
+    .bio-role { font-size: 0.82rem; color: rgba(255,255,255,0.52); line-height: 1.55; margin-bottom: 1.75rem; }
+    .bio-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .bio-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.78rem; color: rgba(255,255,255,0.45); text-decoration: none;
+      transition: color 0.2s;
+    }
+    .bio-link:hover { color: var(--accent-light); }
+    .bio-link-icon { font-size: 0.85rem; }
+
+    /* Content panel */
+    .bio-content { padding: 3rem 3rem 3rem 3rem; }
+    .bio-content-inner { max-width: 620px; }
+    .bio-summary {
+      font-size: 1.08rem; color: var(--text-dark); line-height: 1.8;
+      font-style: italic; font-family: 'Lora', serif;
+      border-left: 3px solid var(--accent); padding-left: 1.25rem;
+      margin-bottom: 1.75rem; color: var(--primary);
+    }
+    .bio-body p { font-size: 0.92rem; color: var(--text-mid); line-height: 1.82; margin-bottom: 0.9rem; }
+    .bio-body p:last-child { margin-bottom: 0; }
+    .bio-body p strong { color: var(--text-dark); font-weight: 600; }
+
+    .bio-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+    .bio-tag {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; padding: 0.28rem 0.8rem;
+      font-size: 0.75rem; color: var(--text-muted); font-weight: 500;
+    }
+
+    /* ── COLLABORATION STRIP ── */
+    #collab { background: var(--primary); padding: 6rem 0; }
+    .collab-inner { max-width: 1000px; margin: 0 auto; padding: 0 2.5rem; }
+    .collab-inner .eyebrow { }
+    .collab-inner h2 {
+      font-family: 'Lora', serif; font-size: clamp(1.75rem, 2.8vw, 2.4rem);
+      font-weight: 700; color: #fff; line-height: 1.2;
+      letter-spacing: -0.01em; margin-bottom: 2rem;
+    }
+    .collab-inner h2 em { font-style: italic; color: var(--secondary-light); }
+    .collab-body { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem; }
+    .collab-body p { font-size: 0.95rem; color: rgba(255,255,255,0.62); line-height: 1.85; }
+    .collab-body p strong { color: rgba(255,255,255,0.88); font-weight: 600; }
+    .collab-milestones { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .milestone {
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 10px; padding: 1.25rem; text-align: center;
+    }
+    .milestone-year { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 0.4rem; }
+    .milestone-text { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+    .milestone-text strong { display: block; color: rgba(255,255,255,0.82); font-weight: 600; font-size: 0.88rem; margin-bottom: 0.2rem; }
+
+    /* ── CTA STRIP ── */
+    #cta-strip { background: var(--surface-raised); padding: 6rem 0; border-top: 1px solid var(--border); }
+    .cta-inner { max-width: 700px; margin: 0 auto; padding: 0 2.5rem; text-align: center; }
+    .cta-inner .eyebrow { justify-content: center; }
+    .cta-inner h2 {
+      font-family: 'Lora', serif; font-size: clamp(1.75rem, 2.8vw, 2.4rem);
+      font-weight: 700; color: var(--text-dark); line-height: 1.2;
+      margin-bottom: 1rem; letter-spacing: -0.01em;
+    }
+    .cta-inner h2 em { font-style: italic; color: var(--primary); }
+    .cta-inner p { font-size: 1rem; color: var(--text-mid); line-height: 1.8; margin-bottom: 2.25rem; }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--primary); color: #fff; padding: 0.88rem 1.85rem; border-radius: 5px; font-weight: 600; font-size: 0.9rem; text-decoration: none; letter-spacing: 0.02em; transition: background 0.2s; display: inline-block; }
+    .btn-primary:hover { background: var(--primary-mid); }
+    .btn-outline { border: 1.5px solid var(--border); color: var(--text-mid); padding: 0.88rem 1.85rem; border-radius: 5px; font-weight: 500; font-size: 0.9rem; text-decoration: none; transition: border-color 0.2s, color 0.2s; display: inline-block; }
+    .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--primary-dark); border-top: 1px solid rgba(255,255,255,0.06); padding: 3.5rem 2.5rem 2rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 3rem; }
+    .footer-brand { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; letter-spacing: 0.03em; }
+    .footer-brand span { color: var(--accent-light); }
+    .footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.38); line-height: 1.65; max-width: 280px; }
+    .footer-col h4 { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.32); margin-bottom: 0.9rem; }
+    .footer-col a { display: block; font-size: 0.83rem; color: rgba(255,255,255,0.52); text-decoration: none; margin-bottom: 0.45rem; transition: color 0.2s; }
+    .footer-col a:hover { color: rgba(255,255,255,0.85); }
+    .footer-bottom { max-width: 1200px; margin: 2.5rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+    .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 980px) {
+      .vision-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .bio-block { grid-template-columns: 1fr; }
+      .bio-photo-panel { flex-direction: row; align-items: center; gap: 1.5rem; padding: 2rem; }
+      .bio-headshot-placeholder { margin-bottom: 0; width: 80px; height: 80px; font-size: 1.5rem; flex-shrink: 0; }
+      .bio-name { font-size: 1.15rem; }
+      .bio-links { flex-direction: row; flex-wrap: wrap; }
+      .collab-milestones { grid-template-columns: 1fr 1fr; }
+      .collab-body { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 640px) {
+      .bio-content { padding: 2rem 1.5rem; }
+      .collab-milestones { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">INCLUSI<span>ECON</span></a>
+      <ul class="nav-links">
+        <li><a href="services.html">Services</a></li>
+        <li><a href="#">Research</a></li>
+        <li><a href="who-we-are.html" class="active">Who We Are</a></li>
+        <li><a href="#">Partner With Us</a></li>
+        <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="page-kicker">Who We Are</div>
+      <h1>Two researchers. One sustained collaboration.</h1>
+      <p>Since 2019, Drs. Lindsay Tedds and Gillian Petit have built a joint research program on tax reform and income security that combines rigorous academic analysis with direct policy impact.</p>
+    </div>
+  </div>
+
+  <!-- VISION -->
+  <section id="vision">
+    <div class="section-inner">
+      <div class="vision-grid">
+        <div class="vision-left">
+          <div class="eyebrow ey-rose">Our Vision</div>
+          <h2 class="sh sh-dark sh-lg" style="margin-bottom: 1.5rem;">Economics that closes the gap between research and real change</h2>
+          <p>We study Canada's tax-and-transfer system as what it actually is — <strong>two sides of one coin.</strong> How governments raise resources and how they redistribute them are inseparable, yet they are almost always studied and designed as though they exist in separate worlds.</p>
+          <p>Our work bridges that divide. We bring together economic analysis, legal and institutional knowledge, and the lived experience of the people policies are meant to serve — because that is what it takes to understand why policies succeed or fail in practice.</p>
+          <p>We are committed to research that is <strong>rigorous enough to withstand peer scrutiny</strong> and <strong>accessible enough to be used</strong> — by governments, by civil society, and by the communities whose lives depend on getting policy right.</p>
+        </div>
+        <div class="vision-right">
+          <div class="stat-stack">
+            <div class="stat-item">
+              <div class="stat-number">$2.75<span>M+</span></div>
+              <div class="stat-label">
+                <strong>Partner funding secured</strong>
+                From SSHRC, federal and provincial governments, municipalities, and foundations since 2019
+              </div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">6<span>+</span></div>
+              <div class="stat-label">
+                <strong>Years of joint collaboration</strong>
+                A sustained research partnership spanning tax policy, income security, and municipal finance
+              </div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">3</div>
+              <div class="stat-label">
+                <strong>Levels of government engaged</strong>
+                Federal, provincial, and municipal — including BC, Alberta, Nunavut, and Ontario
+              </div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">40<span>+</span></div>
+              <div class="stat-label">
+                <strong>Joint publications and reports</strong>
+                Peer-reviewed articles, books, policy papers, and commissioned technical reports
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIOS -->
+  <section id="bios">
+    <div class="section-inner">
+      <div class="bios-header">
+        <div class="eyebrow ey-gold">The Team</div>
+        <h2 class="sh sh-dark sh-lg">Meet the researchers</h2>
+      </div>
+
+      <!-- Lindsay -->
+      <div class="bio-block">
+        <div class="bio-photo-panel">
+          <div>
+            <div class="bio-headshot-placeholder">
+              <img src="headshot-tedds.png" alt="Dr. Lindsay Tedds" />
+            </div>
+            <div class="bio-name">Dr. Lindsay M. Tedds</div>
+            <div class="bio-role">Professor of Economics<br>University of Calgary<br>Department of Economics</div>
+            <div class="bio-links">
+              <a href="https://www.lindsaytedds.ca" target="_blank" rel="noopener" class="bio-link"><span class="bio-link-icon">🌐</span> lindsaytedds.ca</a>
+              <a href="mailto:lindsay.tedds1@ucalgary.ca" class="bio-link"><span class="bio-link-icon">✉</span> lindsay.tedds1@ucalgary.ca</a>
+              <a href="https://bsky.app/profile/lindsaytedds.bsky.social" target="_blank" rel="noopener" class="bio-link"><span class="bio-link-icon">☁</span> @lindsaytedds.bsky.social</a>
+              <a href="https://www.linkedin.com/in/lindsay-tedds-b68b4311/" target="_blank" rel="noopener" class="bio-link"><span class="bio-link-icon">in</span> LinkedIn</a>
+              <a href="https://scholar.google.com/citations?user=xWWVMXAAAAAJ&hl=en" target="_blank" rel="noopener" class="bio-link"><span class="bio-link-icon">🎓</span> Google Scholar</a>
+              <a href="http://deadfortaxreasons.wordpress.com/" target="_blank" rel="noopener" class="bio-link"><span class="bio-link-icon">✍</span> Dead For Tax Reasons</a>
+            </div>
+          </div>
+        </div>
+        <div class="bio-content">
+          <div class="bio-content-inner">
+            <div class="bio-summary">One of Canada's leading experts on tax policy design, implementation, and administration — with deep experience advising federal, provincial, and municipal governments.</div>
+            <div class="bio-body">
+              <p>Lindsay is a Professor of Economics at the University of Calgary, where she has held faculty appointments since 2018. She holds a PhD in Economics from McMaster University and has held academic positions at the University of Victoria and the University of Manitoba. She served as Scientific Director of Fiscal and Economic Policy at the School of Public Policy from 2018 to 2023. Before entering academia, she held several posts with the Government of Canada in Ottawa and in municipal government, working in legal analysis, public economics, and policy implementation — experience that directly shapes her approach to research.</p>
+              <p>Her research spans <strong>tax policy design and implementation, municipal finance and fiscal federalism, property taxation, and the Marginal Value of Public Funds (MVPF)</strong>. She takes a transdisciplinary approach that harnesses the strengths of economics, law, public administration, and intersectionality. She is a co-author of the leading Canadian public finance textbook <em>Public Finance in Canada</em> (now in its seventh edition), and her work has been published in the Canadian Tax Journal, Canadian Public Policy, Canadian Public Administration, and other leading outlets. Her co-authored book <em>Basic Income and a Just Society</em> ranked 6th on The Hill Times' 100 Best Books of 2023.</p>
+              <p>Lindsay has served on the BC Basic Income Expert Panel, chaired the BC MSP Task Force, sat on the City of Calgary's Financial Task Force and Housing and Affordability Task Force, and served as a Commissioner of the Ecofiscal Commission. She sat on the Deputy Prime Minister's Task Force for Women and the Economy and the Royal Society of Canada's Working Group on the Impacts of COVID-19 on Women in Canada — that report received an honourable mention for the 2023 Purvis Prize. She has appeared as an expert witness before House of Commons and Senate Standing Committees on multiple occasions.</p>
+              <p>She is a regular non-partisan public commentator, writing for the Globe and Mail, Macleans, and Policy Options, and appearing on television, radio, and podcasts. She is a recipient of the Queen's Platinum Jubilee Medal (Government of Alberta, 2022) and the Faculty of Arts Award for Public Engagement (University of Calgary, 2021).</p>
+            </div>
+            <div class="bio-tags">
+              <span class="bio-tag">Tax Policy Design</span>
+              <span class="bio-tag">Municipal Finance</span>
+              <span class="bio-tag">Fiscal Federalism</span>
+              <span class="bio-tag">Property Taxation</span>
+              <span class="bio-tag">MVPF</span>
+              <span class="bio-tag">Income Taxation</span>
+              <span class="bio-tag">Underground Economy</span>
+              <span class="bio-tag">Gender &amp; Taxation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gillian -->
+      <div class="bio-block">
+        <div class="bio-photo-panel">
+          <div>
+            <div class="bio-headshot-placeholder">
+              <img src="headshot-petit.jpeg" alt="Dr. Gillian Petit" />
+            </div>
+            <div class="bio-name">Dr. Gillian Petit</div>
+            <div class="bio-role">PhD, JD · Senior Research Associate<br>University of Calgary<br>Department of Economics</div>
+            <div class="bio-links">
+              <a href="mailto:gillian.petit@ucalgary.ca" class="bio-link"><span class="bio-link-icon">✉</span> gillian.petit@ucalgary.ca</a>
+              <a href="https://bsky.app/profile/gillianpetit.bsky.social" target="_blank" rel="noopener" class="bio-link"><span class="bio-link-icon">☁</span> @gillianpetit.bsky.social</a>
+              <a href="https://www.linkedin.com/in/gillian-petit-65898166/" target="_blank" rel="noopener" class="bio-link"><span class="bio-link-icon">in</span> LinkedIn</a>
+              <a href="https://scholar.google.com/citations?hl=en&user=t-maq4gAAAAJ" target="_blank" rel="noopener" class="bio-link"><span class="bio-link-icon">🎓</span> Google Scholar</a>
+              <a href="https://substack.com/@gillianpetit" target="_blank" rel="noopener" class="bio-link"><span class="bio-link-icon">✍</span> Substack</a>
+            </div>
+          </div>
+        </div>
+        <div class="bio-content">
+          <div class="bio-content-inner">
+            <div class="bio-summary">An applied microeconomist specialising in the design and delivery of income support programs — with a unique combination of economics and law training and a focus on equity, inclusion, and implementation.</div>
+            <div class="bio-body">
+              <p>Gillian is a Senior Research Associate in the Department of Economics at the University of Calgary, where she completed her PhD under Lindsay's supervision. She also holds a Juris Doctorate from Queen's University and an MA in Economics from Queen's, giving her a distinctive cross-disciplinary lens on how tax and social policy intersects with law and institutional design.</p>
+              <p>Her research focuses on <strong>cash transfer program design, benefit adequacy, income assistance reform, and disability policy</strong>. She was a key researcher for the BC Basic Income Expert Panel, producing a comprehensive body of commissioned research on poverty, system mapping, program interactions, and microsimulation. That work culminated in the co-authored book <em>Basic Income and a Just Society</em> (McGill-Queen's University Press, 2023), listed among the Hill Times' best books of 2023.</p>
+              <p>Gillian has led research for the Government of Nunavut, the City of Calgary, Canada Mortgage and Housing Corporation, the IRPP, Maytree, and multiple federal departments. She is a Policy Advisor at Maytree, a Fellow at Social Capital Partners, and a member of the Affordability Action Council. Her peer-reviewed work has appeared in Canadian Public Policy, Canadian Tax Journal, Poverty and Public Policy, and Canadian Public Administration.</p>
+              <p>She regularly provides policy advice to governments across Canada and appears on television, radio, and in print providing economic commentary on income security, taxation, and social policy.</p>
+            </div>
+            <div class="bio-tags">
+              <span class="bio-tag">Income Support Design</span>
+              <span class="bio-tag">Benefit Adequacy</span>
+              <span class="bio-tag">Disability Policy</span>
+              <span class="bio-tag">Basic Income</span>
+              <span class="bio-tag">System Mapping</span>
+              <span class="bio-tag">Microsimulation</span>
+              <span class="bio-tag">Property Tax Equity</span>
+              <span class="bio-tag">Short-Term Rentals</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COLLABORATION -->
+  <section id="collab">
+    <div class="section-inner">
+      <div class="collab-inner">
+        <div class="eyebrow ey-light">Our Collaboration</div>
+        <h2>Working together since 2019 — <em>across every stage of research</em></h2>
+        <div class="collab-body">
+          <p>Our collaboration began when Gillian joined the BC Basic Income Expert Panel research team. What started as a supervisor–student relationship evolved into a genuine research partnership — one built on complementary expertise, shared values about what research is for, and a sustained commitment to working on the same hard problems from multiple angles.</p>
+          <p>We don't divide the work and hand off deliverables. <strong>We design research together, analyse together, write together, and engage with partners and governments together.</strong> That integration is what allows us to move fluidly between the quantitative and qualitative, between the academic and the applied, and between the policy question and the implementation reality.</p>
+        </div>
+        <div class="collab-milestones">
+          <div class="milestone">
+            <div class="milestone-year">2018–2021</div>
+            <div class="milestone-text"><strong>BC Basic Income Panel</strong>Co-led a landmark provincial research program on basic income feasibility for BC</div>
+          </div>
+          <div class="milestone">
+            <div class="milestone-year">2021–2023</div>
+            <div class="milestone-text"><strong>Nunavut Basic Income</strong>Multi-year feasibility study for Canada's most remote territory, in consultation with Inuit Advisory Council</div>
+          </div>
+          <div class="milestone">
+            <div class="milestone-year">2022–2024</div>
+            <div class="milestone-text"><strong>City of Calgary Partnership</strong>Two major Urban Alliance research programs on short-term rentals and property tax equity</div>
+          </div>
+          <div class="milestone">
+            <div class="milestone-year">2024–Present</div>
+            <div class="milestone-text"><strong>INCLUSIECON</strong>Launched a national research initiative on the structural roots of economic inequality in Canada</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta-strip">
+    <div class="cta-inner">
+      <div class="eyebrow ey-rose">Work With Us</div>
+      <h2>Research built to be <em>used</em></h2>
+      <p>We work with governments, civil society organisations, and research partners across Canada. If you have a project in mind, we'd like to hear about it.</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-primary">Get in Touch</a>
+        <a href="services.html" class="btn-outline">See Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">INCLUSI<span>ECON</span></div>
+        <div class="footer-tagline">Tax and transfer policy research for a fairer Canada. Based at the University of Calgary.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Research</h4>
+        <a href="#">FACT Stream</a>
+        <a href="#">ENABLE Stream</a>
+        <a href="#">Publications</a>
+        <a href="#">Data &amp; Tools</a>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <a href="who-we-are.html">Who We Are</a>
+        <a href="services.html">Services</a>
+        <a href="#">Partner With Us</a>
+        <a href="http://deadfortaxreasons.wordpress.com/" target="_blank" rel="noopener">Dead For Tax Reasons ↗</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:lindsay.tedds1@ucalgary.ca">Lindsay Tedds</a>
+        <a href="mailto:gillian.petit@ucalgary.ca">Gillian Petit</a>
+        <a href="contact.html">Get in Touch</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Lindsay Tedds &amp; Gillian Petit · University of Calgary</span>
+      <a href="https://www.lindsaytedds.ca" target="_blank" rel="noopener">lindsaytedds.ca ↗</a>
+    </div>
+  </footer>
+
+</body>
+</html>
