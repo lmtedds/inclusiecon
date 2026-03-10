@@ -3,27 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Income and Social Supports — Research Brief</title>
+  <title>Cash Transfer Design — Research Brief — INCLUSIECON</title>
+  <meta name="description" content="An inclusive systems-based framework for cash transfer program design. Research brief by Lindsay M. Tedds and Gillian Petit, Canadian Public Administration, 2026.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary:        #5c1a1a;
-      --primary-dark:   #3e1010;
-      --primary-mid:    #7a2828;
-      --accent:         #a87828;
-      --accent-light:   #c8a050;
-      --accent-pale:    #e8d898;
-      --secondary:      #7a3a44;
-      --secondary-mid:  #9e5560;
-      --secondary-pale: #ecdde0;
-      --surface:        #f7f2ea;
-      --surface-raised: #ece4d8;
-      --border:         #ddd0bc;
-      --text-dark:      #180808;
-      --text-mid:       #3e2028;
-      --text-muted:     #7a5858;
+      --primary:         #5c1a1a;
+      --primary-dark:    #3e1010;
+      --primary-mid:     #7a2828;
+      --primary-light:   #a84848;
+      --secondary:       #7a3a44;
+      --secondary-mid:   #9e5560;
+      --secondary-light: #c48890;
+      --secondary-pale:  #ecdde0;
+      --accent:          #a87828;
+      --accent-light:    #c8a050;
+      --accent-pale:     #e8d898;
+      --surface:         #f7f2ea;
+      --surface-raised:  #ece4d8;
+      --border:          #ddd0bc;
+      --text-dark:       #180808;
+      --text-mid:        #3e2028;
+      --text-muted:      #7a5858;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,379 +35,525 @@
       font-family: 'DM Sans', sans-serif;
       background: var(--surface);
       color: var(--text-dark);
-      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
     }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(62,16,16,0.97); backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 2.5rem;
+      height: 62px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-family: 'Lora', serif; font-weight: 700; font-size: 1.15rem; color: #fff; text-decoration: none; letter-spacing: 0.03em; }
+    .nav-logo span { color: var(--accent-light); }
+    .nav-links { display: flex; gap: 0.2rem; list-style: none; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.62); text-decoration: none; font-size: 0.85rem; font-weight: 500; padding: 0.4rem 0.85rem; border-radius: 4px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.07); }
+    .nav-links a.active { color: #fff; }
 
     /* ── HERO ── */
-    .hero {
+    .project-hero {
       background: var(--primary-dark);
-      padding: 4rem 2rem 3.5rem;
-      position: relative;
-      overflow: hidden;
+      background-image:
+        radial-gradient(ellipse 70% 60% at 75% 40%, rgba(168,120,40,0.14) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 70% at 5% 90%, rgba(122,58,68,0.2) 0%, transparent 60%);
+      padding: 5rem 2rem 4rem;
+      position: relative; overflow: hidden;
     }
-    .hero::before {
+    .project-hero::before {
       content: '';
       position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(168,120,40,0.15) 0%, transparent 60%);
+      background-image: repeating-linear-gradient(
+        90deg, transparent, transparent 80px,
+        rgba(255,255,255,0.012) 80px, rgba(255,255,255,0.012) 81px
+      );
     }
-    /* SVG illustration — network/system motif */
-    .hero-svg {
-      position: absolute; right: 0; top: 0; height: 100%; width: 45%;
-      opacity: 0.12; pointer-events: none;
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto; position: relative;
+      display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center;
     }
-    .hero-inner { max-width: 900px; margin: 0 auto; position: relative; z-index: 2; }
-    .hero-kicker {
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.16em;
-      text-transform: uppercase; color: var(--accent-light); margin-bottom: 1rem;
-      display: flex; align-items: center; gap: 0.6rem;
+    .hero-breadcrumb {
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent-light); margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 0.5rem;
     }
-    .hero-kicker::before { content: ''; width: 28px; height: 1.5px; background: var(--accent-light); display: block; }
-    .hero h1 {
-      font-family: 'Lora', serif;
-      font-size: clamp(1.6rem, 3.5vw, 2.6rem);
+    .hero-breadcrumb a { color: var(--secondary-light); text-decoration: none; transition: color 0.2s; }
+    .hero-breadcrumb a:hover { color: var(--accent-light); }
+    .hero-breadcrumb .sep { opacity: 0.4; }
+    .hero-kicker { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .hero-title {
+      font-family: 'Lora', serif; font-size: clamp(1.8rem, 3.5vw, 2.9rem);
       font-weight: 700; color: #fff; line-height: 1.2;
-      max-width: 680px; margin-bottom: 1.25rem;
+      letter-spacing: -0.01em; margin-bottom: 1.25rem; max-width: 640px;
     }
-    .hero h1 em { font-style: italic; color: var(--accent-pale); }
-    .hero-authors {
-      font-size: 0.88rem; color: rgba(255,255,255,0.6);
-      margin-bottom: 0.5rem;
-    }
-    .hero-authors strong { color: rgba(255,255,255,0.85); font-weight: 500; }
-    .hero-outlet {
-      font-size: 0.82rem; color: var(--accent-light);
-      font-style: italic; margin-bottom: 2rem;
-    }
-    .hero-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .hero-title em { font-style: italic; color: var(--accent-pale); }
+    .hero-authors { font-size: 0.9rem; color: rgba(255,255,255,0.65); margin-bottom: 0.3rem; }
+    .hero-authors strong { color: rgba(255,255,255,0.88); font-weight: 500; }
+    .hero-outlet { font-size: 0.82rem; color: var(--accent-light); font-style: italic; margin-bottom: 1.75rem; }
+    .hero-tags { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 2rem; }
     .hero-tag {
-      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em;
-      text-transform: uppercase; padding: 0.22rem 0.7rem; border-radius: 20px;
-      border: 1px solid rgba(200,160,80,0.4); color: var(--accent-light);
-      background: rgba(168,120,40,0.12);
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.2rem 0.65rem; border-radius: 20px;
+      border: 1px solid rgba(200,160,80,0.35); color: var(--accent-light);
+      background: rgba(168,120,40,0.1);
     }
+    .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: var(--accent); color: #fff; text-decoration: none;
+      font-size: 0.85rem; font-weight: 600; padding: 0.65rem 1.4rem;
+      border-radius: 5px; transition: background 0.2s; white-space: nowrap;
+    }
+    .btn-primary:hover { background: var(--accent-light); }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      border: 1.5px solid rgba(255,255,255,0.22); color: rgba(255,255,255,0.72);
+      text-decoration: none; font-size: 0.82rem; font-weight: 500;
+      padding: 0.6rem 1.2rem; border-radius: 5px;
+      transition: border-color 0.2s, color 0.2s; white-space: nowrap;
+    }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+    .hero-illustration { flex-shrink: 0; opacity: 0.9; }
 
-    /* ── BODY ── */
-    .page-body { max-width: 900px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+    /* ── PAGE BODY ── */
+    .page-body { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem 6rem; }
 
-    /* ── ABSTRACT ── */
-    .abstract {
-      background: var(--primary-dark);
-      border-radius: 10px;
-      padding: 2rem 2.25rem;
-      margin-bottom: 3rem;
+    /* ── ABSTRACT BAND ── */
+    .abstract-band {
+      background: var(--primary-dark); border-radius: 12px;
+      padding: 2.25rem 2.75rem; margin-bottom: 4rem;
       border-left: 3px solid var(--accent);
+      display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start;
     }
-    .abstract-label {
-      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--accent-light); margin-bottom: 0.75rem;
+    .abstract-label-vert {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent-light); writing-mode: vertical-rl; transform: rotate(180deg);
+      white-space: nowrap; padding: 0.25rem 0;
     }
-    .abstract p {
-      font-size: 0.95rem; color: rgba(255,255,255,0.75); line-height: 1.8;
-    }
+    .abstract-text { font-size: 0.98rem; color: rgba(255,255,255,0.72); line-height: 1.88; }
+    .abstract-text strong { color: rgba(255,255,255,0.92); font-weight: 600; }
 
-    /* ── SECTION HEADERS ── */
+    /* ── SECTIONS ── */
+    .section-block { margin-bottom: 4rem; }
     .section-header {
       display: flex; align-items: baseline; gap: 1rem;
-      margin-bottom: 1.75rem; padding-bottom: 0.65rem;
+      margin-bottom: 2rem; padding-bottom: 0.7rem;
       border-bottom: 1.5px solid var(--border);
     }
-    .section-number {
-      font-family: 'Lora', serif; font-size: 0.85rem;
-      color: var(--accent); font-weight: 600;
+    .section-num {
+      font-family: 'Lora', serif; font-size: 1.75rem; font-weight: 700;
+      color: var(--accent); line-height: 1; flex-shrink: 0; opacity: 0.55;
     }
     .section-title {
-      font-family: 'Lora', serif; font-size: 1.3rem;
-      font-weight: 700; color: var(--primary);
+      font-family: 'Lora', serif; font-size: 1.35rem;
+      font-weight: 700; color: var(--primary); line-height: 1.2;
     }
-    .section-block { margin-bottom: 3rem; }
 
-    /* ── FRAMEWORK CARDS ── */
-    .framework-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1rem; margin-bottom: 2rem;
-    }
+    /* ── FRAMEWORK STAGES ── */
+    .framework-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
     .fw-card {
-      border-radius: 10px; padding: 1.5rem;
-      display: flex; flex-direction: column; gap: 0.6rem;
+      border-radius: 12px; padding: 1.75rem; position: relative; overflow: hidden;
     }
-    .fw-card-1 { background: var(--secondary-pale); border: 1px solid rgba(196,136,144,0.3); }
-    .fw-card-2 { background: var(--accent-pale);    border: 1px solid rgba(168,120,40,0.25); }
-    .fw-card-3 { background: var(--surface-raised); border: 1px solid var(--border); }
-    .fw-num {
-      font-size: 1.6rem; font-family: 'Lora', serif; font-weight: 700; line-height: 1;
+    .fw-card::before {
+      content: attr(data-num);
+      position: absolute; right: 1rem; top: 0.25rem;
+      font-family: 'Lora', serif; font-size: 5rem; font-weight: 700;
+      line-height: 1; opacity: 0.06; color: var(--text-dark); pointer-events: none;
     }
-    .fw-card-1 .fw-num { color: var(--secondary); }
-    .fw-card-2 .fw-num { color: var(--accent); }
-    .fw-card-3 .fw-num { color: var(--primary-mid); }
-    .fw-name { font-family: 'Lora', serif; font-size: 0.95rem; font-weight: 700; color: var(--text-dark); }
-    .fw-desc { font-size: 0.83rem; color: var(--text-mid); line-height: 1.65; }
+    .fw-1 { background: var(--secondary-pale); border: 1px solid rgba(196,136,144,0.3); }
+    .fw-2 { background: var(--accent-pale);    border: 1px solid rgba(168,120,40,0.25); }
+    .fw-3 { background: var(--surface-raised); border: 1px solid var(--border); }
+    .fw-step {
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .fw-1 .fw-step { color: var(--secondary-mid); }
+    .fw-2 .fw-step { color: var(--accent); }
+    .fw-3 .fw-step { color: var(--primary-mid); }
+    .fw-name { font-family: 'Lora', serif; font-size: 1.15rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.6rem; }
+    .fw-desc { font-size: 0.86rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 0.9rem; }
+    .fw-items { display: flex; flex-direction: column; gap: 0.35rem; }
+    .fw-item { font-size: 0.82rem; color: var(--text-mid); display: flex; gap: 0.5rem; line-height: 1.5; }
+    .fw-item::before { content: '—'; opacity: 0.35; flex-shrink: 0; }
 
-    /* ── DEFINITION PILLS ── */
-    .def-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
-    .def-card {
-      background: #fff; border: 1px solid var(--border); border-radius: 8px;
-      padding: 1.25rem 1.4rem;
+    /* ── INCLUSION ── */
+    .inclusion-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 1.5rem; }
+    .inc-card {
+      background: #fff; border: 1px solid var(--border); border-radius: 10px;
+      padding: 1.6rem 1.75rem; position: relative; overflow: hidden;
     }
-    .def-label {
-      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem;
+    .inc-card::after {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
     }
-    .def-title { font-family: 'Lora', serif; font-size: 0.95rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.35rem; }
-    .def-text { font-size: 0.83rem; color: var(--text-mid); line-height: 1.65; }
+    .inc-card-1::after { background: linear-gradient(90deg, var(--secondary), var(--secondary-light)); }
+    .inc-card-2::after { background: linear-gradient(90deg, var(--accent), var(--accent-light)); }
+    .inc-type { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .inc-card-1 .inc-type { color: var(--secondary-mid); }
+    .inc-card-2 .inc-type { color: var(--accent); }
+    .inc-title { font-family: 'Lora', serif; font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem; }
+    .inc-text { font-size: 0.86rem; color: var(--text-mid); line-height: 1.72; }
+    .inc-note {
+      margin-top: 1.5rem; padding: 1.25rem 1.5rem;
+      background: var(--surface-raised); border-radius: 8px; border-left: 2px solid var(--accent);
+      font-size: 0.86rem; color: var(--text-mid); line-height: 1.75;
+    }
+    .inc-note strong { color: var(--text-dark); }
 
-    /* ── EVAL GRID ── */
+    /* ── EVALUATION ── */
     .eval-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-    .eval-panel {
-      border-radius: 10px; padding: 1.5rem 1.6rem;
+    .eval-panel { border-radius: 12px; padding: 1.75rem; }
+    .eval-ind { background: var(--secondary-pale); border: 1px solid rgba(196,136,144,0.3); }
+    .eval-mac { background: var(--accent-pale);    border: 1px solid rgba(168,120,40,0.25); }
+    .eval-head {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 1.25rem; padding-bottom: 0.7rem; border-bottom: 1px solid rgba(0,0,0,0.08);
     }
-    .eval-individual { background: var(--secondary-pale); border: 1px solid rgba(196,136,144,0.3); }
-    .eval-macro      { background: var(--accent-pale);    border: 1px solid rgba(168,120,40,0.25); }
-    .eval-panel-title {
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; margin-bottom: 1rem;
-    }
-    .eval-individual .eval-panel-title { color: var(--secondary-mid); }
-    .eval-macro      .eval-panel-title { color: var(--accent); }
-    .eval-item { display: flex; align-items: flex-start; gap: 0.6rem; margin-bottom: 0.75rem; }
-    .eval-dot {
-      width: 6px; height: 6px; border-radius: 50%; margin-top: 0.5rem; flex-shrink: 0;
-    }
-    .eval-individual .eval-dot { background: var(--secondary-mid); }
-    .eval-macro      .eval-dot { background: var(--accent); }
-    .eval-item-title { font-size: 0.83rem; font-weight: 600; color: var(--text-dark); }
-    .eval-item-desc  { font-size: 0.8rem; color: var(--text-mid); line-height: 1.6; }
-
-    /* ── PROSE ── */
-    .prose { font-size: 0.95rem; color: var(--text-mid); line-height: 1.85; margin-bottom: 1.25rem; }
-    .prose strong { color: var(--text-dark); font-weight: 600; }
+    .eval-ind .eval-head { color: var(--secondary-mid); }
+    .eval-mac .eval-head { color: var(--accent); }
+    .eval-item { display: flex; gap: 0.75rem; margin-bottom: 1rem; }
+    .eval-item:last-child { margin-bottom: 0; }
+    .eval-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 0.54rem; }
+    .eval-ind .eval-dot { background: var(--secondary-mid); }
+    .eval-mac .eval-dot { background: var(--accent); }
+    .eval-name { font-size: 0.88rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.2rem; }
+    .eval-desc { font-size: 0.82rem; color: var(--text-mid); line-height: 1.65; }
 
     /* ── CASE STUDY ── */
-    .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.25rem; }
-    .case-panel {
-      border-radius: 8px; padding: 1.35rem 1.4rem;
-      background: #fff; border: 1px solid var(--border);
+    .case-intro { font-size: 0.95rem; color: var(--text-mid); line-height: 1.85; margin-bottom: 1.5rem; }
+    .case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .case-panel { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 1.6rem 1.75rem; }
+    .case-head {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 1rem; padding-bottom: 0.6rem; border-bottom: 1.5px solid var(--border);
     }
-    .case-panel-title {
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; margin-bottom: 0.85rem;
+    .case-str .case-head { color: #3a6845; border-bottom-color: rgba(58,104,69,0.2); }
+    .case-gap .case-head { color: var(--secondary-mid); border-bottom-color: rgba(196,136,144,0.3); }
+    .case-item {
+      font-size: 0.84rem; color: var(--text-mid); line-height: 1.68;
+      margin-bottom: 0.7rem; padding-left: 1rem; position: relative;
     }
-    .case-strength .case-panel-title { color: #3a6845; }
-    .case-gap      .case-panel-title { color: var(--secondary-mid); }
-    .case-item { font-size: 0.83rem; color: var(--text-mid); line-height: 1.65; margin-bottom: 0.55rem; padding-left: 0.9rem; position: relative; }
-    .case-item::before { content: ''; position: absolute; left: 0; top: 0.58em; width: 5px; height: 5px; border-radius: 50%; }
-    .case-strength .case-item::before { background: #3a6845; }
-    .case-gap      .case-item::before { background: var(--secondary-mid); }
+    .case-item:last-child { margin-bottom: 0; }
+    .case-item::before { content: ''; position: absolute; left: 0; top: 0.6em; width: 5px; height: 5px; border-radius: 50%; }
+    .case-str .case-item::before { background: #3a6845; }
+    .case-gap .case-item::before { background: var(--secondary-mid); }
 
-    /* ── OUTPUTS ── */
-    .outputs-bar {
-      background: var(--primary-dark); border-radius: 10px;
-      padding: 1.5rem 2rem; margin-top: 2.5rem;
-      display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;
+    /* ── OUTPUTS STRIP ── */
+    .outputs-strip {
+      background: var(--primary-dark); border-radius: 12px;
+      padding: 2rem 2.5rem; margin-top: 4rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1.5rem; flex-wrap: wrap;
     }
-    .outputs-label {
-      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--accent-light); white-space: nowrap;
-    }
-    .output-chip {
+    .outputs-title { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem; }
+    .outputs-sub { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+    .outputs-btns { display: flex; gap: 0.65rem; flex-wrap: wrap; }
+    .out-btn {
       display: inline-flex; align-items: center; gap: 0.4rem;
-      font-size: 0.78rem; font-weight: 500; color: rgba(255,255,255,0.75);
-      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
-      padding: 0.3rem 0.8rem; border-radius: 20px; text-decoration: none;
-      transition: background 0.2s, color 0.2s;
+      font-size: 0.8rem; font-weight: 500; padding: 0.5rem 1rem;
+      border-radius: 5px; text-decoration: none; transition: all 0.2s; white-space: nowrap;
     }
-    .output-chip:hover { background: rgba(168,120,40,0.3); color: var(--accent-pale); }
-    .output-chip span { opacity: 0.5; }
+    .out-primary { background: var(--accent); color: #fff; }
+    .out-primary:hover { background: var(--accent-light); }
+    .out-ghost {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.72);
+    }
+    .out-ghost:hover { background: rgba(255,255,255,0.12); color: #fff; }
 
-    /* ── MEDIA ── */
-    @media (max-width: 680px) {
-      .framework-grid, .eval-grid, .def-grid, .case-grid { grid-template-columns: 1fr; }
+    /* ── FOOTER ── */
+    footer {
+      background: var(--primary-dark); color: rgba(255,255,255,0.5);
+      padding: 3rem 2rem; border-top: 2px solid var(--accent);
+    }
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 2rem; flex-wrap: wrap;
+    }
+    .footer-brand { font-family: 'Lora', serif; font-weight: 700; font-size: 1.1rem; color: var(--accent-pale); }
+    .footer-brand span { color: var(--accent-light); }
+    .footer-copy { font-size: 0.76rem; color: var(--secondary-mid); margin-top: 0.3rem; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.8rem; color: var(--secondary-light); text-decoration: none; }
+    .footer-links a:hover { color: var(--accent-light); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 780px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-illustration { display: none; }
+      .framework-grid, .inclusion-grid, .eval-grid, .case-grid { grid-template-columns: 1fr; }
+      .abstract-band { grid-template-columns: 1fr; }
+      .abstract-label-vert { writing-mode: horizontal-tb; transform: none; }
+      .outputs-strip { flex-direction: column; align-items: flex-start; }
+      .nav-links { display: none; }
     }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">INCLUSI<span>ECON</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="research.html" class="active">Research</a></li>
+        <li><a href="who-we-are.html">Who We Are</a></li>
+        <li><a href="partner-with-us.html">Partner With Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <!-- HERO -->
-  <section class="hero">
-    <svg class="hero-svg" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="200" cy="150" r="60" fill="none" stroke="white" stroke-width="1.5"/>
-      <circle cx="200" cy="150" r="110" fill="none" stroke="white" stroke-width="1"/>
-      <circle cx="200" cy="150" r="160" fill="none" stroke="white" stroke-width="0.75"/>
-      <line x1="200" y1="150" x2="80"  y2="40"  stroke="white" stroke-width="1"/>
-      <line x1="200" y1="150" x2="320" y2="40"  stroke="white" stroke-width="1"/>
-      <line x1="200" y1="150" x2="50"  y2="200" stroke="white" stroke-width="1"/>
-      <line x1="200" y1="150" x2="350" y2="200" stroke="white" stroke-width="1"/>
-      <line x1="200" y1="150" x2="200" y2="10"  stroke="white" stroke-width="1"/>
-      <circle cx="80"  cy="40"  r="6" fill="white"/>
-      <circle cx="320" cy="40"  r="6" fill="white"/>
-      <circle cx="50"  cy="200" r="6" fill="white"/>
-      <circle cx="350" cy="200" r="6" fill="white"/>
-      <circle cx="200" cy="10"  r="6" fill="white"/>
-      <circle cx="200" cy="150" r="10" fill="white"/>
-    </svg>
+  <section class="project-hero">
     <div class="hero-inner">
-      <div class="hero-kicker">ENABLE Stream · Research Brief</div>
-      <h1>Income and Social Supports: An <em>Inclusive Systems-Based</em> Framework for Cash Transfer Design</h1>
-      <div class="hero-authors"><strong>Lindsay M. Tedds</strong> and <strong>Gillian Petit</strong></div>
-      <div class="hero-outlet">Canadian Public Administration · 2026 · doi:10.1111/capa.70050</div>
-      <div class="hero-tags">
-        <span class="hero-tag">ENABLE</span>
-        <span class="hero-tag">Cash Transfer Design</span>
-        <span class="hero-tag">Intersectionality</span>
-        <span class="hero-tag">Systems Thinking</span>
-        <span class="hero-tag">Disability Policy</span>
-        <span class="hero-tag">GBA+</span>
+      <div>
+        <div class="hero-breadcrumb">
+          <a href="research.html">Research</a>
+          <span class="sep">→</span>
+          ENABLE Stream
+          <span class="sep">→</span>
+          Research Brief
+        </div>
+        <div class="hero-kicker">ENABLE Stream · Journal Article · 2026</div>
+        <h1 class="hero-title">Income and Social Supports: An <em>Inclusive Systems-Based</em> Framework for Cash Transfer Design</h1>
+        <div class="hero-authors"><strong>Lindsay M. Tedds</strong> and <strong>Gillian Petit</strong></div>
+        <div class="hero-outlet">Canadian Public Administration · 2026 · doi:10.1111/capa.70050</div>
+        <div class="hero-tags">
+          <span class="hero-tag">ENABLE</span>
+          <span class="hero-tag">Cash Transfer Design</span>
+          <span class="hero-tag">Intersectionality</span>
+          <span class="hero-tag">Systems Thinking</span>
+          <span class="hero-tag">Disability Policy</span>
+          <span class="hero-tag">GBA+</span>
+        </div>
+        <div class="hero-actions">
+          <a href="https://onlinelibrary.wiley.com/doi/10.1111/capa.70050" target="_blank" rel="noopener" class="btn-primary">Read Article ↗</a>
+          <a href="YOUR_GITHUB_URL/poster.png" target="_blank" rel="noopener" class="btn-outline">📊 Poster</a>
+          <a href="YOUR_GITHUB_URL/A_Framework_for_a_Better_Safety_Net.mp4" target="_blank" rel="noopener" class="btn-outline">🎥 Video</a>
+        </div>
       </div>
+      <svg class="hero-illustration" width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="46"  fill="none" stroke="rgba(200,160,80,0.25)" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="76"  fill="none" stroke="rgba(200,160,80,0.14)" stroke-width="1"/>
+        <circle cx="100" cy="100" r="98"  fill="none" stroke="rgba(200,160,80,0.07)" stroke-width="1"/>
+        <line x1="100" y1="100" x2="100" y2="6"   stroke="rgba(200,160,80,0.2)" stroke-width="1"/>
+        <line x1="100" y1="100" x2="180" y2="55"  stroke="rgba(200,160,80,0.2)" stroke-width="1"/>
+        <line x1="100" y1="100" x2="180" y2="145" stroke="rgba(200,160,80,0.2)" stroke-width="1"/>
+        <line x1="100" y1="100" x2="100" y2="194" stroke="rgba(200,160,80,0.2)" stroke-width="1"/>
+        <line x1="100" y1="100" x2="20"  y2="145" stroke="rgba(200,160,80,0.2)" stroke-width="1"/>
+        <line x1="100" y1="100" x2="20"  y2="55"  stroke="rgba(200,160,80,0.2)" stroke-width="1"/>
+        <circle cx="100" cy="6"   r="4.5" fill="rgba(200,160,80,0.55)"/>
+        <circle cx="180" cy="55"  r="4.5" fill="rgba(200,160,80,0.55)"/>
+        <circle cx="180" cy="145" r="4.5" fill="rgba(200,160,80,0.55)"/>
+        <circle cx="100" cy="194" r="4.5" fill="rgba(200,160,80,0.55)"/>
+        <circle cx="20"  cy="145" r="4.5" fill="rgba(200,160,80,0.55)"/>
+        <circle cx="20"  cy="55"  r="4.5" fill="rgba(200,160,80,0.55)"/>
+        <circle cx="100" cy="100" r="10" fill="rgba(200,160,80,0.15)" stroke="rgba(200,160,80,0.5)" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="4"  fill="rgba(200,160,80,0.85)"/>
+        <g fill="rgba(200,160,80,0.4)">
+          <circle cx="100" cy="3"   r="3"/><rect x="97.5" y="7"   width="5" height="7" rx="1.5"/>
+          <circle cx="183" cy="53"  r="3"/><rect x="180.5" y="57" width="5" height="7" rx="1.5"/>
+          <circle cx="183" cy="143" r="3"/><rect x="180.5" y="147" width="5" height="7" rx="1.5"/>
+          <circle cx="17"  cy="53"  r="3"/><rect x="14.5" y="57"  width="5" height="7" rx="1.5"/>
+          <circle cx="17"  cy="143" r="3"/><rect x="14.5" y="147" width="5" height="7" rx="1.5"/>
+        </g>
+      </svg>
     </div>
   </section>
 
   <div class="page-body">
 
     <!-- ABSTRACT -->
-    <div class="abstract">
-      <div class="abstract-label">Executive Summary</div>
-      <p>This paper develops a systems-based framework for the inclusive design and evaluation of cash transfer programs in Canada. Integrating policy design, empirical economics, and systems thinking, it moves beyond technocratic optimization toward <strong style="color:rgba(255,255,255,0.9)">"inclusion"</strong> — defined through an intersectional lens that accounts for overlapping systems of discrimination and disadvantage. The framework is structured into three interconnected stages: <strong style="color:rgba(255,255,255,0.9)">Structure</strong>, <strong style="color:rgba(255,255,255,0.9)">Components</strong>, and <strong style="color:rgba(255,255,255,0.9)">Evaluation</strong>. A retrospective analysis of the BC Basic Income Expert Panel serves as the case study.</p>
+    <div class="abstract-band">
+      <div class="abstract-label-vert">Summary</div>
+      <div class="abstract-text">
+        This paper develops a systems-based framework for the inclusive design and evaluation of cash transfer programs in Canada. Integrating policy design, empirical economics, and systems thinking, it moves beyond technocratic optimization toward <strong>"inclusion"</strong> — defined through an intersectional lens that accounts for overlapping systems of discrimination and disadvantage. The framework comprises three interconnected stages — <strong>Structure</strong>, <strong>Components</strong>, and <strong>Evaluation</strong> — and argues that programs cannot be designed or assessed in isolation from the broader ecosystem of social supports and the lived realities of recipients. A retrospective analysis of the BC Basic Income Expert Panel demonstrates both the power of the approach and the gaps that arise when intersectionality is not fully centred.
+      </div>
     </div>
 
-    <!-- THE FRAMEWORK -->
+    <!-- 01 THE FRAMEWORK -->
     <div class="section-block">
       <div class="section-header">
-        <span class="section-number">01</span>
+        <span class="section-num">01</span>
         <h2 class="section-title">The Inclusive Systems-Based Framework</h2>
       </div>
-
       <div class="framework-grid">
-        <div class="fw-card fw-card-1">
-          <div class="fw-num">01</div>
+        <div class="fw-card fw-1" data-num="1">
+          <div class="fw-step">Stage One</div>
           <div class="fw-name">Structure</div>
-          <div class="fw-desc">The contextual backbone — identifying the population-at-risk, mapping structural environments and sites of power, and cataloguing the full system of existing income and social supports.</div>
+          <div class="fw-desc">The contextual backbone — identifying who is at risk, why, and what already exists to support them.</div>
+          <div class="fw-items">
+            <div class="fw-item">Population-at-risk: who needs support and what kind</div>
+            <div class="fw-item">Structural environment: sites of power and oppression</div>
+            <div class="fw-item">Existing system map: all federal, provincial, and local programs and interactions</div>
+          </div>
         </div>
-        <div class="fw-card fw-card-2">
-          <div class="fw-num">02</div>
+        <div class="fw-card fw-2" data-num="2">
+          <div class="fw-step">Stage Two</div>
           <div class="fw-name">Components</div>
-          <div class="fw-desc">The building blocks of program design — technical parameters (maximum benefit G, benefit reduction rate BRR, break-even level BE), operational features, and access pathways including administration and delivery.</div>
+          <div class="fw-desc">The design and access building blocks that determine how a program actually functions for recipients.</div>
+          <div class="fw-items">
+            <div class="fw-item">Technical parameters: maximum benefit (G), benefit reduction rate (BRR), break-even (BE)</div>
+            <div class="fw-item">Operational features: conditionality, payment frequency, equivalence scales</div>
+            <div class="fw-item">Access pathways: administering agency, eligibility rules, delivery mechanisms</div>
+          </div>
         </div>
-        <div class="fw-card fw-card-3">
-          <div class="fw-num">03</div>
+        <div class="fw-card fw-3" data-num="3">
+          <div class="fw-step">Stage Three</div>
           <div class="fw-name">Evaluation</div>
-          <div class="fw-desc">Measuring impact at both individual and macro levels — ensuring the program enhances inclusion without leaving targeted groups worse off, assessed through an intersectional lens.</div>
+          <div class="fw-desc">Measuring impact at both individual and macro levels, consistently applied through an intersectional lens.</div>
+          <div class="fw-items">
+            <div class="fw-item">Individual: adequacy, accessibility, and dignity</div>
+            <div class="fw-item">Macro: cost-effectiveness, poverty reduction, systemic impacts</div>
+            <div class="fw-item">Intersectional: heterogeneous outcomes across overlapping identities</div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- INCLUSION -->
+    <!-- 02 INCLUSION -->
     <div class="section-block">
       <div class="section-header">
-        <span class="section-number">02</span>
+        <span class="section-num">02</span>
         <h2 class="section-title">Defining Inclusion</h2>
       </div>
-      <p class="prose">The overarching goal of any income support program must be to enhance inclusion. The framework distinguishes two types, and insists both must be assessed through an intersectional lens — first articulated by Dr. Kimberlé Crenshaw — which examines how social categorizations (race, class, gender, disability) create interdependent systems of disadvantage.</p>
-      <div class="def-grid">
-        <div class="def-card">
-          <div class="def-label">Social Inclusiveness</div>
-          <div class="def-title">Empowerment</div>
-          <div class="def-text">Investing in human capital and enhancing opportunities for activities marginalized and vulnerable persons value, enabling fuller participation in community and economic life.</div>
+      <div class="inclusion-grid">
+        <div class="inc-card inc-card-1">
+          <div class="inc-type">Social Inclusiveness</div>
+          <div class="inc-title">Empowerment</div>
+          <div class="inc-text">Investing in human capital and enhancing opportunities for activities marginalized and vulnerable persons value — enabling fuller participation in community and economic life on their own terms.</div>
         </div>
-        <div class="def-card">
-          <div class="def-label">Relational Inclusiveness</div>
-          <div class="def-title">Justice</div>
-          <div class="def-text">Combating exclusion caused by resource deprivation — monetary, power, or human capital — and actively dismantling the systems and structural pathologies that perpetuate inequality.</div>
+        <div class="inc-card inc-card-2">
+          <div class="inc-type">Relational Inclusiveness</div>
+          <div class="inc-title">Justice</div>
+          <div class="inc-text">Combating exclusion caused by resource deprivation — monetary, power, or human capital — and actively dismantling the structural pathologies and systems that perpetuate inequality.</div>
         </div>
+      </div>
+      <div class="inc-note">
+        <strong>The intersectional lens</strong> — first articulated by Dr. Kimberlé Crenshaw — is applied throughout. It examines how social categorizations (race, class, gender, disability) create interdependent systems of disadvantage, revealing why a cash transfer is needed for specific groups, how different designs produce varied outcomes among seemingly similar groups, and the heterogeneity of need within any target population.
       </div>
     </div>
 
-    <!-- EVALUATION -->
+    <!-- 03 EVALUATION -->
     <div class="section-block">
       <div class="section-header">
-        <span class="section-number">03</span>
+        <span class="section-num">03</span>
         <h2 class="section-title">Evaluative Criteria</h2>
       </div>
-      <p class="prose">Evaluation must be conducted through both individual and macro-level lenses. Prioritizing aggregate statistics while ignoring lived experience — or vice versa — produces an incomplete and potentially harmful assessment.</p>
       <div class="eval-grid">
-        <div class="eval-panel eval-individual">
-          <div class="eval-panel-title">Individual Level — The Human Experience</div>
+        <div class="eval-panel eval-ind">
+          <div class="eval-head">Individual Level — The Human Experience</div>
           <div class="eval-item">
             <div class="eval-dot"></div>
             <div>
-              <div class="eval-item-title">Adequacy</div>
-              <div class="eval-item-desc">Resources sufficient for community participation, measured against actual need — not merely statistical thresholds.</div>
+              <div class="eval-name">Adequacy</div>
+              <div class="eval-desc">Resources sufficient for community participation, measured against actual need — not merely statistical thresholds like the Market Basket Measure.</div>
             </div>
           </div>
           <div class="eval-item">
             <div class="eval-dot"></div>
             <div>
-              <div class="eval-item-title">Accessibility</div>
-              <div class="eval-item-desc">Identifying systemic barriers (language, literacy, technology) and the impact of stigmatization, which creates "othering" and reduces realized access.</div>
+              <div class="eval-name">Accessibility</div>
+              <div class="eval-desc">Identifying systemic barriers — language, literacy, technology, time — and the impact of stigmatization, which creates "othering" and reduces realized access even when legal eligibility exists.</div>
             </div>
           </div>
           <div class="eval-item">
             <div class="eval-dot"></div>
             <div>
-              <div class="eval-item-title">Dignity</div>
-              <div class="eval-item-desc">Evaluating the "welfare wall" and ensuring recipients are treated with dignity rather than paternalism. Nothing about us, without us.</div>
+              <div class="eval-name">Dignity</div>
+              <div class="eval-desc">Evaluating the "welfare wall" and ensuring recipients are treated without paternalism. <em>Nothing about us, without us.</em></div>
             </div>
           </div>
         </div>
-        <div class="eval-panel eval-macro">
-          <div class="eval-panel-title">Macro Level — Aggregate Impact</div>
+        <div class="eval-panel eval-mac">
+          <div class="eval-head">Macro Level — Aggregate Impact</div>
           <div class="eval-item">
             <div class="eval-dot"></div>
             <div>
-              <div class="eval-item-title">Economic Viability</div>
-              <div class="eval-item-desc">Gross cost, financing methods, and fiscal impacts including effects on inflation or debt-to-GDP ratios.</div>
+              <div class="eval-name">Economic Viability</div>
+              <div class="eval-desc">Gross cost, financing mechanisms, and fiscal impacts including effects on inflation and debt-to-GDP ratios.</div>
             </div>
           </div>
           <div class="eval-item">
             <div class="eval-dot"></div>
             <div>
-              <div class="eval-item-title">Effectiveness</div>
-              <div class="eval-item-desc">Changes in poverty rates, Gini coefficient, food insecurity, and "poverty efficiency" — persons removed from poverty per $1M spent.</div>
+              <div class="eval-name">Effectiveness</div>
+              <div class="eval-desc">Changes in poverty rates, Gini coefficient, food insecurity, and "poverty efficiency" — persons removed from poverty per $1M spent.</div>
             </div>
           </div>
           <div class="eval-item">
             <div class="eval-dot"></div>
             <div>
-              <div class="eval-item-title">Systemic Impacts</div>
-              <div class="eval-item-desc">Effects on human capital, health care costs, crime prevention, and long-run public support for the program.</div>
+              <div class="eval-name">Systemic Impacts</div>
+              <div class="eval-desc">Long-run effects on human capital, health care costs, crime prevention, and the durability of public support for the program.</div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- CASE STUDY -->
+    <!-- 04 CASE STUDY -->
     <div class="section-block">
       <div class="section-header">
-        <span class="section-number">04</span>
+        <span class="section-num">04</span>
         <h2 class="section-title">Case Study: BC Basic Income Expert Panel</h2>
       </div>
-      <p class="prose">The 2018 BC Basic Income Expert Panel applied a precursor to this framework to assess the feasibility of a basic income. It illustrates both the framework's utility and the gaps that arise when intersectionality and lived experience are not fully integrated.</p>
+      <p class="case-intro">The 2018 BC Basic Income Expert Panel applied a precursor to this framework to assess the feasibility of a basic income. It illustrates both the analytical power of the approach and the gaps that arise when intersectionality and lived experience are not fully integrated into the final output.</p>
       <div class="case-grid">
-        <div class="case-panel case-strength">
-          <div class="case-panel-title">Strengths</div>
-          <div class="case-item">Detailed systemic mapping of interactions between existing provincial supports and proposed basic income models.</div>
-          <div class="case-item">Clear objective-setting: basic income defined as a guarantee of minimum income that is simple, respectful, and inclusion-enhancing.</div>
-          <div class="case-item">Simulation of thousands of parameter combinations (G, BRR, BE) to assess fiscal feasibility.</div>
+        <div class="case-panel case-str">
+          <div class="case-head">✓ Strengths</div>
+          <div class="case-item">Detailed systemic mapping of interactions between existing provincial supports and proposed basic income models across 190+ programs.</div>
+          <div class="case-item">Clear objective-setting: basic income defined as a guarantee of a minimum income that is simple, respectful, and inclusion-enhancing.</div>
+          <div class="case-item">Simulation of thousands of parameter combinations (G, BRR, BE) to rigorously assess fiscal feasibility across design options.</div>
         </div>
         <div class="case-panel case-gap">
-          <div class="case-panel-title">Identified Gaps</div>
-          <div class="case-item">Intersectional papers were commissioned but did not feature prominently in the final report — ableism in the labour market, for example, was noted but not integrated.</div>
-          <div class="case-item">Data constraints meant persons with disabilities could not be identified in tax-filer datasets, skewing results toward simpler "one-size" designs.</div>
-          <div class="case-item">Qualitative lived experience was subordinated to statistical constructs like MBM thresholds, reducing transparency on how trade-offs were weighted.</div>
+          <div class="case-head">⚠ Identified Gaps</div>
+          <div class="case-item">Intersectional research papers were commissioned but did not feature prominently in the final report — the role of ableism in the labour market was noted but not integrated into policy conclusions.</div>
+          <div class="case-item">Data constraints meant persons with disabilities could not be identified in tax-filer datasets, skewing evaluation toward simpler "one-size" designs over targeted top-ups.</div>
+          <div class="case-item">Qualitative lived experience was subordinated to statistical constructs; transparency on how trade-offs were weighted by those with lived experience was insufficient.</div>
         </div>
       </div>
     </div>
 
-    <!-- KNOWLEDGE MOBILIZATION OUTPUTS -->
-    <div class="outputs-bar">
-      <div class="outputs-label">Knowledge Mobilization</div>
-      <a href="https://onlinelibrary.wiley.com/doi/10.1111/capa.70050" target="_blank" rel="noopener" class="output-chip">📄 Journal Article <span>↗</span></a>
-      <span class="output-chip">🎥 Video Explainer</span>
-      <span class="output-chip">📊 Research Poster</span>
-      <span class="output-chip">📋 This Brief</span>
+    <!-- OUTPUTS STRIP -->
+    <div class="outputs-strip">
+      <div>
+        <div class="outputs-title">Knowledge Mobilization</div>
+        <div class="outputs-sub">All outputs from this research project</div>
+      </div>
+      <div class="outputs-btns">
+        <a href="https://onlinelibrary.wiley.com/doi/10.1111/capa.70050" target="_blank" rel="noopener" class="out-btn out-primary">📄 Read Article ↗</a>
+        <a href="YOUR_GITHUB_URL/poster.png" target="_blank" rel="noopener" class="out-btn out-ghost">📊 Research Poster</a>
+        <a href="YOUR_GITHUB_URL/A_Framework_for_a_Better_Safety_Net.mp4" target="_blank" rel="noopener" class="out-btn out-ghost">🎥 Video Explainer</a>
+        <a href="research.html" class="out-btn out-ghost">← Back to Research</a>
+      </div>
     </div>
 
-  </div><!-- /page-body -->
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">INCLUSI<span>ECON</span></div>
+        <div class="footer-copy">Tax and transfer policy research for a fairer Canada · University of Calgary</div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="partner-with-us.html">Partner With Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
