@@ -138,15 +138,24 @@
     .filter-btn.active { background: var(--primary); border-color: var(--primary); color: #fff; }
 
     /* ── PUB LIST ── */
-    .pub-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .pub-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
 
     .pub-entry {
       background: #fff; border: 1px solid var(--border); border-radius: 14px;
-      padding: 1.75rem 2rem; display: grid; grid-template-columns: 1fr auto;
-      gap: 1.5rem; align-items: start;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      overflow: hidden; display: flex; flex-direction: column;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
     }
-    .pub-entry:hover { border-color: var(--secondary-light); box-shadow: 0 2px 16px rgba(92,26,26,0.07); }
+    .pub-entry:hover { border-color: var(--secondary-light); box-shadow: 0 6px 28px rgba(92,26,26,0.1); transform: translateY(-3px); }
+
+    /* image header */
+    .pub-img-wrap { position: relative; height: 160px; flex-shrink: 0; overflow: hidden; }
+    .pub-img-bg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; transition: transform 0.4s ease; }
+    .pub-entry:hover .pub-img-bg { transform: scale(1.04); }
+    .pub-img-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 30%, rgba(24,8,8,0.55) 100%); pointer-events: none; }
+
+    .pub-body { padding: 1.35rem 1.5rem; flex: 1; display: flex; flex-direction: column; }
+    .pub-blurb { font-size: 0.88rem; color: var(--text-mid); line-height: 1.75; flex: 1; }
+    .pub-link { margin-top: 1rem; align-self: flex-start; }
 
     .pub-meta { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
     .pub-stream-pill {
@@ -166,10 +175,9 @@
       font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 700;
       color: var(--text-dark); line-height: 1.3; margin-bottom: 0.4rem;
     }
-    .pub-authors { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.65rem; }
+    .pub-authors { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.5rem; }
     .pub-authors strong { color: var(--text-mid); font-weight: 600; }
-    .pub-outlet { font-size: 0.8rem; color: var(--accent); font-style: italic; font-weight: 500; margin-bottom: 0.75rem; }
-    .pub-blurb { font-size: 0.88rem; color: var(--text-mid); line-height: 1.75; }
+    .pub-outlet { font-size: 0.8rem; color: var(--accent); font-style: italic; font-weight: 500; margin-bottom: 0.65rem; }
 
     .pub-action { display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem; flex-shrink: 0; }
     .pub-link {
@@ -316,6 +324,46 @@
              ═══════════════════════════════════════════════════ -->
 
         <div class="pub-entry" data-stream="enable" data-type="commentary">
+          <div class="pub-img-wrap">
+            <svg class="pub-img-bg" viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="g1bg" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#2a0a0a"/>
+                  <stop offset="100%" stop-color="#7a3a1a"/>
+                </linearGradient>
+                <linearGradient id="g1bar" x1="0" y1="1" x2="0" y2="0">
+                  <stop offset="0%" stop-color="#a87828" stop-opacity="0.9"/>
+                  <stop offset="100%" stop-color="#e8c878" stop-opacity="0.4"/>
+                </linearGradient>
+                <linearGradient id="g1bar2" x1="0" y1="1" x2="0" y2="0">
+                  <stop offset="0%" stop-color="#c48890" stop-opacity="0.7"/>
+                  <stop offset="100%" stop-color="#ecdde0" stop-opacity="0.2"/>
+                </linearGradient>
+              </defs>
+              <!-- bg -->
+              <rect width="600" height="160" fill="url(#g1bg)"/>
+              <!-- subtle grid lines -->
+              <line x1="0" y1="130" x2="600" y2="130" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+              <line x1="0" y1="100" x2="600" y2="100" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+              <line x1="0" y1="70"  x2="600" y2="70"  stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+              <!-- bars — rising left to right, "investment" theme -->
+              <rect x="40"  y="110" width="28" height="20"  fill="url(#g1bar2)" rx="2"/>
+              <rect x="82"  y="95"  width="28" height="35"  fill="url(#g1bar2)" rx="2"/>
+              <rect x="124" y="78"  width="28" height="52"  fill="url(#g1bar)"  rx="2"/>
+              <rect x="166" y="60"  width="28" height="70"  fill="url(#g1bar)"  rx="2"/>
+              <rect x="208" y="42"  width="28" height="88"  fill="url(#g1bar)"  rx="2"/>
+              <!-- trend arrow line -->
+              <polyline points="54,118 96,103 138,86 180,68 222,50" stroke="#e8c878" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.8"/>
+              <!-- circle accent -->
+              <circle cx="222" cy="50" r="5" fill="#e8c878" opacity="0.9"/>
+              <!-- right side large decorative circle -->
+              <circle cx="480" cy="80" r="130" fill="none" stroke="rgba(200,160,80,0.08)" stroke-width="40"/>
+              <circle cx="480" cy="80" r="80"  fill="none" stroke="rgba(200,160,80,0.06)" stroke-width="2"/>
+              <!-- label -->
+              <text x="310" y="96" font-family="Georgia,serif" font-size="13" fill="rgba(232,200,120,0.55)" letter-spacing="3" text-anchor="middle" font-style="italic">SOCIAL INVESTMENT</text>
+            </svg>
+            <div class="pub-img-overlay"></div>
+          </div>
           <div class="pub-body">
             <div class="pub-meta">
               <span class="pub-stream-pill psp-enable">ENABLE</span>
@@ -326,9 +374,62 @@
             <div class="pub-authors"><strong>Gillian Petit</strong> and Selvia Arshad</div>
             <div class="pub-outlet">IRPP — Institute for Research on Public Policy</div>
             <div class="pub-blurb">Affordability pressures in Canada remain elevated — food insecurity at record highs, housing costs outpacing incomes, and nearly half of Canadians struggling to cover day-to-day expenses. This commentary argues that the framing of social spending as a fiscal burden gets the economics backwards. Reframing transfers and supports as social investment — and measuring them accordingly — is both analytically more honest and politically more tractable.</div>
-          </div>
-          <div class="pub-action">
             <a href="https://irpp.org/research-studies/ost-investment-reframing-social-spending-affordability-era/" target="_blank" rel="noopener" class="pub-link">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="pub-entry" data-stream="enable" data-type="report">
+          <div class="pub-img-wrap">
+            <svg class="pub-img-bg" viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="g2bg" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#1a0505"/>
+                  <stop offset="100%" stop-color="#5c2a10"/>
+                </linearGradient>
+                <linearGradient id="g2arc" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#c8a050" stop-opacity="0.7"/>
+                  <stop offset="100%" stop-color="#c8a050" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <rect width="600" height="160" fill="url(#g2bg)"/>
+              <!-- concentric arcs — safety net / network motif -->
+              <circle cx="300" cy="190" r="90"  fill="none" stroke="rgba(200,160,80,0.12)" stroke-width="1.5"/>
+              <circle cx="300" cy="190" r="140" fill="none" stroke="rgba(200,160,80,0.09)" stroke-width="1.5"/>
+              <circle cx="300" cy="190" r="190" fill="none" stroke="rgba(200,160,80,0.07)" stroke-width="1.5"/>
+              <circle cx="300" cy="190" r="240" fill="none" stroke="rgba(200,160,80,0.05)" stroke-width="1.5"/>
+              <!-- radiating lines from centre bottom -->
+              <line x1="300" y1="190" x2="80"  y2="20"  stroke="rgba(200,160,80,0.07)" stroke-width="1"/>
+              <line x1="300" y1="190" x2="180" y2="10"  stroke="rgba(200,160,80,0.07)" stroke-width="1"/>
+              <line x1="300" y1="190" x2="300" y2="5"   stroke="rgba(200,160,80,0.07)" stroke-width="1"/>
+              <line x1="300" y1="190" x2="420" y2="10"  stroke="rgba(200,160,80,0.07)" stroke-width="1"/>
+              <line x1="300" y1="190" x2="520" y2="20"  stroke="rgba(200,160,80,0.07)" stroke-width="1"/>
+              <!-- people silhouettes — five figures evenly spaced -->
+              <g fill="rgba(232,200,120,0.55)">
+                <!-- figure: circle head + rect body -->
+                <circle cx="100" cy="88" r="7"/>  <rect x="93"  y="97"  width="14" height="22" rx="3"/>
+                <circle cx="175" cy="78" r="7"/>  <rect x="168" y="87"  width="14" height="22" rx="3"/>
+                <circle cx="250" cy="70" r="7"/>  <rect x="243" y="79"  width="14" height="22" rx="3"/>
+                <circle cx="325" cy="78" r="7"/>  <rect x="318" y="87"  width="14" height="22" rx="3"/>
+                <circle cx="400" cy="88" r="7"/>  <rect x="393" y="97"  width="14" height="22" rx="3"/>
+              </g>
+              <!-- connecting line between figures -->
+              <polyline points="100,92 175,82 250,74 325,82 400,92" stroke="rgba(200,160,80,0.35)" stroke-width="1.5" fill="none" stroke-dasharray="4 3"/>
+              <!-- label -->
+              <text x="505" y="130" font-family="Georgia,serif" font-size="13" fill="rgba(232,200,120,0.45)" letter-spacing="2" text-anchor="middle" font-style="italic">BASIC INCOME</text>
+            </svg>
+            <div class="pub-img-overlay"></div>
+          </div>
+          <div class="pub-body">
+            <div class="pub-meta">
+              <span class="pub-stream-pill psp-enable">ENABLE</span>
+              <span class="pub-type">Flagship Project</span>
+              <span class="pub-year">2017–2024</span>
+            </div>
+            <div class="pub-title">Basic Income &amp; A More Just Society</div>
+            <div class="pub-authors"><strong>Lindsay M. Tedds</strong> and <strong>Gillian Petit</strong>, with Green, Kesselman, Cameron, Perrin &amp; others</div>
+            <div class="pub-outlet">BC Expert Panel · Government of Nunavut · IRPP · Canadian Public Policy</div>
+            <div class="pub-blurb">A decade of foundational work examining whether basic income is the right tool for reforming Canada's social safety net — from the BC Basic Income Expert Panel and a landmark IRPP book to microsimulations for Nunavut. Includes 1 book, 3 journal articles, 8 reports, and 4 policy &amp; media outputs.</div>
+            <a href="research-basic-income.html" class="pub-link">View Project ↗</a>
           </div>
         </div>
 
