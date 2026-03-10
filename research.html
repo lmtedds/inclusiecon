@@ -188,12 +188,16 @@
     }
     .pub-link:hover { background: var(--primary-mid); }
     .pub-link-secondary {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      border: 1.5px solid var(--border); color: var(--text-mid); text-decoration: none;
-      font-size: 0.78rem; font-weight: 500; padding: 0.5rem 1rem;
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      border: 1.5px solid var(--border); color: var(--text-muted); text-decoration: none;
+      font-size: 0.74rem; font-weight: 500; padding: 0.4rem 0.8rem;
       border-radius: 5px; white-space: nowrap; transition: all 0.2s;
     }
     .pub-link-secondary:hover { border-color: var(--primary); color: var(--primary); }
+    .pub-actions {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-top: 1rem; align-items: center;
+    }
 
     /* ── CTA ── */
     #cta-strip { background: var(--primary); padding: 6rem 0; }
@@ -433,7 +437,68 @@
           </div>
         </div>
 
-        <!-- TEMPLATE — copy and fill in to add more entries:
+        <div class="pub-entry" data-stream="enable" data-type="journal">
+          <div class="pub-img-wrap">
+            <svg class="pub-img-bg" viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <linearGradient id="g3bg" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#1a0a28"/>
+                  <stop offset="100%" stop-color="#5c1a3a"/>
+                </linearGradient>
+              </defs>
+              <rect width="600" height="160" fill="url(#g3bg)"/>
+              <!-- concentric network rings centred mid-left -->
+              <circle cx="160" cy="80" r="45"  fill="none" stroke="rgba(200,160,80,0.18)" stroke-width="1.5"/>
+              <circle cx="160" cy="80" r="80"  fill="none" stroke="rgba(200,160,80,0.11)" stroke-width="1.2"/>
+              <circle cx="160" cy="80" r="118" fill="none" stroke="rgba(200,160,80,0.07)" stroke-width="1"/>
+              <!-- spokes -->
+              <line x1="160" y1="80" x2="160" y2="5"   stroke="rgba(200,160,80,0.15)" stroke-width="1"/>
+              <line x1="160" y1="80" x2="230" y2="20"  stroke="rgba(200,160,80,0.15)" stroke-width="1"/>
+              <line x1="160" y1="80" x2="240" y2="80"  stroke="rgba(200,160,80,0.15)" stroke-width="1"/>
+              <line x1="160" y1="80" x2="230" y2="140" stroke="rgba(200,160,80,0.15)" stroke-width="1"/>
+              <line x1="160" y1="80" x2="160" y2="155" stroke="rgba(200,160,80,0.15)" stroke-width="1"/>
+              <line x1="160" y1="80" x2="90"  y2="140" stroke="rgba(200,160,80,0.15)" stroke-width="1"/>
+              <line x1="160" y1="80" x2="80"  y2="80"  stroke="rgba(200,160,80,0.15)" stroke-width="1"/>
+              <line x1="160" y1="80" x2="90"  y2="20"  stroke="rgba(200,160,80,0.15)" stroke-width="1"/>
+              <!-- node dots -->
+              <circle cx="160" cy="5"   r="4" fill="rgba(200,160,80,0.5)"/>
+              <circle cx="230" cy="20"  r="4" fill="rgba(200,160,80,0.5)"/>
+              <circle cx="240" cy="80"  r="4" fill="rgba(200,160,80,0.5)"/>
+              <circle cx="230" cy="140" r="4" fill="rgba(200,160,80,0.5)"/>
+              <circle cx="160" cy="155" r="4" fill="rgba(200,160,80,0.5)"/>
+              <circle cx="90"  cy="140" r="4" fill="rgba(200,160,80,0.5)"/>
+              <circle cx="80"  cy="80"  r="4" fill="rgba(200,160,80,0.5)"/>
+              <circle cx="90"  cy="20"  r="4" fill="rgba(200,160,80,0.5)"/>
+              <circle cx="160" cy="80"  r="8" fill="rgba(200,160,80,0.7)"/>
+              <!-- three pillars right side -->
+              <rect x="330" y="110" width="30" height="40" rx="3" fill="rgba(196,136,144,0.35)"/>
+              <rect x="375" y="80"  width="30" height="70" rx="3" fill="rgba(168,120,40,0.45)"/>
+              <rect x="420" y="50"  width="30" height="100" rx="3" fill="rgba(200,160,80,0.55)"/>
+              <!-- labels -->
+              <text x="345" y="105" font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.4)" text-anchor="middle">Structure</text>
+              <text x="390" y="75"  font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.4)" text-anchor="middle">Components</text>
+              <text x="435" y="45"  font-family="sans-serif" font-size="7" fill="rgba(255,255,255,0.4)" text-anchor="middle">Evaluation</text>
+            </svg>
+            <div class="pub-img-overlay"></div>
+          </div>
+          <div class="pub-body">
+            <div class="pub-meta">
+              <span class="pub-stream-pill psp-enable">ENABLE</span>
+              <span class="pub-type">Journal Article</span>
+              <span class="pub-year">2026</span>
+            </div>
+            <div class="pub-title">Income and Social Supports: An Inclusive Systems-Based Framework for Cash Transfer Design</div>
+            <div class="pub-authors"><strong>Lindsay M. Tedds</strong> and <strong>Gillian Petit</strong></div>
+            <div class="pub-outlet">Canadian Public Administration · doi:10.1111/capa.70050</div>
+            <div class="pub-blurb">A new framework for inclusive cash transfer design integrating policy design, empirical economics, and systems thinking — moving beyond technocratic optimization to centre intersectionality, lived experience, and the structural conditions that make programs work or fail for the people they are meant to serve.</div>
+            <div class="pub-actions">
+              <a href="https://onlinelibrary.wiley.com/doi/10.1111/capa.70050" target="_blank" rel="noopener" class="pub-link">Read Article ↗</a>
+              <a href="YOUR_GITHUB_URL/cash-transfer-brief.html" target="_blank" rel="noopener" class="pub-link-secondary">📋 Brief</a>
+              <a href="YOUR_GITHUB_URL/poster.png" target="_blank" rel="noopener" class="pub-link-secondary">📊 Poster</a>
+              <a href="YOUR_GITHUB_URL/A_Framework_for_a_Better_Safety_Net.mp4" target="_blank" rel="noopener" class="pub-link-secondary">🎥 Video</a>
+            </div>
+          </div>
+        </div>
 
         <div class="pub-entry" data-stream="STREAM" data-type="TYPE">
           <div class="pub-body">
