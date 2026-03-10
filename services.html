@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — INCLUSIECON</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary:         #5c1a1a;
+      --primary-dark:    #3e1010;
+      --primary-mid:     #7a2828;
+      --primary-light:   #a84848;
+      --secondary:       #7a3a44;
+      --secondary-mid:   #9e5560;
+      --secondary-light: #c48890;
+      --secondary-pale:  #ecdde0;
+      --accent:          #a87828;
+      --accent-light:    #c8a050;
+      --accent-pale:     #e8d898;
+      --surface:         #f7f2ea;
+      --surface-raised:  #ece4d8;
+      --border:          #ddd0bc;
+      --text-dark:       #180808;
+      --text-mid:        #3e2028;
+      --text-muted:      #7a5858;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--surface);
+      color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(62,16,16,0.97); backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 2.5rem;
+      height: 62px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-family: 'Lora', serif; font-weight: 700; font-size: 1.15rem; color: #fff; text-decoration: none; letter-spacing: 0.03em; }
+    .nav-logo span { color: var(--accent-light); }
+    .nav-links { display: flex; gap: 0.2rem; list-style: none; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.62); text-decoration: none; font-size: 0.85rem; font-weight: 500; padding: 0.4rem 0.85rem; border-radius: 4px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.07); }
+    .nav-links a.active { color: #fff; }
+    .nav-cta { background: var(--accent) !important; color: #fff !important; font-weight: 600 !important; padding: 0.42rem 1.15rem !important; }
+    .nav-cta:hover { background: var(--accent-light) !important; }
+
+    /* ── PAGE HEADER ── */
+    .page-header { background: var(--primary-dark); padding: 9rem 2.5rem 5rem; position: relative; overflow: hidden; }
+    .page-header::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(122,58,68,0.25) 0%, transparent 60%); }
+    .page-header-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+    .page-kicker { display: inline-flex; align-items: center; gap: 0.7rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.25rem; }
+    .page-kicker::before { content: ''; display: block; width: 32px; height: 1.5px; background: var(--accent-light); }
+    .page-header h1 { font-family: 'Lora', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 700; color: #fff; line-height: 1.1; letter-spacing: -0.015em; margin-bottom: 1rem; }
+    .page-header p { font-size: 1.05rem; color: rgba(255,255,255,0.55); max-width: 600px; line-height: 1.82; }
+
+    /* ── SHARED ── */
+    .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 1rem; }
+    .eyebrow::before { content: ''; display: block; width: 24px; height: 1.5px; }
+    .ey-gold { color: var(--accent); } .ey-gold::before { background: var(--accent); }
+    .ey-rose { color: var(--secondary-mid); } .ey-rose::before { background: var(--secondary-mid); }
+    .ey-light { color: var(--accent-light); } .ey-light::before { background: var(--accent-light); }
+    .sh { font-family: 'Lora', serif; font-weight: 700; line-height: 1.18; letter-spacing: -0.01em; }
+    .sh-dark { color: var(--text-dark); } .sh-white { color: #fff; }
+    .sh-lg { font-size: clamp(1.85rem, 2.8vw, 2.5rem); }
+    .sh-md { font-size: clamp(1.4rem, 2.2vw, 1.9rem); }
+    .rule { width: 44px; height: 2.5px; border-radius: 2px; margin: 0.8rem 0 1.75rem; }
+    .rule-gold { background: var(--accent); }
+
+    /* ── SERVICES GRID ── */
+    #services { background: var(--surface); padding: 7rem 0; }
+    .services-intro { max-width: 680px; margin: 0 auto 4.5rem; text-align: center; }
+    .services-intro .eyebrow { justify-content: center; }
+    .services-intro p { font-size: 1.05rem; color: var(--text-mid); line-height: 1.85; margin-top: 1rem; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+    .service-card {
+      background: #fff; border: 1px solid var(--border); border-radius: 14px;
+      padding: 2rem 2rem 2.25rem; display: flex; flex-direction: column;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .service-card:hover { box-shadow: 0 10px 36px rgba(92,26,26,0.1); transform: translateY(-3px); }
+    .sc-icon {
+      width: 46px; height: 46px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin-bottom: 1.25rem;
+    }
+    .sc-icon-fact { background: var(--secondary-pale); }
+    .sc-icon-enable { background: var(--accent-pale); }
+    .sc-icon-both { background: var(--surface-raised); }
+    .service-card h3 { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.6rem; line-height: 1.3; }
+    .service-card p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.78; flex: 1; }
+    .sc-tag { margin-top: 1.25rem; }
+    .tag { display: inline-block; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 0.2rem 0.65rem; font-size: 0.72rem; color: var(--text-muted); font-weight: 500; }
+
+    /* ── QUANT/QUAL CALLOUT ── */
+    #methods { background: var(--primary-dark); padding: 5.5rem 0; }
+    .methods-inner { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .methods-left {}
+    .methods-left p { font-size: 1rem; color: rgba(255,255,255,0.65); line-height: 1.85; margin-bottom: 1rem; }
+    .methods-left p strong { color: rgba(255,255,255,0.9); font-weight: 600; }
+    .methods-right { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .method-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 1.5rem; }
+    .method-card h4 { font-family: 'Lora', serif; font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.6rem; }
+    .method-list { list-style: none; }
+    .method-list li { font-size: 0.8rem; color: rgba(255,255,255,0.52); padding: 0.2rem 0 0.2rem 1rem; position: relative; line-height: 1.5; }
+    .method-list li::before { content: '–'; position: absolute; left: 0; color: var(--accent-light); }
+
+    /* ── PROJECT EXAMPLES ── */
+    #examples { background: var(--surface-raised); padding: 7rem 0; }
+    .examples-header { margin-bottom: 3.5rem; }
+    .examples-header p { max-width: 620px; font-size: 1rem; color: var(--text-mid); line-height: 1.82; margin-top: 0.75rem; }
+
+    .examples-list { display: flex; flex-direction: column; gap: 1.5rem; }
+
+    .example-card {
+      background: #fff; border: 1px solid var(--border); border-radius: 14px;
+      overflow: hidden; display: grid; grid-template-columns: 5px 1fr;
+      transition: box-shadow 0.25s;
+    }
+    .example-card:hover { box-shadow: 0 8px 32px rgba(92,26,26,0.09); }
+    .ec-stripe { }
+    .ec-stripe-fact { background: linear-gradient(180deg, var(--secondary) 0%, var(--primary) 100%); }
+    .ec-stripe-enable { background: linear-gradient(180deg, var(--accent) 0%, #6b3810 100%); }
+    .ec-stripe-both { background: linear-gradient(180deg, var(--primary-mid) 0%, var(--primary-dark) 100%); }
+    .ec-body { padding: 1.75rem 2rem; }
+    .ec-meta {
+      display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+    .ec-pill { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.22rem 0.65rem; border-radius: 20px; border: 1px solid; }
+    .ep-fact { background: rgba(196,136,144,0.15); color: var(--secondary-mid); border-color: rgba(196,136,144,0.25); }
+    .ep-enable { background: rgba(168,120,40,0.12); color: var(--accent); border-color: rgba(168,120,40,0.22); }
+    .ep-both { background: rgba(92,26,26,0.08); color: var(--primary-mid); border-color: rgba(92,26,26,0.15); }
+    .ec-client { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; }
+    .ec-title { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.55rem; line-height: 1.3; }
+    .ec-desc { font-size: 0.88rem; color: var(--text-mid); line-height: 1.78; }
+    .ec-outputs {
+      display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;
+    }
+    .ec-output { font-size: 0.75rem; color: var(--text-muted); background: var(--surface); border: 1px solid var(--border); border-radius: 4px; padding: 0.18rem 0.55rem; }
+
+    /* ── CTA STRIP ── */
+    #cta-strip { background: var(--primary); padding: 6rem 0; }
+    .cta-inner { max-width: 800px; margin: 0 auto; padding: 0 2.5rem; text-align: center; }
+    .cta-inner .eyebrow { justify-content: center; }
+    .cta-inner h2 { font-family: 'Lora', serif; font-size: clamp(1.85rem, 3vw, 2.6rem); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 1.25rem; letter-spacing: -0.01em; }
+    .cta-inner h2 em { font-style: italic; color: var(--secondary-light); }
+    .cta-inner p { font-size: 1.05rem; color: rgba(255,255,255,0.62); line-height: 1.8; margin-bottom: 2.5rem; max-width: 560px; margin-left: auto; margin-right: auto; }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-gold { background: var(--accent); color: #fff; padding: 0.88rem 1.85rem; border-radius: 5px; font-weight: 600; font-size: 0.9rem; text-decoration: none; letter-spacing: 0.02em; transition: background 0.2s; display: inline-block; }
+    .btn-gold:hover { background: var(--accent-light); }
+    .btn-outline-light { border: 1.5px solid rgba(255,255,255,0.28); color: rgba(255,255,255,0.78); padding: 0.88rem 1.85rem; border-radius: 5px; font-weight: 500; font-size: 0.9rem; text-decoration: none; transition: border-color 0.2s, color 0.2s; display: inline-block; }
+    .btn-outline-light:hover { border-color: rgba(255,255,255,0.62); color: #fff; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--primary-dark); border-top: 1px solid rgba(255,255,255,0.06); padding: 3.5rem 2.5rem 2rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 3rem; }
+    .footer-brand { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; letter-spacing: 0.03em; }
+    .footer-brand span { color: var(--accent-light); }
+    .footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.38); line-height: 1.65; max-width: 280px; }
+    .footer-col h4 { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.32); margin-bottom: 0.9rem; }
+    .footer-col a { display: block; font-size: 0.83rem; color: rgba(255,255,255,0.52); text-decoration: none; margin-bottom: 0.45rem; transition: color 0.2s; }
+    .footer-col a:hover { color: rgba(255,255,255,0.85); }
+    .footer-bottom { max-width: 1200px; margin: 2.5rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+    .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.up { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 980px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .methods-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 640px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .methods-right { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">INCLUSI<span>ECON</span></a>
+      <ul class="nav-links">
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="#">Research</a></li>
+        <li><a href="#">Who We Are</a></li>
+        <li><a href="#">Partner With Us</a></li>
+        <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="page-kicker">What We Do</div>
+      <h1>Research and advisory services<br>built to be used</h1>
+      <p>We bring rigorous economic analysis to the problems governments and civil society organizations actually face — from program design to policy reform to expert testimony. Here is how we work.</p>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-inner">
+      <div class="services-intro reveal">
+        <div class="eyebrow ey-rose">Our Services</div>
+        <h2 class="sh sh-dark sh-lg">Six ways we can work together</h2>
+        <p>Our engagements range from short advisory mandates to multi-year co-designed research programs. All of our work is grounded in rigorous economic analysis — and all of it is designed to produce findings that can actually be acted on.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card reveal">
+          <div class="sc-icon sc-icon-fact">📊</div>
+          <h3>Policy Analysis &amp; Research Reports</h3>
+          <p>Rigorous, evidence-based analysis of tax and transfer policy questions — delivered in forms that serve decision makers, not just academic audiences. We produce technical reports, policy briefs, and peer-reviewed research that travels.</p>
+          <div class="sc-tag"><span class="tag">FACT</span> <span class="tag">ENABLE</span></div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="sc-icon sc-icon-enable">🔍</div>
+          <h3>Program Evaluation &amp; System Mapping</h3>
+          <p>Systematic evaluation of income support and social programs — examining design, delivery, interaction effects, and distributional outcomes. We map how programs operate as systems, not just individually, including barriers to access for marginalized groups.</p>
+          <div class="sc-tag"><span class="tag">ENABLE</span></div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="sc-icon sc-icon-fact">🏛</div>
+          <h3>Expert Testimony &amp; Advisory Roles</h3>
+          <p>Credible, independent expert analysis for legislative committees, government panels, tribunals, and courts. We have appeared before the Senate and House of Commons Standing Committees, served on expert panels, and provided expert witness testimony in legal proceedings.</p>
+          <div class="sc-tag"><span class="tag">FACT</span> <span class="tag">ENABLE</span></div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="sc-icon sc-icon-both">🤝</div>
+          <h3>Co-Designed Research Partnerships</h3>
+          <p>Long-form research partnerships where governments, civil society organizations, and affected communities are collaborators from the beginning — not just end users. We design the research questions together, ensuring findings are grounded, usable, and relevant from day one.</p>
+          <div class="sc-tag"><span class="tag">FACT</span> <span class="tag">ENABLE</span></div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="sc-icon sc-icon-enable">💡</div>
+          <h3>Microsimulation &amp; Distributional Analysis</h3>
+          <p>Quantitative modelling of the fiscal and distributional impacts of tax and transfer reforms — who gains, who loses, and by how much. We have built basic income simulations for BC and Nunavut, and distributional analyses of property tax and personal income tax changes.</p>
+          <div class="sc-tag"><span class="tag">FACT</span> <span class="tag">ENABLE</span></div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="sc-icon sc-icon-fact">🎤</div>
+          <h3>Keynotes &amp; Public Engagement</h3>
+          <p>Accessible, evidence-grounded public presentations on tax policy, income security, and fiscal reform for professional associations, government retreats, conferences, and public forums. We make complex policy analysis intelligible without dumbing it down.</p>
+          <div class="sc-tag"><span class="tag">FACT</span> <span class="tag">ENABLE</span></div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="sc-icon sc-icon-both">📣</div>
+          <h3>Knowledge Mobilization &amp; Public Communication</h3>
+          <p>Translating rigorous research into forms that reach beyond academic audiences — policy briefs, op-eds, interactive data tools, media engagement, and public testimony. We communicate findings to legislators, journalists, civil society, and the public without sacrificing analytical precision. Our work has appeared in the Globe and Mail, Macleans, Policy Options, and before parliamentary and Senate committees.</p>
+          <div class="sc-tag"><span class="tag">FACT</span> <span class="tag">ENABLE</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- METHODS -->
+  <section id="methods">
+    <div class="methods-inner">
+      <div class="methods-left reveal">
+        <div class="eyebrow ey-light">How We Work</div>
+        <h2 class="sh sh-white sh-md">Quantitative and qualitative — whichever the question demands</h2>
+        <div class="rule rule-gold" style="margin-top:1rem; margin-bottom:1.5rem;"></div>
+        <p>We don't default to one method. We use the analytical approach that best fits the research question — whether that means building a microsimulation model, conducting stakeholder interviews, or combining both. Our quantitative work includes econometric estimation, distributional analysis, and working with large-scale administrative data from Statistics Canada, provincial governments, and municipal partners. Where the question calls for it, we pair that with qualitative methods to capture what the numbers alone can't.</p>
+        <p>What stays constant is our commitment to <strong>rigor, transparency, and research that accounts for how policy actually operates</strong> — including the institutional context, the delivery infrastructure, and the people the policy is meant to serve.</p>
+        <p><strong>We never sacrifice research quality for a client deadline or a convenient conclusion.</strong> Our commissioned work is held to the same standards as our academic research — designed to withstand peer scrutiny, and published in peer-reviewed outlets wherever possible so the evidence base remains open and contestable. When you engage us, you get findings you can defend.</p>
+      </div>
+      <div class="methods-right reveal">
+        <div class="method-card">
+          <h4>Quantitative</h4>
+          <ul class="method-list">
+            <li>Microsimulation modelling</li>
+            <li>Distributional &amp; incidence analysis</li>
+            <li>Administrative data analysis</li>
+            <li>Econometric estimation</li>
+            <li>Tax-and-benefit simulations</li>
+            <li>Spatial data analysis</li>
+          </ul>
+        </div>
+        <div class="method-card">
+          <h4>Qualitative</h4>
+          <ul class="method-list">
+            <li>Stakeholder interviews</li>
+            <li>Systems mapping</li>
+            <li>Policy &amp; legislative review</li>
+            <li>GBA+ &amp; intersectional analysis</li>
+            <li>Community engagement</li>
+            <li>Survey design</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECT EXAMPLES -->
+  <section id="examples">
+    <div class="section-inner">
+      <div class="examples-header reveal">
+        <div class="eyebrow ey-gold">Project Examples</div>
+        <h2 class="sh sh-dark sh-lg">A track record of work that has mattered</h2>
+        <p>The following examples illustrate the range of engagements we take on — across governments, scales, and policy domains. All work is conducted in accordance with University of Calgary research ethics and policies.</p>
+      </div>
+
+      <div class="examples-list">
+
+        <!-- BC Basic Income -->
+        <div class="example-card reveal">
+          <div class="ec-stripe ec-stripe-enable"></div>
+          <div class="ec-body">
+            <div class="ec-meta">
+              <span class="ec-pill ep-enable">ENABLE</span>
+              <span class="ec-client">Government of British Columbia · Ministry of Social Development and Poverty Reduction</span>
+            </div>
+            <div class="ec-title">BC Basic Income Expert Panel</div>
+            <div class="ec-desc">Served as a member of the BC Basic Income Expert Panel, commissioned by the Government of British Columbia to examine the feasibility of a basic income for the province. Produced a comprehensive research program covering poverty measurement, system mapping, program interactions, GBA+ analysis, and microsimulation modelling — culminating in the 529-page final panel report and eight commissioned research papers. Led the quantitative modelling and intersectional analysis streams.</div>
+            <div class="ec-outputs">
+              <span class="ec-output">Expert Panel Report (529pp)</span>
+              <span class="ec-output">8 Research Papers</span>
+              <span class="ec-output">Microsimulation Models</span>
+              <span class="ec-output">Interactive Web Visualizations</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nunavut Basic Income -->
+        <div class="example-card reveal">
+          <div class="ec-stripe ec-stripe-enable"></div>
+          <div class="ec-body">
+            <div class="ec-meta">
+              <span class="ec-pill ep-enable">ENABLE</span>
+              <span class="ec-client">Government of Nunavut · BluePrint ADE</span>
+            </div>
+            <div class="ec-title">Basic Income Feasibility Study for Nunavut</div>
+            <div class="ec-desc">Co-led a multi-year feasibility study for the Government of Nunavut exploring a guaranteed basic income for Canada's most remote territory — where 84% of the population is Inuit and 27% received income assistance. Work included poverty assessment, income support system mapping, program design options, and microsimulation modelling using Statistics Canada administrative tax filer data. Conducted in consultation with an Inuit Advisory Council. Published as a peer-reviewed article in Canadian Public Policy.</div>
+            <div class="ec-outputs">
+              <span class="ec-output">6 Technical Reports</span>
+              <span class="ec-output">Peer-Reviewed Publication</span>
+              <span class="ec-output">Interactive Web Visualizations</span>
+              <span class="ec-output">Community Consultation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- City of Calgary STR -->
+        <div class="example-card reveal">
+          <div class="ec-stripe ec-stripe-fact"></div>
+          <div class="ec-body">
+            <div class="ec-meta">
+              <span class="ec-pill ep-fact">FACT</span>
+              <span class="ec-client">City of Calgary · Urban Alliance Agreement</span>
+            </div>
+            <div class="ec-title">Scoping Calgary's Short-Term Rental Economy</div>
+            <div class="ec-desc">Led a multi-report research program for the City of Calgary to build the evidence base for innovative short-term rental (STR) regulatory frameworks. Work included market scoping, longitudinal data analysis (2017–2023), causal empirical review of STR impacts on long-term rental markets, comparative regulatory analysis across six Alberta municipalities and 25 Canadian cities, community engagement, and final policy recommendations. Research directly informed the City's STR regulatory reform process.</div>
+            <div class="ec-outputs">
+              <span class="ec-output">8 Technical Reports</span>
+              <span class="ec-output">Comparative Policy Analysis</span>
+              <span class="ec-output">Community Engagement Report</span>
+              <span class="ec-output">Regulatory Recommendations</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Property Tax Equity -->
+        <div class="example-card reveal">
+          <div class="ec-stripe ec-stripe-fact"></div>
+          <div class="ec-body">
+            <div class="ec-meta">
+              <span class="ec-pill ep-fact">FACT</span>
+              <span class="ec-client">City of Calgary · SSHRC · Alberta Real Estate Foundation</span>
+            </div>
+            <div class="ec-title">Property Tax Equity Assessment (ProperTEA)</div>
+            <div class="ec-desc">An ongoing research program examining horizontal and vertical inequities in residential property assessments and property taxes in Alberta — building on US research showing that property tax systems can place disproportionate burdens on racialized and lower-income homeowners. Combines property assessment data, property tax data, and homeowner income data from multiple partners including the City of Calgary, City of Edmonton, and Statistics Canada. Results map patterns of inequity and decompose their drivers.</div>
+            <div class="ec-outputs">
+              <span class="ec-output">2 Technical Reports (Calgary)</span>
+              <span class="ec-output">SSHRC Insight Development Grant</span>
+              <span class="ec-output">Working Papers</span>
+              <span class="ec-output">Provincial Expansion Underway</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CRA Re-envisioning -->
+        <div class="example-card reveal">
+          <div class="ec-stripe ec-stripe-both"></div>
+          <div class="ec-body">
+            <div class="ec-meta">
+              <span class="ec-pill ep-both">FACT + ENABLE</span>
+              <span class="ec-client">SSHRC · Government of Canada Future Skills Centre</span>
+            </div>
+            <div class="ec-title">Re-envisioning the Canada Revenue Agency as a Benefit Delivery Agent</div>
+            <div class="ec-desc">A SSHRC Knowledge Synthesis examining what it would take to transform the CRA from a tax collector into a proactive benefit delivery platform — reducing barriers to access for low-income Canadians and closing benefit take-up gaps. Synthesized evidence on tax administration, automatic filing, benefit delivery, and digitalization. Published as a peer-reviewed article in the Canadian Tax Journal and as a government technical report.</div>
+            <div class="ec-outputs">
+              <span class="ec-output">Canadian Tax Journal Publication</span>
+              <span class="ec-output">Government Technical Report</span>
+              <span class="ec-output">SSHRC Knowledge Synthesis Grant</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cash Transfer Program Design -->
+        <div class="example-card reveal">
+          <div class="ec-stripe ec-stripe-enable"></div>
+          <div class="ec-body">
+            <div class="ec-meta">
+              <span class="ec-pill ep-enable">ENABLE</span>
+              <span class="ec-client">Academic Research · Canadian Public Administration</span>
+            </div>
+            <div class="ec-title">An Inclusive Systems-Based Framework for Cash Transfer Program Design</div>
+            <div class="ec-desc">Developed a new analytical framework for designing and evaluating cash transfer programs in Canada — one that treats programs as part of an interconnected system rather than in isolation, centres the lived experience of recipients, and accounts for access barriers, interaction effects, and implementation realities. Published in Canadian Public Administration (2026). Framework is being applied to the Government of Alberta's transition from AISH to the new Alberta Disability Assistance Program (ADAP).</div>
+            <div class="ec-outputs">
+              <span class="ec-output">Canadian Public Administration (2026)</span>
+              <span class="ec-output">Policy Framework</span>
+              <span class="ec-output">Applied to Alberta ADAP Reform</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section id="cta-strip">
+    <div class="cta-inner">
+      <div class="eyebrow ey-light">Work With Us</div>
+      <h2>Have a project in mind? <em>Let's talk.</em></h2>
+      <p>We work with governments, civil society organisations, and research partners across Canada. Reach out directly — we read our email.</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-gold">Get in Touch</a>
+        <a href="index.html#work" class="btn-outline-light">See Our Research</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">INCLUSI<span>ECON</span></div>
+        <div class="footer-tagline">Tax and transfer policy research for a fairer Canada. Based at the University of Calgary.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Research</h4>
+        <a href="#">FACT Stream</a>
+        <a href="#">ENABLE Stream</a>
+        <a href="#">Publications</a>
+        <a href="#">Data &amp; Tools</a>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <a href="#">Who We Are</a>
+        <a href="services.html">Services</a>
+        <a href="#">Partner With Us</a>
+        <a href="http://deadfortaxreasons.wordpress.com/" target="_blank" rel="noopener">Dead For Tax Reasons ↗</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:lindsay.tedds1@ucalgary.ca">Lindsay Tedds</a>
+        <a href="mailto:gillian.petit@ucalgary.ca">Gillian Petit</a>
+        <a href="contact.html">Get in Touch</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Lindsay Tedds &amp; Gillian Petit · University of Calgary</span>
+      <a href="https://www.lindsaytedds.ca" target="_blank" rel="noopener">lindsaytedds.ca ↗</a>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('up'), i * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.07 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
