@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — INCLUSIECON</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary:         #5c1a1a;
+      --primary-dark:    #3e1010;
+      --primary-mid:     #7a2828;
+      --primary-light:   #a84848;
+      --secondary:       #7a3a44;
+      --secondary-mid:   #9e5560;
+      --secondary-light: #c48890;
+      --secondary-pale:  #ecdde0;
+      --accent:          #a87828;
+      --accent-light:    #c8a050;
+      --accent-pale:     #e8d898;
+      --surface:         #f7f2ea;
+      --surface-raised:  #ece4d8;
+      --border:          #ddd0bc;
+      --text-dark:       #180808;
+      --text-mid:        #3e2028;
+      --text-muted:      #7a5858;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--surface);
+      color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(62,16,16,0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 2.5rem;
+      height: 62px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Lora', serif; font-weight: 700; font-size: 1.15rem;
+      color: #fff; text-decoration: none; letter-spacing: 0.03em;
+    }
+    .nav-logo span { color: var(--accent-light); }
+    .nav-links { display: flex; gap: 0.2rem; list-style: none; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.62); text-decoration: none;
+      font-size: 0.85rem; font-weight: 500; padding: 0.4rem 0.85rem;
+      border-radius: 4px; transition: color 0.2s, background 0.2s;
+    }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.07); }
+    .nav-links a.active { color: #fff; }
+    .nav-cta {
+      background: var(--accent) !important;
+      color: #fff !important; font-weight: 600 !important;
+      padding: 0.42rem 1.15rem !important;
+    }
+    .nav-cta:hover { background: var(--accent-light) !important; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: var(--primary-dark);
+      padding: 9rem 2.5rem 5rem;
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 80% 50%, rgba(122,58,68,0.25) 0%, transparent 60%);
+    }
+    .page-header-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+    .page-kicker {
+      display: inline-flex; align-items: center; gap: 0.7rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.25rem;
+    }
+    .page-kicker::before { content: ''; display: block; width: 32px; height: 1.5px; background: var(--accent-light); }
+    .page-header h1 {
+      font-family: 'Lora', serif; font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700; color: #fff; line-height: 1.1;
+      letter-spacing: -0.015em; margin-bottom: 1rem;
+    }
+    .page-header p {
+      font-size: 1.05rem; color: rgba(255,255,255,0.55);
+      max-width: 540px; line-height: 1.82;
+    }
+
+    /* ── CONTACT LAYOUT ── */
+    .contact-section {
+      max-width: 1200px; margin: 0 auto;
+      padding: 6rem 2.5rem 7rem;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: start;
+    }
+
+    /* ── CONTACT CARDS ── */
+    .contact-cards { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-card {
+      border-radius: 14px; overflow: hidden; border: 1px solid var(--border);
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .contact-card:hover { box-shadow: 0 10px 36px rgba(92,26,26,0.1); transform: translateY(-2px); }
+    .cc-head { padding: 1.75rem 2rem 1.5rem; }
+    .cc-head-lt { background: linear-gradient(140deg, var(--primary) 0%, var(--primary-dark) 100%); }
+    .cc-head-gp { background: linear-gradient(140deg, var(--secondary) 0%, var(--primary-dark) 100%); }
+    .cc-initial {
+      width: 46px; height: 46px; border-radius: 50%;
+      background: rgba(255,255,255,0.12); border: 1.5px solid rgba(255,255,255,0.18);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Lora', serif; font-weight: 700; font-size: 1rem;
+      color: #fff; margin-bottom: 0.85rem;
+    }
+    .cc-name { font-family: 'Lora', serif; font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 0.2rem; }
+    .cc-title { font-size: 0.78rem; color: var(--accent-light); font-weight: 500; line-height: 1.5; }
+    .cc-body { padding: 1.5rem 2rem 1.75rem; background: #fff; }
+    .cc-affil {
+      font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem; border-bottom: 1px solid var(--surface-raised);
+    }
+    .email-link {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      font-size: 0.92rem; font-weight: 600; color: var(--primary);
+      text-decoration: none; margin-bottom: 1.25rem;
+      padding-bottom: 1px; border-bottom: 1.5px solid var(--accent);
+      transition: color 0.2s;
+    }
+    .email-link:hover { color: var(--accent); }
+    .email-icon { font-size: 0.9rem; }
+    .cc-links {
+      display: flex; flex-direction: column; gap: 0.4rem;
+      padding-top: 1rem; border-top: 1px solid var(--surface-raised);
+    }
+    .cc-ext-link {
+      display: inline-flex; align-items: center; gap: 0.55rem;
+      font-size: 0.82rem; color: var(--text-muted); text-decoration: none;
+      transition: color 0.2s; padding: 0.2rem 0;
+    }
+    .cc-ext-link:hover { color: var(--primary); }
+    .cc-ext-link .link-label { font-weight: 500; }
+    .cc-ext-link::before { content: '↗'; font-size: 0.72rem; color: var(--accent); flex-shrink: 0; }
+
+    /* ── CONTEXT PANEL ── */
+    .contact-context {}
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.13em;
+      text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .eyebrow::before { content: ''; display: block; width: 24px; height: 1.5px; }
+    .ey-gold { color: var(--accent); }
+    .ey-gold::before { background: var(--accent); }
+    .contact-context h2 {
+      font-family: 'Lora', serif; font-size: clamp(1.5rem, 2.2vw, 2rem);
+      font-weight: 700; color: var(--text-dark); line-height: 1.2;
+      margin-bottom: 0.75rem; letter-spacing: -0.01em;
+    }
+    .rule { width: 44px; height: 2.5px; border-radius: 2px; background: var(--accent); margin: 0 0 1.75rem; }
+    .contact-context p {
+      font-size: 0.95rem; color: var(--text-mid); line-height: 1.85; margin-bottom: 1rem;
+    }
+    .contact-context p strong { color: var(--text-dark); font-weight: 600; }
+
+    .good-for {
+      margin-top: 2rem;
+      background: var(--surface-raised); border-radius: 12px;
+      padding: 1.5rem 1.75rem; border: 1px solid var(--border);
+    }
+    .good-for-label {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--text-muted); margin-bottom: 1rem;
+    }
+    .good-for-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+    .good-for-list li {
+      font-size: 0.87rem; color: var(--text-mid); padding-left: 1.2rem;
+      position: relative; line-height: 1.5;
+    }
+    .good-for-list li::before {
+      content: '→'; position: absolute; left: 0;
+      font-size: 0.75rem; font-weight: 700; color: var(--accent);
+    }
+
+    .ucalgary-note {
+      margin-top: 2rem; display: flex; align-items: flex-start; gap: 0.75rem;
+      padding: 1.25rem 1.5rem; border-radius: 10px;
+      background: rgba(92,26,26,0.05); border: 1px solid rgba(92,26,26,0.1);
+    }
+    .ucalgary-note-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+    .ucalgary-note p {
+      font-size: 0.82rem; color: var(--text-muted); line-height: 1.65; margin: 0;
+    }
+    .ucalgary-note p strong { color: var(--text-mid); }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.up { opacity: 1; transform: none; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--primary-dark); border-top: 1px solid rgba(255,255,255,0.06); padding: 3.5rem 2.5rem 2rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 3rem; }
+    .footer-brand { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; letter-spacing: 0.03em; }
+    .footer-brand span { color: var(--accent-light); }
+    .footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.38); line-height: 1.65; max-width: 280px; }
+    .footer-col h4 { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.32); margin-bottom: 0.9rem; }
+    .footer-col a { display: block; font-size: 0.83rem; color: rgba(255,255,255,0.52); text-decoration: none; margin-bottom: 0.45rem; transition: color 0.2s; }
+    .footer-col a:hover { color: rgba(255,255,255,0.85); }
+    .footer-bottom { max-width: 1200px; margin: 2.5rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: rgba(255,255,255,0.25); }
+    .footer-bottom a { color: rgba(255,255,255,0.35); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .contact-section { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">INCLUSI<span>ECON</span></a>
+      <ul class="nav-links">
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Research</a></li>
+        <li><a href="#">Who We Are</a></li>
+        <li><a href="#">Partner With Us</a></li>
+        <li><a href="contact.html" class="active nav-cta">Get in Touch</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="page-kicker">Get in Touch</div>
+      <h1>Let's talk about your research needs</h1>
+      <p>We work with governments, civil society organisations, and research partners across Canada. Reach out directly — we read our email.</p>
+    </div>
+  </div>
+
+  <!-- CONTACT CONTENT -->
+  <div class="contact-section">
+
+    <!-- LEFT: Contact cards -->
+    <div class="contact-cards">
+
+      <!-- Lindsay -->
+      <div class="contact-card reveal">
+        <div class="cc-head cc-head-lt">
+          <div class="cc-initial">LT</div>
+          <div class="cc-name">Dr. Lindsay M. Tedds</div>
+          <div class="cc-title">Professor · Department of Economics<br>University of Calgary</div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-affil">Tax policy, municipal finance, fiscal federalism, property taxation</div>
+          <a href="mailto:lindsay.tedds1@ucalgary.ca" class="email-link">
+            <span class="email-icon">✉</span> lindsay.tedds1@ucalgary.ca
+          </a>
+          <div class="cc-links">
+            <a href="https://www.lindsaytedds.ca" target="_blank" rel="noopener" class="cc-ext-link">
+              <span class="link-label">Personal website</span> — lindsaytedds.ca
+            </a>
+            <a href="https://bsky.app/profile/lindsaytedds.bsky.social" target="_blank" rel="noopener" class="cc-ext-link">
+              <span class="link-label">Bluesky</span> — @lindsaytedds.bsky.social
+            </a>
+            <a href="http://deadfortaxreasons.wordpress.com/" target="_blank" rel="noopener" class="cc-ext-link">
+              <span class="link-label">Blog</span> — Dead For Tax Reasons
+            </a>
+            <a href="https://scholar.google.com/citations?user=xWWVMXAAAAAJ&hl=en" target="_blank" rel="noopener" class="cc-ext-link">
+              <span class="link-label">Google Scholar</span>
+            </a>
+            <a href="http://ssrn.com/author=841611" target="_blank" rel="noopener" class="cc-ext-link">
+              <span class="link-label">SSRN Author Page</span>
+            </a>
+            <a href="https://www.linkedin.com/in/lindsay-tedds-b68b4311/" target="_blank" rel="noopener" class="cc-ext-link">
+              <span class="link-label">LinkedIn</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gillian -->
+      <div class="contact-card reveal">
+        <div class="cc-head cc-head-gp">
+          <div class="cc-initial">GP</div>
+          <div class="cc-name">Dr. Gillian Petit</div>
+          <div class="cc-title">Ph.D., J.D. · Senior Research Associate<br>Department of Economics · University of Calgary</div>
+        </div>
+        <div class="cc-body">
+          <div class="cc-affil">Income support design, benefit adequacy, disability policy, system mapping</div>
+          <a href="mailto:gillian.petit@ucalgary.ca" class="email-link">
+            <span class="email-icon">✉</span> gillian.petit@ucalgary.ca
+          </a>
+          <div class="cc-links">
+            <a href="https://bsky.app/profile/gillianpetit.bsky.social" target="_blank" rel="noopener" class="cc-ext-link">
+              <span class="link-label">Bluesky</span> — @gillianpetit.bsky.social
+            </a>
+            <a href="https://www.linkedin.com/in/gillian-petit-65898166/" target="_blank" rel="noopener" class="cc-ext-link">
+              <span class="link-label">LinkedIn</span>
+            </a>
+            <a href="https://scholar.google.com/citations?hl=en&user=t-maq4gAAAAJ" target="_blank" rel="noopener" class="cc-ext-link">
+              <span class="link-label">Google Scholar</span>
+            </a>
+            <a href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=3819227" target="_blank" rel="noopener" class="cc-ext-link">
+              <span class="link-label">SSRN Author Page</span>
+            </a>
+            <a href="https://substack.com/@gillianpetit" target="_blank" rel="noopener" class="cc-ext-link">
+              <span class="link-label">Substack</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT: Context -->
+    <div class="contact-context reveal">
+      <div class="eyebrow ey-gold">When to reach out</div>
+      <h2>We're the right call for serious policy work</h2>
+      <div class="rule"></div>
+      <p>Whether you're a government team working through a complex design problem, a civil society organisation that needs rigorous analytical support, or a foundation looking for research partnerships — we want to hear from you.</p>
+      <p>We don't do quick-turnaround opinion pieces or back-of-envelope estimates. We do <strong>research that holds up, analysis that travels, and advice that accounts for how policy actually works in practice.</strong></p>
+
+      <div class="good-for">
+        <div class="good-for-label">Good reasons to get in touch</div>
+        <ul class="good-for-list">
+          <li>You need policy analysis on tax design, property taxation, or fiscal reform</li>
+          <li>You're designing or evaluating an income support or transfer program</li>
+          <li>You want a research partner who will stay involved through implementation</li>
+          <li>You need an expert witness or advisory voice with academic credibility</li>
+          <li>You're interested in co-designing research with affected communities</li>
+          <li>You have a grant or partnership opportunity that fits our research agenda</li>
+        </ul>
+      </div>
+
+      <div class="ucalgary-note">
+        <div class="ucalgary-note-icon">🏛</div>
+        <p>Both researchers are based at the <strong>Department of Economics, University of Calgary</strong>. All consulting and research engagements are conducted in accordance with University of Calgary policies.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">INCLUSI<span>ECON</span></div>
+        <div class="footer-tagline">Tax and transfer policy research for a fairer Canada. Based at the University of Calgary.</div>
+      </div>
+      <div class="footer-col">
+        <h4>Research</h4>
+        <a href="#">FACT Stream</a>
+        <a href="#">ENABLE Stream</a>
+        <a href="#">Publications</a>
+        <a href="#">Data &amp; Tools</a>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <a href="#">Who We Are</a>
+        <a href="#">Our Approach</a>
+        <a href="#">Services</a>
+        <a href="http://deadfortaxreasons.wordpress.com/" target="_blank" rel="noopener">Dead For Tax Reasons ↗</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:lindsay.tedds1@ucalgary.ca">Lindsay Tedds</a>
+        <a href="mailto:gillian.petit@ucalgary.ca">Gillian Petit</a>
+        <a href="contact.html">Get in Touch</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Lindsay Tedds &amp; Gillian Petit · University of Calgary</span>
+      <a href="https://www.lindsaytedds.ca" target="_blank" rel="noopener">lindsaytedds.ca ↗</a>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('up'), i * 100);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
