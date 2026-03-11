@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canada's Tax Credit Gap — Research Brief — INCLUSIECON</title>
+  <meta name="description" content="A critical analysis of Canada's Basic Personal Amount and personal tax credits. Research brief by Gillian Petit, Lindsay M. Tedds and Selvia Arshad. Canadian Tax Journal, 2024.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary:         #5c1a1a;
+      --primary-dark:    #3e1010;
+      --primary-mid:     #7a2828;
+      --primary-light:   #a84848;
+      --secondary:       #7a3a44;
+      --secondary-mid:   #9e5560;
+      --secondary-light: #c48890;
+      --secondary-pale:  #ecdde0;
+      --accent:          #a87828;
+      --accent-light:    #c8a050;
+      --accent-pale:     #e8d898;
+      --surface:         #f7f2ea;
+      --surface-raised:  #ece4d8;
+      --border:          #ddd0bc;
+      --text-dark:       #180808;
+      --text-mid:        #3e2028;
+      --text-muted:      #7a5858;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--surface); color: var(--text-dark); -webkit-font-smoothing: antialiased; line-height: 1.7; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(62,16,16,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 2.5rem; height: 62px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-family: 'Lora', serif; font-weight: 700; font-size: 1.15rem; color: #fff; text-decoration: none; letter-spacing: 0.03em; }
+    .nav-logo span { color: var(--accent-light); }
+    .nav-links { display: flex; gap: 0.2rem; list-style: none; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.62); text-decoration: none; font-size: 0.85rem; font-weight: 500; padding: 0.4rem 0.85rem; border-radius: 4px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.07); }
+    .nav-links a.active { color: #fff; }
+
+    /* HERO */
+    .project-hero {
+      background: var(--primary-dark);
+      background-image: radial-gradient(ellipse 70% 60% at 75% 40%, rgba(168,120,40,0.14) 0%, transparent 55%), radial-gradient(ellipse 40% 70% at 5% 90%, rgba(122,58,68,0.2) 0%, transparent 60%);
+      padding: 5rem 2rem 4rem; position: relative; overflow: hidden;
+    }
+    .project-hero::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.012) 80px, rgba(255,255,255,0.012) 81px); }
+    .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; }
+    .hero-breadcrumb { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .hero-breadcrumb a { color: var(--secondary-light); text-decoration: none; transition: color 0.2s; }
+    .hero-breadcrumb a:hover { color: var(--accent-light); }
+    .hero-breadcrumb .sep { opacity: 0.4; }
+    .hero-kicker { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .hero-title { font-family: 'Lora', serif; font-size: clamp(1.8rem, 3.5vw, 2.9rem); font-weight: 700; color: #fff; line-height: 1.2; letter-spacing: -0.01em; margin-bottom: 1.25rem; max-width: 640px; }
+    .hero-title em { font-style: italic; color: var(--accent-pale); }
+    .hero-authors { font-size: 0.9rem; color: rgba(255,255,255,0.65); margin-bottom: 0.3rem; }
+    .hero-authors strong { color: rgba(255,255,255,0.88); font-weight: 500; }
+    .hero-outlet { font-size: 0.82rem; color: var(--accent-light); font-style: italic; margin-bottom: 1.75rem; }
+    .hero-tags { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .hero-tag { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.65rem; border-radius: 20px; border: 1px solid rgba(200,160,80,0.35); color: var(--accent-light); background: rgba(168,120,40,0.1); }
+    .hero-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--accent); color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 0.65rem 1.4rem; border-radius: 5px; transition: background 0.2s; white-space: nowrap; }
+    .btn-primary:hover { background: var(--accent-light); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 0.4rem; border: 1.5px solid rgba(255,255,255,0.22); color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.82rem; font-weight: 500; padding: 0.6rem 1.2rem; border-radius: 5px; transition: border-color 0.2s, color 0.2s; white-space: nowrap; }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
+    /* PAGE BODY */
+    .page-body { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+
+    /* ABSTRACT BAND */
+    .abstract-band { background: var(--primary-dark); border-radius: 12px; padding: 2.25rem 2.75rem; margin-bottom: 4rem; border-left: 3px solid var(--accent); display: grid; grid-template-columns: auto 1fr; gap: 2rem; align-items: start; }
+    .abstract-label-vert { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent-light); writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; padding: 0.25rem 0; }
+    .abstract-text { font-size: 0.98rem; color: rgba(255,255,255,0.72); line-height: 1.88; }
+    .abstract-text strong { color: rgba(255,255,255,0.92); font-weight: 600; }
+
+    /* SECTIONS */
+    .section-block { margin-bottom: 4rem; }
+    .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; padding-bottom: 0.7rem; border-bottom: 1.5px solid var(--border); }
+    .section-num { font-family: 'Lora', serif; font-size: 1.75rem; font-weight: 700; color: var(--accent); line-height: 1; flex-shrink: 0; opacity: 0.55; }
+    .section-title { font-family: 'Lora', serif; font-size: 1.35rem; font-weight: 700; color: var(--primary); line-height: 1.2; }
+
+    /* STAT CALLOUTS */
+    .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 2rem; }
+    .stat-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem 1.25rem; text-align: center; position: relative; overflow: hidden; }
+    .stat-box::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-light)); }
+    .stat-box.stat-bad::after { background: linear-gradient(90deg, var(--secondary), var(--secondary-light)); }
+    .stat-big { font-family: 'Lora', serif; font-size: 2.2rem; font-weight: 700; color: var(--primary); line-height: 1; margin-bottom: 0.35rem; }
+    .stat-box.stat-bad .stat-big { color: var(--secondary-mid); }
+    .stat-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+    .stat-desc strong { color: var(--text-mid); }
+
+    /* TABLE */
+    .data-table-wrap { overflow-x: auto; margin-bottom: 2rem; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.875rem; background: #fff; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
+    thead th { background: var(--primary-dark); color: rgba(255,255,255,0.85); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.85rem 1.25rem; text-align: left; }
+    tbody td { padding: 0.75rem 1.25rem; border-bottom: 1px solid var(--border); color: var(--text-mid); }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: var(--surface); }
+    .td-label { font-weight: 600; color: var(--text-dark); }
+    .td-highlight { color: var(--secondary-mid); font-weight: 600; }
+    .td-good { color: #3a6845; font-weight: 600; }
+
+    /* TWO-COL CARDS */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-bottom: 1.5rem; }
+    .info-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 1.6rem 1.75rem; position: relative; overflow: hidden; }
+    .info-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+    .card-red::after  { background: linear-gradient(90deg, var(--secondary), var(--secondary-light)); }
+    .card-gold::after { background: linear-gradient(90deg, var(--accent), var(--accent-light)); }
+    .card-label { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.4rem; }
+    .card-red  .card-label { color: var(--secondary-mid); }
+    .card-gold .card-label { color: var(--accent); }
+    .card-title { font-family: 'Lora', serif; font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.6rem; }
+    .card-text  { font-size: 0.86rem; color: var(--text-mid); line-height: 1.75; }
+    .card-items { display: flex; flex-direction: column; gap: 0.45rem; margin-top: 0.75rem; }
+    .card-item  { font-size: 0.84rem; color: var(--text-mid); display: flex; gap: 0.5rem; line-height: 1.6; }
+    .card-item::before { content: '—'; opacity: 0.35; flex-shrink: 0; }
+
+    /* POSTER IMAGE */
+    .poster-wrap { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 1rem; }
+    .poster-wrap img { width: 100%; display: block; }
+    .poster-caption { font-size: 0.78rem; color: var(--text-muted); text-align: center; padding: 0.6rem; }
+
+    /* NOTE BOX */
+    .note-box { background: var(--surface-raised); border-radius: 8px; border-left: 2px solid var(--accent); padding: 1.25rem 1.5rem; font-size: 0.86rem; color: var(--text-mid); line-height: 1.75; margin-top: 1.5rem; }
+    .note-box strong { color: var(--text-dark); }
+
+    /* AUTHOR BIO */
+    .authors-section { margin-bottom: 4rem; }
+    .author-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .author-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 1.75rem; }
+    .author-name { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.2rem; }
+    .author-role { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+    .author-bio  { font-size: 0.84rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 1rem; }
+    .author-links { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .author-link { font-size: 0.76rem; font-weight: 500; color: var(--primary-mid); text-decoration: none; border: 1px solid var(--border); border-radius: 4px; padding: 0.2rem 0.6rem; transition: background 0.2s, color 0.2s; }
+    .author-link:hover { background: var(--primary-dark); color: var(--accent-light); border-color: transparent; }
+
+    /* OUTPUTS STRIP */
+    .outputs-strip { background: var(--primary-dark); border-radius: 12px; padding: 2rem 2.5rem; margin-top: 4rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
+    .outputs-title { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem; }
+    .outputs-sub { font-size: 0.78rem; color: rgba(255,255,255,0.4); }
+    .outputs-btns { display: flex; gap: 0.65rem; flex-wrap: wrap; }
+    .out-btn { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 500; padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+    .out-primary { background: var(--accent); color: #fff; }
+    .out-primary:hover { background: var(--accent-light); }
+    .out-ghost { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.72); }
+    .out-ghost:hover { background: rgba(255,255,255,0.12); color: #fff; }
+
+    /* FOOTER */
+    footer { background: var(--primary-dark); color: rgba(255,255,255,0.5); padding: 3rem 2rem; border-top: 2px solid var(--accent); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .footer-brand { font-family: 'Lora', serif; font-weight: 700; font-size: 1.1rem; color: var(--accent-pale); }
+    .footer-brand span { color: var(--accent-light); }
+    .footer-copy { font-size: 0.76rem; color: var(--secondary-mid); margin-top: 0.3rem; }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.8rem; color: var(--secondary-light); text-decoration: none; }
+    .footer-links a:hover { color: var(--accent-light); }
+
+    /* RESPONSIVE */
+    @media (max-width: 780px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-illustration { display: none; }
+      .two-col, .author-grid { grid-template-columns: 1fr; }
+      .stat-row { grid-template-columns: 1fr 1fr; }
+      .abstract-band { grid-template-columns: 1fr; }
+      .abstract-label-vert { writing-mode: horizontal-tb; transform: none; }
+      .outputs-strip { flex-direction: column; align-items: flex-start; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 480px) {
+      .stat-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">INCLUSI<span>ECON</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="research.html" class="active">Research</a></li>
+        <li><a href="who-we-are.html">Who We Are</a></li>
+        <li><a href="partner-with-us.html">Partner With Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="project-hero">
+    <div class="hero-inner">
+      <div>
+        <div class="hero-breadcrumb">
+          <a href="research.html">Research</a>
+          <span class="sep">→</span>
+          ENABLE Stream
+          <span class="sep">→</span>
+          Research Brief
+        </div>
+        <div class="hero-kicker">ENABLE Stream · Journal Article · 2024</div>
+        <h1 class="hero-title">Canada's Tax Credit Gap: <em>Who Really Benefits?</em></h1>
+        <div class="hero-authors"><strong>Gillian Petit</strong>, <strong>Lindsay M. Tedds</strong> and <a href="https://selviaarshad.com/" target="_blank" rel="noopener" style="color: rgba(255,255,255,0.88); font-weight: 500; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(200,160,80,0.4);">Selvia Arshad ↗</a></div>
+        <div class="hero-outlet">Canadian Tax Journal · Vol. 73, No. 4 · 2024</div>
+        <div class="hero-tags">
+          <span class="hero-tag">ENABLE</span>
+          <span class="hero-tag">Tax Expenditure</span>
+          <span class="hero-tag">Basic Personal Amount</span>
+          <span class="hero-tag">Distributional Analysis</span>
+          <span class="hero-tag">Gender Equity</span>
+          <span class="hero-tag">SPSD/M</span>
+        </div>
+        <div class="hero-actions">
+          <a href="https://www.ctf.ca/common/Uploaded%20files/CTJ%2073.4/Public/837_Public-2024CTJ4-PF-3-Petit-etal.pdf" target="_blank" rel="noopener" class="btn-primary">Read Article ↗</a>
+          <a href="Basic_personal_amount.png" target="_blank" rel="noopener" class="btn-outline">📊 Poster</a>
+          <a href="Canada_s_Biggest_Tax_Break.mp4" target="_blank" rel="noopener" class="btn-outline">🎥 Video</a>
+        </div>
+      </div>
+      <!-- Stacked bars SVG motif — skewed distribution -->
+      <svg class="hero-illustration" width="190" height="190" viewBox="0 0 190 190" xmlns="http://www.w3.org/2000/svg">
+        <!-- 3 groups: low / mid / high income -->
+        <!-- Low income — tiny bar -->
+        <rect x="15"  y="165" width="35" height="10"  rx="2" fill="rgba(196,136,144,0.5)"  stroke="rgba(196,136,144,0.7)" stroke-width="1"/>
+        <text x="32" y="185" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,0.35)" text-anchor="middle">Low</text>
+        <!-- Mid income -->
+        <rect x="78"  y="115" width="35" height="60"  rx="2" fill="rgba(200,160,80,0.25)"  stroke="rgba(200,160,80,0.4)" stroke-width="1"/>
+        <text x="95" y="185" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,0.35)" text-anchor="middle">Mid</text>
+        <!-- High income — towering bar -->
+        <rect x="141" y="15"  width="35" height="160" rx="2" fill="rgba(200,160,80,0.5)"   stroke="rgba(200,160,80,0.75)" stroke-width="1.5"/>
+        <text x="158" y="185" font-family="sans-serif" font-size="8" fill="rgba(255,255,255,0.35)" text-anchor="middle">High</text>
+        <!-- 90% label -->
+        <text x="158" y="11" font-family="sans-serif" font-size="10" font-weight="bold" fill="rgba(232,200,120,0.85)" text-anchor="middle">90%</text>
+        <!-- baseline -->
+        <line x1="5" y1="175" x2="185" y2="175" stroke="rgba(200,160,80,0.2)" stroke-width="1"/>
+      </svg>
+    </div>
+  </section>
+
+  <div class="page-body">
+
+    <!-- ABSTRACT -->
+    <div class="abstract-band">
+      <div class="abstract-label-vert">Summary</div>
+      <div class="abstract-text">
+        Canada's Basic Personal Amount (BPA), Spousal Credit (SC), and Eligible Dependant Credit (EDC) are framed as universal support for the cost of living. This paper exposes a structural distributional failure: <strong>90% of BPA value flows to the top 77% of taxfilers</strong>, $10.7 billion goes unused by the lowest earners because the credit is non-refundable, and men capture 65% of all Spousal Credit expenditure. Using Statistics Canada's SPSD/M, the analysis reveals that those most in need — disproportionately women and people in Market Basket Measure poverty — receive the least. The paper charts a path to reform, including refundability and targeted reallocation of the $60+ billion annual expenditure.
+      </div>
+    </div>
+
+    <!-- 01 BPA -->
+    <div class="section-block">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title">The Basic Personal Amount Distribution Divide</h2>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-box stat-bad">
+          <div class="stat-big">90%</div>
+          <div class="stat-desc">of BPA benefits flow to <strong>middle and high-income</strong> earners — the top 77% of taxfilers</div>
+        </div>
+        <div class="stat-box stat-bad">
+          <div class="stat-big">$10.7B</div>
+          <div class="stat-desc">in credits goes <strong>unused</strong> by lowest-income Canadians — non-refundability locks them out</div>
+        </div>
+        <div class="stat-box stat-bad">
+          <div class="stat-big">38%</div>
+          <div class="stat-desc">of taxfilers who derive <strong>zero benefit</strong> from the BPA live in MBM poverty</div>
+        </div>
+        <div class="stat-box stat-bad">
+          <div class="stat-big">59%</div>
+          <div class="stat-desc">of those who receive <strong>no BPA benefit at all</strong> are women</div>
+        </div>
+      </div>
+
+      <div class="data-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Group</th>
+              <th>% of Taxfilers</th>
+              <th>Avg. Total Income</th>
+              <th>Expenditure Share</th>
+              <th>% Women</th>
+              <th>% in MBM Poverty</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td-label">No Benefit (zero tax liability)</td>
+              <td class="td-highlight">7.2%</td>
+              <td>$5,597</td>
+              <td class="td-highlight">0%</td>
+              <td>59%</td>
+              <td>38%</td>
+            </tr>
+            <tr>
+              <td class="td-label">Taxes Reduced to Zero</td>
+              <td>15.8%</td>
+              <td>$12,198</td>
+              <td>10% ($6.1B)</td>
+              <td>58%</td>
+              <td>23%</td>
+            </tr>
+            <tr>
+              <td class="td-label">Full Utilization (taxes remain owing)</td>
+              <td class="td-good">77%</td>
+              <td>$77,692</td>
+              <td class="td-good">90% ($56.5B)</td>
+              <td>48%</td>
+              <td>3%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note-box">
+        <strong>The equity tension:</strong> The BPA is progressive in <em>relative</em> terms — it represents a higher share of income for low earners. But in <em>absolute</em> terms, the vast majority of a $62.7 billion expenditure flows to those who need it least. Those with zero taxable income — the most economically vulnerable — receive $0. This is not a marginal design flaw; it is the structural logic of non-refundability.
+      </div>
+    </div>
+
+    <!-- 02 SPOUSAL CREDIT -->
+    <div class="section-block">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">The Spousal Credit: A Gender Imbalance</h2>
+      </div>
+
+      <div class="two-col">
+        <div class="info-card card-red">
+          <div class="card-label">Who Benefits</div>
+          <div class="card-title">Men capture the Spousal Credit</div>
+          <div class="card-text">Men receive 65% of all operational Spousal Credit value — they are more likely to be eligible (as higher earners in a household) and more likely to have sufficient taxable income to trigger the credit.</div>
+          <div class="card-items">
+            <div class="card-item">The top two income deciles receive 37% of the total $3.4 billion SC expenditure</div>
+            <div class="card-item">No one in the bottom income decile can use the SC, despite 5% of eligible filers residing there</div>
+            <div class="card-item">69% of full SC users are male, with average total incomes far above the national median</div>
+          </div>
+        </div>
+        <div class="info-card card-gold">
+          <div class="card-label">Unclaimed Value</div>
+          <div class="card-title">$1.3 Billion left on the table</div>
+          <div class="card-text">Of the 9% of taxfilers eligible for the Spousal Credit, 21% derive zero benefit because they have no taxable income to offset — this unclaimed $1.3 billion is lost disproportionately by women.</div>
+          <div class="card-items">
+            <div class="card-item">Women who are eligible are more likely to be unable to use the credit due to lower income</div>
+            <div class="card-item">Increasing the SC would widen the gender gap further — directing more value to male high earners</div>
+            <div class="card-item">The non-refundable structure actively disadvantages secondary earners and caregivers</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 POSTER -->
+    <div class="section-block">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Research Poster</h2>
+      </div>
+      <div class="poster-wrap">
+        <img src="Basic_personal_amount.png" alt="Canada's Tax Credit Gap: Who Really Benefits? — Research Poster">
+      </div>
+      <p class="poster-caption">Download the full poster: <a href="Basic_personal_amount.png" target="_blank" rel="noopener" style="color: var(--accent);">Basic_personal_amount.png ↗</a></p>
+    </div>
+
+    <!-- 04 REFORM -->
+    <div class="section-block">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Policy Reform Pathways</h2>
+      </div>
+      <div class="two-col">
+        <div class="info-card card-gold">
+          <div class="card-label">Option A</div>
+          <div class="card-title">Convert to Refundable Credits</div>
+          <div class="card-text">Making the BPA and SC refundable would direct value to those currently locked out — particularly women and low-income filers — and align the policy with its stated goal of supporting basic cost-of-living equity.</div>
+          <div class="card-items">
+            <div class="card-item">Fiscally costly, but the most direct mechanism for redistribution</div>
+            <div class="card-item">METR increases at the phase-out are modest; labour supply effects likely small given low elasticity among low-income earners</div>
+          </div>
+        </div>
+        <div class="info-card card-red">
+          <div class="card-label">Option B</div>
+          <div class="card-title">Redirect to Targeted Programs</div>
+          <div class="card-text">Eliminating universal non-refundable credits and reallocating the $50–60 billion annually toward targeted income supports would concentrate benefits where they are most needed.</div>
+          <div class="card-items">
+            <div class="card-item">Expand the Canada Disability Benefit</div>
+            <div class="card-item">Enhance the GST/HST Credit for low-income households</div>
+            <div class="card-item">Increase Canada Social Transfer funding for social assistance and family legal aid</div>
+          </div>
+        </div>
+      </div>
+      <div class="note-box">
+        <strong>On phasing out:</strong> A third pathway — extending the existing phase-out of the Enhanced BPA to the full credit for high earners — would reduce expenditure concentration without eliminating the credit, and could be politically more tractable than full refundability.
+      </div>
+    </div>
+
+    <!-- OUTPUTS STRIP -->
+    <div class="outputs-strip">
+      <div>
+        <div class="outputs-title">Knowledge Mobilization</div>
+        <div class="outputs-sub">All outputs from this research project</div>
+      </div>
+      <div class="outputs-btns">
+        <a href="https://www.ctf.ca/common/Uploaded%20files/CTJ%2073.4/Public/837_Public-2024CTJ4-PF-3-Petit-etal.pdf" target="_blank" rel="noopener" class="out-btn out-primary">📄 Read Article ↗</a>
+        <a href="Basic_personal_amount.png" target="_blank" rel="noopener" class="out-btn out-ghost">📊 Research Poster</a>
+        <a href="Canada_s_Biggest_Tax_Break.mp4" target="_blank" rel="noopener" class="out-btn out-ghost">🎥 Video</a>
+        <a href="research.html" class="out-btn out-ghost">← Back to Research</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">INCLUSI<span>ECON</span></div>
+        <div class="footer-copy">Tax and transfer policy research for a fairer Canada · University of Calgary</div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="partner-with-us.html">Partner With Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
