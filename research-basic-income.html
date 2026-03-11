@@ -158,6 +158,12 @@
       flex-direction: column;
       gap: 0.2rem;
     }
+    .stat-link {
+      text-decoration: none; cursor: pointer;
+      transition: transform 0.15s, opacity 0.15s;
+      border-bottom: 1px solid rgba(200,160,80,0);
+    }
+    .stat-link:hover { transform: translateY(-2px); opacity: 0.85; border-bottom-color: rgba(200,160,80,0.4); }
     .stat-number {
       font-family: 'Lora', serif;
       font-size: 2rem;
@@ -544,26 +550,26 @@
         Over a decade of work examining whether basic income is the right tool for reforming Canada's social safety net — from foundational design principles to microsimulations for BC and Nunavut, and a landmark book that reframes what a just social policy looks like.
       </p>
       <div class="hero-stats">
-        <div class="stat-item">
+        <a href="#landmark-outputs" class="stat-item stat-link">
           <div class="stat-number">1</div>
           <div class="stat-label">Landmark Book</div>
-        </div>
-        <div class="stat-item">
+        </a>
+        <a href="#journal-articles" class="stat-item stat-link">
           <div class="stat-number">3</div>
           <div class="stat-label">Journal Articles</div>
-        </div>
-        <div class="stat-item">
+        </a>
+        <a href="#reports" class="stat-item stat-link">
           <div class="stat-number">23</div>
           <div class="stat-label">Reports &amp; Papers</div>
-        </div>
-        <div class="stat-item">
+        </a>
+        <a href="#policy-commentary" class="stat-item stat-link">
           <div class="stat-number">4</div>
           <div class="stat-label">Policy &amp; Media</div>
-        </div>
-        <div class="stat-item">
+        </a>
+        <a href="#bc-panel" class="stat-item stat-link">
           <div class="stat-number">2</div>
           <div class="stat-label">Interactive Visuals</div>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -585,7 +591,7 @@
 
     <!-- FLAGSHIP -->
     <div class="section-header">
-      <h2 class="section-title">Landmark Outputs</h2>
+      <h2 id="landmark-outputs" class="section-title">Landmark Outputs</h2>
       <span class="section-pill">Flagship</span>
     </div>
     <div class="flagship-grid">
@@ -630,7 +636,7 @@
     </div>
 
     <!-- JOURNAL ARTICLES -->
-    <div class="output-section">
+    <div id="journal-articles" class="output-section">
       <div class="section-header">
         <h2 class="section-title">Journal Articles</h2>
         <span class="section-pill">Peer Reviewed</span>
@@ -688,7 +694,7 @@
     </div>
 
     <!-- POLICY & COMMENTARY -->
-    <div class="output-section">
+    <div id="policy-commentary" class="output-section">
       <div class="section-header">
         <h2 class="section-title">Policy &amp; Commentary</h2>
         <span class="section-pill">Public Engagement</span>
@@ -746,7 +752,7 @@
     </div>
 
     <!-- REPORTS & WORKING PAPERS -->
-    <div class="output-section">
+    <div id="reports" class="output-section">
       <div class="section-header">
         <h2 class="section-title">Reports &amp; Working Papers</h2>
         <span class="section-pill">Analysis</span>
@@ -883,7 +889,7 @@
     </div>
 
     <!-- BC BASIC INCOME EXPERT PANEL -->
-    <div class="output-section">
+    <div id="bc-panel" class="output-section">
       <div class="section-header">
         <h2 class="section-title">BC Basic Income Expert Panel</h2>
         <span class="section-pill">Commissioned Research · 2020–2021</span>
