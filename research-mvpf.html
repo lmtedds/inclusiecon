@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marginal Value of Public Funds — INCLUSIECON</title>
+  <meta name="description" content="An active research program building a welfare-based evaluative framework for Canadian tax and transfer policy — measuring what public spending is actually worth to people, not just what it costs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary:        #5c1a1a;
+      --primary-dark:   #3e1010;
+      --primary-mid:    #7a2828;
+      --primary-light:  #a84848;
+      --secondary:      #7a3a44;
+      --secondary-mid:  #9e5560;
+      --secondary-light:#c48890;
+      --secondary-pale: #ecdde0;
+      --accent:         #a87828;
+      --accent-light:   #c8a050;
+      --accent-pale:    #e8d898;
+      --surface:        #f7f2ea;
+      --surface-raised: #ece4d8;
+      --border:         #ddd0bc;
+      --text-dark:      #180808;
+      --text-mid:       #3e2028;
+      --text-muted:     #7a5858;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--surface); color: var(--text-dark); line-height: 1.7; }
+
+    nav { background: var(--primary-dark); position: sticky; top: 0; z-index: 100; border-bottom: 2px solid var(--accent); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { font-family: 'Lora', serif; font-weight: 700; font-size: 1.35rem; color: var(--accent-pale); text-decoration: none; letter-spacing: 0.03em; }
+    .nav-logo span { color: var(--accent-light); }
+    .nav-links { display: flex; gap: 0.25rem; }
+    .nav-links a { color: var(--secondary-pale); text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.4rem 0.75rem; border-radius: 3px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+    .nav-links a.active { color: var(--accent-light); }
+
+    .project-hero {
+      background: var(--primary-dark);
+      background-image: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(168,120,40,0.12) 0%, transparent 60%), radial-gradient(ellipse 50% 80% at 10% 80%, rgba(122,58,68,0.25) 0%, transparent 60%);
+      padding: 5rem 2rem 4rem; position: relative; overflow: hidden;
+    }
+    .project-hero::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.015) 80px, rgba(255,255,255,0.015) 81px); }
+    .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+    .hero-breadcrumb { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .hero-breadcrumb a { color: var(--secondary-light); text-decoration: none; }
+    .hero-breadcrumb a:hover { color: var(--accent-light); }
+    .hero-breadcrumb span { opacity: 0.5; }
+    .hero-kicker { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .hero-title { font-family: 'Lora', serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 1.5rem; max-width: 800px; }
+    .hero-title em { font-style: italic; color: var(--accent-pale); }
+    .hero-desc { font-size: 1.05rem; color: var(--secondary-pale); max-width: 680px; line-height: 1.75; margin-bottom: 2.5rem; }
+    .hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .stat-item { display: flex; flex-direction: column; gap: 0.2rem; }
+    .stat-number { font-family: 'Lora', serif; font-size: 2rem; font-weight: 700; color: var(--accent-light); line-height: 1; }
+    .stat-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--secondary-light); }
+    .hero-partner { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(200,160,80,0.2); border-radius: 6px; padding: 0.55rem 1rem; font-size: 0.8rem; color: var(--secondary-light); }
+    .hero-partner a { color: var(--accent-light); text-decoration: none; font-weight: 600; }
+    .hero-partner a:hover { color: var(--accent-pale); }
+    .hero-partner-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+    .page-body { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+
+    .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; padding-bottom: 0.75rem; border-bottom: 1.5px solid var(--border); }
+    .section-title { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: var(--primary); }
+    .section-pill { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-pale); padding: 0.2rem 0.6rem; border-radius: 999px; }
+    .section-pill-active { background: #d4edda; color: #2d6a4f; }
+
+    .context-box { background: var(--primary-dark); border-radius: 8px; padding: 2rem 2.5rem; margin-bottom: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .context-box h3 { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; color: var(--accent-light); margin-bottom: 0.75rem; }
+    .context-box p { font-size: 0.9rem; color: var(--secondary-pale); line-height: 1.7; }
+
+    .partner-band { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 1.75rem 2rem; margin-bottom: 4rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; }
+    .partner-label { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+    .partner-name { font-family: 'Lora', serif; font-size: 1.15rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.5rem; }
+    .partner-desc { font-size: 0.88rem; color: var(--text-mid); line-height: 1.7; }
+    .partner-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .partner-tag { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 999px; background: var(--accent-pale); color: var(--accent); border: 1px solid rgba(168,120,40,0.2); }
+    .partner-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.82rem; font-weight: 600; color: var(--primary); text-decoration: none; border: 1.5px solid var(--border); padding: 0.5rem 1rem; border-radius: 5px; white-space: nowrap; transition: all 0.2s; }
+    .partner-link:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+    .output-section { margin-bottom: 3.5rem; }
+    .output-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .output-item { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 1.25rem 1.5rem; display: grid; grid-template-columns: auto 1fr auto; gap: 0 1.25rem; align-items: start; transition: border-color 0.2s, box-shadow 0.2s; }
+    .output-item:hover { border-color: var(--secondary-light); box-shadow: 0 2px 12px rgba(92,26,26,0.06); }
+    .output-icon { width: 40px; height: 40px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .icon-journal  { background: var(--secondary-pale); color: var(--secondary); }
+    .icon-commentary { background: var(--accent-pale); color: var(--accent); }
+    .icon-brief    { background: var(--surface-raised); color: var(--primary-mid); }
+    .icon-forthcoming { background: #dde6ef; color: #3a5068; }
+    .output-main { min-width: 0; }
+    .output-title { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; color: var(--text-dark); line-height: 1.4; margin-bottom: 0.3rem; }
+    .output-meta { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .output-meta strong { color: var(--text-mid); font-weight: 500; }
+    .output-blurb { font-size: 0.875rem; color: var(--text-mid); line-height: 1.6; }
+    .output-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.6rem; }
+    .tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 999px; }
+    .tag-enable { background: var(--secondary-pale); color: var(--secondary); }
+    .tag-forthcoming { background: #dde6ef; color: #3a5068; }
+    .tag-available { background: #d4edda; color: #2d6a4f; }
+    .output-action { flex-shrink: 0; padding-top: 0.1rem; }
+    .output-action-multi { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; }
+    .btn-read { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; font-weight: 600; color: var(--primary); text-decoration: none; border: 1.5px solid var(--border); padding: 0.4rem 0.8rem; border-radius: 4px; white-space: nowrap; transition: border-color 0.2s, background 0.2s, color 0.2s; }
+    .btn-read:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .btn-read-secondary { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.75rem; font-weight: 500; color: var(--text-muted); text-decoration: none; border: 1.5px solid var(--border); padding: 0.35rem 0.75rem; border-radius: 4px; white-space: nowrap; transition: border-color 0.2s, color 0.2s; }
+    .btn-read-secondary:hover { border-color: var(--accent); color: var(--accent); }
+    .badge-forthcoming { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.72rem; font-weight: 600; color: #3a5068; border: 1.5px solid #b8cfe0; padding: 0.4rem 0.75rem; border-radius: 4px; white-space: nowrap; background: #dde6ef; }
+
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-bottom: 4rem; }
+    .team-card { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; position: relative; overflow: hidden; }
+    .team-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-light)); }
+    .team-name { font-family: 'Lora', serif; font-size: 1rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.15rem; }
+    .team-role { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+    .team-bio { font-size: 0.84rem; color: var(--text-mid); line-height: 1.7; }
+
+    footer { background: var(--primary-dark); color: var(--secondary-pale); padding: 3rem 2rem; border-top: 2px solid var(--accent); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .footer-logo { font-family: 'Lora', serif; font-weight: 700; font-size: 1.2rem; color: var(--accent-pale); }
+    .footer-logo span { color: var(--accent-light); }
+    .footer-copy { font-size: 0.8rem; color: var(--secondary-mid); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.8rem; color: var(--secondary-light); text-decoration: none; }
+    .footer-links a:hover { color: var(--accent-light); }
+
+    @media (max-width: 768px) {
+      .context-box, .team-grid { grid-template-columns: 1fr; }
+      .partner-band { grid-template-columns: 1fr; }
+      .output-item { grid-template-columns: auto 1fr; }
+      .output-action { grid-column: 2; }
+      .hero-stats { gap: 1.5rem; }
+      .nav-links a { font-size: 0.72rem; padding: 0.4rem 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">INCLUSI<span>ECON</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="research.html" class="active">Research</a>
+        <a href="who-we-are.html">Who We Are</a>
+        <a href="partner-with-us.html">Partner With Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="project-hero">
+    <div class="hero-inner">
+      <div class="hero-breadcrumb">
+        <a href="research.html">Research</a>
+        <span>→</span>
+        Project
+      </div>
+      <div class="hero-kicker">ENABLE Stream · Active Research Project · 2025–</div>
+      <h1 class="hero-title">Marginal Value of<br><em>Public Funds</em></h1>
+      <p class="hero-desc">
+        Canadian policy evaluation has a structural blind spot: it measures the costs of taxation with rigour while systematically undervaluing the social benefits of public expenditure. This project builds a benefit-inclusive framework — the Marginal Value of Public Funds — and applies it across tax administration reform, social spending, and transfer design to give policymakers tools that reflect what spending is actually worth.
+      </p>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Journal Article</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Commentary</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Research Brief</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Strategic Partner</div>
+        </div>
+      </div>
+      <div class="hero-partner">
+        <div class="hero-partner-dot"></div>
+        In partnership with <a href="https://maytree.com/" target="_blank" rel="noopener">Maytree</a> — funder, research partner, and knowledge mobilization partner
+      </div>
+    </div>
+  </section>
+
+  <div class="page-body">
+
+    <div class="context-box">
+      <div>
+        <h3>The Problem</h3>
+        <p>Standard public finance evaluation asks: "Does this reform save money?" The Marginal Cost of Public Funds — the dominant metric in Canadian policy analysis — measures the efficiency loss from raising revenue but says nothing about what that revenue buys in social welfare. The result is a systematic bias: costs are counted carefully, benefits are not. Programs that reduce poverty, improve access, and build trust are chronically undervalued relative to their fiscal cost.</p>
+      </div>
+      <div>
+        <h3>The Approach</h3>
+        <p>The Marginal Value of Public Funds reframes the central question: "Does this spending increase inclusive social welfare once fiscal, distributional, and trust effects are fully counted?" By computing the ratio of welfare gains to net fiscal cost — and applying distributional weights that recognize a dollar is worth more to a low-income household — the MVPF provides a rigorous, transparent, benefit-inclusive toolkit for evaluating tax and transfer reform across heterogeneous program types.</p>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <h2 class="section-title">Strategic Partnership</h2>
+    </div>
+    <div class="partner-band">
+      <div>
+        <div class="partner-label">Full Strategic Partner</div>
+        <div class="partner-name">Maytree</div>
+        <div class="partner-desc">Maytree is a Canadian foundation committed to advancing solutions to poverty and systemic inequality. As the full strategic partner on this project, Maytree supports the research program as funder, engages as a research collaborator shaping the questions and frameworks, and drives knowledge mobilization to bring findings into policy conversations across Canada.</div>
+        <div class="partner-tags">
+          <span class="partner-tag">Funder</span>
+          <span class="partner-tag">Research Partner</span>
+          <span class="partner-tag">Knowledge Mobilization</span>
+        </div>
+      </div>
+      <a href="https://maytree.com/" target="_blank" rel="noopener" class="partner-link">Visit Maytree ↗</a>
+    </div>
+
+    <div class="output-section">
+      <div class="section-header">
+        <h2 class="section-title">Research Outputs</h2>
+        <span class="section-pill section-pill-active">Active &amp; Growing</span>
+      </div>
+      <div class="output-list">
+
+        <div class="output-item">
+          <div class="output-icon icon-forthcoming">📄</div>
+          <div class="output-main">
+            <div class="output-title">Policy Forum: Beyond Cost and Yield — An MVPF-TAdmin Framework for Evaluating Tax Administration Reforms through Public Value, Equity, and Welfare</div>
+            <div class="output-meta"><strong><a href="https://selviaarshad.com/" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">Selvia Arshad</a>, Gillian Petit and Lindsay M. Tedds</strong> · Canadian Tax Journal · Accepted February 2026</div>
+            <div class="output-blurb">Introduces the MVPF-TAdmin framework — a welfare-based lens for evaluating tax administration reforms across three dimensions: fiscal efficiency, distributional equity, and legitimacy. Applied to Canada's Automatic Federal Benefits initiative as a proof of concept, showing how design quality determines whether a reform generates positive or negative social returns.</div>
+            <div class="output-tags">
+              <span class="tag tag-enable">ENABLE</span>
+              <span class="tag tag-forthcoming">Forthcoming</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <span class="badge-forthcoming">⏳ Forthcoming</span>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-commentary">💬</div>
+          <div class="output-main">
+            <div class="output-title">From Cost to Investment: Reframing Social Spending in an Affordability Era</div>
+            <div class="output-meta"><strong>Gillian Petit and <a href="https://selviaarshad.com/" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">Selvia Arshad</a></strong> · IRPP · 2026</div>
+            <div class="output-blurb">Argues that Canada's capital budgeting framework misclassifies social spending as operating expenditure, systematically undervaluing programs that build human and social capacity. Applies MVPF logic to reframe transfers and supports as social investment — analytically more honest and politically more tractable than austerity framing.</div>
+            <div class="output-tags">
+              <span class="tag tag-enable">ENABLE</span>
+              <span class="tag tag-available">Available</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://irpp.org/research-studies/cost-investment-reframing-social-spending-affordability-era/" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-brief">📋</div>
+          <div class="output-main">
+            <div class="output-title">MVPF Framework for Canadian Public Finance — Research Brief</div>
+            <div class="output-meta"><strong>Lindsay M. Tedds, Gillian Petit and <a href="https://selviaarshad.com/" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">Selvia Arshad</a></strong> · INCLUSIECON · 2026</div>
+            <div class="output-blurb">A comprehensive overview of the MVPF research program — its theoretical foundations, empirical approach, and planned applications across Canadian tax and transfer policy. Serves as the foundational scoping document for the project.</div>
+            <div class="output-tags">
+              <span class="tag tag-enable">ENABLE</span>
+              <span class="tag tag-available">Available</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="mvpf-brief.html" class="btn-read">Read Brief ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section-header">
+      <h2 class="section-title">Research Team</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-name">Lindsay M. Tedds</div>
+        <div class="team-role">Principal Investigator</div>
+        <div class="team-bio">Professor of Economics at the University of Calgary and co-founder of INCLUSIECON. Lindsay's research spans public finance, tax policy, and the design of tax and transfer systems — with a consistent emphasis on who benefits and who doesn't.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-name">Gillian Petit</div>
+        <div class="team-role">Co-Investigator</div>
+        <div class="team-bio">Research Director at the University of Calgary's Research Data Centre. Gillian's work spans microsimulation, distributional analysis, and the evaluation of tax and transfer programs, with particular focus on gender, disability, and income inequality.</div>
+      </div>
+      <div class="team-card">
+        <div class="team-name"><a href="https://selviaarshad.com/" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">Selvia Arshad</a></div>
+        <div class="team-role">Co-Investigator · Mitacs Intern</div>
+        <div class="team-bio">Consultant at the World Bank and economics professional specializing in macroeconomic policy analysis. Selvia joins the project as a Mitacs intern, bringing quantitative rigour and international policy perspective to welfare-based evaluation of Canadian programs.</div>
+      </div>
+    </div>
+
+    <div style="background: var(--primary-dark); border-radius: 8px; padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;">
+      <div>
+        <div style="font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem;">Interested in this research?</div>
+        <div style="font-size: 0.8rem; color: rgba(255,255,255,0.4);">ENABLE Stream · INCLUSIECON · University of Calgary</div>
+      </div>
+      <div style="display: flex; gap: 0.65rem; flex-wrap: wrap;">
+        <a href="partner-with-us.html" style="display: inline-flex; align-items: center; background: var(--accent); color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 500; padding: 0.5rem 1rem; border-radius: 5px;">Partner With Us</a>
+        <a href="research.html" style="display: inline-flex; align-items: center; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.8rem; font-weight: 500; padding: 0.5rem 1rem; border-radius: 5px;">← All Research</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">INCLUSI<span>ECON</span></div>
+        <div class="footer-copy">Tax and transfer policy research for a fairer Canada · University of Calgary</div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="partner-with-us.html">Partner With Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
