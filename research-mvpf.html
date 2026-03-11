@@ -56,6 +56,12 @@
     .hero-title em { font-style: italic; color: var(--accent-pale); }
     .hero-desc { font-size: 1.05rem; color: var(--secondary-pale); max-width: 680px; line-height: 1.75; margin-bottom: 2.5rem; }
     .hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .stat-link {
+      text-decoration: none; cursor: pointer;
+      transition: transform 0.15s, opacity 0.15s;
+      border-bottom: 1px solid rgba(200,160,80,0); 
+    }
+    .stat-link:hover { transform: translateY(-2px); opacity: 0.85; border-bottom-color: rgba(200,160,80,0.4); }
     .stat-item { display: flex; flex-direction: column; gap: 0.2rem; }
     .stat-number { font-family: 'Lora', serif; font-size: 2rem; font-weight: 700; color: var(--accent-light); line-height: 1; }
     .stat-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--secondary-light); }
@@ -166,26 +172,26 @@
         Canadian policy evaluation has a structural blind spot: it measures the costs of taxation with rigour while systematically undervaluing the social benefits of public expenditure. This project builds a benefit-inclusive framework — the Marginal Value of Public Funds — and applies it across tax administration reform, social spending, and transfer design to give policymakers tools that reflect what spending is actually worth.
       </p>
       <div class="hero-stats">
-        <div class="stat-item">
+        <a href="#outputs" class="stat-item stat-link">
           <div class="stat-number">1</div>
           <div class="stat-label">Journal Article</div>
-        </div>
-        <div class="stat-item">
+        </a>
+        <a href="#outputs" class="stat-item stat-link">
           <div class="stat-number">1</div>
           <div class="stat-label">Commentary</div>
-        </div>
-        <div class="stat-item">
+        </a>
+        <a href="#outputs" class="stat-item stat-link">
           <div class="stat-number">1</div>
           <div class="stat-label">Book Chapter</div>
-        </div>
-        <div class="stat-item">
+        </a>
+        <a href="#knowledge-mobilization" class="stat-item stat-link">
           <div class="stat-number">2</div>
           <div class="stat-label">Knowledge Mobilization</div>
-        </div>
-        <div class="stat-item">
+        </a>
+        <a href="#partnership" class="stat-item stat-link">
           <div class="stat-number">1</div>
           <div class="stat-label">Strategic Partner</div>
-        </div>
+        </a>
       </div>
       <div class="hero-partner">
         <div class="hero-partner-dot"></div>
@@ -207,7 +213,7 @@
       </div>
     </div>
 
-    <div class="section-header">
+    <div id="partnership" class="section-header">
       <h2 class="section-title">Strategic Partnership</h2>
     </div>
     <div class="partner-band">
@@ -267,7 +273,7 @@
       </div>
     </div>
 
-    <div class="output-section">
+    <div id="outputs" class="output-section">
       <div class="section-header">
         <h2 class="section-title">Research Outputs</h2>
         <span class="section-pill section-pill-active">Active &amp; Growing</span>
@@ -325,7 +331,7 @@
       </div>
     </div>
 
-    <div class="output-section">
+    <div id="knowledge-mobilization" class="output-section">
       <div class="section-header">
         <h2 class="section-title">Knowledge Mobilization</h2>
       </div>
