@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microsimulation &amp; Distributional Analysis — INCLUSIECON</title>
+  <meta name="description" content="Using Statistics Canada's SPSD/M and related tools to simulate the household-level impacts of Canadian tax and transfer policy reforms.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary:        #5c1a1a;
+      --primary-dark:   #3e1010;
+      --primary-mid:    #7a2828;
+      --primary-light:  #a84848;
+      --secondary:      #7a3a44;
+      --secondary-mid:  #9e5560;
+      --secondary-light:#c48890;
+      --secondary-pale: #ecdde0;
+      --accent:         #a87828;
+      --accent-light:   #c8a050;
+      --accent-pale:    #e8d898;
+      --surface:        #f7f2ea;
+      --surface-raised: #ece4d8;
+      --border:         #ddd0bc;
+      --text-dark:      #180808;
+      --text-mid:       #3e2028;
+      --text-muted:     #7a5858;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--surface); color: var(--text-dark); line-height: 1.7; }
+
+    nav { background: var(--primary-dark); position: sticky; top: 0; z-index: 100; border-bottom: 2px solid var(--accent); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { font-family: 'Lora', serif; font-weight: 700; font-size: 1.35rem; color: var(--accent-pale); text-decoration: none; letter-spacing: 0.03em; }
+    .nav-logo span { color: var(--accent-light); }
+    .nav-links { display: flex; gap: 0.25rem; }
+    .nav-links a { color: var(--secondary-pale); text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.4rem 0.75rem; border-radius: 3px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+    .nav-links a.active { color: var(--accent-light); }
+
+    .project-hero {
+      background: var(--primary-dark);
+      background-image: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(168,120,40,0.12) 0%, transparent 60%), radial-gradient(ellipse 50% 80% at 10% 80%, rgba(30,60,30,0.3) 0%, transparent 60%);
+      padding: 5rem 2rem 4rem; position: relative; overflow: hidden;
+    }
+    .project-hero::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.015) 80px, rgba(255,255,255,0.015) 81px); }
+    .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+    .hero-breadcrumb { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .hero-breadcrumb a { color: var(--secondary-light); text-decoration: none; }
+    .hero-breadcrumb a:hover { color: var(--accent-light); }
+    .hero-breadcrumb span { opacity: 0.5; }
+    .hero-kicker { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .hero-title { font-family: 'Lora', serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 1.5rem; max-width: 800px; }
+    .hero-title em { font-style: italic; color: var(--accent-pale); }
+    .hero-desc { font-size: 1.05rem; color: var(--secondary-pale); max-width: 680px; line-height: 1.75; margin-bottom: 2.5rem; }
+    .hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .stat-item { display: flex; flex-direction: column; gap: 0.2rem; }
+    .stat-link { text-decoration: none; cursor: pointer; transition: transform 0.15s, opacity 0.15s; border-bottom: 1px solid rgba(200,160,80,0); }
+    .stat-link:hover { transform: translateY(-2px); opacity: 0.85; border-bottom-color: rgba(200,160,80,0.4); }
+    .stat-number { font-family: 'Lora', serif; font-size: 2rem; font-weight: 700; color: var(--accent-light); line-height: 1; }
+    .stat-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--secondary-light); }
+
+    .page-body { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+
+    .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; padding-bottom: 0.75rem; border-bottom: 1.5px solid var(--border); }
+    .section-title { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: var(--primary); }
+
+    .context-box { background: var(--primary-dark); border-radius: 8px; padding: 2rem 2.5rem; margin-bottom: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .context-box h3 { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; color: var(--accent-light); margin-bottom: 0.75rem; }
+    .context-box p { font-size: 0.9rem; color: var(--secondary-pale); line-height: 1.7; }
+
+    .output-section { margin-bottom: 3.5rem; }
+    .output-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .output-item { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 1.25rem 1.5rem; display: grid; grid-template-columns: auto 1fr auto; gap: 0 1.25rem; align-items: start; transition: border-color 0.2s, box-shadow 0.2s; }
+    .output-item:hover { border-color: var(--secondary-light); box-shadow: 0 2px 12px rgba(92,26,26,0.06); }
+    .output-icon { width: 40px; height: 40px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .icon-journal  { background: var(--secondary-pale); color: var(--secondary); }
+    .icon-report   { background: var(--surface-raised); color: var(--primary-mid); }
+    .icon-brief    { background: #e8f0e8; color: #2d5a2d; }
+    .icon-sim      { background: #dde6ef; color: #2e4a62; }
+    .output-main { min-width: 0; }
+    .output-title { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; color: var(--text-dark); line-height: 1.4; margin-bottom: 0.3rem; }
+    .output-meta { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .output-meta strong { color: var(--text-mid); font-weight: 500; }
+    .output-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.6rem; }
+    .tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 999px; }
+    .tag-fact     { background: #dde6ef; color: #2e4a62; }
+    .tag-alberta  { background: var(--accent-pale); color: var(--accent); }
+    .tag-bc       { background: #e8f0e8; color: #2d5a2d; }
+    .tag-canada   { background: var(--secondary-pale); color: var(--secondary); }
+    .output-action { flex-shrink: 0; padding-top: 0.1rem; display: flex; flex-direction: column; gap: 0.4rem; align-items: flex-end; }
+    .btn-read { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; font-weight: 600; color: var(--primary); text-decoration: none; border: 1.5px solid var(--border); padding: 0.4rem 0.8rem; border-radius: 4px; white-space: nowrap; transition: border-color 0.2s, background 0.2s, color 0.2s; }
+    .btn-read:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .btn-read-secondary { background: transparent; border-color: var(--accent); color: var(--accent); }
+    .btn-read-secondary:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    .cta-strip { background: var(--primary); padding: 3.5rem 2rem; text-align: center; }
+    .cta-strip h2 { font-family: 'Lora', serif; font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
+    .cta-strip p { color: var(--secondary-pale); margin-bottom: 1.75rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-gold { background: var(--accent); color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 0.65rem 1.5rem; border-radius: 4px; letter-spacing: 0.04em; transition: background 0.2s; }
+    .btn-gold:hover { background: var(--accent-light); }
+    .btn-outline-light { border: 1.5px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 0.65rem 1.5rem; border-radius: 4px; letter-spacing: 0.04em; transition: border-color 0.2s, background 0.2s; }
+    .btn-outline-light:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+    footer { background: var(--primary-dark); color: var(--secondary-pale); padding: 3rem 2rem; border-top: 2px solid var(--accent); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .footer-logo { font-family: 'Lora', serif; font-weight: 700; font-size: 1.2rem; color: var(--accent-pale); }
+    .footer-logo span { color: var(--accent-light); }
+    .footer-copy { font-size: 0.8rem; color: var(--secondary-mid); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.8rem; color: var(--secondary-light); text-decoration: none; }
+    .footer-links a:hover { color: var(--accent-light); }
+
+    @media (max-width: 768px) {
+      .context-box { grid-template-columns: 1fr; }
+      .output-item { grid-template-columns: auto 1fr; }
+      .output-action { grid-column: 2; align-items: flex-start; }
+      .hero-stats { gap: 1.5rem; }
+      .nav-links a { font-size: 0.72rem; padding: 0.4rem 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">INCLUSI<span>ECON</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="research.html" class="active">Research</a>
+        <a href="who-we-are.html">Who We Are</a>
+        <a href="partner-with-us.html">Partner With Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="project-hero">
+    <div class="hero-inner">
+      <div class="hero-breadcrumb">
+        <a href="research.html">Research</a>
+        <span>→</span>
+        Research Area
+      </div>
+      <div class="hero-kicker">FACT Stream · Research Area · 2019–</div>
+      <h1 class="hero-title">Microsimulation &amp;<br><em>Distributional Analysis</em></h1>
+      <p class="hero-desc">
+        Aggregate policy outcomes hide more than they reveal. Using Statistics Canada's SPSD/M and related microsimulation tools, this research applies tax and transfer policy rules to representative individual-level data — revealing who gains, who loses, and by how much when policy changes.
+      </p>
+      <div class="hero-stats">
+        <a href="#journal-articles" class="stat-item stat-link">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Journal Articles</div>
+        </a>
+        <a href="#working-papers" class="stat-item stat-link">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Working Paper</div>
+        </a>
+        <a href="#policy-briefs" class="stat-item stat-link">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Policy Briefs</div>
+        </a>
+        <a href="#commissioned-reports" class="stat-item stat-link">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Commissioned Reports</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-body">
+
+    <div class="context-box">
+      <div>
+        <h3>What Microsimulation Does</h3>
+        <p>Rather than working with aggregate statistics, microsimulation applies policy rules — tax rates, benefit thresholds, phase-in and phase-out schedules — to a representative sample of individual households. The result is a granular picture of policy impacts: which income groups, family types, and regions benefit, which bear costs, and what the distributional and fiscal effects of reform options would be before they are implemented.</p>
+      </div>
+      <div>
+        <h3>The Tools</h3>
+        <p>This research relies on Statistics Canada's Social Policy Simulation Database and Model (SPSD/M), the standard tool for costing and distributional analysis of Canadian federal and provincial tax and transfer reforms, modelling the full income support system — income taxes, CPP/EI, child benefits, GST credits, and social assistance interactions. Where SPSD/M's built-in policy model is insufficient, the T1 Family File (T1FF) and Longitudinal Administrative Databank (LAD) — both drawn from actual tax filer records — can be used to directly simulate tax and transfer policy rules on representative microdata, enabling distributional analysis in contexts and jurisdictions not well-served by SPSD/M alone. The Canadian Tax and Credit Simulator (CTaCS) complements this toolkit for specific reform costing.</p>
+      </div>
+    </div>
+
+    <!-- Journal Articles -->
+    <div class="output-section" id="journal-articles">
+      <div class="section-header">
+        <h2 class="section-title">Journal Articles</h2>
+      </div>
+      <div class="output-list">
+
+        <div class="output-item">
+          <div class="output-icon icon-journal">📰</div>
+          <div class="output-main">
+            <div class="output-title">A Basic Income for Nunavut: Addressing Poverty in Canada's North</div>
+            <div class="output-meta"><strong>Gillian Petit</strong> and <strong>Lindsay M. Tedds</strong> · Canadian Public Policy · Vol. 50, No. 3 · doi:10.3138/cpp.2023-045 · 2024</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-canada">Canada</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://doi.org/10.3138/cpp.2023-045" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-journal">📰</div>
+          <div class="output-main">
+            <div class="output-title">A Critical Analysis of Canada's Federal Basic Personal Amount and Personal Tax Credits</div>
+            <div class="output-meta"><strong>Gillian Petit, Lindsay M. Tedds</strong> and Selvia Arshad · Canadian Tax Journal · Vol. 72, No. 4 · doi:10.32721/ctj.2024.72.4.pf.petit · 2024</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-canada">Canada</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://doi.org/10.32721/ctj.2024.72.4.pf.petit" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Working Papers -->
+    <div class="output-section" id="working-papers">
+      <div class="section-header">
+        <h2 class="section-title">Working Paper</h2>
+      </div>
+      <div class="output-list">
+
+        <div class="output-item">
+          <div class="output-icon icon-sim">📊</div>
+          <div class="output-main">
+            <div class="output-title">Systematic Barriers to Justice: Financial Eligibility for Legal Aid — A Gendered Analysis</div>
+            <div class="output-meta"><strong>Gillian Petit</strong> and <strong>Lindsay M. Tedds</strong> · SSRN Working Paper · April 2023</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-canada">Canada</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4419064" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Policy Briefs -->
+    <div class="output-section" id="policy-briefs">
+      <div class="section-header">
+        <h2 class="section-title">Policy Briefs</h2>
+      </div>
+      <div class="output-list">
+
+        <div class="output-item">
+          <div class="output-icon icon-brief">📋</div>
+          <div class="output-main">
+            <div class="output-title">Fiscal Policy Trends: Analyzing Changes to Alberta's Child Care Subsidy</div>
+            <div class="output-meta"><strong>Lindsay M. Tedds</strong> · School of Public Policy Publications · Communiqué Vol. 13 · doi:10.55016/ojs/sppp.v13i1.71449 · 2020</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-alberta">Alberta</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://journalhosting.ucalgary.ca/index.php/sppp/article/view/71449" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-brief">📋</div>
+          <div class="output-main">
+            <div class="output-title">The Alberta Child and Family Benefit: Who Gains and Who Loses?</div>
+            <div class="output-meta"><strong>Anna Cameron, Gillian Petit</strong> and <strong>Lindsay M. Tedds</strong> · Tax Policy Trends · School of Public Policy · November 2019</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-alberta">Alberta</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://www.policyschool.ca/wp-content/uploads/2019/11/TPT-AB-child-family-benefit-FINALNov6.pdf" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Commissioned Reports -->
+    <div class="output-section" id="commissioned-reports">
+      <div class="section-header">
+        <h2 class="section-title">Commissioned Reports</h2>
+      </div>
+      <div class="output-list">
+
+        <div class="output-item">
+          <div class="output-icon icon-sim">📊</div>
+          <div class="output-main">
+            <div class="output-title">Basic Income Simulations in Nunavut</div>
+            <div class="output-meta"><strong>Lindsay M. Tedds, Gillian Petit, Molly Harrington</strong> and <strong>Dan Perrin</strong> · Prepared for BluePrint ADE and the Government of Nunavut · 2023</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-canada">Nunavut</span>
+            </div>
+          </div>
+          <div class="output-action">
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-sim">📊</div>
+          <div class="output-main">
+            <div class="output-title">Basic Income Simulations for the Province of British Columbia</div>
+            <div class="output-meta"><strong>David A. Green, J. Rhys Kesselman, Lindsay M. Tedds, Daria Crisan</strong> and <strong>Gillian Petit</strong> · Research paper commissioned by the Expert Panel on Basic Income, British Columbia · 2020</div>
+            <p style="font-size:0.83rem; color:var(--text-muted); margin-top:0.5rem; line-height:1.6;">Ran over 16,000 basic income scenarios for BC using SPSD/M, evaluating cost, recipients, poverty rates and depths, distributional effects, and inequality impacts across a broad range of design variants.</p>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-bc">BC</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://bcbasicincomepanel.ca/wp-content/uploads/2021/02/Basic_Income_Simulations_for_the_Province_of_British_Columbia.pdf" target="_blank" rel="noopener" class="btn-read">Full Report ↗</a>
+            <a href="https://bcbasicincomepanel.ca/simulation" target="_blank" rel="noopener" class="btn-read btn-read-secondary">Interactive Simulations ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <section class="cta-strip">
+    <div>
+      <h2>Need distributional analysis for your policy question?</h2>
+      <p>We work with governments and civil society organizations across Canada on evidence-based policy design and evaluation.</p>
+      <div class="cta-btns">
+        <a href="partner-with-us.html" class="btn-gold">Partner With Us</a>
+        <a href="contact.html" class="btn-outline-light">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">INCLUSI<span>ECON</span></div>
+        <div class="footer-copy">© 2026 Lindsay Tedds &amp; Gillian Petit · University of Calgary</div>
+      </div>
+      <div class="footer-links">
+        <a href="research.html">All Research</a>
+        <a href="who-we-are.html">Who We Are</a>
+        <a href="http://deadfortaxreasons.wordpress.com/" target="_blank" rel="noopener">Dead For Tax Reasons ↗</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
