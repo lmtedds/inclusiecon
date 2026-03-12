@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intersectionality &amp; GBA+ Research — INCLUSIECON</title>
+  <meta name="description" content="Research applying intersectional and gender-based analysis to Canadian public policy — from COVID-19 recovery to basic income design to the limits of federal GBA+ frameworks.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary:        #5c1a1a;
+      --primary-dark:   #3e1010;
+      --primary-mid:    #7a2828;
+      --primary-light:  #a84848;
+      --secondary:      #7a3a44;
+      --secondary-mid:  #9e5560;
+      --secondary-light:#c48890;
+      --secondary-pale: #ecdde0;
+      --accent:         #a87828;
+      --accent-light:   #c8a050;
+      --accent-pale:    #e8d898;
+      --surface:        #f7f2ea;
+      --surface-raised: #ece4d8;
+      --border:         #ddd0bc;
+      --text-dark:      #180808;
+      --text-mid:       #3e2028;
+      --text-muted:     #7a5858;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--surface); color: var(--text-dark); line-height: 1.7; }
+
+    nav { background: var(--primary-dark); position: sticky; top: 0; z-index: 100; border-bottom: 2px solid var(--accent); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { font-family: 'Lora', serif; font-weight: 700; font-size: 1.35rem; color: var(--accent-pale); text-decoration: none; letter-spacing: 0.03em; }
+    .nav-logo span { color: var(--accent-light); }
+    .nav-links { display: flex; gap: 0.25rem; }
+    .nav-links a { color: var(--secondary-pale); text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.4rem 0.75rem; border-radius: 3px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+    .nav-links a.active { color: var(--accent-light); }
+
+    .project-hero {
+      background: var(--primary-dark);
+      background-image: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(168,120,40,0.12) 0%, transparent 60%), radial-gradient(ellipse 50% 80% at 10% 80%, rgba(122,58,68,0.25) 0%, transparent 60%);
+      padding: 5rem 2rem 4rem; position: relative; overflow: hidden;
+    }
+    .project-hero::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.015) 80px, rgba(255,255,255,0.015) 81px); }
+    .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+    .hero-breadcrumb { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .hero-breadcrumb a { color: var(--secondary-light); text-decoration: none; }
+    .hero-breadcrumb a:hover { color: var(--accent-light); }
+    .hero-breadcrumb span { opacity: 0.5; }
+    .hero-kicker { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .hero-title { font-family: 'Lora', serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 1.5rem; max-width: 800px; }
+    .hero-title em { font-style: italic; color: var(--accent-pale); }
+    .hero-desc { font-size: 1.05rem; color: var(--secondary-pale); max-width: 680px; line-height: 1.75; margin-bottom: 2.5rem; }
+    .hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .stat-item { display: flex; flex-direction: column; gap: 0.2rem; }
+    .stat-link { text-decoration: none; cursor: pointer; transition: transform 0.15s, opacity 0.15s; border-bottom: 1px solid rgba(200,160,80,0); }
+    .stat-link:hover { transform: translateY(-2px); opacity: 0.85; border-bottom-color: rgba(200,160,80,0.4); }
+    .stat-number { font-family: 'Lora', serif; font-size: 2rem; font-weight: 700; color: var(--accent-light); line-height: 1; }
+    .stat-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--secondary-light); }
+
+    .page-body { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+
+    .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; padding-bottom: 0.75rem; border-bottom: 1.5px solid var(--border); }
+    .section-title { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: var(--primary); }
+    .section-pill { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); background: var(--accent-pale); padding: 0.2rem 0.6rem; border-radius: 999px; }
+
+    .context-box { background: var(--primary-dark); border-radius: 8px; padding: 2rem 2.5rem; margin-bottom: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .context-box h3 { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; color: var(--accent-light); margin-bottom: 0.75rem; }
+    .context-box p { font-size: 0.9rem; color: var(--secondary-pale); line-height: 1.7; }
+
+    .output-section { margin-bottom: 3.5rem; }
+    .output-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .output-item { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 1.25rem 1.5rem; display: grid; grid-template-columns: auto 1fr auto; gap: 0 1.25rem; align-items: start; transition: border-color 0.2s, box-shadow 0.2s; }
+    .output-item:hover { border-color: var(--secondary-light); box-shadow: 0 2px 12px rgba(92,26,26,0.06); }
+    .output-icon { width: 40px; height: 40px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .icon-journal { background: var(--secondary-pale); color: var(--secondary); }
+    .icon-report  { background: var(--surface-raised); color: var(--primary-mid); }
+    .icon-rsc     { background: #dde6ef; color: #3a5068; }
+    .output-main { min-width: 0; }
+    .output-title { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; color: var(--text-dark); line-height: 1.4; margin-bottom: 0.3rem; }
+    .output-meta { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .output-meta strong { color: var(--text-mid); font-weight: 500; }
+    .output-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.6rem; }
+    .tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 999px; }
+    .tag-engage { background: var(--accent-pale); color: var(--accent); }
+    .tag-fact    { background: #dde6ef; color: #2e4a62; }
+    .tag-bc      { background: #e8f0e8; color: #2d5a2d; }
+    .tag-covid   { background: #ede8f5; color: #4a2878; }
+    .output-action { flex-shrink: 0; padding-top: 0.1rem; }
+    .btn-read { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; font-weight: 600; color: var(--primary); text-decoration: none; border: 1.5px solid var(--border); padding: 0.4rem 0.8rem; border-radius: 4px; white-space: nowrap; transition: border-color 0.2s, background 0.2s, color 0.2s; }
+    .btn-read:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+    footer { background: var(--primary-dark); color: var(--secondary-pale); padding: 3rem 2rem; border-top: 2px solid var(--accent); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .footer-logo { font-family: 'Lora', serif; font-weight: 700; font-size: 1.2rem; color: var(--accent-pale); }
+    .footer-logo span { color: var(--accent-light); }
+    .footer-copy { font-size: 0.8rem; color: var(--secondary-mid); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.8rem; color: var(--secondary-light); text-decoration: none; }
+    .footer-links a:hover { color: var(--accent-light); }
+
+    @media (max-width: 768px) {
+      .context-box { grid-template-columns: 1fr; }
+      .output-item { grid-template-columns: auto 1fr; }
+      .output-action { grid-column: 2; }
+      .hero-stats { gap: 1.5rem; }
+      .nav-links a { font-size: 0.72rem; padding: 0.4rem 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">INCLUSI<span>ECON</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="research.html" class="active">Research</a>
+        <a href="who-we-are.html">Who We Are</a>
+        <a href="partner-with-us.html">Partner With Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="project-hero">
+    <div class="hero-inner">
+      <div class="hero-breadcrumb">
+        <a href="research.html">Research</a>
+        <span>→</span>
+        Project
+      </div>
+      <div class="hero-kicker">ENGAGE Stream · Research Program · 2020–</div>
+      <h1 class="hero-title">Intersectionality<br>&amp; <em>GBA+</em></h1>
+      <p class="hero-desc">
+        Standard policy analysis treats the "average" person as the default. This research program insists that is not good enough. Applying intersectional and gender-based frameworks to Canadian public policy — from COVID-19 recovery design to basic income to federal evaluation tools — to ensure that who bears the costs and who receives the benefits is never an afterthought.
+      </p>
+      <div class="hero-stats">
+        <a href="#journal-articles" class="stat-item stat-link">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Journal Articles</div>
+        </a>
+        <a href="#book-chapters" class="stat-item stat-link">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Book Chapter</div>
+        </a>
+        <a href="#rsc-reports" class="stat-item stat-link">
+          <div class="stat-number">2</div>
+          <div class="stat-label">RSC Reports</div>
+        </a>
+        <a href="#policy-reports" class="stat-item stat-link">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Policy Reports</div>
+        </a>
+        <a href="#bc-panel" class="stat-item stat-link">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Expert Panel Reports</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-body">
+
+    <div class="context-box">
+      <div>
+        <h3>The Problem with Standard Policy Analysis</h3>
+        <p>Most Canadian policy evaluation treats aggregate outcomes as sufficient — if the average benefit is positive, the policy passes. But averages mask who gains and who loses. Women, racialized people, persons with disabilities, Indigenous peoples, and low-income households often experience the same policy in fundamentally different ways. When those differences are invisible in the analysis, they are invisible in the design. This research program makes them visible.</p>
+      </div>
+      <div>
+        <h3>The Approach</h3>
+        <p>This research applies intersectional and gender-based analysis frameworks — including Canada's federal GBA+ — to evaluate how public policies distribute costs and benefits across overlapping dimensions of identity and disadvantage. It ranges from empirical measurement of gendered labour market effects and COVID-19 impacts to critical assessment of whether federal GBA+ frameworks are fit for purpose, and from concrete policy design guidance for basic income to reform proposals for infrastructure recovery investment.</p>
+      </div>
+    </div>
+
+    <div class="output-section" id="journal-articles">
+      <div class="section-header">
+        <h2 class="section-title">Journal Articles</h2>
+      </div>
+      <div class="output-list">
+
+        <div class="output-item">
+          <div class="output-icon icon-journal">📰</div>
+          <div class="output-main">
+            <div class="output-title">Igniting an Intersectional Shift in Public Policy Research (and Training)</div>
+            <div class="output-meta"><strong>Lindsay M. Tedds</strong> · Canadian Public Policy · Vol. 49, No. 1, pp. 1–12 · doi:10.3138/cpp.2022-040 · 2023</div>
+            <div class="output-tags">
+              <span class="tag tag-engage">ENGAGE</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://utppublishing.com/doi/10.3138/cpp.2022-040" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-journal">📰</div>
+          <div class="output-main">
+            <div class="output-title">Canada's GBA+ Framework in a (post)Pandemic World: Issues, Tensions, and Paths Forward</div>
+            <div class="output-meta"><strong>Anna Cameron</strong> and <strong>Lindsay M. Tedds</strong> · Canadian Public Administration · Vol. 66, No. 1, pp. 7–27 · doi:10.1111/capa.12508 · 2023</div>
+            <div class="output-tags">
+              <span class="tag tag-engage">ENGAGE</span>
+              <span class="tag tag-covid">COVID-19</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://doi.org/10.1111/capa.12508" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="output-section" id="rsc-reports">
+      <div class="section-header">
+        <h2 class="section-title">Royal Society of Canada Reports</h2>
+      </div>
+      <div class="output-list">
+
+        <div class="output-item">
+          <div class="output-icon icon-rsc">🏛️</div>
+          <div class="output-main">
+            <div class="output-title">Impacts of the COVID-19 Pandemic on Women in Canada</div>
+            <div class="output-meta"><strong>Jennifer Robson, Lindsay M. Tedds</strong> et al. · Royal Society of Canada · 2022</div>
+            <div class="output-tags">
+              <span class="tag tag-engage">ENGAGE</span>
+              <span class="tag tag-covid">COVID-19</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://rsc-src.ca/sites/default/files/pdf/Women%20PB_EN.pdf" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-rsc">🏛️</div>
+          <div class="output-main">
+            <div class="output-title">Renewing the Social Contract: Economic Recovery in Canada from COVID-19</div>
+            <div class="output-meta"><strong>Christopher McCabe, Vic Adamowicz, Robin Boadway, Lindsay Tedds</strong> et al. · Royal Society of Canada · 2020</div>
+            <div class="output-tags">
+              <span class="tag tag-engage">ENGAGE</span>
+              <span class="tag tag-covid">COVID-19</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://rsc-src.ca/sites/default/files/Econ%20PB_EN_3.pdf" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="output-section" id="book-chapters">
+      <div class="section-header">
+        <h2 class="section-title">Book Chapter</h2>
+      </div>
+      <div class="output-list">
+
+        <div class="output-item">
+          <div class="output-icon icon-report">📖</div>
+          <div class="output-main">
+            <div class="output-title">Gender Disparities in the Labour Market? Examining the COVID-19 Pandemic in Alberta</div>
+            <div class="output-meta"><strong>John Baker, Kourtney Koebel</strong> and <strong>Lindsay M. Tedds</strong> · Chapter in Robert Mansell and Kenneth J. McKenzie (Eds.) <em>Alberta Futures</em> · University of Calgary Press · 2021</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-covid">COVID-19</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://www.policyschool.ca/wp-content/uploads/2021/11/Albertas-Economic-and-Fiscal-Future.pdf" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="output-section" id="policy-reports">
+      <div class="section-header">
+        <h2 class="section-title">Policy Reports</h2>
+      </div>
+      <div class="output-list">
+
+        <div class="output-item">
+          <div class="output-icon icon-report">📋</div>
+          <div class="output-main">
+            <div class="output-title">Gender Disparities in the Labour Market? Examining the COVID-19 Pandemic in Alberta</div>
+            <div class="output-meta"><strong>John Baker, Kourtney Koebel</strong> and <strong>Lindsay M. Tedds</strong> · The School of Public Policy Publications · Vol. 14, No. 18, pp. 1–37 · 2021</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-covid">COVID-19</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://www.policyschool.ca/wp-content/uploads/2021/06/TEG88_Gender-Disparities-Labour-Market_Baker-et-al.pdf" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-report">📋</div>
+          <div class="output-main">
+            <div class="output-title">The Gendered Implications of an Infrastructure Focused Recovery</div>
+            <div class="output-meta"><strong>Anna Cameron, Vanessa Morin</strong> and <strong>Lindsay M. Tedds</strong> · The School of Public Policy Publications · Vol. 13, No. 1 · 2020</div>
+            <div class="output-tags">
+              <span class="tag tag-engage">ENGAGE</span>
+              <span class="tag tag-covid">COVID-19</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://www.policyschool.ca/wp-content/uploads/2020/10/EPT-Gender-Implications-2.pdf" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="output-section" id="bc-panel">
+      <div class="section-header">
+        <h2 class="section-title">BC Basic Income Expert Panel Reports</h2>
+        <span class="section-pill">2020</span>
+      </div>
+      <div class="output-list">
+
+        <div class="output-item">
+          <div class="output-icon icon-report">📋</div>
+          <div class="output-main">
+            <div class="output-title">Gender-Based Analysis Plus and Intersectionality: Overview, an Enhanced Framework, and a BC Case Study</div>
+            <div class="output-meta"><strong>Anna Cameron</strong> and <strong>Lindsay M. Tedds</strong> · Expert Panel on Basic Income, British Columbia · 2020</div>
+            <div class="output-tags">
+              <span class="tag tag-engage">ENGAGE</span>
+              <span class="tag tag-bc">BC Panel</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://bcbasicincomepanel.ca/wp-content/uploads/2021/01/Gender_Based_Analysis_Plus_GBA_and_Intersectionality_Overview_an_Enhanced_Framework_and_a_British_Columbia_Case_Study.pdf" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-report">📋</div>
+          <div class="output-main">
+            <div class="output-title">Gender-Based Analysis Plus of Two Policy Alternatives: Basic Income and Basic Services</div>
+            <div class="output-meta"><strong>Anna Cameron</strong> and <strong>Lindsay M. Tedds</strong> · Expert Panel on Basic Income, British Columbia · 2020</div>
+            <div class="output-tags">
+              <span class="tag tag-engage">ENGAGE</span>
+              <span class="tag tag-bc">BC Panel</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://bcbasicincomepanel.ca/wp-content/uploads/2021/01/Gender_Based_Analysis_Plus_GBA_of_Two_Policy_Alternatives_Basic_Income_and_Basic_Services.pdf" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-report">📋</div>
+          <div class="output-main">
+            <div class="output-title">Gender-Based Analysis Plus of the Income and Social Support System in British Columbia</div>
+            <div class="output-meta"><strong>Gillian Petit</strong> and <strong>Lindsay M. Tedds</strong> · Expert Panel on Basic Income, British Columbia · 2020</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-bc">BC Panel</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://bcbasicincomepanel.ca/wp-content/uploads/2021/01/Gender_Based_Analysis_Plus_of_the_Current_System_of_Income_and_Social_Supports_in_British_Columbia.pdf" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="background: var(--primary-dark); border-radius: 8px; padding: 2rem 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;">
+      <div>
+        <div style="font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.25rem;">Interested in this research?</div>
+        <div style="font-size: 0.8rem; color: rgba(255,255,255,0.4);">ENGAGE Stream · INCLUSIECON · University of Calgary</div>
+      </div>
+      <div style="display: flex; gap: 0.65rem; flex-wrap: wrap;">
+        <a href="partner-with-us.html" style="display: inline-flex; align-items: center; background: var(--accent); color: #fff; text-decoration: none; font-size: 0.8rem; font-weight: 500; padding: 0.5rem 1rem; border-radius: 5px;">Partner With Us</a>
+        <a href="research.html" style="display: inline-flex; align-items: center; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.8rem; font-weight: 500; padding: 0.5rem 1rem; border-radius: 5px;">← All Research</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">INCLUSI<span>ECON</span></div>
+        <div class="footer-copy">Tax and transfer policy research for a fairer Canada · University of Calgary</div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="partner-with-us.html">Partner With Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
