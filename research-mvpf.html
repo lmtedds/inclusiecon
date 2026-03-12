@@ -46,7 +46,6 @@
       padding: 5rem 2rem 4rem; position: relative; overflow: hidden;
     }
     .project-hero::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.015) 80px, rgba(255,255,255,0.015) 81px); }
-    .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; }
     .hero-breadcrumb { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
     .hero-breadcrumb a { color: var(--secondary-light); text-decoration: none; }
     .hero-breadcrumb a:hover { color: var(--accent-light); }
@@ -69,6 +68,27 @@
     .hero-partner a { color: var(--accent-light); text-decoration: none; font-weight: 600; }
     .hero-partner a:hover { color: var(--accent-pale); }
     .hero-partner-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+    .hero-partners { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+
+    .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; display: grid; grid-template-columns: 1fr 268px; gap: 3rem; align-items: start; }
+    .hero-right { padding-top: 2.5rem; }
+    .selvia-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(200,160,80,0.25); border-radius: 12px; padding: 1.5rem; }
+    .selvia-photo-wrap { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; border: 2px solid rgba(200,160,80,0.4); margin: 0 auto 0.85rem; background: rgba(200,160,80,0.1); display: flex; align-items: center; justify-content: center; font-family: 'Lora', serif; font-size: 1.6rem; font-weight: 700; color: rgba(200,160,80,0.7); }
+    .selvia-photo-wrap img { width: 100%; height: 100%; object-fit: cover; }
+    .selvia-intern-badge { display: flex; align-items: center; justify-content: center; gap: 0.35rem; background: rgba(30,80,160,0.2); border: 1px solid rgba(100,150,220,0.35); border-radius: 999px; padding: 0.25rem 0.75rem; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(150,190,255,0.9); margin: 0 auto 0.85rem; width: fit-content; }
+    .selvia-name { font-family: 'Lora', serif; font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 0.1rem; text-align: center; }
+    .selvia-title { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.85rem; text-align: center; }
+    .selvia-bio { font-size: 0.82rem; color: var(--secondary-pale); line-height: 1.7; margin-bottom: 0.85rem; }
+    .selvia-affiliations { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 0.85rem; border-top: 1px solid rgba(200,160,80,0.15); padding-top: 0.85rem; }
+    .selvia-affil { font-size: 0.75rem; color: var(--secondary-light); display: flex; align-items: flex-start; gap: 0.4rem; line-height: 1.5; }
+    .selvia-affil::before { content: '·'; color: var(--accent); flex-shrink: 0; }
+    .selvia-link { display: block; text-align: center; font-size: 0.75rem; color: var(--accent-light); text-decoration: none; border-top: 1px solid rgba(200,160,80,0.15); padding-top: 0.75rem; margin-top: 0.1rem; }
+    .selvia-link:hover { color: var(--accent-pale); text-decoration: underline; }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-right { padding-top: 0; }
+    }
 
     .page-body { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem 6rem; }
 
@@ -161,42 +181,68 @@
 
   <section class="project-hero">
     <div class="hero-inner">
-      <div class="hero-breadcrumb">
-        <a href="research.html">Research</a>
-        <span>→</span>
-        Project
+      <div class="hero-left">
+        <div class="hero-breadcrumb">
+          <a href="research.html">Research</a>
+          <span>→</span>
+          Project
+        </div>
+        <div class="hero-kicker">ENABLE Stream · Active Research Project · 2025–</div>
+        <h1 class="hero-title">Marginal Value of<br><em>Public Funds</em></h1>
+        <p class="hero-desc">
+          Canadian policy evaluation has a structural blind spot: it measures the costs of taxation with rigour while systematically undervaluing the social benefits of public expenditure. This project builds a benefit-inclusive framework — the Marginal Value of Public Funds — and applies it across tax administration reform, social spending, and transfer design to give policymakers tools that reflect what spending is actually worth.
+        </p>
+        <div class="hero-stats">
+          <a href="#outputs" class="stat-item stat-link">
+            <div class="stat-number">1</div>
+            <div class="stat-label">Journal Article</div>
+          </a>
+          <a href="#outputs" class="stat-item stat-link">
+            <div class="stat-number">1</div>
+            <div class="stat-label">Commentary</div>
+          </a>
+          <a href="#outputs" class="stat-item stat-link">
+            <div class="stat-number">1</div>
+            <div class="stat-label">Book Chapter</div>
+          </a>
+          <a href="#knowledge-mobilization" class="stat-item stat-link">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Knowledge Mobilization</div>
+          </a>
+          <a href="#partnership" class="stat-item stat-link">
+            <div class="stat-number">2</div>
+            <div class="stat-label">Partners & Funders</div>
+          </a>
+        </div>
+        <div class="hero-partners">
+          <div class="hero-partner">
+            <div class="hero-partner-dot"></div>
+            In partnership with <a href="https://maytree.com/" target="_blank" rel="noopener">Maytree</a> — funder, research partner, and knowledge mobilization partner
+          </div>
+          <div class="hero-partner">
+            <div class="hero-partner-dot" style="background: rgba(100,150,220,0.8);"></div>
+            Funded in part by <a href="https://www.mitacs.ca/" target="_blank" rel="noopener">Mitacs</a> Accelerate — supporting graduate research internships
+          </div>
+        </div>
       </div>
-      <div class="hero-kicker">ENABLE Stream · Active Research Project · 2025–</div>
-      <h1 class="hero-title">Marginal Value of<br><em>Public Funds</em></h1>
-      <p class="hero-desc">
-        Canadian policy evaluation has a structural blind spot: it measures the costs of taxation with rigour while systematically undervaluing the social benefits of public expenditure. This project builds a benefit-inclusive framework — the Marginal Value of Public Funds — and applies it across tax administration reform, social spending, and transfer design to give policymakers tools that reflect what spending is actually worth.
-      </p>
-      <div class="hero-stats">
-        <a href="#outputs" class="stat-item stat-link">
-          <div class="stat-number">1</div>
-          <div class="stat-label">Journal Article</div>
-        </a>
-        <a href="#outputs" class="stat-item stat-link">
-          <div class="stat-number">1</div>
-          <div class="stat-label">Commentary</div>
-        </a>
-        <a href="#outputs" class="stat-item stat-link">
-          <div class="stat-number">1</div>
-          <div class="stat-label">Book Chapter</div>
-        </a>
-        <a href="#knowledge-mobilization" class="stat-item stat-link">
-          <div class="stat-number">2</div>
-          <div class="stat-label">Knowledge Mobilization</div>
-        </a>
-        <a href="#partnership" class="stat-item stat-link">
-          <div class="stat-number">1</div>
-          <div class="stat-label">Strategic Partner</div>
-        </a>
+
+      <div class="hero-right">
+        <div class="selvia-card">
+          <div class="selvia-photo-wrap"><img src="data:image/jpeg;base64,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" alt="Selvia Arshad"></div>
+          <div class="selvia-intern-badge">🎓 Mitacs Accelerate Intern</div>
+          <div class="selvia-name">Selvia Arshad</div>
+          <div class="selvia-title">Research Intern · MVPF Project</div>
+          <p class="selvia-bio">Selvia Arshad is a doctoral researcher whose work sits at the intersection of public finance, welfare economics, and tax policy. She is the lead author on the MVPF-TAdmin framework paper and a co-author on the BPA analysis, bringing rigorous econometric and welfare-theoretic methods to the project.</p>
+          <div class="selvia-affiliations">
+            <div class="selvia-affil">PhD Candidate, Economics</div>
+            <div class="selvia-affil">University of Calgary</div>
+            <div class="selvia-affil">Mitacs Accelerate Intern, INCLUSIECON</div>
+            <div class="selvia-affil">Research Partner, Maytree</div>
+          </div>
+          <a href="https://selviaarshad.com/" target="_blank" rel="noopener" class="selvia-link">selviaarshad.com ↗</a>
+        </div>
       </div>
-      <div class="hero-partner">
-        <div class="hero-partner-dot"></div>
-        In partnership with <a href="https://maytree.com/" target="_blank" rel="noopener">Maytree</a> — funder, research partner, and knowledge mobilization partner
-      </div>
+
     </div>
   </section>
 
@@ -214,7 +260,7 @@
     </div>
 
     <div id="partnership" class="section-header">
-      <h2 class="section-title">Strategic Partnership</h2>
+      <h2 class="section-title">Partners &amp; Funders</h2>
     </div>
     <div class="partner-band">
       <div>
@@ -228,6 +274,18 @@
         </div>
       </div>
       <a href="https://maytree.com/" target="_blank" rel="noopener" class="partner-link">Visit Maytree ↗</a>
+    </div>
+    <div class="partner-band">
+      <div>
+        <div class="partner-label">Internship Funder</div>
+        <div class="partner-name">Mitacs Accelerate</div>
+        <div class="partner-desc">Mitacs is a national research organization that fosters innovation in Canada through research and training programs. The Mitacs Accelerate grant supports Selvia Arshad's doctoral research internship on this project — bringing graduate-level econometric and welfare-theoretic expertise directly into the MVPF research program and connecting academic research to real-world policy application.</div>
+        <div class="partner-tags">
+          <span class="partner-tag">Internship Funder</span>
+          <span class="partner-tag">Graduate Research Support</span>
+        </div>
+      </div>
+      <a href="https://www.mitacs.ca/" target="_blank" rel="noopener" class="partner-link">Visit Mitacs ↗</a>
     </div>
 
     <div class="output-section">
