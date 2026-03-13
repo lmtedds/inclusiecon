@@ -219,7 +219,7 @@
 
     /* ── FOOTER ── */
     footer { background: var(--primary-dark); border-top: 1px solid rgba(255,255,255,0.06); padding: 3.5rem 2.5rem 2rem; }
-    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 3rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 3rem; flex-wrap: wrap; }
     .footer-brand { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; letter-spacing: 0.03em; }
     .footer-brand span { color: var(--accent-light); }
     .footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.38); line-height: 1.65; max-width: 280px; }
@@ -239,7 +239,7 @@
       .bio-links { flex-direction: row; flex-wrap: wrap; }
       .collab-milestones { grid-template-columns: 1fr 1fr; }
       .collab-body { grid-template-columns: 1fr; }
-      .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+      .footer-inner { gap: 1.5rem; }
       .nav-links { display: none; }
     }
     @media (max-width: 640px) {
@@ -338,7 +338,7 @@
             <div class="bio-name">Dr. Lindsay M. Tedds</div>
             <div class="bio-role">Professor of Economics<br>University of Calgary<br>Department of Economics</div>
             <div class="bio-links">
-              <a href="https://www.lindsaytedds.ca" target="_blank" rel="noopener" class="bio-link"><span class="bio-link-icon">🌐</span> lindsaytedds.ca</a>
+              <a href="https://lindsaytedds.ca" target="_blank" rel="noopener" class="bio-link"><span class="bio-link-icon">🌐</span> lindsaytedds.ca</a>
               <a href="#" id="wwa-email-lt" class="bio-link"><span class="bio-link-icon">✉</span> <span id="wwa-email-lt-text"></span></a>
               <a href="https://bsky.app/profile/lindsaytedds.bsky.social" target="_blank" rel="noopener" class="bio-link"><span class="bio-link-icon">☁</span> @lindsaytedds.bsky.social</a>
               <a href="https://www.linkedin.com/in/lindsay-tedds-b68b4311/" target="_blank" rel="noopener" class="bio-link"><span class="bio-link-icon">in</span> LinkedIn</a>
@@ -474,7 +474,7 @@
     </div>
     <div class="footer-bottom">
       <span>© 2026 Lindsay Tedds &amp; Gillian Petit · University of Calgary</span>
-      <a href="https://www.lindsaytedds.ca" target="_blank" rel="noopener">lindsaytedds.ca ↗</a>
+      <a href="https://lindsaytedds.ca" target="_blank" rel="noopener">lindsaytedds.ca ↗</a>
     </div>
   </footer>
 
