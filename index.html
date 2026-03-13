@@ -320,7 +320,7 @@
 
     /* ── FOOTER ── */
     footer { background: var(--primary-dark); border-top: 1px solid rgba(255,255,255,0.06); padding: 3.5rem 2.5rem 2rem; }
-    .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 3rem; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 3rem; flex-wrap: wrap; }
     .footer-brand { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; letter-spacing: 0.03em; }
     .footer-brand span { color: var(--accent-light); }
     .footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.38); line-height: 1.65; max-width: 280px; }
@@ -693,24 +693,10 @@
         <div class="footer-brand">INCLUSI<span>ECON</span></div>
         <div class="footer-tagline">Tax and transfer policy research for a fairer Canada. Based at the University of Calgary.</div>
       </div>
-      <div class="footer-col">
-        <h4>Research</h4>
-        <a href="research.html">FACT Stream</a>
-        <a href="research.html">ENABLE Stream</a>
-        <a href="research.html">Publications</a>
-        <a href="research.html">Data &amp; Tools</a>
-      </div>
-      <div class="footer-col">
-        <h4>About</h4>
-        <a href="who-we-are.html">Our Approach</a>
-        <a href="services.html">Services</a>
+      <div class="footer-col" style="display:flex; gap:2.5rem; align-items:flex-start; flex-wrap:wrap;">
+        <a href="research.html">Our Research</a>
         <a href="https://deadfortaxreasons.wordpress.com/" target="_blank" rel="noopener">Dead For Tax Reasons ↗</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <a href="/cdn-cgi/l/email-protection#026e6b6c6671637b2c766766667133427761636e6563707b2c6163">Lindsay Tedds</a>
-        <a href="/cdn-cgi/l/email-protection#6d0a040101040c03431d081904192d180e0c010a0c1f14430e0c">Gillian Petit</a>
-        <a href="partner-with-us.html">Work With Us</a>
+        <a href="contact.html">Contact</a>
       </div>
     </div>
     <div class="footer-bottom">
