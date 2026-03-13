@@ -2,21 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Mapping Income & Social Supports — Alberta, BC & Nunavut | INCLUSIECON</title>
-  <meta name="description" content="Cross-jurisdictional mapping of income and social support programs in Alberta, BC, and Nunavut — documenting program complexity, eligibility, interaction effects, and barriers to access.">
-  <meta name="keywords" content="income support mapping Canada, social supports Alberta, BC income assistance programs, Nunavut social supports, benefit program mapping">
-  <link rel="canonical" href="https://inclusiecon.ca/research-income-supports-mapping.html">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="Mapping Income & Social Supports — Alberta, BC & Nunavut | INCLUSIECON">
-  <meta property="og:description" content="Cross-jurisdictional mapping of income and social support programs in Alberta, BC, and Nunavut — documenting program complexity, eligibility, interaction effects, and barriers to access.">
-  <meta property="og:url" content="https://inclusiecon.ca/research-income-supports-mapping.html">
-  <meta property="og:site_name" content="INCLUSIECON">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Mapping Income & Social Supports — Alberta, BC & Nunavut | INCLUSIECON">
-  <meta name="twitter:description" content="Cross-jurisdictional mapping of income and social support programs in Alberta, BC, and Nunavut — documenting program complexity, eligibility, interaction effects, and barriers to access.">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Lindsay M. Tedds, Gillian Petit">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapping Income &amp; Social Supports — Alberta, BC &amp; Nunavut — INCLUSIECON</title>
+  <meta name="description" content="A cross-jurisdictional research program mapping the full system of income and social supports in Alberta, British Columbia, and Nunavut — documenting program complexity, adequacy, and reform pathways.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -90,13 +78,15 @@
     .selvia-affil::before { content: '·'; color: var(--accent); flex-shrink: 0; }
 
     /* PAGE BODY */
-    .page-body { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+    .page-body { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem 6rem; min-width: 0; }
+    @media (max-width: 700px) { .page-body { padding: 2rem 1rem 4rem; } .jurisdiction-header { margin-left: 0; margin-right: 0; } .jurisdiction-title-block { padding: 1rem; } }
 
     /* JURISDICTION SECTIONS */
     .jurisdiction { margin-bottom: 5rem; }
     .jurisdiction-header {
       display: flex; align-items: stretch; gap: 0; margin-bottom: 2.5rem;
       border-radius: 8px; overflow: hidden; border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(92,26,26,0.06);
     }
     .jurisdiction-flag {
       width: 8px; flex-shrink: 0;
@@ -291,8 +281,6 @@
               <div class="output-tags"><span class="tag tag-enable">ENABLE</span><span class="tag tag-forthcoming">Forthcoming</span></div>
             </div>
             <div class="output-action"><span class="badge-forthcoming">⏳ Forthcoming</span></div>
-          </div>
-
           </div>
 
         </div>
