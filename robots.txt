@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://inclusiecon.ca/sitemap.xml
