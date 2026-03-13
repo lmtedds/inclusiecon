@@ -278,6 +278,21 @@
       border: 1px solid var(--border); padding: 0.28rem 0.65rem; border-radius: 4px;
     }
     /* trigger button on cards */
+    .pub-counts {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-top: 0.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 0.75rem;
+    }
+    .pub-counts span {
+      white-space: nowrap;
+    }
+    .pub-counts span::before { content: "·  "; opacity: 0.4; }
+    .pub-counts span:first-child::before { content: ""; }
     .pub-drawer-btn {
       display: inline-flex; align-items: center; gap: 0.4rem;
       border: 1.5px solid var(--border); color: var(--text-muted); background: none;
@@ -359,7 +374,7 @@
         <div class="approach-left">
           <div class="eyebrow ey-rose">Our Approach</div>
           <h2 class="sh sh-dark sh-lg" style="margin-bottom:1.5rem;">Transdisciplinary research built to last</h2>
-          <p>Our research harnesses the strengths of economics, law, public administration, and intersectionality to study public policy problems that resist single-discipline answers. We work across federal, provincial, and municipal levels because that is how policy actually operates — and because the interactions between levels of government are where many of the most consequential gaps and inequities are found.</p>
+          <p>Our research harnesses the strengths of economics, law, public administration, and intersectionality to study public policy problems that resist single-discipline answers. We work across federal, provincial, territorial, and municipal levels — and partner with non-governmental organizations and the people directly impacted by the policies we study — because that is how policy actually operates, and because the interactions between levels of government and the communities they serve are where many of the most consequential gaps and inequities are found.</p>
           <p>We publish in <strong>peer-reviewed academic journals</strong>, produce <strong>technical reports for governments and expert panels</strong>, and write <strong>accessible policy analysis</strong> for practitioners and the public. Our research is held to academic standards regardless of the outlet, and we do not adjust findings to fit a funder's preferred conclusion.</p>
           <p>We organize our work around two interconnected research streams — FACT and ENABLE — that together form the analytical core of the INCLUSIECON initiative.</p>
         </div>
@@ -416,7 +431,7 @@
              data-type:   journal | book | report | commentary
              ═══════════════════════════════════════════════════ -->
 
-        <div class="pub-entry" data-stream="enable" data-type="report">
+        <div class="pub-entry" data-stream="fact enable" data-type="report">
           <div class="pub-img-wrap">
             <svg class="pub-img-bg" viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
               <defs>
@@ -442,7 +457,7 @@
           </div>
           <div class="pub-body">
             <div class="pub-meta">
-              <span class="pub-stream-pill psp-enable">ENABLE</span>
+              <span class="pub-stream-pill psp-both">FACT + ENABLE</span>
               <span class="pub-type">Flagship Project</span>
               <span class="pub-year">2025–</span>
             </div>
@@ -450,9 +465,9 @@
             <div class="pub-authors"><strong>Lindsay M. Tedds</strong>, <strong>Gillian Petit</strong> and <a href="https://selviaarshad.com/" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(168,120,40,0.5);">Selvia Arshad</a></div>
             <div class="pub-outlet">In partnership with <a href="https://maytree.com/" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(168,120,40,0.5);">Maytree</a></div>
             <div class="pub-blurb">A new evaluative framework for Canadian public finance — one that measures what government spending is actually worth to people, not just what it costs. Applying the Marginal Value of Public Funds across tax administration reform, social spending, and transfer design to build a benefit-inclusive toolkit for evidence-based policy.</div>
+            <div class="pub-counts"><span>1 Forthcoming Journal Article</span><span>1 Research Brief</span><span>1 Commentary</span></div>
             <div class="pub-actions">
               <a href="research-mvpf.html" class="pub-link">View Project ↗</a>
-              <button class="pub-drawer-btn" onclick="openDrawer('drawer-mvpf')">📚 Publications <span class="btn-count">3</span></button>
             </div>
           </div>
         </div>
@@ -502,6 +517,7 @@
             <div class="pub-authors"><strong>Lindsay M. Tedds</strong> and <strong>Gillian Petit</strong></div>
             <div class="pub-outlet">Funded by SSHRC · City of Calgary · Alberta Real Estate Foundation</div>
             <div class="pub-blurb">Are Calgary's property assessments systematically biased against vulnerable communities? Are property taxes in Alberta regressive — and if so, for whom? Two streams of empirical research using city-level assessment data and CHSP administrative records to document what Canada's property tax system is actually doing to its most vulnerable homeowners.</div>
+            <div class="pub-counts"><span>Active · Outputs Forthcoming</span></div>
             <div class="pub-actions">
               <a href="research-property-tax.html" class="pub-link">View Project ↗</a>
             </div>
@@ -543,7 +559,8 @@
             </div>
             <div class="pub-title">Intersectionality &amp; GBA+</div>
             <div class="pub-authors"><strong>Lindsay M. Tedds</strong>, <strong>Gillian Petit</strong>, <strong>Anna Cameron</strong> and others</div>
-            <div class="pub-blurb">Standard policy analysis treats the "average" person as the default. This research program insists that is not good enough — applying intersectional and gender-based frameworks to COVID-19 recovery design, basic income, and federal evaluation tools to ensure that who bears the costs and who receives the benefits is never an afterthought. Includes 2 journal articles, 1 book chapter, 2 RSC reports, and 5 policy and expert panel reports.</div>
+            <div class="pub-blurb">Standard policy analysis treats the "average" person as the default. This research program insists that is not good enough — applying intersectional and gender-based frameworks to COVID-19 recovery design, basic income, and federal evaluation tools to ensure that who bears the costs and who receives the benefits is never an afterthought.</div>
+            <div class="pub-counts"><span>3 Journal Articles</span><span>1 Book Chapter</span><span>2 RSC Reports</span><span>5 Policy Reports</span></div>
             <div class="pub-actions">
               <a href="research-intersectionality.html" class="pub-link">View Project ↗</a>
             </div>
@@ -602,7 +619,8 @@
             </div>
             <div class="pub-title">Microsimulation &amp; Distributional Analysis</div>
             <div class="pub-authors"><strong>Lindsay M. Tedds</strong>, <strong>Gillian Petit</strong> and others</div>
-            <div class="pub-blurb">Using Statistics Canada's SPSD/M and related tools to simulate the household-level impacts of tax and transfer policy reforms — costing benefit programs, analysing distributional effects, and revealing who gains and who loses when policy changes. Includes 2 journal articles, 1 working paper, 2 policy briefs, and 2 commissioned reports.</div>
+            <div class="pub-blurb">Using Statistics Canada's SPSD/M and related tools to simulate the household-level impacts of tax and transfer policy reforms — costing benefit programs, analysing distributional effects, and revealing who gains and who loses when policy changes.</div>
+            <div class="pub-counts"><span>2 Journal Articles</span><span>1 Working Paper</span><span>2 Policy Briefs</span><span>2 Reports</span></div>
             <div class="pub-actions">
               <a href="research-microsimulation.html" class="pub-link">View Research Area →</a>
             </div>
@@ -654,7 +672,8 @@
             </div>
             <div class="pub-title">Tax Policy &amp; Tax Administration</div>
             <div class="pub-authors"><strong>Lindsay M. Tedds</strong>, Gillian Petit, Trevor Tombe, David Giles and others</div>
-            <div class="pub-blurb">A career-spanning research program covering public finance pedagogy, tax non-compliance and the underground economy, CRA administrative reform, options backdating, and the governance of Canada's tax-based benefit system. Includes 2 textbooks, 1 book, 10+ journal articles, and commissioned reports for SSHRC and the Future Skills Centre.</div>
+            <div class="pub-blurb">A career-spanning research program covering public finance pedagogy, tax non-compliance and the underground economy, CRA administrative reform, options backdating, and the governance of Canada's tax-based benefit system.</div>
+            <div class="pub-counts"><span>2 Textbooks</span><span>1 Book</span><span>10+ Journal Articles</span><span>1 Book Chapter</span><span>2 Reports</span></div>
             <div class="pub-actions">
               <a href="research-tax-policy.html" class="pub-link">View Research Area →</a>
             </div>
@@ -883,6 +902,7 @@
             <div class="pub-authors"><strong>Lindsay M. Tedds</strong>, <strong>Gillian Petit</strong>, <strong>Anna Cameron</strong>, and <strong>Alexa Atherly</strong></div>
             <div class="pub-outlet">Commissioned by the City of Calgary — Council Innovation Fund · Foundational research funded by Alberta Real Estate Foundation</div>
             <div class="pub-blurb">A multi-year commissioned study building the evidence base for STR regulation in Calgary — documenting the scale and structure of Calgary's STR market, examining the causal evidence on housing market impacts, critically assessing the Canadian literature, and translating findings into flexible regulatory framework recommendations for the City of Calgary.</div>
+            <div class="pub-counts"><span>2 Journal Articles</span><span>1 Scoping Report</span><span>1 Final Report</span><span>1 Portrait Study</span></div>
             <div class="pub-actions">
               <a href="research-str-calgary.html" class="pub-link">View Project ↗</a>
             </div>
@@ -939,10 +959,10 @@
             <div class="pub-title">Basic Income &amp; A More Just Society</div>
             <div class="pub-authors"><strong>Lindsay M. Tedds</strong> and <strong>Gillian Petit</strong>, with Green, Kesselman, Cameron, Perrin &amp; others</div>
             <div class="pub-outlet">BC Expert Panel · Government of Nunavut · IRPP · Canadian Public Policy</div>
-            <div class="pub-blurb">A decade of foundational work examining whether basic income is the right tool for reforming Canada's social safety net — from the BC Basic Income Expert Panel and a landmark IRPP book to microsimulations for Nunavut. Includes 1 book, 3 journal articles, 23 reports &amp; papers, and 4 policy &amp; media outputs.</div>
+            <div class="pub-blurb">A decade of foundational work examining whether basic income is the right tool for reforming Canada's social safety net — from the BC Basic Income Expert Panel and a landmark IRPP book to microsimulations for Nunavut.</div>
+            <div class="pub-counts"><span>1 Book</span><span>4 Journal Articles</span><span>23 Reports &amp; Papers</span><span>5 Policy &amp; Media</span></div>
             <div class="pub-actions">
               <a href="research-basic-income.html" class="pub-link">View Project ↗</a>
-              <button class="pub-drawer-btn" onclick="openDrawer('drawer-basic-income')">📚 Publications <span class="btn-count">31</span></button>
             </div>
           </div>
         </div>
@@ -989,7 +1009,8 @@
             </div>
             <div class="pub-title">Design &amp; Implementation of User Fees</div>
             <div class="pub-authors"><strong>Lindsay M. Tedds</strong>, Catherine Althaus, Lisa Phillips, Enid Slack and others</div>
-            <div class="pub-blurb">A sustained research program on the design and implementation of user fees by Canadian municipalities — covering legal constraints, equity considerations, western Canadian practice, and the fiscal architecture of the Canadian city. Includes 2 books, 2 book chapters, 1 journal article, and 1 task force report.</div>
+            <div class="pub-blurb">A sustained research program on the design and implementation of user fees by Canadian municipalities — covering legal constraints, equity considerations, western Canadian practice, and the fiscal architecture of the Canadian city.</div>
+            <div class="pub-counts"><span>2 Books</span><span>2 Book Chapters</span><span>1 Journal Article</span><span>1 Task Force Report</span></div>
             <div class="pub-actions">
               <a href="research-user-fees.html" class="pub-link">View Research Area →</a>
             </div>
