@@ -261,10 +261,12 @@
       transition: box-shadow 0.28s, transform 0.28s;
     }
     .work-card:hover { box-shadow: 0 14px 42px rgba(92,26,26,0.12); transform: translateY(-3px); }
-    .work-thumb { height: 172px; display: flex; align-items: flex-end; padding: 1.25rem; }
+    .work-thumb { height: 172px; display: flex; align-items: flex-end; padding: 1.25rem; position: relative; overflow: hidden; }
+    .work-thumb svg { position: absolute; inset: 0; width: 100%; height: 100%; }
     .wt-fact { background: linear-gradient(150deg, var(--secondary) 0%, var(--primary-dark) 100%); }
     .wt-enable { background: linear-gradient(150deg, #6b3810 0%, var(--primary-dark) 100%); }
     .wt-both { background: linear-gradient(150deg, var(--primary) 0%, #2a1020 100%); }
+    .w-pill { position: relative; z-index: 1; }
     .w-pill { font-size: 0.63rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 20px; border: 1px solid; }
     .wp-fact { background: rgba(196,136,144,0.18); color: var(--secondary-light); border-color: rgba(196,136,144,0.28); }
     .wp-enable { background: rgba(200,160,80,0.18); color: var(--accent-light); border-color: rgba(200,160,80,0.28); }
@@ -369,7 +371,7 @@
         <div class="hero-kicker">Tax &amp; Transfer Policy Research · Canada</div>
         <h1>Rigorous research.<br><em>Real policy change.</em></h1>
         <p class="hero-sub">
-          We are economists who study Canada's tax-and-transfer system as what it actually is — <strong>two sides of one coin.</strong> Our research is designed from the start to be used: by governments, by civil society, and by the people policies affect.
+          We are economists who study Canada's tax-and-transfer system as what it actually is — <strong>two sides of one coin.</strong> Our research is designed from the start to be used: by academics, by governments, by civil society, and by the people policies affect.
         </p>
         <div class="hero-byline">
           <div class="byline-avatars">
@@ -383,7 +385,7 @@
         </div>
         <div class="hero-btns">
           <a href="#work" class="btn-gold">See Our Research</a>
-          <a href="#" class="btn-outline-light">Work With Us</a>
+          <a href="partner-with-us.html" class="btn-outline-light">Work With Us</a>
         </div>
       </div>
       <div class="hero-card">
@@ -520,37 +522,96 @@
           <div class="eyebrow ey-gold">Featured Research</div>
           <h2 class="sh sh-dark sh-lg">Recent work with real-world reach</h2>
         </div>
-        <a href="#" class="see-all">All research →</a>
+        <a href="research.html" class="see-all">All research →</a>
       </div>
       <div class="work-grid">
-        <a href="#" class="work-card">
+        <a href="research-property-tax.html" class="work-card">
           <div class="work-thumb wt-fact">
+            <svg viewBox="0 0 400 172" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <rect x="20"  y="20"  width="55" height="40" rx="1" fill="none" stroke="rgba(200,160,80,0.3)" stroke-width="1"/>
+              <rect x="80"  y="20"  width="40" height="40" rx="1" fill="none" stroke="rgba(200,160,80,0.25)" stroke-width="1"/>
+              <rect x="125" y="20"  width="60" height="40" rx="1" fill="rgba(200,160,80,0.06)" stroke="rgba(200,160,80,0.35)" stroke-width="1"/>
+              <rect x="20"  y="65"  width="40" height="55" rx="1" fill="none" stroke="rgba(200,160,80,0.2)" stroke-width="1"/>
+              <rect x="65"  y="65"  width="55" height="55" rx="1" fill="rgba(200,160,80,0.08)" stroke="rgba(200,160,80,0.3)" stroke-width="1"/>
+              <rect x="125" y="65"  width="35" height="25" rx="1" fill="none" stroke="rgba(200,160,80,0.2)" stroke-width="1"/>
+              <rect x="125" y="95"  width="35" height="25" rx="1" fill="none" stroke="rgba(200,160,80,0.2)" stroke-width="1"/>
+              <rect x="20"  y="125" width="140" height="25" rx="1" fill="none" stroke="rgba(200,160,80,0.15)" stroke-width="1"/>
+              <rect x="220" y="40" width="12" height="80" rx="1" fill="rgba(200,160,80,0.15)" stroke="rgba(200,160,80,0.25)" stroke-width="0.5"/>
+              <rect x="238" y="55" width="12" height="65" rx="1" fill="rgba(200,160,80,0.2)"  stroke="rgba(200,160,80,0.3)"  stroke-width="0.5"/>
+              <rect x="256" y="30" width="12" height="90" rx="1" fill="rgba(200,160,80,0.28)" stroke="rgba(200,160,80,0.4)"  stroke-width="0.5"/>
+              <rect x="274" y="60" width="12" height="60" rx="1" fill="rgba(200,160,80,0.18)" stroke="rgba(200,160,80,0.28)" stroke-width="0.5"/>
+              <rect x="292" y="45" width="12" height="75" rx="1" fill="rgba(200,160,80,0.12)" stroke="rgba(200,160,80,0.22)" stroke-width="0.5"/>
+              <line x1="215" y1="122" x2="310" y2="122" stroke="rgba(200,160,80,0.25)" stroke-width="1"/>
+              <text x="262" y="138" font-family="Georgia,serif" font-size="7" fill="rgba(200,160,80,0.4)" text-anchor="middle" letter-spacing="1.5">TAX RATES</text>
+              <text x="72"  y="95" font-family="Georgia,serif" font-size="8" fill="rgba(200,160,80,0.35)" text-anchor="middle">BC</text>
+              <text x="145" y="42" font-family="Georgia,serif" font-size="8" fill="rgba(200,160,80,0.45)" text-anchor="middle">AB</text>
+              <text x="365" y="35" font-family="Georgia,serif" font-size="14" fill="rgba(200,160,80,0.2)" text-anchor="middle">N</text>
+              <line x1="365" y1="40" x2="365" y2="55" stroke="rgba(200,160,80,0.2)" stroke-width="1"/>
+            </svg>
             <span class="w-pill wp-fact">FACT</span>
           </div>
           <div class="work-body">
-            <div class="work-title">BC &amp; Alberta Property Tax Spatial Analysis</div>
-            <div class="work-desc">A spatial crosswalk of regional district service area boundaries against provincial rural property tax rate data — building the evidence base for municipal finance reform across two provinces.</div>
-            <div class="work-meta">British Columbia · Alberta · Ongoing</div>
+            <div class="work-title">Property Tax Equity Research</div>
+            <div class="work-desc">Linking property tax rates to Census dissemination areas across BC, Alberta, and Ontario to examine distributional equity — building the evidence base for property tax as social policy.</div>
+            <div class="work-meta">BC · Alberta · Ontario · Ongoing</div>
           </div>
         </a>
-        <a href="#" class="work-card">
-          <div class="work-thumb wt-enable">
-            <span class="w-pill wp-enable">ENABLE</span>
-          </div>
-          <div class="work-body">
-            <div class="work-title">Income and Social Supports: A Systems-Based Approach to Cash Transfer Design</div>
-            <div class="work-desc">A new framework for cash transfer program design — published in <em>Canadian Public Administration</em> — centring inclusion, adequacy, and the lived experience of people the programs serve.</div>
-            <div class="work-meta">Tedds &amp; Petit · Canadian Public Administration · 2026</div>
-          </div>
-        </a>
-        <a href="#" class="work-card">
+        <a href="research-mvpf.html" class="work-card">
           <div class="work-thumb wt-both">
+            <svg viewBox="0 0 400 172" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <!-- MVPF value curve -->
+              <path d="M30,130 Q80,120 120,90 Q160,60 200,50 Q240,40 280,55 Q320,70 370,45" fill="none" stroke="rgba(200,160,80,0.45)" stroke-width="1.5"/>
+              <path d="M30,130 Q80,120 120,90 Q160,60 200,50 Q240,40 280,55 Q320,70 370,45 L370,160 L30,160 Z" fill="rgba(200,160,80,0.05)"/>
+              <!-- Baseline -->
+              <line x1="30" y1="100" x2="370" y2="100" stroke="rgba(200,160,80,0.2)" stroke-width="1" stroke-dasharray="4,3"/>
+              <text x="375" y="103" font-family="Georgia,serif" font-size="7" fill="rgba(200,160,80,0.35)" letter-spacing="0.5">MVPF=1</text>
+              <!-- Value points -->
+              <circle cx="120" cy="90"  r="3" fill="rgba(200,160,80,0.5)"/>
+              <circle cx="200" cy="50"  r="4" fill="rgba(200,160,80,0.7)"/>
+              <circle cx="280" cy="55"  r="3" fill="rgba(200,160,80,0.5)"/>
+              <!-- Axis -->
+              <line x1="30" y1="20" x2="30" y2="145" stroke="rgba(200,160,80,0.2)" stroke-width="1"/>
+              <line x1="30" y1="145" x2="370" y2="145" stroke="rgba(200,160,80,0.2)" stroke-width="1"/>
+              <text x="200" y="160" font-family="Georgia,serif" font-size="7" fill="rgba(200,160,80,0.3)" text-anchor="middle" letter-spacing="1.5">PROGRAMS</text>
+              <text x="18" y="86" font-family="Georgia,serif" font-size="7" fill="rgba(200,160,80,0.3)" text-anchor="middle" transform="rotate(-90,18,86)">VALUE</text>
+            </svg>
             <span class="w-pill wp-both">FACT + ENABLE</span>
           </div>
           <div class="work-body">
-            <div class="work-title">Ontario Property Tax Regressivity</div>
-            <div class="work-desc">Linking Ontario residential property tax rates to 2016 Census dissemination areas to examine distributional equity — part of a cross-provincial research programme on property tax as social policy.</div>
-            <div class="work-meta">Ontario · RDC Project MRC 11508 · 2025</div>
+            <div class="work-title">Marginal Value of Public Funds</div>
+            <div class="work-desc">Applying the MVPF framework to Canadian public programs to assess whether government spending creates more value than it costs — reframing how we evaluate social investment.</div>
+            <div class="work-meta">Tedds, Petit &amp; Arshad · CTJ Forthcoming · 2025–</div>
+          </div>
+        </a>
+        <a href="research-str-calgary.html" class="work-card">
+          <div class="work-thumb wt-fact">
+            <svg viewBox="0 0 400 172" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+              <!-- Calgary skyline silhouette -->
+              <rect x="30"  y="80"  width="25" height="70" rx="1" fill="none" stroke="rgba(200,160,80,0.2)" stroke-width="1"/>
+              <rect x="60"  y="60"  width="20" height="90" rx="1" fill="none" stroke="rgba(200,160,80,0.25)" stroke-width="1"/>
+              <rect x="85"  y="45"  width="30" height="105" rx="1" fill="rgba(200,160,80,0.06)" stroke="rgba(200,160,80,0.3)" stroke-width="1"/>
+              <rect x="120" y="70"  width="20" height="80" rx="1" fill="none" stroke="rgba(200,160,80,0.2)" stroke-width="1"/>
+              <rect x="145" y="55"  width="25" height="95" rx="1" fill="none" stroke="rgba(200,160,80,0.18)" stroke-width="1"/>
+              <!-- Ground -->
+              <line x1="25" y1="152" x2="175" y2="152" stroke="rgba(200,160,80,0.2)" stroke-width="1"/>
+              <!-- STR listing card -->
+              <rect x="210" y="30" width="90" height="110" rx="3" fill="rgba(200,160,80,0.06)" stroke="rgba(200,160,80,0.3)" stroke-width="1"/>
+              <rect x="218" y="40" width="74" height="40" rx="2" fill="rgba(200,160,80,0.08)" stroke="rgba(200,160,80,0.2)" stroke-width="0.5"/>
+              <text x="255" y="64" font-family="Georgia,serif" font-size="8" fill="rgba(200,160,80,0.4)" text-anchor="middle">🏠</text>
+              <line x1="218" y1="92"  x2="292" y2="92"  stroke="rgba(200,160,80,0.25)" stroke-width="1"/>
+              <line x1="218" y1="104" x2="275" y2="104" stroke="rgba(200,160,80,0.15)" stroke-width="1"/>
+              <line x1="218" y1="114" x2="260" y2="114" stroke="rgba(200,160,80,0.15)" stroke-width="1"/>
+              <text x="255" y="84" font-family="Georgia,serif" font-size="7" fill="rgba(200,160,80,0.45)" text-anchor="middle" letter-spacing="1">LISTING</text>
+              <!-- Growth arrow -->
+              <path d="M320,130 L320,50 L360,50" fill="none" stroke="rgba(200,160,80,0.25)" stroke-width="1.5" stroke-dasharray="4,3"/>
+              <polygon points="360,45 368,50 360,55" fill="rgba(200,160,80,0.35)"/>
+            </svg>
+            <span class="w-pill wp-fact">FACT</span>
+          </div>
+          <div class="work-body">
+            <div class="work-title">Short-Term Rental Market in Calgary</div>
+            <div class="work-desc">A commissioned multi-year study building the evidence base for STR regulation in Calgary — documenting market scale, housing impacts, and translating findings into regulatory recommendations for the City.</div>
+            <div class="work-meta">Commissioned by City of Calgary · 2023–2024</div>
           </div>
         </a>
       </div>
@@ -634,28 +695,27 @@
       </div>
       <div class="footer-col">
         <h4>Research</h4>
-        <a href="#">FACT Stream</a>
-        <a href="#">ENABLE Stream</a>
-        <a href="#">Publications</a>
-        <a href="#">Data &amp; Tools</a>
+        <a href="research.html">FACT Stream</a>
+        <a href="research.html">ENABLE Stream</a>
+        <a href="research.html">Publications</a>
+        <a href="research.html">Data &amp; Tools</a>
       </div>
       <div class="footer-col">
         <h4>About</h4>
-        <a href="who-we-are.html">Who We Are</a>
-        <a href="#">Our Approach</a>
+        <a href="who-we-are.html">Our Approach</a>
         <a href="services.html">Services</a>
-        <a href="#">Dead For Tax Reasons ↗</a>
+        <a href="https://deadfortaxreasons.wordpress.com/" target="_blank" rel="noopener">Dead For Tax Reasons ↗</a>
       </div>
       <div class="footer-col">
         <h4>Contact</h4>
         <a href="/cdn-cgi/l/email-protection#026e6b6c6671637b2c766766667133427761636e6563707b2c6163">Lindsay Tedds</a>
         <a href="/cdn-cgi/l/email-protection#6d0a040101040c03431d081904192d180e0c010a0c1f14430e0c">Gillian Petit</a>
-        <a href="#">Work With Us</a>
+        <a href="partner-with-us.html">Work With Us</a>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© 2026 Lindsay Tedds &amp; Gillian Petit · University of Calgary</span>
-      <a href="#">lindsaytedds.ca ↗</a>
+      <a href="https://lindsaytedds.ca" target="_blank" rel="noopener">lindsaytedds.ca ↗</a>
     </div>
   </footer>
 
