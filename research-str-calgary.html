@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Short-Term Rental Market in Calgary — INCLUSIECON</title>
+  <meta name="description" content="A multi-year commissioned study of Calgary's short-term rental market — building the evidence base and recommending a tailor-made STR policy framework for the City of Calgary.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary:        #5c1a1a;
+      --primary-dark:   #3e1010;
+      --primary-mid:    #7a2828;
+      --primary-light:  #a84848;
+      --secondary:      #7a3a44;
+      --secondary-mid:  #9e5560;
+      --secondary-light:#c48890;
+      --secondary-pale: #ecdde0;
+      --accent:         #a87828;
+      --accent-light:   #c8a050;
+      --accent-pale:    #e8d898;
+      --surface:        #f7f2ea;
+      --surface-raised: #ece4d8;
+      --border:         #ddd0bc;
+      --text-dark:      #180808;
+      --text-mid:       #3e2028;
+      --text-muted:     #7a5858;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--surface); color: var(--text-dark); line-height: 1.7; }
+
+    nav { background: var(--primary-dark); position: sticky; top: 0; z-index: 100; border-bottom: 2px solid var(--accent); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { font-family: 'Lora', serif; font-weight: 700; font-size: 1.35rem; color: var(--accent-pale); text-decoration: none; letter-spacing: 0.03em; }
+    .nav-logo span { color: var(--accent-light); }
+    .nav-links { display: flex; gap: 0.25rem; }
+    .nav-links a { color: var(--secondary-pale); text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.4rem 0.75rem; border-radius: 3px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+    .nav-links a.active { color: var(--accent-light); }
+
+    .project-hero {
+      background: var(--primary-dark);
+      background-image: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(168,120,40,0.12) 0%, transparent 60%), radial-gradient(ellipse 50% 80% at 10% 80%, rgba(20,50,80,0.3) 0%, transparent 60%);
+      padding: 5rem 2rem 4rem; position: relative; overflow: hidden;
+    }
+    .project-hero::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.015) 80px, rgba(255,255,255,0.015) 81px); }
+    .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+    .hero-breadcrumb { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .hero-breadcrumb a { color: var(--secondary-light); text-decoration: none; }
+    .hero-breadcrumb a:hover { color: var(--accent-light); }
+    .hero-breadcrumb span { opacity: 0.5; }
+    .hero-kicker { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .hero-title { font-family: 'Lora', serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 1.5rem; max-width: 800px; }
+    .hero-title em { font-style: italic; color: var(--accent-pale); }
+    .hero-desc { font-size: 1.05rem; color: var(--secondary-pale); max-width: 680px; line-height: 1.75; margin-bottom: 2.5rem; }
+    .hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .stat-item { display: flex; flex-direction: column; gap: 0.2rem; }
+    .stat-link { text-decoration: none; cursor: pointer; transition: transform 0.15s, opacity 0.15s; border-bottom: 1px solid rgba(200,160,80,0); }
+    .stat-link:hover { transform: translateY(-2px); opacity: 0.85; border-bottom-color: rgba(200,160,80,0.4); }
+    .stat-number { font-family: 'Lora', serif; font-size: 2rem; font-weight: 700; color: var(--accent-light); line-height: 1; }
+    .stat-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--secondary-light); }
+    .hero-partners { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .hero-partner { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(200,160,80,0.2); border-radius: 6px; padding: 0.55rem 1rem; font-size: 0.8rem; color: var(--secondary-light); }
+    .hero-partner a { color: var(--accent-light); text-decoration: none; font-weight: 600; }
+    .hero-partner a:hover { color: var(--accent-pale); }
+    .hero-partner-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+
+    .page-body { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+
+    .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; padding-bottom: 0.75rem; border-bottom: 1.5px solid var(--border); }
+    .section-title { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: var(--primary); }
+    .section-note { font-size: 0.8rem; color: var(--text-muted); font-style: italic; }
+
+    .context-box { background: var(--primary-dark); border-radius: 8px; padding: 2rem 2.5rem; margin-bottom: 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .context-box h3 { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; color: var(--accent-light); margin-bottom: 0.75rem; }
+    .context-box p { font-size: 0.9rem; color: var(--secondary-pale); line-height: 1.7; }
+
+    .team-box { background: #fff; border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem 2rem; margin-bottom: 4rem; }
+    .team-box h3 { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; color: var(--primary); margin-bottom: 0.75rem; }
+    .team-list { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .team-member { font-size: 0.88rem; color: var(--text-mid); }
+    .team-member strong { color: var(--text-dark); font-weight: 600; }
+    .team-member span { display: block; font-size: 0.78rem; color: var(--text-muted); margin-top: 0.1rem; }
+
+    .output-section { margin-bottom: 3.5rem; }
+    .output-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .output-item { background: #fff; border: 1px solid var(--border); border-radius: 6px; padding: 1.25rem 1.5rem; display: grid; grid-template-columns: auto 1fr auto; gap: 0 1.25rem; align-items: start; transition: border-color 0.2s, box-shadow 0.2s; }
+    .output-item:hover { border-color: var(--secondary-light); box-shadow: 0 2px 12px rgba(92,26,26,0.06); }
+    .output-icon { width: 40px; height: 40px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; margin-top: 0.1rem; }
+    .icon-report   { background: #dde6ef; color: #2e4a62; }
+    .icon-journal  { background: var(--secondary-pale); color: var(--secondary); }
+    .icon-engage   { background: var(--surface-raised); color: var(--primary-mid); }
+    .output-main { min-width: 0; }
+    .output-title { font-family: 'Lora', serif; font-size: 1rem; font-weight: 600; color: var(--text-dark); line-height: 1.4; margin-bottom: 0.3rem; }
+    .output-meta { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .output-meta strong { color: var(--text-mid); font-weight: 500; }
+    .output-blurb { font-size: 0.83rem; color: var(--text-muted); line-height: 1.65; margin-top: 0.4rem; }
+    .output-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-top: 0.6rem; }
+    .tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 999px; }
+    .tag-fact    { background: #dde6ef; color: #2e4a62; }
+    .tag-calgary { background: #e8f0e8; color: #2d5a2d; }
+    .tag-canada  { background: var(--secondary-pale); color: var(--secondary); }
+    .tag-foundational { background: var(--accent-pale); color: var(--accent); }
+    .tag-forthcoming { background: #f0ede8; color: #7a6040; border: 1px solid #d4c4a0; }
+    .output-action { flex-shrink: 0; padding-top: 0.1rem; }
+    .btn-read { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; font-weight: 600; color: var(--primary); text-decoration: none; border: 1.5px solid var(--border); padding: 0.4rem 0.8rem; border-radius: 4px; white-space: nowrap; transition: border-color 0.2s, background 0.2s, color 0.2s; }
+    .btn-read:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+    .final-report-item { background: var(--primary-dark); border: 1.5px solid rgba(200,160,80,0.3); border-radius: 8px; padding: 1.75rem 2rem; display: grid; grid-template-columns: auto 1fr auto; gap: 0 1.5rem; align-items: start; }
+    .final-report-item .output-title { color: #fff; font-size: 1.05rem; }
+    .final-report-item .output-meta { color: var(--secondary-light); }
+    .final-report-item .output-blurb { color: var(--secondary-pale); }
+    .final-report-item .btn-read { border-color: rgba(200,160,80,0.4); color: var(--accent-light); }
+    .final-report-item .btn-read:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+    .cta-strip { background: var(--primary); padding: 3.5rem 2rem; text-align: center; }
+    .cta-strip h2 { font-family: 'Lora', serif; font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 0.75rem; }
+    .cta-strip p { color: var(--secondary-pale); margin-bottom: 1.75rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-gold { background: var(--accent); color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 0.65rem 1.5rem; border-radius: 4px; letter-spacing: 0.04em; transition: background 0.2s; }
+    .btn-gold:hover { background: var(--accent-light); }
+    .btn-outline-light { border: 1.5px solid rgba(255,255,255,0.35); color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 600; padding: 0.65rem 1.5rem; border-radius: 4px; letter-spacing: 0.04em; transition: border-color 0.2s, background 0.2s; }
+    .btn-outline-light:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
+
+    footer { background: var(--primary-dark); color: var(--secondary-pale); padding: 3rem 2rem; border-top: 2px solid var(--accent); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .footer-logo { font-family: 'Lora', serif; font-weight: 700; font-size: 1.2rem; color: var(--accent-pale); }
+    .footer-logo span { color: var(--accent-light); }
+    .footer-copy { font-size: 0.8rem; color: var(--secondary-mid); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.8rem; color: var(--secondary-light); text-decoration: none; }
+    .footer-links a:hover { color: var(--accent-light); }
+
+    @media (max-width: 768px) {
+      .context-box { grid-template-columns: 1fr; }
+      .output-item, .final-report-item { grid-template-columns: auto 1fr; }
+      .output-action { grid-column: 2; }
+      .hero-stats { gap: 1.5rem; }
+      .nav-links a { font-size: 0.72rem; padding: 0.4rem 0.5rem; }
+      .team-list { flex-direction: column; gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">INCLUSI<span>ECON</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="research.html" class="active">Research</a>
+        <a href="who-we-are.html">Who We Are</a>
+        <a href="partner-with-us.html">Partner With Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="project-hero">
+    <div class="hero-inner">
+      <div class="hero-breadcrumb">
+        <a href="research.html">Research</a>
+        <span>→</span>
+        Commissioned Project
+      </div>
+      <div class="hero-kicker">FACT Stream · Commissioned Project · 2022–2024</div>
+      <h1 class="hero-title">Short-Term Rental<br>Market in <em>Calgary</em></h1>
+      <p class="hero-desc">
+        A multi-year study of Calgary's short-term rental market, commissioned by the City of Calgary under the Urban Alliance partnership. The project builds a comprehensive evidence base on Calgary's STR market — its scale, structure, and housing market impacts — and translates that evidence into flexible, tailor-made regulatory framework recommendations that can adapt as market conditions change.
+      </p>
+      <div class="hero-stats">
+        <a href="#reports" class="stat-item stat-link">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Reports</div>
+        </a>
+        <a href="#research-papers" class="stat-item stat-link">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Research Papers</div>
+        </a>
+        <a href="#foundational" class="stat-item stat-link">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Foundational Research</div>
+        </a>
+        <a href="#engagement" class="stat-item stat-link">
+          <div class="stat-number">3</div>
+          <div class="stat-label">Engagement Materials</div>
+        </a>
+        <a href="#funders" class="stat-item stat-link">
+          <div class="stat-number">1</div>
+          <div class="stat-label">Funder</div>
+        </a>
+      </div>
+      <div class="hero-partners">
+        <div class="hero-partner">
+          <div class="hero-partner-dot"></div>
+          Commissioned by the <strong style="color:var(--accent-light); margin: 0 0.2rem;">City of Calgary</strong> — Council Innovation Fund
+        </div>
+        <div class="hero-partner">
+          <div class="hero-partner-dot"></div>
+          Foundational research supported by the <strong style="color:var(--accent-light); margin: 0 0.2rem;">Alberta Real Estate Foundation</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-body">
+
+    <div class="context-box">
+      <div>
+        <h3>The Problem</h3>
+        <p>Short-term rental platforms like Airbnb and Vrbo have transformed how housing is used in cities — but the regulatory frameworks governing STRs were designed for a different era. Municipalities have struggled to balance the economic benefits of STRs against their impacts on housing availability, neighbourhood character, and long-term rental affordability. Calgary needed a rigorous, Calgary-specific evidence base to design a regulatory framework that was fit for its particular market.</p>
+      </div>
+      <div>
+        <h3>The Project</h3>
+        <p>Commissioned under the City of Calgary–University of Calgary Urban Alliance Agreement (effective January 12, 2023), this multi-year study builds the empirical foundation for STR regulation in Calgary. The research team documented the structure and scale of Calgary's STR market, examined the causal evidence on STR impacts on housing, critically assessed the Canadian literature, and engaged directly with Calgary stakeholders — producing a final report with flexible regulatory options designed for Calgary's specific context.</p>
+      </div>
+    </div>
+
+    <div class="team-box" id="funders">
+      <h3>Research Team</h3>
+      <div class="team-list">
+        <div class="team-member"><strong>Lindsay M. Tedds</strong> <span>Principal Investigator · University of Calgary</span></div>
+        <div class="team-member"><strong>Gillian Petit</strong> <span>Co-Investigator · University of Calgary</span></div>
+        <div class="team-member"><strong>Anna Cameron</strong> <span>Research Team</span></div>
+        <div class="team-member"><strong>Alexa Atherly</strong> <span>Research Team</span></div>
+      </div>
+    </div>
+
+    <!-- Reports -->
+    <div class="output-section" id="reports">
+      <div class="section-header">
+        <h2 class="section-title">Reports</h2>
+        <span class="section-note">Commissioned deliverables for the City of Calgary</span>
+      </div>
+      <div class="output-list">
+
+        <div class="final-report-item">
+          <div class="output-icon icon-report" style="background: rgba(200,160,80,0.15); color: var(--accent-light);">📄</div>
+          <div class="output-main">
+            <div class="output-title">Scoping Calgary's Short Term Rental Economy: Building the Evidence Base to Shape Innovative Regulatory Frameworks in the Digital City</div>
+            <div class="output-meta"><strong>Gillian Petit</strong> and <strong>Lindsay M. Tedds</strong> · SSRN 5036477 · Phase 1 Report Package · July 2024</div>
+            <div class="output-blurb">The Phase 1 report package for the City of Calgary project. A 355-page compilation that synthesizes the full evidence base developed during Phase 1 — documenting Calgary's STR market in detail, conducting a jurisdictional scan of Canadian STR regulations, summarizing stakeholder engagement findings, reviewing the literature on STR housing impacts, and presenting empirical analysis of the association between STR supply and long-term rental prices in Calgary.</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-calgary">Calgary</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5036477" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="final-report-item">
+          <div class="output-icon icon-report" style="background: rgba(200,160,80,0.15); color: var(--accent-light);">📄</div>
+          <div class="output-main">
+            <div class="output-title">Flexible Options for the City of Calgary's Short-Term Rentals Regulatory Framework: Design, Implementation, and Impact</div>
+            <div class="output-meta"><strong>Gillian Petit</strong> and <strong>Lindsay M. Tedds</strong> · SSRN 5036369 · Final Report · November 2024</div>
+            <div class="output-blurb">The final project report. Drawing on the full evidence base developed over the course of the project, this report presents flexible, menu-based regulatory options for Calgary's STR framework — designed to be adapted as market conditions and platform technologies evolve.</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-calgary">Calgary</span>
+            </div>
+          </div>
+          <div class="output-action" style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <a href="https://hdp-ca-prod-app-cgy-engage-files.s3.ca-central-1.amazonaws.com/2217/5768/8375/Short-Term_Rental_Study_-_U_of_C_report.pdf" target="_blank" rel="noopener" class="btn-read">City of Calgary ↗</a>
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5036369" target="_blank" rel="noopener" class="btn-read" style="background: transparent; border: 1.5px solid rgba(200,160,80,0.4); color: var(--accent-light);">SSRN ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Research Papers -->
+    <div class="output-section" id="research-papers">
+      <div class="section-header">
+        <h2 class="section-title">Research Papers</h2>
+        <span class="section-note">Analytical input papers produced as part of the project</span>
+      </div>
+      <div class="output-list">
+
+        <div class="output-item">
+          <div class="output-icon icon-report">📋</div>
+          <div class="output-main">
+            <div class="output-title">A Detailed Portrait of the Short-Term Rental Market in Calgary</div>
+            <div class="output-meta"><strong>Gillian Petit</strong> and <strong>Lindsay M. Tedds</strong> · SSRN 4605394 · 2023</div>
+            <div class="output-blurb">Uses AirDNA data and an innovative cluster-based methodology — moving beyond arbitrary "dedicated STR" thresholds — to document the scale, structure, host characteristics, and geographic distribution of Calgary's STR market in detail.</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-calgary">Calgary</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4605394" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-report">📋</div>
+          <div class="output-main">
+            <div class="output-title">Managing the Short-term Rental Market in Canada: A Comparative Analysis of Policy, Planning, and Regulatory Strategies in 25 Municipalities</div>
+            <div class="output-meta"><strong>Anna Cameron</strong> and <strong>Lindsay M. Tedds</strong> · SSRN 4009268</div>
+            <div class="output-blurb">A systematic comparative analysis of STR regulatory strategies across 25 Canadian municipalities, documenting the range of approaches taken and their design features — providing the comparative context for Calgary-specific recommendations.</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-canada">Canada</span>
+              <span class="tag tag-calgary">Calgary</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4009268" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-report">📋</div>
+          <div class="output-main">
+            <div class="output-title">Impacts of STRs and STR Policy Tools on the Housing Market: Examination of the Causal Empirical Evidence</div>
+            <div class="output-meta"><strong>Gillian Petit</strong> and <strong>Lindsay M. Tedds</strong> · Report prepared for the City of Calgary · Original: February 29, 2024 · Revised: June 26, 2024</div>
+            <div class="output-blurb">Reviews and synthesizes the international causal empirical literature on STR impacts on long-term rental prices, housing prices, and housing investment — and the effects of STR restrictions on those markets. Finds that STRs explain 5–20% of LTR rent increases and 14–33% of housing price increases, but that restrictions create distributional trade-offs between renters, homeowners, and economically disadvantaged hosts.</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-calgary">Calgary</span>
+              <span class="tag tag-forthcoming">GitHub</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://github.com/lmtedds/inclusiecon/blob/main/Impacts-of-STRs-and-STR-Policy-Tools.pdf" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-report">📋</div>
+          <div class="output-main">
+            <div class="output-title">Canadian Short-term Rentals and their Impact on Long-term Rental Prices: A Review and Critique of the Canadian Literature</div>
+            <div class="output-meta"><strong>Gillian Petit</strong> and <strong>Lindsay M. Tedds</strong> · Report prepared for the City of Calgary · January 10, 2024</div>
+            <div class="output-blurb">Critically examines three high-profile Canadian reports on STRs and long-term rental prices — Wachsmuth, Conference Board of Canada, and Desjardins — exposing methodological problems including omitted variable bias, staggered timing in DID models, and a significant coefficient misinterpretation in the Wachsmuth report. Argues that none of the reports provide causal evidence sufficient to conclude that restricting STRs would decrease long-term rental prices.</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-canada">Canada</span>
+              <span class="tag tag-calgary">Calgary</span>
+              <span class="tag tag-forthcoming">GitHub</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://github.com/lmtedds/inclusiecon/blob/main/Canadian-STR-and-their-impact.pdf" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-report">📋</div>
+          <div class="output-main">
+            <div class="output-title">Measuring the Association Between Short-Term Rental Supply and Long-Term Rental Prices in Calgary</div>
+            <div class="output-meta"><strong>Gillian Petit</strong> and <strong>Lindsay M. Tedds</strong> · Report prepared for the City of Calgary · August 29, 2024</div>
+            <div class="output-blurb">Uses AirDNA STR data and CMHC community-level LTR rent data in a fixed-effects regression framework to measure the association between STR supply and long-term rental prices in Calgary, 2015–2022. Finds that changes in STR listings are not statistically significantly associated with changes in average LTR rents city-wide. An increase of 100 STRs is associated with a 1.6–6.6% increase in average LTR rents, but this is small in magnitude and not statistically significant across model specifications. Community-level analysis reveals heterogeneity: in the Beltline — Calgary's highest-STR community — STR growth between 2017 and 2022 accounts for $34/month, or 15%, of the rent increase over that period.</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-calgary">Calgary</span>
+              <span class="tag tag-forthcoming">GitHub</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://github.com/lmtedds/inclusiecon/blob/main/STRs%20and%20LTR%20Prices%20F.pdf" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Foundational Research -->
+    <div class="output-section" id="foundational">
+      <div class="section-header">
+        <h2 class="section-title">Foundational Research</h2>
+        <span class="section-note">Pre-project work that shaped the research agenda</span>
+      </div>
+      <div class="output-list">
+
+        <div class="output-item">
+          <div class="output-icon icon-journal">📰</div>
+          <div class="output-main">
+            <div class="output-title">Why Existing Regulatory Frameworks Fail in the Short-term Rental Market: Exploring the Role of Regulatory Fractures</div>
+            <div class="output-meta"><strong>Lindsay M. Tedds</strong>, <strong>Anna Cameron</strong>, Mukesh Khanal, and Daria Crisan · School of Public Policy Publications, Vol. 14, No. 26 · October 2021</div>
+            <div class="output-blurb">Develops the concept of "regulatory fractures" — the gaps, overlaps, and misalignments between regulatory frameworks that allow STR platforms to operate in ways unintended by any single layer of government. Provides the analytical foundation for the Calgary project's regulatory design work.</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-foundational">Foundational</span>
+              <span class="tag tag-canada">Canada</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://www.policyschool.ca/wp-content/uploads/2021/10/UP32_Short-Term-Rental-Market_Tedds-et-al.pdf" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-report">📋</div>
+          <div class="output-main">
+            <div class="output-title">A Comparative Analysis of Short-Term Rental Regulations in Six Alberta Municipalities</div>
+            <div class="output-meta"><strong>Gillian Petit</strong>, <strong>Anna Cameron</strong>, Mukesh Khanal, and <strong>Lindsay M. Tedds</strong> · School of Public Policy, University of Calgary · April 2022</div>
+            <div class="output-blurb">Provides a comprehensive overview and analysis of STR regulatory frameworks in Banff, Jasper, Canmore, Calgary, Edmonton, and Wood Buffalo — assessing the stringency, appropriateness, and effectiveness of each approach in its local context. Funded by the Alberta Real Estate Foundation and Western Economic Diversification.</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-foundational">Foundational</span>
+              <span class="tag tag-forthcoming">GitHub</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://github.com/lmtedds/inclusiecon/blob/main/STR-regulations-in-Alberta.pdf" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Public Engagement Materials -->
+    <div class="output-section" id="engagement">
+      <div class="section-header">
+        <h2 class="section-title">Public Engagement Materials</h2>
+        <span class="section-note">City of Calgary stakeholder and community engagement</span>
+      </div>
+      <div class="output-list">
+
+        <div class="output-item">
+          <div class="output-icon icon-engage">🗣️</div>
+          <div class="output-main">
+            <div class="output-title">Calgary's Short-Term Rental Study: Overview Brochure</div>
+            <div class="output-meta">City of Calgary · Study Overview</div>
+            <div class="output-blurb">An overview of the full multi-year STR study — summarizing the three core research questions, the study timeline and phases, key research outcomes, and the engagement approach. Produced for public circulation during the engagement process.</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-calgary">Calgary</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://hdp-ca-prod-app-cgy-engage-files.s3.ca-central-1.amazonaws.com/5917/1934/9571/STR_-_UofC_Engagement_-_Engagement_Brochure_revised.pdf" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-engage">🗣️</div>
+          <div class="output-main">
+            <div class="output-title">Short-Term Rentals Stakeholder Engagement: What We Heard Report — Phase 1</div>
+            <div class="output-meta">City of Calgary · Phase 1 Community Engagement</div>
+            <div class="output-blurb">Documents the findings from Phase 1 stakeholder and community engagement on Calgary's STR regulatory framework — capturing the range of perspectives from hosts, neighbours, renters, and industry stakeholders.</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-calgary">Calgary</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://hdp-ca-prod-app-cgy-engage-files.s3.ca-central-1.amazonaws.com/5817/1759/8984/STR_Phase_1_What_We_Heard_Report.pdf" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+        <div class="output-item">
+          <div class="output-icon icon-engage">🗣️</div>
+          <div class="output-main">
+            <div class="output-title">Short-Term Rentals Stakeholder Engagement: Verbatim Comments — Phase 2</div>
+            <div class="output-meta">City of Calgary · Phase 2 Community Engagement</div>
+            <div class="output-blurb">The verbatim record of stakeholder comments gathered during Phase 2 of the community engagement process — providing the unfiltered voice of Calgary residents and stakeholders on STR regulation.</div>
+            <div class="output-tags">
+              <span class="tag tag-fact">FACT</span>
+              <span class="tag tag-calgary">Calgary</span>
+            </div>
+          </div>
+          <div class="output-action">
+            <a href="https://hdp-ca-prod-app-cgy-engage-files.s3.ca-central-1.amazonaws.com/8317/3084/4021/Short-term_Rentals_Phase_2_WWHR_Verbatims.pdf" target="_blank" rel="noopener" class="btn-read">Read ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <section class="cta-strip">
+    <div>
+      <h2>Working on STR regulation or platform economy policy?</h2>
+      <p>We bring rigorous empirical methods and deep Calgary and Canadian context to STR and digital platform policy questions.</p>
+      <div class="cta-btns">
+        <a href="partner-with-us.html" class="btn-gold">Partner With Us</a>
+        <a href="contact.html" class="btn-outline-light">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">INCLUSI<span>ECON</span></div>
+        <div class="footer-copy">© 2026 Lindsay Tedds &amp; Gillian Petit · University of Calgary</div>
+      </div>
+      <div style="font-size: 0.8rem; color: rgba(255,255,255,0.4);">FACT Stream · INCLUSIECON · University of Calgary</div>
+      <div class="footer-links">
+        <a href="research.html">All Research</a>
+        <a href="who-we-are.html">Who We Are</a>
+        <a href="http://deadfortaxreasons.wordpress.com/" target="_blank" rel="noopener">Dead For Tax Reasons ↗</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
