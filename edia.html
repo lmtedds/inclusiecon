@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Equity, Diversity, Inclusion & Accessibility | INCLUSIECON</title>
+  <meta name="description" content="How Lindsay M. Tedds and Gillian Petit embed EDIA principles into their research design, community partnerships, team building, and disciplinary leadership in Canadian public economics.">
+  <meta name="keywords" content="EDIA research economics Canada, intersectionality policy analysis, equity diversity inclusion economics, Lindsay Tedds EDIA, Gillian Petit EDIA, inclusive economics Canada, equity-deserving communities policy research">
+  <link rel="canonical" href="https://inclusiecon.ca/edia.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Equity, Diversity, Inclusion & Accessibility | INCLUSIECON">
+  <meta property="og:description" content="How Lindsay M. Tedds and Gillian Petit embed EDIA principles into their research design, community partnerships, team building, and disciplinary leadership in Canadian public economics.">
+  <meta property="og:url" content="https://inclusiecon.ca/edia.html">
+  <meta property="og:site_name" content="INCLUSIECON">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Equity, Diversity, Inclusion & Accessibility | INCLUSIECON">
+  <meta name="twitter:description" content="How Lindsay M. Tedds and Gillian Petit embed EDIA principles into their research design, community partnerships, team building, and disciplinary leadership in Canadian public economics.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Lindsay M. Tedds, Gillian Petit">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary:         #5c1a1a;
+      --primary-dark:    #3e1010;
+      --primary-mid:     #7a2828;
+      --primary-light:   #a84848;
+      --secondary:       #7a3a44;
+      --secondary-mid:   #9e5560;
+      --secondary-light: #c48890;
+      --secondary-pale:  #ecdde0;
+      --accent:          #a87828;
+      --accent-light:    #c8a050;
+      --accent-pale:     #e8d898;
+      --surface:         #f7f2ea;
+      --surface-raised:  #ece4d8;
+      --border:          #ddd0bc;
+      --text-dark:       #180808;
+      --text-mid:        #3e2028;
+      --text-muted:      #7a5858;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--surface);
+      color: var(--text-dark);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: var(--primary-dark);
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 2px solid var(--accent);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between; height: 64px;
+    }
+    .nav-logo { font-family: 'Lora', serif; font-weight: 700; font-size: 1.35rem; color: var(--accent-pale); text-decoration: none; letter-spacing: 0.03em; }
+    .nav-logo span { color: var(--accent-light); }
+    .nav-links { display: flex; gap: 0.25rem; }
+    .nav-links a { color: var(--secondary-pale); text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.4rem 0.75rem; border-radius: 3px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+    .nav-links a.active { color: var(--accent-light); }
+
+    /* ── HERO ── */
+    .project-hero {
+      background: var(--primary-dark);
+      background-image:
+        radial-gradient(ellipse 70% 60% at 75% 35%, rgba(168,120,40,0.13) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 80% at 8% 80%, rgba(122,58,68,0.28) 0%, transparent 60%);
+      padding: 5.5rem 2rem 4.5rem; position: relative; overflow: hidden;
+    }
+    .project-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.015) 80px, rgba(255,255,255,0.015) 81px);
+    }
+    .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; }
+    .hero-breadcrumb { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .hero-breadcrumb a { color: var(--secondary-light); text-decoration: none; }
+    .hero-breadcrumb a:hover { color: var(--accent-light); }
+    .hero-breadcrumb span { opacity: 0.5; }
+    .hero-kicker { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .hero-title { font-family: 'Lora', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 1.5rem; max-width: 780px; }
+    .hero-title em { font-style: italic; color: var(--accent-pale); }
+    .hero-desc { font-size: 1.06rem; color: var(--secondary-pale); max-width: 660px; line-height: 1.78; margin-bottom: 2.5rem; }
+
+
+    /* ── PAGE BODY ── */
+    .page-body { max-width: 1100px; margin: 0 auto; padding: 4.5rem 2rem 7rem; }
+
+    /* ── SECTION HEADER ── */
+    .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; padding-bottom: 0.75rem; border-bottom: 1.5px solid var(--border); }
+    .section-num { font-family: 'Lora', serif; font-size: 0.85rem; color: var(--accent); font-weight: 600; opacity: 0.7; }
+    .section-title { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: var(--primary); }
+
+    /* ── CONTENT BLOCKS ── */
+    .content-section { margin-bottom: 5rem; }
+    .prose { font-size: 1.02rem; color: var(--text-mid); line-height: 1.88; }
+    .prose p { margin-bottom: 1.15rem; }
+    .prose p:last-child { margin-bottom: 0; }
+    .prose strong { color: var(--text-dark); font-weight: 600; }
+    .prose em { font-style: italic; }
+
+    /* ── INTRO BLOCK ── */
+    .intro-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: start; margin-bottom: 5rem; }
+    .intro-body .prose p:first-child { font-size: 1.08rem; color: var(--text-dark); font-weight: 400; }
+
+    /* ── PRINCIPLE CARDS ── */
+    .principle-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .principle-card {
+      background: #fff; border: 1px solid var(--border); border-radius: 12px;
+      padding: 1.75rem; display: flex; flex-direction: column; gap: 0.75rem;
+      border-top: 3px solid var(--accent);
+    }
+    .principle-icon { font-size: 1.5rem; }
+    .principle-label { font-family: 'Lora', serif; font-size: 1rem; font-weight: 700; color: var(--primary); }
+    .principle-desc { font-size: 0.92rem; color: var(--text-mid); line-height: 1.7; }
+
+    /* ── PULL QUOTE ── */
+    .pull-quote {
+      background: var(--primary-dark);
+      border-radius: 12px; padding: 2.5rem 3rem;
+      margin: 3rem 0;
+      position: relative; overflow: hidden;
+    }
+    .pull-quote::before {
+      content: '"';
+      font-family: 'Lora', serif; font-size: 8rem; font-weight: 700;
+      color: var(--accent); opacity: 0.15; position: absolute; top: -1rem; left: 1.5rem; line-height: 1;
+    }
+    .pull-quote p {
+      font-family: 'Lora', serif; font-size: 1.2rem; font-style: italic;
+      color: #fff; line-height: 1.7; position: relative; z-index: 1;
+      max-width: 740px;
+    }
+    .pull-quote cite { display: block; font-size: 0.82rem; font-style: normal; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent-light); margin-top: 1rem; }
+
+    /* ── TWO-COL TEXT ── */
+    .two-col-prose { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; }
+
+    /* ── PARTNERSHIP CARDS ── */
+    .partnership-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .partnership-item {
+      background: #fff; border: 1px solid var(--border); border-radius: 10px;
+      padding: 1.5rem 1.75rem; display: flex; gap: 1.5rem; align-items: flex-start;
+    }
+    .partnership-icon {
+      width: 44px; height: 44px; border-radius: 8px;
+      background: var(--secondary-pale); display: flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; flex-shrink: 0;
+    }
+    .partnership-body {}
+    .partnership-name { font-weight: 700; font-size: 0.97rem; color: var(--text-dark); margin-bottom: 0.35rem; }
+    .partnership-desc { font-size: 0.91rem; color: var(--text-mid); line-height: 1.65; }
+
+    /* ── COMMITMENT GRID ── */
+    .commitment-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .commitment-item {
+      background: var(--surface-raised); border: 1px solid var(--border); border-radius: 10px;
+      padding: 1.5rem;
+    }
+    .commitment-heading { font-weight: 700; font-size: 0.94rem; color: var(--primary); margin-bottom: 0.5rem; }
+    .commitment-body { font-size: 0.88rem; color: var(--text-mid); line-height: 1.65; }
+
+    /* ── DISCIPLINE SECTION ── */
+    .discipline-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .discipline-card {
+      background: #fff; border: 1px solid var(--border); border-radius: 10px;
+      padding: 1.75rem;
+    }
+    .discipline-card-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+    .discipline-card-name { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 600; color: var(--primary); margin-bottom: 0.7rem; }
+    .discipline-card-desc { font-size: 0.9rem; color: var(--text-mid); line-height: 1.68; }
+
+
+
+    /* ── PERSON ACCENT ── */
+    .person-accent { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--secondary-mid); background: var(--secondary-pale); border-radius: 3px; padding: 0.15rem 0.55rem; margin-right: 0.4rem; vertical-align: middle; }
+
+    /* ── CTA ── */
+    #cta-strip {
+      background: var(--primary); padding: 5rem 2rem;
+      text-align: center;
+    }
+    .cta-inner { max-width: 640px; margin: 0 auto; }
+    #cta-strip .eyebrow { color: var(--accent-light); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; display: flex; align-items: center; justify-content: center; gap: 0.6rem; margin-bottom: 1rem; }
+    #cta-strip .eyebrow::before { content: ''; display: block; width: 24px; height: 1.5px; background: var(--accent-light); }
+    #cta-strip h2 { font-family: 'Lora', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 700; color: #fff; margin-bottom: 1rem; line-height: 1.18; }
+    #cta-strip h2 em { font-style: italic; color: var(--accent-pale); }
+    #cta-strip p { font-size: 1rem; color: rgba(255,255,255,0.62); line-height: 1.75; margin-bottom: 2rem; }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-primary { background: var(--accent); color: #fff; font-weight: 700; font-size: 0.92rem; padding: 0.75rem 1.75rem; border-radius: 6px; text-decoration: none; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--accent-light); }
+    .btn-outline { background: transparent; color: #fff; font-weight: 600; font-size: 0.92rem; padding: 0.73rem 1.6rem; border-radius: 6px; border: 1.5px solid rgba(255,255,255,0.3); text-decoration: none; transition: border-color 0.2s, background 0.2s; }
+    .btn-outline:hover { border-color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.06); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--primary-dark); padding: 3rem 2rem 1.5rem; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; flex-wrap: wrap; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-brand { font-family: 'Lora', serif; font-weight: 700; font-size: 1.3rem; color: var(--accent-pale); margin-bottom: 0.5rem; }
+    .footer-brand span { color: var(--accent-light); }
+    .footer-tagline { font-size: 0.85rem; color: var(--secondary-light); max-width: 300px; line-height: 1.6; }
+    .footer-col { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .footer-col a { color: var(--secondary-light); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--accent-light); }
+    .footer-bottom { max-width: 1100px; margin: 1.25rem auto 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; }
+    .footer-bottom span { font-size: 0.8rem; color: var(--text-muted); }
+    .footer-bottom a { font-size: 0.8rem; color: var(--secondary-light); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--accent-light); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .intro-grid, .two-col-prose, .principle-cards, .discipline-row { grid-template-columns: 1fr; gap: 2rem; }
+      .commitment-grid { grid-template-columns: 1fr 1fr; }
+      .hero-desc { font-size: 0.97rem; }
+    }
+    @media (max-width: 560px) {
+      .commitment-grid { grid-template-columns: 1fr; }
+      .partnership-item { flex-direction: column; gap: 0.75rem; }
+      .statement-link-box { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">INCLUSI<span>ECON</span></a>
+      <div class="nav-links">
+        <a href="who-we-are.html">Who We Are</a>
+        <a href="research.html">Research</a>
+        <a href="services.html">Services</a>
+        <a href="edia.html" class="active">EDIA</a>
+        <a href="partner-with-us.html">Partner With Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="project-hero">
+    <div class="hero-inner">
+      <div class="hero-breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        Equity, Diversity, Inclusion &amp; Accessibility
+      </div>
+      <div class="hero-kicker">Our Commitment</div>
+      <h1 class="hero-title">EDIA as a <em>research practice</em>, not a policy statement</h1>
+      <p class="hero-desc">
+        Equity, diversity, inclusion, and accessibility principles are embedded in how we design research,
+        who we partner with, how we build our team, and how we engage with our discipline — not treated
+        as a checklist applied after the work is done.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
+  <div class="page-body">
+
+    <!-- SECTION 1: Our Approach -->
+    <section class="content-section" id="approach">
+      <div class="intro-grid">
+        <div class="intro-body">
+          <div class="section-header">
+            <span class="section-num">01</span>
+            <h2 class="section-title">Our Approach</h2>
+          </div>
+          <div class="prose">
+            <p>Our engagement with EDIA has not been static. It has evolved — through the frameworks we have adopted, the partners we have sought out, the communities we have listened to, and the reflexive critique we apply to our own work and institutions.</p>
+            <p>The core framework that now shapes everything we do is <strong>intersectionality</strong> — the recognition that people experience policy through multiple overlapping identities simultaneously, and that analysis which treats these dimensions separately produces systematically worse policy. This is not an analytical add-on applied at the end of a project. It has shifted how we approach research design, data strategy, partnership structures, and the questions we consider worth asking in the first place.</p>
+            <p>Intersectionality has led us to a central conviction: policy analysis that aggregates across groups, or that treats equity as a distributional footnote, systematically produces worse policy. Heterogeneity is not noise — it is the signal. Our work is built around surfacing it.</p>
+            <p>Lindsay also brings a personal dimension to this work. Living with chronic illness has provided a direct, embodied understanding of accessibility barriers, under-representation, and structural exclusion — an understanding that has shaped her scholarship, her teaching pedagogy, and her approach to building research environments that genuinely accommodate difference.</p>
+          </div>
+        </div>
+
+        <div>
+          <div style="margin-bottom: 1.25rem; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent);">Foundational Principles</div>
+          <div class="principle-cards">
+            <div class="principle-card">
+              <div class="principle-icon">⧖</div>
+              <div class="principle-label">Intersectionality</div>
+              <div class="principle-desc">People experience policy through multiple overlapping identities simultaneously. Our research accounts for how race, gender, disability, class, and other axes interact — not each in isolation.</div>
+            </div>
+            <div class="principle-card">
+              <div class="principle-icon">◈</div>
+              <div class="principle-label">Gender-Based Analysis</div>
+              <div class="principle-desc">Gender and family structure are applied as analytical lenses throughout research design — not as a retrospective equity audit, but as dimensions that shape the questions we ask and the data we seek.</div>
+            </div>
+            <div class="principle-card">
+              <div class="principle-icon">◎</div>
+              <div class="principle-label">Anti-Ableism</div>
+              <div class="principle-desc">Persons with disabilities face overlapping barriers in policy design and research participation alike. We work to surface these and to design research environments and outputs that are genuinely accessible.</div>
+            </div>
+            <div class="principle-card">
+              <div class="principle-icon">◇</div>
+              <div class="principle-label">Anti-Racism</div>
+              <div class="principle-desc">We centre anti-racist approaches in research methods, data practices, and community engagement — including scrutiny of whose knowledge counts and which voices shape policy agendas.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pull-quote">
+        <p>Our goal is to disrupt and transform mainstream frameworks and discourse — to drive agendas focused on equitable access and inclusive growth, and to give recognition and voice to underrepresented populations in the research and policy processes that shape their lives.</p>
+        <cite>— Lindsay M. Tedds, EDIA Statement</cite>
+      </div>
+    </section>
+
+    <!-- SECTION 2: EDIA in Research -->
+    <section class="content-section" id="research-practice">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">EDIA in Research Design &amp; Practice</h2>
+      </div>
+      <div class="two-col-prose">
+        <div class="prose">
+          <p>Foregrounding EDIA in research design means asking different questions before a project begins: whose experience is invisible in existing data? Whose preferences and constraints are averaged away in standard economic models? Who is harmed by a policy that looks neutral in aggregate?</p>
+          <p>These questions are particularly urgent in tax and transfer policy. Standard policy analysis often models a representative household, optimizing across a smooth distribution. But the people most affected by income support design, benefit cliffs, and tax complexity are precisely those whose lives diverge most sharply from that stylized model — people with disabilities, caregivers, single parents, precarious workers, recent immigrants, and those navigating multiple overlapping systems simultaneously.</p>
+          <p>Our <strong>microsimulation work</strong> is built to disaggregate. Rather than reporting effects at the mean, we model distributional impacts across family types, income levels, and demographic characteristics — making the equity dimensions of policy design visible rather than assumed away.</p>
+        </div>
+        <div class="prose">
+          <p>A persistent structural barrier to this work is <strong>the state of disaggregated data</strong> in Canada. Meaningful intersectional analysis requires data that captures multiple identity dimensions simultaneously — and Canada's administrative and survey data infrastructure has long failed to provide this at the necessary level of granularity, particularly for small populations and those at the intersections of equity-deserving categories.</p>
+          <p>We actively work to identify these gaps, to advocate for improved data collection and stewardship, and to build research designs that draw on qualitative, participatory, and community-held knowledge when administrative data is unavailable or inadequate.</p>
+          <p>Gillian's background in both economics and law gives our team a distinctive capacity to trace how policy intent interacts with legal structures, administrative practice, and institutional design — revealing how programs that look equitable in legislation often produce inequitable outcomes in implementation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Community Partnerships -->
+    <section class="content-section" id="partnerships">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Community &amp; Equity Partnerships</h2>
+      </div>
+      <div class="prose" style="margin-bottom: 2rem;">
+        <p>Developing a critical mass of diverse expertise and connection requires intentional partnership — not just formal consultation, but ongoing, substantive relationships with communities, organisations, and scholars who work with and advocate for equity-deserving groups. We have consciously built these relationships as a core part of our research infrastructure.</p>
+      </div>
+      <div class="partnership-list">
+        <div class="partnership-item">
+          <div class="partnership-icon">♿</div>
+          <div class="partnership-body">
+            <div class="partnership-name">Disability Without Poverty</div>
+            <div class="partnership-desc">Lindsay has provided sustained advisory support to Disability Without Poverty on the design and implementation of the Canada Disability Benefit — including both the technical policy analysis and the navigation of the political processes and institutions that determine whether research actually shapes legislation.</div>
+          </div>
+        </div>
+        <div class="partnership-item">
+          <div class="partnership-icon">⚖</div>
+          <div class="partnership-body">
+            <div class="partnership-name">West Coast LEAF &amp; the Single Mothers' Alliance</div>
+            <div class="partnership-desc">Lindsay worked with West Coast LEAF and the Single Mothers' Alliance on their constitutional challenge against the Province of British Columbia and Legal Aid BC for failing to provide adequate family law legal aid to women leaving abusive relationships. This work contributed directly to the parties reaching a settlement after a nearly seven-year challenge.</div>
+          </div>
+        </div>
+        <div class="partnership-item">
+          <div class="partnership-icon">🏔</div>
+          <div class="partnership-body">
+            <div class="partnership-name">Government of Nunavut &amp; Inuit Advisory Council</div>
+            <div class="partnership-desc">Our multi-year basic income feasibility study for Canada's most remote territory was conducted in active consultation with an Inuit Advisory Council — grounding the research in community knowledge and ensuring the analysis reflected the specific circumstances and priorities of the North.</div>
+          </div>
+        </div>
+        <div class="partnership-item">
+          <div class="partnership-icon">🤝</div>
+          <div class="partnership-body">
+            <div class="partnership-name">Broader Community Engagement</div>
+            <div class="partnership-desc">Our partnerships extend to organisations working with low-income women, people living in poverty, persons with disabilities, immigrants, and refugees. We continuously identify groups, regions, and perspectives that remain under-represented in policy research — and actively seek ways to enable their involvement and remove participation barriers.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Team Building -->
+    <section class="content-section" id="team">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Building an Inclusive Research Team</h2>
+      </div>
+      <div class="prose" style="margin-bottom: 2.5rem;">
+        <p>Representation without inclusion fails. Diversity in hiring is only meaningful if the research environment itself is structured to ensure all members feel valued, supported, and able to contribute fully. Our approach to team building tries to address both simultaneously.</p>
+      </div>
+      <div class="commitment-grid">
+        <div class="commitment-item">
+          <div class="commitment-heading">DORA-Aligned Hiring</div>
+          <div class="commitment-body">We apply the principles of the Declaration on Research Assessment (DORA) — focusing on competences and skills rather than narrow credential definitions, and removing unnecessary barriers in how qualifications are framed.</div>
+        </div>
+        <div class="commitment-item">
+          <div class="commitment-heading">Active Recruitment</div>
+          <div class="commitment-body">Postings are circulated widely; diverse candidates are approached directly and encouraged to apply. It is clearly articulated that flexible work arrangements will be considered, and that accommodation is available and expected — not exceptional.</div>
+        </div>
+        <div class="commitment-item">
+          <div class="commitment-heading">Inclusive Language</div>
+          <div class="commitment-body">Job postings are reviewed for inclusive language and assessed for whether requirements are genuine or merely conventional. We aim to avoid excluding capable candidates through phrasing that reflects habit rather than necessity.</div>
+        </div>
+        <div class="commitment-item">
+          <div class="commitment-heading">Hands-On Management</div>
+          <div class="commitment-body">Day-to-day management is active and attentive — not a structure in which team members are left to navigate barriers alone. This includes providing paid access to training and development, and actively seeking opportunities that advance each team member's research and career interests.</div>
+        </div>
+        <div class="commitment-item">
+          <div class="commitment-heading">Respectful Environment</div>
+          <div class="commitment-body">We work to create a safe space for people to have difficult conversations, and foster a workplace culture in which all members are treated with consistent respect — regardless of seniority, background, or identity.</div>
+        </div>
+        <div class="commitment-item">
+          <div class="commitment-heading">Intentional Diversity</div>
+          <div class="commitment-body">We intentionally include students and research staff who are diverse across background, training, and perspective. Transdisciplinary expertise is an asset in applied policy research, not a deviation from disciplinary norms.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Disciplinary Leadership -->
+    <section class="content-section" id="discipline">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2 class="section-title">Disciplinary Leadership</h2>
+      </div>
+      <div class="prose" style="margin-bottom: 2.5rem;">
+        <p>Economics has significant and well-documented diversity problems. Addressing these requires more than individual good intentions — it requires active participation in institutional structures that shape who enters and advances in the discipline. Lindsay has been, and continues to be, actively involved in that work.</p>
+      </div>
+      <div class="discipline-row">
+        <div class="discipline-card">
+          <div class="discipline-card-label">Canadian Economics Association</div>
+          <div class="discipline-card-name">Canadian Women Economists Committee (CWEC)</div>
+          <div class="discipline-card-desc">A standing committee of the Canadian Economics Association charged with supporting and advancing women in the Canadian economics profession. Lindsay served on CWEC, engaging in mentoring, overseeing awards, conducting climate surveys, and leading webinars for women at all career stages.</div>
+        </div>
+
+
+        <div class="discipline-card">
+          <div class="discipline-card-label">Research Practice</div>
+          <div class="discipline-card-name">Centering Intersectionality in Policy Economics</div>
+          <div class="discipline-card-desc">Our broader scholarly goal is to elevate intersectionality, gender-based analysis, anti-ableism, and anti-racist approaches across policy methods and research practice — making these not specialised sub-fields but baseline standards for serious applied policy analysis.</div>
+        </div>
+      </div>
+
+    </section>
+
+  </div><!-- /page-body -->
+
+  <!-- CTA -->
+  <section id="cta-strip">
+    <div class="cta-inner">
+      <div class="eyebrow">Work With Us</div>
+      <h2>Research built to be <em>used</em></h2>
+      <p>We work with governments, civil society organisations, and research partners across Canada. If you have a project in mind — or want to discuss how EDIA principles can be better embedded in your own research or policy work — we'd like to hear from you.</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-primary">Get in Touch</a>
+        <a href="research.html" class="btn-outline">Our Research</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">INCLUSI<span>ECON</span></div>
+        <div class="footer-tagline">Tax and transfer policy research for a fairer Canada. Based at the University of Calgary.</div>
+      </div>
+      <div class="footer-col">
+        <a href="research.html">Our Research</a>
+        <a href="https://deadfortaxreasons.wordpress.com/" target="_blank" rel="noopener">Dead For Tax Reasons ↗</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Lindsay Tedds &amp; Gillian Petit · University of Calgary</span>
+      <a href="https://lindsaytedds.ca" target="_blank" rel="noopener">lindsaytedds.ca ↗</a>
+    </div>
+  </footer>
+
+</body>
+</html>
