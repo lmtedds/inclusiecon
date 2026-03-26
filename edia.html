@@ -99,9 +99,16 @@
     .page-body { max-width: 1100px; margin: 0 auto; padding: 4.5rem 2rem 7rem; }
 
     /* ── SECTION HEADER ── */
-    .section-header { display: flex; align-items: baseline; gap: 1rem; margin-bottom: 2rem; padding-bottom: 0.75rem; border-bottom: 1.5px solid var(--border); }
-    .section-num { font-family: 'Lora', serif; font-size: 0.85rem; color: var(--accent); font-weight: 600; opacity: 0.7; }
-    .section-title { font-family: 'Lora', serif; font-size: 1.5rem; font-weight: 600; color: var(--primary); }
+
+    /* ── EYEBROW & HEADINGS ── */
+    .eyebrow { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 1rem; }
+    .eyebrow::before { content: ''; display: block; width: 24px; height: 1.5px; }
+    .ey-gold { color: var(--accent); } .ey-gold::before { background: var(--accent); }
+    .ey-rose { color: var(--secondary-mid); } .ey-rose::before { background: var(--secondary-mid); }
+    .ey-light { color: var(--accent-light); } .ey-light::before { background: var(--accent-light); }
+    .sh { font-family: 'Lora', serif; font-weight: 700; line-height: 1.18; letter-spacing: -0.01em; }
+    .sh-dark { color: var(--text-dark); }
+    .sh-md { font-size: clamp(1.4rem, 2.2vw, 1.9rem); }
 
     /* ── CONTENT BLOCKS ── */
     .content-section { margin-bottom: 5rem; }
@@ -263,10 +270,8 @@
     <section class="content-section" id="approach">
       <div class="intro-grid">
         <div class="intro-body">
-          <div class="section-header">
-            <span class="section-num">01</span>
-            <h2 class="section-title">Our Approach</h2>
-          </div>
+          <div class="eyebrow ey-gold">Our Approach</div>
+          <h2 class="sh sh-dark sh-md">Frameworks that shape everything we do</h2>
           <div class="prose">
             <p>Our engagement with EDIA has not been static. It has evolved — through the frameworks we have adopted, the partners we have sought out, the communities we have listened to, and the reflexive critique we apply to our own work and institutions.</p>
             <p>The core framework that now shapes everything we do is <strong>intersectionality</strong> — the recognition that people experience policy through multiple overlapping identities simultaneously, and that analysis which treats these dimensions separately produces systematically worse policy. This is not an analytical add-on applied at the end of a project. It has shifted how we approach research design, data strategy, partnership structures, and the questions we consider worth asking in the first place.</p>
@@ -310,10 +315,8 @@
 
     <!-- SECTION 2: EDIA in Research -->
     <section class="content-section" id="research-practice">
-      <div class="section-header">
-        <span class="section-num">02</span>
-        <h2 class="section-title">EDIA in Research Design &amp; Practice</h2>
-      </div>
+      <div class="eyebrow ey-rose" style="margin-bottom:1rem;">Research Design &amp; Practice</div>
+      <h2 class="sh sh-dark sh-md" style="margin-bottom:2rem;">EDIA embedded in how we work</h2>
       <div class="two-col-prose">
         <div class="prose">
           <p>Foregrounding EDIA in research design means asking different questions before a project begins: whose experience is invisible in existing data? Whose preferences and constraints are averaged away in standard economic models? Who is harmed by a policy that looks neutral in aggregate?</p>
@@ -330,10 +333,8 @@
 
     <!-- SECTION 3: Community Partnerships -->
     <section class="content-section" id="partnerships">
-      <div class="section-header">
-        <span class="section-num">03</span>
-        <h2 class="section-title">Community &amp; Equity Partnerships</h2>
-      </div>
+      <div class="eyebrow ey-gold" style="margin-bottom:1rem;">Community &amp; Equity Partnerships</div>
+      <h2 class="sh sh-dark sh-md" style="margin-bottom:2rem;">Intentional relationships with equity-deserving communities</h2>
       <div class="prose" style="margin-bottom: 2rem;">
         <p>Developing a critical mass of diverse expertise and connection requires intentional partnership — not just formal consultation, but ongoing, substantive relationships with communities, organisations, and scholars who work with and advocate for equity-deserving groups. We have consciously built these relationships as a core part of our research infrastructure.</p>
       </div>
@@ -371,10 +372,8 @@
 
     <!-- SECTION 4: Team Building -->
     <section class="content-section" id="team">
-      <div class="section-header">
-        <span class="section-num">04</span>
-        <h2 class="section-title">Building an Inclusive Research Team</h2>
-      </div>
+      <div class="eyebrow ey-rose" style="margin-bottom:1rem;">Our Team</div>
+      <h2 class="sh sh-dark sh-md" style="margin-bottom:2rem;">Building an inclusive research environment</h2>
       <div class="prose" style="margin-bottom: 2.5rem;">
         <p>Representation without inclusion fails. Diversity in hiring is only meaningful if the research environment itself is structured to ensure all members feel valued, supported, and able to contribute fully. Our approach to team building tries to address both simultaneously.</p>
       </div>
@@ -408,10 +407,8 @@
 
     <!-- SECTION 5: Disciplinary Leadership -->
     <section class="content-section" id="discipline">
-      <div class="section-header">
-        <span class="section-num">05</span>
-        <h2 class="section-title">Disciplinary Leadership</h2>
-      </div>
+      <div class="eyebrow ey-gold" style="margin-bottom:1rem;">Disciplinary Leadership</div>
+      <h2 class="sh sh-dark sh-md" style="margin-bottom:2rem;">Changing economics from within</h2>
       <div class="prose" style="margin-bottom: 2.5rem;">
         <p>Economics has significant and well-documented diversity problems. Addressing these requires more than individual good intentions — it requires active participation in institutional structures that shape who enters and advances in the discipline. Lindsay has been, and continues to be, actively involved in that work.</p>
       </div>
