@@ -53,44 +53,46 @@
 
     /* ── NAV ── */
     nav {
-      background: var(--primary-dark);
-      position: sticky; top: 0; z-index: 100;
-      border-bottom: 2px solid var(--accent);
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(62,16,16,0.97); backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
     .nav-inner {
-      max-width: 1200px; margin: 0 auto; padding: 0 2rem;
-      display: flex; align-items: center; justify-content: space-between; height: 64px;
+      max-width: 1200px; margin: 0 auto; padding: 0 2.5rem;
+      height: 62px; display: flex; align-items: center; justify-content: space-between;
     }
-    .nav-logo { font-family: 'Lora', serif; font-weight: 700; font-size: 1.35rem; color: var(--accent-pale); text-decoration: none; letter-spacing: 0.03em; }
+    .nav-logo { font-family: 'Lora', serif; font-weight: 700; font-size: 1.15rem; color: #fff; text-decoration: none; letter-spacing: 0.03em; }
     .nav-logo span { color: var(--accent-light); }
     .nav-links { display: flex; gap: 0.2rem; list-style: none; align-items: center; }
     .nav-links a { color: rgba(255,255,255,0.62); text-decoration: none; font-size: 0.85rem; font-weight: 500; padding: 0.4rem 0.85rem; border-radius: 4px; transition: color 0.2s, background 0.2s; }
     .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.07); }
     .nav-links a.active { color: #fff; }
-    .nav-cta { background: var(--accent) !important; color: #fff !important; font-weight: 600 !important; padding: 0.42rem 1.15rem !important; border-radius: 4px; }
+    .nav-cta { background: var(--accent) !important; color: #fff !important; font-weight: 600 !important; padding: 0.42rem 1.15rem !important; }
     .nav-cta:hover { background: var(--accent-light) !important; }
 
-    /* ── HERO ── */
-    .project-hero {
-      background: var(--primary-dark);
-      background-image:
-        radial-gradient(ellipse 70% 60% at 75% 35%, rgba(168,120,40,0.13) 0%, transparent 65%),
-        radial-gradient(ellipse 55% 80% at 8% 80%, rgba(122,58,68,0.28) 0%, transparent 60%);
-      padding: 5.5rem 2rem 4.5rem; position: relative; overflow: hidden;
+    /* ── PAGE HEADER ── */
+    .page-header {
+      background: var(--primary-dark); padding: 9rem 2.5rem 5.5rem;
+      position: relative; overflow: hidden;
     }
-    .project-hero::before {
+    .page-header::before {
       content: ''; position: absolute; inset: 0;
-      background-image: repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.015) 80px, rgba(255,255,255,0.015) 81px);
+      background: radial-gradient(ellipse 55% 70% at 75% 40%, rgba(122,58,68,0.28) 0%, transparent 60%);
     }
-    .hero-inner { max-width: 1100px; margin: 0 auto; position: relative; }
-    .hero-breadcrumb { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
-    .hero-breadcrumb a { color: var(--secondary-light); text-decoration: none; }
-    .hero-breadcrumb a:hover { color: var(--accent-light); }
-    .hero-breadcrumb span { opacity: 0.5; }
-    .hero-kicker { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-    .hero-title { font-family: 'Lora', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 1.5rem; max-width: 780px; }
-    .hero-title em { font-style: italic; color: var(--accent-pale); }
-    .hero-desc { font-size: 1.06rem; color: var(--secondary-pale); max-width: 660px; line-height: 1.78; margin-bottom: 2.5rem; }
+    .page-header-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+    .page-kicker {
+      display: inline-flex; align-items: center; gap: 0.7rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.25rem;
+    }
+    .page-kicker::before { content: ''; display: block; width: 32px; height: 1.5px; background: var(--accent-light); }
+    .page-header h1 {
+      font-family: 'Lora', serif; font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 700; color: #fff; line-height: 1.12;
+      letter-spacing: -0.015em; margin-bottom: 1rem; max-width: 680px;
+    }
+    .page-header h1 em { font-style: italic; color: var(--accent-pale); }
+    .page-header p { font-size: 1.05rem; color: rgba(255,255,255,0.55); max-width: 580px; line-height: 1.82; }
 
 
     /* ── PAGE BODY ── */
@@ -220,7 +222,6 @@
     @media (max-width: 860px) {
       .intro-grid, .two-col-prose, .principle-cards, .discipline-row { grid-template-columns: 1fr; gap: 2rem; }
       .commitment-grid { grid-template-columns: 1fr 1fr; }
-      .hero-desc { font-size: 0.97rem; }
     }
     @media (max-width: 560px) {
       .commitment-grid { grid-template-columns: 1fr; }
@@ -247,23 +248,13 @@
   </nav>
 
   <!-- HERO -->
-  <section class="project-hero">
-    <div class="hero-inner">
-      <div class="hero-breadcrumb">
-        <a href="index.html">Home</a>
-        <span>›</span>
-        Equity, Diversity, Inclusion &amp; Accessibility
-      </div>
-      <div class="hero-kicker">Our Commitment</div>
-      <h1 class="hero-title">EDIA as a <em>research practice</em>, not a policy statement</h1>
-      <p class="hero-desc">
-        Equity, diversity, inclusion, and accessibility principles are embedded in how we design research,
-        who we partner with, how we build our team, and how we engage with our discipline — not treated
-        as a checklist applied after the work is done.
-      </p>
-
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="page-kicker">EDIA</div>
+      <h1>EDIA as a <em>research practice</em>, not a policy statement</h1>
+      <p>Equity, diversity, inclusion, and accessibility principles are embedded in how we design research, who we partner with, how we build our team, and how we engage with our discipline — not treated as a checklist applied after the work is done.</p>
     </div>
-  </section>
+  </div>
 
   <!-- MAIN CONTENT -->
   <div class="page-body">
