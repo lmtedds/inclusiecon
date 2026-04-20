@@ -32,15 +32,23 @@
   </url>
 
   <url>
-    <loc>https://inclusiecon.ca/edia.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
     <loc>https://inclusiecon.ca/contact.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
+  </url>
+
+  <!-- Announcements -->
+
+  <url>
+    <loc>https://inclusiecon.ca/announcements.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://inclusiecon.ca/announcement-maytree-interview.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
 
   <!-- Research program pages -->

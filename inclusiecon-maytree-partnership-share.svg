@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 850" width="1200" height="1500" role="img">
+<title>INCLUSIECON × Maytree: Feature interview with Selvia Arshad on MVPF research</title>
+<desc>INCLUSIECON partnership announcement graphic. Burgundy and gold design announcing that Maytree has published a feature interview with Selvia Arshad on the Marginal Value of Public Funds framework. Partners: INCLUSIECON (research lead), Maytree (strategic partner), Mitacs Accelerate (internship funder).</desc>
+
+<defs>
+<pattern id="textureOverlay" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+<rect x="0" y="0" width="80" height="80" fill="none"/>
+<rect x="79" y="0" width="1" height="80" fill="#ffffff" opacity="0.015"/>
+</pattern>
+<radialGradient id="warmGlow" cx="75%" cy="28%" r="55%">
+<stop offset="0%" stop-color="#a87828" stop-opacity="0.18"/>
+<stop offset="100%" stop-color="#a87828" stop-opacity="0"/>
+</radialGradient>
+</defs>
+
+<rect x="0" y="0" width="680" height="850" fill="#3e1010"/>
+<rect x="0" y="0" width="680" height="850" fill="url(#textureOverlay)" opacity="0.5"/>
+<rect x="0" y="0" width="680" height="850" fill="url(#warmGlow)"/>
+<rect x="0" y="0" width="680" height="5" fill="#a87828"/>
+
+<g font-family="Georgia, 'Times New Roman', serif">
+<text x="50" y="62" font-size="22" font-weight="700" fill="#e8d898" letter-spacing="0.03em">INCLUSI<tspan fill="#c8a050">ECON</tspan></text>
+</g>
+
+<g transform="translate(480, 48)">
+<rect x="0" y="0" width="150" height="28" rx="14" fill="rgba(168,120,40,0.18)" stroke="#a87828" stroke-width="1" stroke-opacity="0.4"/>
+<circle cx="14" cy="14" r="3.5" fill="#c8a050"/>
+<text x="26" y="18" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#c8a050" letter-spacing="0.18em">PARTNERSHIP</text>
+</g>
+
+<line x1="50" y1="100" x2="630" y2="100" stroke="#a87828" stroke-width="0.5" stroke-opacity="0.25"/>
+
+<text x="50" y="158" font-family="'Helvetica Neue', Arial, sans-serif" font-size="12" font-weight="600" fill="#c8a050" letter-spacing="0.18em">APRIL 20, 2026 · MVPF PROJECT · ENABLE STREAM</text>
+
+<g transform="translate(50, 210)" font-family="Georgia, 'Times New Roman', serif">
+<text x="0" y="0" font-size="44" font-weight="700" fill="#ffffff">Maytree publishes</text>
+<text x="0" y="58" font-size="44" font-weight="700" fill="#ffffff">a feature interview</text>
+<text x="0" y="116" font-size="44" font-weight="700" font-style="italic" fill="#e8d898">with Selvia Arshad.</text>
+</g>
+
+<rect x="50" y="392" width="48" height="2.5" fill="#a87828"/>
+
+<g transform="translate(50, 425)" font-family="'Helvetica Neue', Arial, sans-serif">
+<text x="0" y="0" font-size="17" fill="#ecdde0">On INCLUSIECON's Marginal Value of Public</text>
+<text x="0" y="26" font-size="17" fill="#ecdde0">Funds framework — and why Canada needs</text>
+<text x="0" y="52" font-size="17" fill="#ecdde0">a better measure of what public spending</text>
+<text x="0" y="78" font-size="17" fill="#ecdde0">is actually worth.</text>
+</g>
+
+<g transform="translate(50, 580)">
+<circle cx="30" cy="30" r="30" fill="rgba(200,160,80,0.12)" stroke="#a87828" stroke-width="1.5" stroke-opacity="0.5"/>
+<text x="30" y="38" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="700" fill="#c8a050" text-anchor="middle">SA</text>
+<text x="78" y="28" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#ffffff">Selvia Arshad</text>
+<text x="78" y="48" font-family="'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#c48890">PhD Candidate · Economics · University of Calgary</text>
+<text x="78" y="65" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#a87828" font-weight="600" letter-spacing="0.1em">MITACS ACCELERATE INTERN · MVPF PROJECT</text>
+</g>
+
+<line x1="50" y1="688" x2="630" y2="688" stroke="#a87828" stroke-width="0.5" stroke-opacity="0.25"/>
+
+<text x="50" y="715" font-family="'Helvetica Neue', Arial, sans-serif" font-size="10" font-weight="700" fill="#a87828" letter-spacing="0.18em">THE PARTNERSHIP</text>
+
+<g transform="translate(50, 735)">
+<text x="0" y="0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="700" fill="#9e5560" letter-spacing="0.18em">RESEARCH LEAD</text>
+<text x="0" y="22" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#ffffff">INCLUSIECON</text>
+<text x="0" y="40" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#c48890">University of Calgary</text>
+</g>
+
+<g transform="translate(280, 735)">
+<text x="0" y="0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="700" fill="#9e5560" letter-spacing="0.18em">STRATEGIC PARTNER</text>
+<text x="0" y="22" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#ffffff">Maytree</text>
+<text x="0" y="40" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#c48890">maytree.com</text>
+</g>
+
+<g transform="translate(475, 735)">
+<text x="0" y="0" font-family="'Helvetica Neue', Arial, sans-serif" font-size="9" font-weight="700" fill="#9e5560" letter-spacing="0.18em">INTERNSHIP FUNDER</text>
+<text x="0" y="22" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" fill="#ffffff">Mitacs Accelerate</text>
+<text x="0" y="40" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#c48890">mitacs.ca</text>
+</g>
+
+<text x="50" y="825" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#7a5858" letter-spacing="0.12em">INCLUSIECON.CA</text>
+<text x="630" y="825" text-anchor="end" font-family="'Helvetica Neue', Arial, sans-serif" font-size="11" fill="#7a5858" font-style="italic">Tax &amp; transfer policy research for a fairer Canada</text>
+</svg>
