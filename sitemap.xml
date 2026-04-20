@@ -20,6 +20,12 @@
   </url>
 
   <url>
+    <loc>https://inclusiecon.ca/edia.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
     <loc>https://inclusiecon.ca/services.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
