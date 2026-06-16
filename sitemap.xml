@@ -46,6 +46,12 @@
   </url>
 
   <url>
+    <loc>https://inclusiecon.ca/announcement-mvpf-brief.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://inclusiecon.ca/announcement-broken-links.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
