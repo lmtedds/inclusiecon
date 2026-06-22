@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pre-ADAP Baseline: Economic Well-Being of Albertans with Disabilities and on Income Assistance | INCLUSIECON</title>
+  <meta name="description" content="A baseline study of the economic well-being of 527 working-age Albertans with disabilities or on income assistance, fielded before the Alberta Disability Assistance Program (ADAP) launches July 2, 2026.">
+  <meta name="keywords" content="ADAP Alberta, Alberta Disability Assistance Program, AISH, material deprivation Canada, disability poverty Alberta, income assistance, baseline survey, Lindsay M. Tedds, Gillian Petit">
+  <link rel="canonical" href="https://inclusiecon.ca/announcement-adap-baseline.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Pre-ADAP Baseline: Economic Well-Being of Albertans with Disabilities and on Income Assistance | INCLUSIECON">
+  <meta property="og:description" content="A baseline study of the economic well-being of 527 working-age Albertans with disabilities or on income assistance, fielded before the Alberta Disability Assistance Program (ADAP) launches July 2, 2026.">
+  <meta property="og:url" content="https://inclusiecon.ca/announcement-adap-baseline.html">
+  <meta property="og:site_name" content="INCLUSIECON">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Pre-ADAP Baseline: Economic Well-Being of Albertans with Disabilities and on Income Assistance | INCLUSIECON">
+  <meta name="twitter:description" content="A baseline study of the economic well-being of 527 working-age Albertans with disabilities or on income assistance, fielded before ADAP launches July 2, 2026.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Lindsay M. Tedds, Gillian Petit">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+      --primary:        #5c1a1a;
+      --primary-dark:   #3e1010;
+      --primary-mid:    #7a2828;
+      --primary-light:  #a84848;
+      --secondary:      #7a3a44;
+      --secondary-mid:  #9e5560;
+      --secondary-light:#c48890;
+      --secondary-pale: #ecdde0;
+      --accent:         #a87828;
+      --accent-light:   #c8a050;
+      --accent-pale:    #e8d898;
+      --surface:        #f7f2ea;
+      --surface-raised: #ece4d8;
+      --border:         #ddd0bc;
+      --text-dark:      #180808;
+      --text-mid:       #3e2028;
+      --text-muted:     #7a5858;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--surface); color: var(--text-dark); line-height: 1.7; }
+
+    nav { background: var(--primary-dark); position: sticky; top: 0; z-index: 100; border-bottom: 2px solid var(--accent); }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .nav-logo { font-family: 'Lora', serif; font-weight: 700; font-size: 1.35rem; color: var(--accent-pale); text-decoration: none; letter-spacing: 0.03em; }
+    .nav-logo span { color: var(--accent-light); }
+    .nav-links { display: flex; gap: 0.25rem; }
+    .nav-links a { color: var(--secondary-pale); text-decoration: none; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.4rem 0.75rem; border-radius: 3px; transition: color 0.2s, background 0.2s; }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+    .nav-links a.active { color: var(--accent-light); }
+
+    /* Hero */
+    .announce-hero {
+      background: var(--primary-dark);
+      background-image:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(168,120,40,0.14) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 80% at 10% 80%, rgba(122,58,68,0.28) 0%, transparent 60%);
+      padding: 4.5rem 2rem 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .announce-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.015) 80px, rgba(255,255,255,0.015) 81px);
+    }
+    .hero-inner { max-width: 900px; margin: 0 auto; position: relative; }
+    .hero-breadcrumb { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .hero-breadcrumb a { color: var(--secondary-light); text-decoration: none; }
+    .hero-breadcrumb a:hover { color: var(--accent-light); }
+    .hero-breadcrumb span { opacity: 0.5; }
+
+    .announce-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(168,120,40,0.15);
+      border: 1px solid rgba(200,160,80,0.35);
+      border-radius: 999px;
+      padding: 0.4rem 0.95rem;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 1.5rem;
+    }
+    .announce-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-light); box-shadow: 0 0 8px rgba(200,160,80,0.5); }
+
+    .hero-kicker { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .hero-title { font-family: 'Lora', serif; font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 1.75rem; }
+    .hero-title em { font-style: italic; color: var(--accent-pale); }
+
+    .hero-byline {
+      display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem;
+      font-size: 0.82rem; color: var(--secondary-light);
+      padding-top: 1.5rem; border-top: 1px solid rgba(200,160,80,0.2);
+    }
+    .hero-byline .divider { opacity: 0.4; }
+    .hero-byline strong { color: var(--accent-light); font-weight: 600; }
+
+    /* Body */
+    .page-body { max-width: 900px; margin: 0 auto; padding: 3.5rem 2rem 5rem; }
+
+    .lede {
+      font-family: 'Lora', serif;
+      font-size: 1.3rem;
+      line-height: 1.6;
+      color: var(--text-mid);
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1.5px solid var(--border);
+    }
+    .lede strong { color: var(--primary); font-weight: 600; }
+
+    .body-section { margin-bottom: 2.5rem; }
+    .section-h {
+      font-family: 'Lora', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      display: flex; align-items: baseline; gap: 0.85rem;
+    }
+    .section-h::before {
+      content: '';
+      width: 28px; height: 2px;
+      background: var(--accent);
+      flex-shrink: 0;
+      transform: translateY(-4px);
+    }
+    .body-section p { font-size: 1rem; line-height: 1.8; color: var(--text-mid); margin-bottom: 1rem; }
+    .body-section p:last-child { margin-bottom: 0; }
+    .body-section a { color: var(--primary); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--accent); text-decoration-thickness: 1.5px; }
+    .body-section a:hover { color: var(--primary-mid); }
+
+    /* Pull quote */
+    .pull {
+      border-left: 3px solid var(--accent);
+      padding: 0.5rem 0 0.5rem 1.5rem;
+      margin: 2rem 0;
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      line-height: 1.6;
+      color: var(--text-dark);
+    }
+    .pull-attr {
+      display: block;
+      margin-top: 0.75rem;
+      font-family: 'DM Sans', sans-serif;
+      font-style: normal;
+      font-size: 0.82rem;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Partner strip */
+    .partner-strip {
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem;
+      margin: 2.5rem 0;
+    }
+    .partner-strip-title {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem;
+    }
+    .partner-list { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; }
+    .partner-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.1rem;
+    }
+    .partner-card-label {
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 0.45rem;
+    }
+    .partner-card-name {
+      font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 700;
+      color: var(--primary); margin-bottom: 0.4rem;
+    }
+    .partner-card-name a { color: inherit; text-decoration: none; }
+    .partner-card-name a:hover { color: var(--accent); }
+    .partner-card-desc { font-size: 0.82rem; color: var(--text-mid); line-height: 1.55; }
+
+    /* Feature card for Selvia */
+    .feature-researcher {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      background-image:
+        radial-gradient(ellipse 60% 70% at 80% 30%, rgba(168,120,40,0.18) 0%, transparent 55%),
+        linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2.5rem 0;
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+    .fr-photo {
+      width: 100px; height: 100px; border-radius: 50%;
+      border: 2px solid rgba(200,160,80,0.4);
+      background: rgba(200,160,80,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Lora', serif; font-size: 2rem; font-weight: 700; color: rgba(200,160,80,0.7);
+      overflow: hidden;
+    }
+    .fr-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .fr-kicker { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 0.4rem; }
+    .fr-name { font-family: 'Lora', serif; font-size: 1.4rem; font-weight: 700; color: #fff; margin-bottom: 0.15rem; }
+    .fr-role { font-size: 0.82rem; color: var(--secondary-light); margin-bottom: 0.85rem; }
+    .feature-researcher .fr-bio { font-size: 0.9rem; color: var(--secondary-pale); line-height: 1.7; margin-bottom: 0; }
+    .feature-researcher .fr-bio a { color: var(--accent-light); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* Read-full CTA */
+    .cta-read {
+      background: var(--primary);
+      background-image: radial-gradient(ellipse 50% 80% at 90% 50%, rgba(200,160,80,0.18) 0%, transparent 60%);
+      color: #fff;
+      border-radius: 12px;
+      padding: 2.25rem 2rem;
+      margin: 3rem 0 2rem;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem;
+    }
+    .cta-read-text { max-width: 560px; }
+    .cta-read-kicker { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-light); margin-bottom: 0.5rem; }
+    .cta-read-title { font-family: 'Lora', serif; font-size: 1.35rem; font-weight: 700; color: #fff; line-height: 1.35; margin-bottom: 0.5rem; }
+    .cta-read-sub { font-size: 0.9rem; color: rgba(255,255,255,0.72); }
+    .cta-read-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-size: 0.9rem; font-weight: 600;
+      padding: 0.85rem 1.4rem;
+      border-radius: 6px;
+      transition: background 0.15s, transform 0.15s;
+    }
+    .cta-read-btn:hover { background: var(--accent-light); transform: translateY(-1px); }
+
+    /* Related links */
+    .related {
+      margin-top: 2.5rem; padding-top: 2rem;
+      border-top: 1.5px solid var(--border);
+    }
+    .related-h {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1rem;
+    }
+    .related-list { display: flex; flex-direction: column; gap: 0.75rem; }
+    .related-item {
+      display: flex; align-items: flex-start; gap: 0.85rem;
+      padding: 0.85rem 1rem;
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      text-decoration: none;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .related-item:hover { border-color: var(--accent); transform: translateX(3px); }
+    .related-icon {
+      flex-shrink: 0;
+      width: 32px; height: 32px; border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--secondary-pale); color: var(--primary);
+      font-size: 0.95rem;
+    }
+    .related-body { flex: 1; min-width: 0; }
+    .related-title { font-family: 'Lora', serif; font-size: 0.98rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.15rem; }
+    .related-meta { font-size: 0.78rem; color: var(--text-muted); }
+    .related-arrow { flex-shrink: 0; color: var(--accent); font-weight: 700; }
+
+    footer { background: var(--primary-dark); color: var(--secondary-pale); padding: 3rem 2rem; border-top: 2px solid var(--accent); }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .footer-logo { font-family: 'Lora', serif; font-weight: 700; font-size: 1.2rem; color: var(--accent-pale); }
+    .footer-logo span { color: var(--accent-light); }
+    .footer-copy { font-size: 0.8rem; color: var(--secondary-mid); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.8rem; color: var(--secondary-light); text-decoration: none; }
+    .footer-links a:hover { color: var(--accent-light); }
+
+    @media (max-width: 768px) {
+      .partner-list { grid-template-columns: 1fr; }
+      .feature-researcher { grid-template-columns: 1fr; text-align: center; }
+      .fr-photo { margin: 0 auto; }
+      .nav-links a { font-size: 0.72rem; padding: 0.4rem 0.5rem; }
+      .cta-read { flex-direction: column; align-items: flex-start; }
+    }
+  
+    /* Key figures strip (light surface — safe under .body-section) */
+    .figures {
+      background: var(--surface-raised);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem;
+      margin: 2.5rem 0;
+    }
+    .figures-title {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1.25rem;
+    }
+    .figures-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+    .figure {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.1rem 1rem;
+    }
+    .figure-num { font-family: 'Lora', serif; font-size: 1.85rem; font-weight: 700; color: var(--primary); line-height: 1.05; }
+    .figure-label { font-size: 0.78rem; color: var(--text-mid); line-height: 1.45; margin-top: 0.4rem; }
+    .figures-foot { font-size: 0.74rem; color: var(--text-muted); margin-top: 1.1rem; line-height: 1.5; }
+    @media (max-width: 768px) { .figures-grid { grid-template-columns: 1fr 1fr; } }
+
+    /* Editorial note for unconfirmed attribution (visible flag for the author) */
+    .editor-note {
+      background: #fbf4dd; border: 1px dashed var(--accent); border-radius: 8px;
+      padding: 1rem 1.15rem; margin: 2rem 0; font-size: 0.85rem; color: var(--text-mid);
+    }
+    .editor-note strong { color: var(--primary); }
+    .study-credit { font-size: 0.82rem; color: var(--text-mid); line-height: 1.55; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .study-credit strong { color: var(--primary); font-weight: 600; }
+
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">INCLUSI<span>ECON</span></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="research.html">Research</a>
+        <a href="announcements.html" class="active">Announcements</a>
+        <a href="who-we-are.html">Who We Are</a>
+        <a href="edia.html">EDIA</a>
+        <a href="partner-with-us.html">Partner With Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="announce-hero">
+    <div class="hero-inner">
+      <div class="hero-breadcrumb">
+        <a href="index.html">Home</a>
+        <span>→</span>
+        <a href="announcements.html">Announcements</a>
+        <span>→</span>
+        Pre-ADAP Baseline
+      </div>
+      <div class="announce-badge">
+        <span class="announce-badge-dot"></span>
+        Publication
+      </div>
+      <div class="hero-kicker">ADAP Evaluation · FACT Stream · June 22, 2026</div>
+      <h1 class="hero-title">A <em>pre-ADAP baseline</em>: the economic well-being of Albertans with disabilities and on income assistance, before the reform takes effect</h1>
+      <div class="hero-byline">
+        <span>Author <strong>Gillian Petit</strong></span>
+        <span class="divider">·</span>
+        <span>Principal Investigator <strong>Lindsay M. Tedds</strong></span>
+        <span class="divider">·</span>
+        <span>University of Calgary</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-body">
+
+    <p class="lede">
+      A new INCLUSIECON report documents the economic circumstances of <strong>527 working-age Albertans</strong> who have a disability or receive income assistance, captured in the months before the <strong>Alberta Disability Assistance Program (ADAP)</strong> launches on July 2, 2026. Three in four respondents live below Canada's low-income line, the typical respondent cannot afford five or more everyday essentials, and hardship deepens with disability severity and is sharpest among AISH recipients. Because this round was fielded before the reform, it sets the reference point against which ADAP's effects will be measured.
+    </p>
+
+    <section class="body-section">
+      <h2 class="section-h">What the report establishes</h2>
+      <p>
+        On February 4, 2025, the Government of Alberta announced ADAP, a new income support program for Albertans with disabilities paired with a set of employment supports. The program was created in legislation through the <em>Financial Statutes Amendment Act, 2025 (No. 2)</em>, which amended the AISH Act and received Royal Assent on December 11, 2025. Under the amended Act, ADAP operates alongside the Assured Income for the Severely Handicapped (AISH) and sorts recipients by assessed work capacity: AISH serves people whose severe disability permanently prevents employment, while ADAP serves people whose severe disability substantially impedes it. From July 2026, applicants apply through a single combined application, and many existing AISH clients are transitioned to ADAP.
+      </p>
+      <p>
+        This is the first round of a longitudinal panel survey that will follow the same population roughly every six months as the reform rolls out. Round 1 is a <strong>baseline</strong>: it was completed before ADAP took effect, so it describes where this population stood beforehand and fixes the starting point for later comparison. The report is descriptive throughout. It does not measure change over time, it does not evaluate ADAP, and it does not attribute any outcome to any program — that is the work of the rounds to come.
+      </p>
+      <div class="pull">
+        Income assistance is the financial foundation of these households, not a top-up — yet on its own it has not been enough to lift most above the low-income line or to prevent widespread material hardship.
+        <span class="pull-attr">— The baseline picture, in brief</span>
+      </div>
+    </section>
+
+    <section class="body-section">
+      <h2 class="section-h">The baseline, in numbers</h2>
+      <div class="figures">
+        <div class="figures-title">Round 1 · 527 respondents · January–May 2026</div>
+        <div class="figures-grid">
+          <div class="figure">
+            <div class="figure-num">74.7%</div>
+            <div class="figure-label">live below the before-tax low-income line (LIM-BT), against 12.3% nationally</div>
+          </div>
+          <div class="figure">
+            <div class="figure-num">5</div>
+            <div class="figure-label">median number of material-deprivation essentials a respondent cannot afford — the national median is 0</div>
+          </div>
+          <div class="figure">
+            <div class="figure-num">76%</div>
+            <div class="figure-label">receive provincial income assistance, the large majority through AISH</div>
+          </div>
+          <div class="figure">
+            <div class="figure-num">41.9%</div>
+            <div class="figure-label">labour-force participation, roughly half the Alberta rate of 80.7%</div>
+          </div>
+        </div>
+        <div class="figures-foot">Respondents are a self-selected, unweighted group recruited as income-assistance recipients or persons with disabilities; figures describe the people who answered the survey and are not generalizable to any program caseload. National comparators are drawn from general-population sources and read as descriptive differences.</div>
+      </div>
+    </section>
+
+    <section class="body-section">
+      <h2 class="section-h">What the baseline shows</h2>
+      <p>
+        The respondents are a deeply low-income population for whom government income assistance is the financial foundation. Three-quarters reported receiving provincial assistance, the large majority through AISH, and for most that reliance had lasted years — more than eight in ten recipients for at least two years, and nearly four in ten for more than a decade. Paid work is the exception: most respondents reported being completely prevented from working, overwhelmingly because of their own illness or disability, and those who did work tended to put in few hours in precarious jobs at below-average wages.
+      </p>
+      <p>
+        That low income translated into pervasive hardship across three separate outcome-based measures. On a material deprivation index, respondents went without far more often than a nationally representative population on nearly every item — more than seven in ten could not cover an unexpected $500 expense or repair a broken appliance. Food insecurity ran at roughly twice the national rate, and housing costs consumed more than 30 percent of household income for three-quarters of respondents and more than half of income for over four in ten. The report also surfaces needs specific to this population: roughly one in four respondents could not afford disability aids, and one in seven could not afford prescription medications.
+      </p>
+      <p>
+        Two threads run through every dimension. First, hardship deepens with the severity of a respondent's disability — labour-force participation falls at every step of the severity scale, while deprivation, food insecurity, and housing strain all climb. Second, and more sharply, AISH recipients are the worst off: they were far less likely to be in the labour force, earned substantially less when they did work, and were nearly twice as likely to fall below the low-income line as respondents receiving no assistance. The divide by program receipt is wider and more pervasive than the gradient by severity alone.
+      </p>
+    </section>
+
+    <section class="body-section">
+      <h2 class="section-h">Why this baseline matters</h2>
+      <p>
+        ADAP is one of the most significant changes to Alberta's disability income supports in years, and it lands on a population with little or no financial margin. Reforms of this kind are usually assessed through income alone, which can miss the everyday realities — unmet medical needs, the inability to absorb a small emergency, going without essentials — that determine whether a change actually improves people's lives. By capturing material deprivation, food security, and housing alongside income <em>before</em> the reform, this baseline makes those realities visible and creates a reference point that income statistics on their own could not.
+      </p>
+      <p>
+        The value of a baseline is entirely in the comparison it enables. Without a clear picture of where this population stood before July 2, 2026, it would be impossible to say with confidence what ADAP did or did not change. This report fixes that starting line, and the panel design means the same people can be followed as the reform takes hold.
+      </p>
+
+      <div class="partner-strip">
+        <div class="partner-strip-title">The Study</div>
+        <div class="partner-list">
+          <div class="partner-card">
+            <div class="partner-card-label">Research Lead</div>
+            <div class="partner-card-name">INCLUSIECON</div>
+            <div class="partner-card-desc">Tax-and-transfer research initiative at the University of Calgary Department of Economics, led by Lindsay M. Tedds and Gillian Petit.</div>
+          </div>
+          <div class="partner-card">
+            <div class="partner-card-label">Author &amp; Principal Investigator</div>
+            <div class="partner-card-name">Petit · Tedds</div>
+            <div class="partner-card-desc">Report authored by Gillian Petit, Senior Research Associate. Principal Investigator: Lindsay M. Tedds. Ethics approval: University of Calgary CFREB (REB25-1727).</div>
+          </div>
+          <div class="partner-card">
+            <div class="partner-card-label">Design</div>
+            <div class="partner-card-name">Longitudinal panel</div>
+            <div class="partner-card-desc">Online survey of working-age Albertans with disabilities or on income assistance, repeated roughly every six months across the ADAP rollout. Round 1 fielded January–May 2026.</div>
+          </div>
+        </div>
+        <div class="study-credit">In consultation with <strong>Lee Stevens</strong> (PhD candidate, University of Calgary) and <strong>Philip Ney</strong> (Inclusion Alberta).</div>
+      </div>
+
+      <div class="editor-note">
+        <strong>Delete this box before publishing.</strong> Funder is not yet listed — the funding acknowledgement can be added here once the award is public. Publication date is set to <strong>June 22, 2026</strong> as a placeholder; confirm or change it.
+      </div>
+    </section>
+
+    <section class="body-section">
+      <h2 class="section-h">How to read it</h2>
+      <p>
+        The findings describe the 527 people who responded, not a representative sample of any caseload or of Alberta's disability population. Respondents self-selected in response to recruitment through community organizations and social media, and program receipt and disability status are self-reported. Round 1 is a single snapshot and cannot speak to change over time — that is the purpose of the rounds that follow. Read in that light, the baseline is consistent and clear: a population whose material security rests heavily on income assistance and that is already, at the outset, experiencing widespread and serious economic hardship.
+      </p>
+    </section>
+
+    <a href="https://raw.githubusercontent.com/lmtedds/inclusiecon/main/Preliminary_Report_First_Wave_Results.pdf" target="_blank" rel="noopener" class="cta-read" style="text-decoration: none;">
+      <div class="cta-read-text">
+        <div class="cta-read-kicker">Read the Full Report</div>
+        <div class="cta-read-title">An Evaluation of the Economic Well-Being of Persons Receiving Income Supports and Persons with Disabilities in Alberta — Preliminary Report</div>
+        <div class="cta-read-sub">Gillian Petit · Principal Investigator Lindsay M. Tedds · University of Calgary · June 2026</div>
+      </div>
+      <span class="cta-read-btn">Read the report ↗</span>
+    </a>
+
+    <div class="related">
+      <div class="related-h">Related on INCLUSIECON</div>
+      <div class="related-list">
+        <a href="https://raw.githubusercontent.com/lmtedds/inclusiecon/main/Executive_Summary.pdf" target="_blank" rel="noopener" class="related-item">
+          <div class="related-icon">📋</div>
+          <div class="related-body">
+            <div class="related-title">Executive Summary</div>
+            <div class="related-meta">The baseline picture in brief · Petit · 2026</div>
+          </div>
+          <div class="related-arrow">↗</div>
+        </a>
+        <a href="research-income-supports-mapping.html" class="related-item">
+          <div class="related-icon">🗺️</div>
+          <div class="related-body">
+            <div class="related-title">Mapping the System of Income &amp; Social Supports</div>
+            <div class="related-meta">Project page · Alberta income &amp; social supports · Tedds, Petit</div>
+          </div>
+          <div class="related-arrow">→</div>
+        </a>
+        <a href="research.html" class="related-item">
+          <div class="related-icon">📚</div>
+          <div class="related-body">
+            <div class="related-title">All INCLUSIECON Research</div>
+            <div class="related-meta">Outputs across the FACT and ENABLE streams</div>
+          </div>
+          <div class="related-arrow">→</div>
+        </a>
+        <a href="announcements.html" class="related-item">
+          <div class="related-icon">📣</div>
+          <div class="related-body">
+            <div class="related-title">All Announcements</div>
+            <div class="related-meta">Partnerships, publications, and news from INCLUSIECON</div>
+          </div>
+          <div class="related-arrow">→</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">INCLUSI<span>ECON</span></div>
+        <div class="footer-copy">Tax and transfer policy research for a fairer Canada · University of Calgary</div>
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="announcements.html">Announcements</a>
+        <a href="partner-with-us.html">Partner With Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
