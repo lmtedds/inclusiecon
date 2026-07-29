@@ -46,6 +46,18 @@
   </url>
 
   <url>
+    <loc>https://inclusiecon.ca/announcement-mvpf-taxadmin-ctj.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://inclusiecon.ca/announcement-tax-filing-accord-ctj.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://inclusiecon.ca/announcement-cbc-adap-transition.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
